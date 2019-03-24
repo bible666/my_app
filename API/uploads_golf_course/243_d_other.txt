@@ -1,0 +1,94 @@
+import { Component } from '@angular/core';
+import { Routes } from '@angular/router';
+
+import { BaMenuService } from '../theme';
+//import { PAGES_MENU } from './pages.menu';
+import { Menus } from '../Menus';
+import { MenuService } from '../menu.service';
+
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'pages',
+  template: `
+    <ba-sidebar></ba-sidebar>
+    <ba-page-top [_USER]="_USER"></ba-page-top>
+    <div class="al-main">
+      <div class="al-content">
+        <ba-content-top></ba-content-top>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <footer class="al-footer clearfix">
+      <!--
+      <div class="al-footer-right" translate>{{'general.created_with'}} <i class="ion-heart"></i></div>
+      <div class="al-footer-main clearfix">
+        <div class="al-copy">&copy; <a href="http://akveo.com" translate>{{'general.akveo'}}</a> 2016</div>
+        <ul class="al-share clearfix">
+          <li><i class="socicon socicon-facebook"></i></li>
+          <li><i class="socicon socicon-twitter"></i></li>
+          <li><i class="socicon socicon-google"></i></li>
+          <li><i class="socicon socicon-github"></i></li>
+        </ul>
+      </div>
+      -->
+    </footer>
+    <ba-back-top position="200"></ba-back-top>
+    `,
+    providers: [MenuService]
+})
+export class Pages {
+    
+  
+  _USER: any;
+
+  _PAGES_MENU = [
+    {
+      path: 'pages',
+      children: [
+        {
+          path: 'home',
+          data: {
+            menu: {
+              title: 'Select Golf Course',
+              icon: 'fa fa-table',
+              selected: false,
+              expanded: false,
+              order: 0
+            }
+          }
+        }
+      ]
+    },
+  ];
+
+  constructor(
+    private _menuService: BaMenuService,
+    private user: UserService,
+    private menuService: MenuService
+  ) {
+    this._USER = this.user.USERES;
+    //this.menuService.getMenu(this.user.USERES.token).then(menues => {
+      //console.log(menues);
+      /* <div *ngFor="let n of title">
+
+      </div> */
+      /*
+      for (let i=0; i<menues.length; i++) {
+        console.log((i+1) + ' - ' + menues[i]);
+      }
+      */
+      /*
+      menues.forEach(ele => {
+        //console.log(ele['title']);
+        //console.log(ele['detail']);
+        //console.log(ele['detail'][0]['path']);
+      });
+      */
+    //});
+  }
+
+  ngOnInit() {
+    this._menuService.updateMenuByRoutes(<Routes>this.menuService.getMenu("dkdkdkdd"));
+  }
+}

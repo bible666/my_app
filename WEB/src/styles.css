@@ -137,3 +137,30 @@ border-bottom-color:#c6c8ca!important;
 .input_text {
 	width: 100%;
 }
+
+.basic-container {
+	padding: 30px;
+}
+
+.mat-snack-bar-container-error{
+    color: rgba(255,255,255,.7);
+	background: #eb1717;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.mat-snack-bar-container-message {
+    color: rgba(0,0,0,.7);
+	background: #FFCC00;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.mat-snack-bar-container-warning {
+    color: rgba(0,0,0,.7);
+	background: #FDDAD8;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.mat-simple-snackbar {
+	height: auto !important;
+
+}

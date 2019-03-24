@@ -198,6 +198,14 @@ class UnitController extends Origin001
 			$insert_data['remark']          = $remark;
 			$insert_data['del_flag']		= 0;//0 Active, 1 Inactive
 
+			$error	= $this->_validate($insert_data);
+			if (count($error) > 0){
+				$dataDB['status']	= 'error';
+				$dataDB['message']	= $error;
+				$dataDB['data']		= [];
+				$this->response($dataDB,200);
+				exit;
+			}
             $this->db->trans_start();
             if ($id < 0 ){
                 $insert_data['created_date']   = date("Y-m-d H:i:s");
@@ -223,8 +231,17 @@ class UnitController extends Origin001
         $this->response($dataDB,200);
     }
 
+	private function _validate($unitData){
+		$error		= [];
+		$error[]	= 'testError';
+		$error[]	= 'testError2';
+		$error[]	= 'testError3';
+
+		return $error;
+	}
 
 
 }
+
 
 ?>

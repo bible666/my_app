@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
@@ -8,7 +8,8 @@ import { UnitService, cUnitSearch, cUnitInput } from '../unit.service';
 @Component({
   selector: 'app-unit-input',
   templateUrl: './unit-input.component.html',
-  styleUrls: ['./unit-input.component.css']
+  styleUrls: ['./unit-input.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UnitInputComponent implements OnInit {
 
@@ -39,7 +40,7 @@ export class UnitInputComponent implements OnInit {
 		if (this.id == -1){
 			this.unitCode	= '';
 			this.unitName	= '';
-			this.remark 	= 'hiii';
+			this.remark 	= '';
 		}
 		this.inputForm = new FormGroup({
 			'unit_code': new FormControl(this.unitCode,	 [ Validators.required ]),
@@ -62,19 +63,30 @@ export class UnitInputComponent implements OnInit {
 		
 		this.unitS.updateById(unitI)
 		.subscribe(data=>{
-			//this.dataSource = new MatTableDataSource(data);
-			console.log(data);
-			alert('ok');
+			if (data['status']== 'success'){
+				this.snackBar.open("บันทึกสำเร็จ", "",  {
+					duration: 2000,
+					panelClass: ['mat-snack-bar-container-message']
+				});
+			} else {
+				console.log(data['message']);
+				this.snackBar.open(data['message']+'<br><br>sss', "",  {
+					duration: 2000,
+					panelClass: ['mat-snack-bar-container-warning']
+				});
+			}
+			
 		},
 		error=>{
 			console.log(error);
-			this.snackBar.open("hiiiii", "close",  {
-				duration: 2000000,
-				panelClass: ['mat-snack-bar-container']
+			this.snackBar.open(error, "close",  {
+				duration: 2000,
+				panelClass: ['mat-snack-bar-container-error']
 			});
 		});
 
 		
 	}
+
 
 }

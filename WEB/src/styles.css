@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+body, html {
+    height: 100%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: "montserrat";
+    font-size: 18px;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.container{
+    width: 100%;
+    margin:0 auto;
+    padding: 1.3em;
+    display: grid;
+    
+
+}
+
+section{
+    width: 100%;
+    margin: 0 auto; 
+    padding: 1em;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.basic-container {
+    padding: 30px;
+  }
+  
+  .version-info {
+    font-size: 8pt;
+    float: right;
+  }
+
+/*----------------------------
+   テーブル 基本記述
+-----------------------------*/
+.table{ width:auto; }
+.table TH { border-color: #fff!important;
+	border: 1px #fff solid;
+	border-bottom:1px #fff solid;
+	background:#2E78C1;
+    background-color: #2E78C1!important;    
+    color: #fff!important;
+    font-weight: normal;
+}
+
+.table TH,
+.table TD{	font-size:14px; line-height: 18px;}
+@media (max-width: 1100px) {
+.table TH{	font-size:12px; line-height: 16px;}
+.table TD{	font-size:13px; line-height: 16px;}
+		}
+
+
+.table TH{word-wrap:normal!important;}
+.table TH A:link,
+.table TH A:visited { COLOR: #ffffff!important;}
+.table TH A:hover,
+.table TH A:active { COLOR: #FFCC00!important; }
+
+.table td{ border-color: #E2E2E2!important; word-wrap:break-word!important; word-break: break-all;}
+.th_edit{text-align: center; }
+.th_delete{width:5em; text-align: center; }
+.th_delete_l{width:6em; text-align: center; }
+
+.actions{text-align: center; vertical-align: middle;}
+.actions input[type=checkbox]{vertical-align: middle; margin-right: 2px;}
+
+.column_area{
+padding: .75rem 1.25rem;
+margin-bottom: 0;
+background-color: rgba(0,0,0,.03);
+border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.edit_area_narrowly .column_area,
+.edit_area_narrowly .edit_area{
+padding: 0.45rem 1.25rem;
+}
+.edit_area{
+padding: .75rem 1.25rem;
+margin-bottom: 0;
+border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.edit_area label{ margin-right: 1.5rem}
+.row .edit_area:nth-child(4n){background-color:#FBFBFB;}
+
+
+
+.fixed-top {
+    position: fixed;
+    top: 0;  right: 0;  left: 0;
+    z-index: 1030;
+}
+
+.fixed-bottom{
+    position: fixed;
+    bottom: 0;  right: 0;  left: 0;
+    z-index: 1030;
+}
+
+td.bg-danger,
+.table-bordered td.bg-danger,
+.bg-danger.card-icon{color: #721c24!important;
+background-color: #FDDAD8!important;
+border-bottom-color:#c6c8ca!important;
+}
+td.bg-warning,
+.bg-warning{
+color: #856404!important;
+background-color: #fff3cd!important;
+border-bottom-color:#c6c8ca!important;
+}
+
+td.bg-dark,
+.bg-dark{
+color: #1b1e21!important;
+background-color: #d6d8d9!important;
+border-bottom-color:#c6c8ca!important;
+
+}
+

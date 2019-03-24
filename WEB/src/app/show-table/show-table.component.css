@@ -1,0 +1,19 @@
+
+
+  
+table {
+    width: 100%;
+  }
+  
+.mat-column-position{
+  flex:0 0 10px;
+  width: 20px;
+}
+
+.mat-row:nth-child(even){
+  background-color:whitesmoke;
+  }
+
+.mat-row:nth-child(odd){
+  background-color:blanchedalmond;
+  }

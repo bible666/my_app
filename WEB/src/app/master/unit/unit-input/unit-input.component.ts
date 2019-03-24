@@ -18,6 +18,7 @@ export class UnitInputComponent implements OnInit {
 	inputForm:FormGroup;
 	unitCode:string;
 	unitName:string;
+	remark:string;
 	id:number;
 
 
@@ -38,10 +39,12 @@ export class UnitInputComponent implements OnInit {
 		if (this.id == -1){
 			this.unitCode	= '';
 			this.unitName	= '';
+			this.remark 	= 'hiii';
 		}
 		this.inputForm = new FormGroup({
 			'unit_code': new FormControl(this.unitCode,	 [ Validators.required ]),
 			'unit_name': new FormControl(this.unitName),
+			'remark':new FormControl(this.remark)
 		});
 		
 	}
@@ -55,6 +58,7 @@ export class UnitInputComponent implements OnInit {
 		unitI.id		= this.id;
 		unitI.unitCode	= this.inputForm.controls['unit_code'].value;
 		unitI.unitName	= this.inputForm.controls['unit_name'].value;
+		unitI.remark	= this.inputForm.controls['remark'].value;
 		
 		this.unitS.updateById(unitI)
 		.subscribe(data=>{

@@ -70,15 +70,15 @@ export class UnitInputComponent implements OnInit {
 				//	panelClass: ['mat-snack-bar-container-message']
 				//});
 				this.snackBar.openFromComponent(MyMessageComponent,{
+					data:data['message'],
 					duration:2000,
 					panelClass:['mat-snack-bar-container-message']
 				})
 			} else {
-				console.log(data['message']);
 				this.snackBar.openFromComponent(MyMessageComponent,{
 					data:data['message'],
 					duration:2000,
-					panelClass:['mat-snack-bar-container-message']
+					panelClass:['mat-snack-bar-container-warning']
 				})
 				
 			}

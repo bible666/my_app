@@ -172,7 +172,7 @@ class UnitController extends Origin001
     }
 
     /**
-     * ีupdate / insert data to database
+     * update / insert data to database
      */
     public function update_data_post(){
         $data           = $this->post();
@@ -198,7 +198,7 @@ class UnitController extends Origin001
 			$insert_data['remark']          = $remark;
 			$insert_data['del_flag']		= 0;//0 Active, 1 Inactive
 
-			$error	= $this->_validate($insert_data);
+			$error	= $this->_validate($result->company_id,$insert_data);
 			if (count($error) > 0){
 				$dataDB['status']	= 'error';
 				$dataDB['message']	= $error;
@@ -219,23 +219,42 @@ class UnitController extends Origin001
                 $this->db->update('m_units',$insert_data);
             }
             $this->db->trans_complete();
-
+			$message	= [];
+			$message[]	= 'บันทึกสำเร็จ';
             $dataDB['status']   = "success";
-            $dataDB['message']  = "";
+            $dataDB['message']  = $message;
             $dataDB['data']     = $insert_data;
         }else{
+			$message	= [];
+			$message[]	= 'token not found';
             $dataDB['status']   = "error";
-            $dataDB['message']  = "token not found";
+            $dataDB['message']  = $message;
             $dataDB['data']     = "";
         }
         $this->response($dataDB,200);
     }
 
-	private function _validate($unitData){
+	private function _validate($companyId,$unitData){
+		//init data
 		$error		= [];
-		$error[]	= 'testError';
-		$error[]	= 'testError2';
-		$error[]	= 'testError3';
+
+		//check empty data
+		if ($unitData['unit_code'] == ''){
+			$error[]	= 'รหัสข้อมูลวัตถุดิบห้ามเป็นค่าว่าง';
+		}
+
+		//check unit code same in DB
+		$query_str	= "
+            SELECT *
+            FROM m_units
+            WHERE m_company_id = ? AND unit_code = ?
+                AND del_flag = 0
+            ";
+
+        $item_data	= $this->db->query($query_str, [$companyId,$unitData['unit_code']])->row();
+		if ( !is_null($item_data) ){
+			$error[]	= 'มีรหัสข้อมูลวัตถุดิบ['.$unitData['unit_code'].']นี้แล้วในระบบ';
+		}
 
 		return $error;
 	}

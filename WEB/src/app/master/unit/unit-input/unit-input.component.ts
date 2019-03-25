@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 import { UnitService, cUnitSearch, cUnitInput } from '../unit.service';
+import { MyMessageComponent } from '../../../common/my-message/my-message.component'
 
 @Component({
   selector: 'app-unit-input',
@@ -64,16 +65,22 @@ export class UnitInputComponent implements OnInit {
 		this.unitS.updateById(unitI)
 		.subscribe(data=>{
 			if (data['status']== 'success'){
-				this.snackBar.open("บันทึกสำเร็จ", "",  {
-					duration: 2000,
-					panelClass: ['mat-snack-bar-container-message']
-				});
+				//this.snackBar.open("บันทึกสำเร็จ", "",  {
+				//	duration: 2000,
+				//	panelClass: ['mat-snack-bar-container-message']
+				//});
+				this.snackBar.openFromComponent(MyMessageComponent,{
+					duration:2000,
+					panelClass:['mat-snack-bar-container-message']
+				})
 			} else {
 				console.log(data['message']);
-				this.snackBar.open(data['message']+'<br><br>sss', "",  {
-					duration: 2000,
-					panelClass: ['mat-snack-bar-container-warning']
-				});
+				this.snackBar.openFromComponent(MyMessageComponent,{
+					data:data['message'],
+					duration:2000,
+					panelClass:['mat-snack-bar-container-message']
+				})
+				
 			}
 			
 		},

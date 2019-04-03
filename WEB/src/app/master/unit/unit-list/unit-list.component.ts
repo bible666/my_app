@@ -122,7 +122,8 @@ export class UnitListComponent extends OriginalListComponent {
 	}
 
 	onEdit(id:number){
-		alert('edit'+id);
+		localStorage.setItem('unit_input.id',String(id));
+		this.router.navigateByUrl('unit_input');
 	}
 
 	onDelete(id:number){

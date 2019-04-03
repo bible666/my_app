@@ -17,12 +17,13 @@ export class UnitInputComponent implements OnInit {
 	//----------------------------------------------------------------
 	// Set Form for input
 	//----------------------------------------------------------------
-	inputForm:FormGroup;
-	unitCode:string;
-	unitName:string;
-	remark:string;
 	id:number;
 
+	inputForm = new FormGroup({
+		'unit_code': new FormControl('',	 [ Validators.required ]),
+		'unit_name': new FormControl(''),
+		'remark':new FormControl('')
+	});
 
 	private configError: MatSnackBarConfig = {
 		panelClass: ['style-error'],
@@ -39,15 +40,23 @@ export class UnitInputComponent implements OnInit {
 		this.id	= +localStorage.getItem('unit_input.id');
 
 		if (this.id == -1){
-			this.unitCode	= '';
-			this.unitName	= '';
-			this.remark 	= '';
+			this.inputForm.patchValue({
+				unit_code: '',
+				unit_name: '',
+				remark: ''
+			});
+		} else {
+			this.unitS.getById().subscribe(data =>{
+				if (data['status'] == 'success'){
+					this.inputForm.patchValue({
+						unit_code: data['data']['unit_code'],
+						unit_name: data['data']['unit_name'],
+						remark: data['data']['unit_remark']
+					});	
+				}
+			});
 		}
-		this.inputForm = new FormGroup({
-			'unit_code': new FormControl(this.unitCode,	 [ Validators.required ]),
-			'unit_name': new FormControl(this.unitName),
-			'remark':new FormControl(this.remark)
-		});
+		
 		
 	}
 

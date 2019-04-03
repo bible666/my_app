@@ -21,7 +21,13 @@ export class UnitService {
 	}
 
 	public getById(){
+		let search_data:cUnitGetById	= new cUnitGetById();
+		search_data.token				= localStorage.getItem('token');
+		search_data.id					= +localStorage.getItem('unit_input.id');
 
+		let strJSON:string = JSON.stringify(search_data);
+		return this.http.post(BASE_URL+'/get_data_by_id',strJSON);
+		
 	}
 
 	public updateById(inputData:cUnitInput){
@@ -36,6 +42,10 @@ export class UnitService {
 	}
 }
 
+export class cUnitGetById{
+	token:string;
+	id:number;
+}
 
 export class cUnitSearch{
 	token:string;

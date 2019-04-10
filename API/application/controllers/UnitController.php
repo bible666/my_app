@@ -198,7 +198,7 @@ class UnitController extends Origin001
 			$insert_data['remark']          = $remark;
 			$insert_data['del_flag']		= 0;//0 Active, 1 Inactive
 
-			$error	= $this->_validate($result->company_id,$insert_data);
+			$error	= $this->_validate($result->company_id,$insert_data,$id);
 			if (count($error) > 0){
 				$dataDB['status']	= 'error';
 				$dataDB['message']	= $error;
@@ -234,7 +234,7 @@ class UnitController extends Origin001
         $this->response($dataDB,200);
     }
 
-	private function _validate($companyId,$unitData){
+	private function _validate($companyId,$unitData,$id){
 		//init data
 		$error		= [];
 
@@ -247,11 +247,11 @@ class UnitController extends Origin001
 		$query_str	= "
             SELECT *
             FROM m_units
-            WHERE m_company_id = ? AND unit_code = ?
+            WHERE m_company_id = ? AND unit_code = ? AND id <> ?
                 AND del_flag = 0
             ";
 
-        $item_data	= $this->db->query($query_str, [$companyId,$unitData['unit_code']])->row();
+        $item_data	= $this->db->query($query_str, [$companyId,$unitData['unit_code'],$id])->row();
 		if ( !is_null($item_data) ){
 			$error[]	= 'มีรหัสข้อมูลวัตถุดิบ['.$unitData['unit_code'].']นี้แล้วในระบบ';
 		}

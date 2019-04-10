@@ -48,10 +48,11 @@ export class UnitInputComponent implements OnInit {
 		} else {
 			this.unitS.getById().subscribe(data =>{
 				if (data['status'] == 'success'){
+					console.log(data['data']);
 					this.inputForm.patchValue({
 						unit_code: data['data']['unit_code'],
 						unit_name: data['data']['unit_name'],
-						remark: data['data']['unit_remark']
+						remark: data['data']['remark']
 					});	
 				}
 			});

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require('Origin001.php');
 
-class UnitController extends Origin001
+class ItemTypeController extends Origin001
 {
     /**
      * Constructure class
@@ -26,12 +26,11 @@ class UnitController extends Origin001
         $token      = isset($data->token) ? $data->token : '';
         $id         = isset($data->id) ? $data->id : -1;
 
-
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
             $query_str	= "
             SELECT *
-            FROM m_units
+            FROM m_item_types
             WHERE m_company_id = ? AND id = ?
                 AND del_flag = 0
             ";
@@ -42,14 +41,15 @@ class UnitController extends Origin001
 				//insert
 				$item_data	= [
 					'm_company_id'	=> $result->company_id,
-					'unit_code'		=> $data->unitCode,
-					'unit_name'		=> $data->unitName,
-					'remark'		=> '',
+					'id'			=> $data->id,
+					'item_type_name'=> $data->item_type_name,
+					'sorted'		=> $data->sorted,
+					'remark'		=> $data->remark,
 					'del_flag'		=> 0,
 					'created_date'	=> date('Y-m-d h:i:s'),
 					'created'		=> $result->user_id
 				];
-				$this->db->insert('m_units', $item_data);
+				$this->db->insert('m_item_types', $item_data);
 			} else {
 				//update
 			}
@@ -77,8 +77,15 @@ class UnitController extends Origin001
 
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
-			
-			$data	= $this->db->delete('m_units',['id'=>$id,'m_company_id' => $result->company_id]);
+			$insert_data['del_flag']    	= 1;
+			$insert_data['updated_date']    = date("Y-m-d H:i:s");
+            $insert_data['updated']         = $result->user_id;
+
+            $this->db->where([
+				'id'			=> $id,
+				'm_company_id'	=> $result->company_id
+			]);
+            $this->db->update('m_item_types',$insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -106,18 +113,13 @@ class UnitController extends Origin001
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
 			//Setup Where Condition
-			if (isset($data->unit_code)){
-				$where .= " AND unit_code like '%".$data->unit_code."%' ";
+			if (isset($data->item_type_name)){
+				$where .= " AND item_type_name like '%".$data->item_type_name."%' ";
 			}
-
-			if (isset($data->unit_name)){
-				$where .= " AND unit_name like '%".$data->unit_name."%'";
-			}
-
 
             $query_str = "
             SELECT *
-            FROM m_units
+            FROM m_item_types
 			WHERE  m_company_id = ?
                 AND del_flag = 0
 			";
@@ -128,10 +130,10 @@ class UnitController extends Origin001
 				if ($data->sort_column !== '' && $data->sort_direction !== ''){
 					$query_str .= " ORDER BY ". $data->sort_column . " ". $data->sort_direction;
 				}else {
-					$query_str .= " ORDER BY unit_code asc ";
+					$query_str .= " ORDER BY sorted asc ";
 				}
 			}else {
-				$query_str .= " ORDER BY unit_code asc ";
+				$query_str .= " ORDER BY sorted asc ";
 			}
 
 			if (isset($data->page_size)){
@@ -143,7 +145,19 @@ class UnitController extends Origin001
 			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
 			
 			//Get All Record Data
-			$count_num	= $this->db->query($query_str, [$result->company_id])->num_rows();
+			$query_count_str = "
+            SELECT count(id) AS my_count
+            FROM m_item_types
+            WHERE m_company_id = ?
+                AND del_flag = 0
+			";
+
+			$count		= $this->db->query($query_count_str,[$result->company_id]);
+			$count_row	=  $count->row();
+			$count_num	= 0;
+			if (isset($count_row)){
+				$count_num	= $count_row->my_count;
+			}
             
             $dataDB['status']		= "success";
             $dataDB['message']		= "";
@@ -180,8 +194,7 @@ class UnitController extends Origin001
             $insert_data = [];
 
             $insert_data['m_company_id']    = $result->company_id;
-            $insert_data['unit_code']       = $unit_code;
-            $insert_data['unit_name']       = $unit_name;
+            $insert_data['item_type_name']	= $item_type_name;
 			$insert_data['remark']          = $remark;
 			$insert_data['del_flag']		= 0;//0 Active, 1 Inactive
 
@@ -202,11 +215,8 @@ class UnitController extends Origin001
                 $insert_data['updated_date']    = date("Y-m-d H:i:s");
                 $insert_data['updated']         = $result->user_id;
 
-                $this->db->where([
-					'id' =>  $id, 
-					'm_company_id' => $result->company_id
-				]);
-                $this->db->update('m_units',$insert_data);
+                $this->db->where('id', $id);
+                $this->db->update('m_item_types',$insert_data);
             }
             $this->db->trans_complete();
 			$message	= [];
@@ -229,29 +239,26 @@ class UnitController extends Origin001
 		$error		= [];
 
 		//check empty data
-		if ($unitData['unit_code'] == ''){
-			$error[]	= 'รหัสข้อมูลวัตถุดิบห้ามเป็นค่าว่าง';
+		if ($unitData['item_type_name'] == ''){
+			$error[]	= 'ประเภทข้อมูลวัตถุดิบห้ามเป็นค่าว่าง';
 		}
 
 		//check unit code same in DB
 		$query_str	= "
             SELECT *
-            FROM m_units
-            WHERE m_company_id = ? AND unit_code = ? AND id <> ?
+            FROM m_item_types
+            WHERE m_company_id = ? AND item_type_name = ? AND id <> ?
                 AND del_flag = 0
             ";
 
-        $item_data	= $this->db->query($query_str, [
-			$companyId,
-			$unitData['unit_code'
-		],$id])->row();
-
+        $item_data	= $this->db->query($query_str, [$companyId,$unitData['item_type_name'],$id])->row();
 		if ( !is_null($item_data) ){
-			$error[]	= 'มีรหัสข้อมูลวัตถุดิบ['.$unitData['unit_code'].']นี้แล้วในระบบ';
+			$error[]	= 'มีประเภทข้อมูลวัตถุดิบ['.$unitData['item_type_name'].']นี้แล้วในระบบ';
 		}
 
 		return $error;
 	}
+
 
 }
 

@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
       'name1234': new FormControl('Mail')
     });
 
-    this.user.getUser().subscribe(data=> {
-      console.log(data);
-    });
+    //this.user.getUser().subscribe(data=> {
+    //  console.log(data);
+    //});
     
   }
 

@@ -14,7 +14,69 @@ class UserController extends Origin001
         
     }
 
-    
+	public function getMenu_post(){
+		$data		= $this->post();
+		$data		= json_decode($data[0]);
+
+        //init data
+		$token      = isset($data->token) ? $data->token : '';
+		$result     = $this->_checkToken($token);
+
+		if($result->user_id > 0 ){
+
+			$ret_menu_data = [];
+
+			$sql = "
+			SELECT a.*
+			FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
+				INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
+			WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 1
+			ORDER BY a.menu_seq
+			";
+
+			$item_data	= $this->db->query($sql, [$result->company_id,$result->user_id])->result();
+
+			foreach($item_data as $menuData){
+				$menu1 = [];
+				$menu1['name']	= $menuData->menu_name;
+				$menu1['URL']	= $menuData->URL;
+				$menu1['image']	= $menuData->image;
+				//get sub menu level 2
+				$sql2 = "
+					SELECT a.*
+					FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
+						INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
+					WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 2 AND a.parent_menu_id = ?
+					ORDER BY a.menu_seq
+				";
+
+				$menu_data2	= $this->db->query($sql2, [$result->company_id,$result->user_id,$menuData->id])->result();
+
+				$subMenu = [];
+				foreach($menu_data2 as $menuData2){
+					$menu2 = [];
+					$menu2['name']	= $menuData2->menu_name;
+					$menu2['URL']	= $menuData2->URL;
+					$menu2['image']	= $menuData2->image;
+
+					$subMenu[] = $menu2;
+				}
+
+				$menu1['children']	= $subMenu;
+
+				$ret_menu_data[]	= $menu1;
+			}
+
+			$dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $ret_menu_data;
+		} else {
+			$dataDB['status']   = "error";
+            $dataDB['message']  = "token not found or you don't have permission";
+            $dataDB['data']     = '';
+		}
+		$this->response($dataDB,200);
+	}
 
     public function login_post()
     {

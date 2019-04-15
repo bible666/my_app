@@ -27,8 +27,10 @@ class UnitController extends Origin001
         $id         = isset($data->id) ? $data->id : -1;
 
 
-        $result     = $this->_checkToken($token);
-        if($result->user_id > 0){
+		$result     = $this->_checkToken($token);
+		$permission	= $this->_getMenuPermission(8,$result->staff_cat);
+
+        if($result->user_id > 0 && $permission !== menuPermission::error){
             $query_str	= "
             SELECT *
             FROM m_units
@@ -59,7 +61,7 @@ class UnitController extends Origin001
 
         }else{
             $dataDB['status']   = "error";
-            $dataDB['message']  = "token not found";
+            $dataDB['message']  = "token not found or you don't have permission";
             $dataDB['data']     = '';
         }
         $this->response($dataDB,200);
@@ -75,8 +77,10 @@ class UnitController extends Origin001
         $token      = isset($data['token']) ? $data['token'] : '';
         $id         = isset($data['id']) ? $data['id'] : -1;
 
-        $result     = $this->_checkToken($token);
-        if($result->user_id > 0){
+		$result     = $this->_checkToken($token);
+		$permission	= $this->_getMenuPermission(8,$result->staff_cat);
+
+        if($result->user_id > 0 && $permission == menuPermission::read){
 			
 			$data	= $this->db->delete('m_units',['id'=>$id,'m_company_id' => $result->company_id]);
             
@@ -86,7 +90,7 @@ class UnitController extends Origin001
 
         }else{
             $dataDB['status']   = "error";
-            $dataDB['message']  = "token not found";
+            $dataDB['message']  = "token not found or you don't have permission";
             $dataDB['data']     = "";
         }
         $this->response($dataDB,200);
@@ -103,8 +107,9 @@ class UnitController extends Origin001
 		$token      = isset($data->token) ? $data->token : '';
 		$where		= '';
 
-        $result     = $this->_checkToken($token);
-        if($result->user_id > 0){
+		$result     = $this->_checkToken($token);
+		$permission	= $this->_getMenuPermission(8,$result->staff_cat);
+        if($result->user_id > 0 && $permission !== menuPermission::error){
 			//Setup Where Condition
 			if (isset($data->unit_code)){
 				$where .= " AND unit_code like '%".$data->unit_code."%' ";
@@ -138,8 +143,6 @@ class UnitController extends Origin001
 				$query_str .= " LIMIT ". $data->page_size."  OFFSET ".($data->page_index * $data->page_size);
 			}
 
-			//print_r($query_str);
-			//exit;
 			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
 			
 			//Get All Record Data
@@ -152,7 +155,7 @@ class UnitController extends Origin001
 
         }else{
             $dataDB['status']		= "error";
-            $dataDB['message']		= "token not found";
+            $dataDB['message']		= "token not found or you don't have permission";
 			$dataDB['data']			= "";
 			$dataDB['data_count']	= -1;
         }
@@ -173,9 +176,10 @@ class UnitController extends Origin001
         $remark         = isset($data->remark) ? $data->remark : '';
 
         //get data from token
-        $result     = $this->_checkToken($token);
+		$result     = $this->_checkToken($token);
+		$permission	= $this->_getMenuPermission(8,$result->staff_cat);
 
-        if($result->user_id > 0){
+        if($result->user_id > 0 && $permission == menuPermission::write){
 
             $insert_data = [];
 
@@ -216,7 +220,7 @@ class UnitController extends Origin001
             $dataDB['data']     = $insert_data;
         }else{
 			$message	= [];
-			$message[]	= 'token not found';
+			$message[]	= "token not found or you don't have permission";
             $dataDB['status']   = "error";
             $dataDB['message']  = $message;
             $dataDB['data']     = "";
@@ -224,6 +228,14 @@ class UnitController extends Origin001
         $this->response($dataDB,200);
     }
 
+	/**
+	 * validate data befor save
+	 * 
+	 * @param $companyId company id from user
+	 * @param $id id of update/insert table
+	 * 
+	 * @return int
+	 */
 	private function _validate($companyId,$unitData,$id){
 		//init data
 		$error		= [];

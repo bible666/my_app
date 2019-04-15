@@ -16,6 +16,12 @@ export class UserService {
      
   }
 
+	public getMenu(){
+		let httpData : cGetMenu = new cGetMenu();
+		httpData.token	= localStorage.getItem('token');
+		return this.http.post(BASE_URL+'/UserController/getMenu',JSON.stringify(httpData));
+	}
+
   public clear_cache(){
     localStorage.clear();
   }
@@ -51,4 +57,8 @@ export class UserService {
 class cLogin{
   user_login:string;
   user_password:string;
+}
+
+class cGetMenu{
+	token:string;
 }

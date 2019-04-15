@@ -14,23 +14,6 @@ interface MenuNode {
 	children?: MenuNode[];
 }
 
-//create test data
-//const Menu_Data : MenuNode[] = [
-//	{
-//	name: 'menu1',
-//	children: [
-//		{name:'sub 1 1'},
-//		{name:'sub 1 2'}
-//	]
-//	},
-//	{
-//		name: 'menu2',
-//		children: [
-//
-//		]
-//	}
-//];
-
 /** Flat node with expandable and level information */
 interface ExampleFlatNode {
 	expandable: boolean;
@@ -44,8 +27,6 @@ interface ExampleFlatNode {
   styleUrls: ['./main-nav.component.css']
 })
 export class MainNavComponent {
-
-	Menu_Data: MenuNode[];
 
 	private transformer = (node: MenuNode, level: number) => {
 		return {
@@ -76,28 +57,30 @@ export class MainNavComponent {
 
   	constructor(private breakpointObserver: BreakpointObserver,private user:UserService,
     	private router: Router) {
-		
+
+	}
+
+	ngOnInit(){
 		//set menu
-		user.getMenu().subscribe(result=>{
-			console.log(result);
+		this.user.getMenu().subscribe(result=>{
 			if (result['status'] == 'success'){
 				
-				this.Menu_Data = result['data'];
+				this.user.Menu_Data = result['data'];
 			} else {
-				this.Menu_Data = [{
+				this.user.Menu_Data = [{
 					name: 'menu1',
 					URL: '',
 					image: '',
 					children: []
 				}]
-				console.log(result['message']);
 			}
-
-			this.dataSource.data = this.Menu_Data;
-    		this.treeControl.expandAll();
+			this.user.currentMenuDataSource.subscribe(data =>{
+				console.log(data);
+				this.dataSource.data = this.user.Menu_Data;
+    			this.treeControl.expandAll();
+			})
+			
 		})
-
-		
 	}
 
 	hasChild = (_: number, node: ExampleFlatNode) => node.expandable;

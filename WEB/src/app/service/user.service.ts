@@ -1,15 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 const BASE_URL = environment.api_url;
+
+interface MenuNode {
+	name: string;
+	URL: string;
+	image: string;
+	children?: MenuNode[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+	Menu_Data: MenuNode[];
+
+	private MenuDataSource = new BehaviorSubject(this.Menu_Data);
+	currentMenuDataSource = this.MenuDataSource.asObservable();
+
+	constructor(private http:HttpClient) { }
+
+	changeMenu(newMenu: MenuNode[]){
+		this.MenuDataSource.next(newMenu);
+	}
 
   public getUser(){
     return this.http.get(BASE_URL+'ode.com/todos/1');

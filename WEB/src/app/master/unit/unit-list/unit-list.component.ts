@@ -6,6 +6,9 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import {FormControl, FormGroup} from '@angular/forms';
 import { OriginalListComponent } from 'src/app/original/original-list/original-list.component';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ShowDialogComponent } from '../../../common/show-dialog/show-dialog.component'
+
 
 @Component({
   selector: 'app-unit-list',
@@ -30,7 +33,7 @@ export class UnitListComponent extends OriginalListComponent {
 	unitCode:string;
 	unitName:string;
 
-	constructor(private unitS: UnitService, private router: Router) {
+	constructor(private unitS: UnitService, private router: Router, public dialog: MatDialog) {
 		super();
 	 }
 
@@ -127,7 +130,20 @@ export class UnitListComponent extends OriginalListComponent {
 	}
 
 	onDelete(id:number){
-		alert('delete'+id);
+		const dialogRef = this.dialog.open(ShowDialogComponent,{
+			width: '350px',
+			height: '200px',
+			data: {description:'คุณต้องการลบรายการนี้จริิงหรือเปล่า',id:id}
+		})
+		
+		dialogRef.afterClosed().subscribe(result=>{
+			if (!result){
+				//cancel delete data
+				alert('hiii');
+			} else {
+				//start deleete data
+			}
+		})
 	}
 
 }

@@ -63,6 +63,7 @@ import { UnitListComponent } from './master/unit/unit-list/unit-list.component';
 import { UnitInputComponent } from './master/unit/unit-input/unit-input.component';
 import { OriginalListComponent } from './original/original-list/original-list.component';
 import { MyMessageComponent } from './common/my-message/my-message.component';
+import { ShowDialogComponent } from './common/show-dialog/show-dialog.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { MyMessageComponent } from './common/my-message/my-message.component';
     UnitInputComponent,
     OriginalListComponent,
     MyMessageComponent,
+    ShowDialogComponent,
 ],
   imports: [
     BrowserModule,
@@ -128,6 +130,6 @@ import { MyMessageComponent } from './common/my-message/my-message.component';
   ],
   providers: [AuthGuard,LoadingService,UserService],
   bootstrap: [AppComponent],
-  entryComponents:[MyMessageComponent]
+  entryComponents:[MyMessageComponent, ShowDialogComponent]
 })
 export class AppModule { }

@@ -11,10 +11,11 @@
 			  <!-- use a disabled button to provide padding for tree leaf -->
 			  <button mat-icon-button disabled>
 				<mat-icon class="mat-icon-rtl-mirror">
-				  art_track
+				  {{node.image}}
 				</mat-icon>
 			  </button>
-			  {{node.name}}
+			  <a mat-list-item routerLink="{{node.URL}}">{{node.name}}</a>
+			  
 			</mat-tree-node>
 			<!-- This is the tree node template for expandable nodes -->
 			<mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>

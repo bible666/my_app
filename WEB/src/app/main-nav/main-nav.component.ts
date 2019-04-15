@@ -18,6 +18,8 @@ interface MenuNode {
 interface ExampleFlatNode {
 	expandable: boolean;
 	name: string;
+	URL: string;
+	image: string;
 	level: number;
 }
 
@@ -32,6 +34,8 @@ export class MainNavComponent {
 		return {
 		  expandable: !!node.children && node.children.length > 0,
 		  name: node.name,
+		  URL: node.URL,
+		  image: node.image,
 		  level: level,
 		};
 	}
@@ -66,6 +70,7 @@ export class MainNavComponent {
 			if (result['status'] == 'success'){
 				
 				this.user.Menu_Data = result['data'];
+				//console.log(this.user.Menu_Data);
 			} else {
 				this.user.Menu_Data = [{
 					name: 'menu1',
@@ -75,7 +80,7 @@ export class MainNavComponent {
 				}]
 			}
 			this.user.currentMenuDataSource.subscribe(data =>{
-				console.log(data);
+				//console.log(data);
 				this.dataSource.data = this.user.Menu_Data;
     			this.treeControl.expandAll();
 			})

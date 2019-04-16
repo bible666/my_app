@@ -8,6 +8,8 @@ import { OriginalListComponent } from 'src/app/original/original-list/original-l
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ShowDialogComponent } from '../../../common/show-dialog/show-dialog.component'
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MyMessageComponent } from '../../../common/my-message/my-message.component'
 
 
 @Component({
@@ -33,7 +35,13 @@ export class UnitListComponent extends OriginalListComponent {
 	unitCode:string;
 	unitName:string;
 
-	constructor(private unitS: UnitService, private router: Router, public dialog: MatDialog) {
+	private configError: MatSnackBarConfig = {
+		panelClass: ['style-error'],
+		duration: 2000,
+	};
+
+	constructor(private unitS: UnitService, private router: Router, 
+		public dialog: MatDialog,private snackBar: MatSnackBar) {
 		super();
 	 }
 
@@ -89,6 +97,15 @@ export class UnitListComponent extends OriginalListComponent {
 				map(data =>{
 					this.isLoadingResults	= false;
 					this.isRateLimitReached	= false;
+
+					if (data['status'] == 'error'){
+						this.snackBar.openFromComponent(MyMessageComponent,{
+							data: [data['message']],
+							duration:2000,
+							panelClass:['mat-snack-bar-container-message']
+						})
+						
+					}
 					
 					this.resultsLength		= data['data_count'];
 					return data['data'];

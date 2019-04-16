@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_SNACK_BAR_DATA} from '@angular/material';
+import {MAT_SNACK_BAR_DATA, MatSnackBarRef} from '@angular/material';
 
 @Component({
   selector: 'app-my-message',
@@ -8,9 +8,13 @@ import {MAT_SNACK_BAR_DATA} from '@angular/material';
 })
 export class MyMessageComponent implements OnInit {
 
-	constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
+	constructor(public snackBarRef: MatSnackBarRef<MyMessageComponent>,@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
 
   ngOnInit() {
   }
+
+	onClose(){
+
+	}
 
 }

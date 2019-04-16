@@ -81,7 +81,7 @@ export class UnitInputComponent implements OnInit {
 				//});
 				this.snackBar.openFromComponent(MyMessageComponent,{
 					data:data['message'],
-					duration:2000,
+					duration:5000,
 					panelClass:['mat-snack-bar-container-message']
 				})
 			} else {

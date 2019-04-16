@@ -119,9 +119,10 @@ class UserController extends Origin001
 
 
                 //insert New Token Data
-                $TokenData['m_staff_id'] = $staff_id;
-                $TokenData['token'] = $token;
-                $TokenData['del_flag'] = 0;
+                $TokenData['m_staff_id']	= $staff_id;
+                $TokenData['token']			= $token;
+				$TokenData['del_flag']		= 0;
+				$TokenData['updated_date']	= date("Y-m-d H:i:s");
                 $this->db->insert('t_tokens',$TokenData);
 
 

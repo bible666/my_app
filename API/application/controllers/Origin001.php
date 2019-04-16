@@ -6,6 +6,15 @@ require(APPPATH.'libraries/PHPMailer-master/PHPMailerAutoload.php');
 
 class Origin001 extends REST_Controller
 {
+
+	public function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('date');
+        $this->load->database();
+        $this->load->library('encrypt');
+        
+    }
 	
 	/**
 	 * get menu perission for user
@@ -39,7 +48,7 @@ class Origin001 extends REST_Controller
      */
     protected function _checkToken($token){
         $query_str = "
-            SELECT s.*
+            SELECT s.*,t.id as tokenId,t.updated_date as token_update
             FROM t_tokens t INNER JOIN m_staffs s ON t.m_staff_id = s.id
             WHERE t.token = ?
                 AND t.del_flag = 0
@@ -48,18 +57,58 @@ class Origin001 extends REST_Controller
 
         $tokenData = new check_token_class();
         
-        //print_r($staff_data);
         if (isset($staff_data)){
-            $tokenData->status      = $staff_data->del_flag;
-            $tokenData->user_id     = $staff_data->id;
-            $tokenData->staff_name  = $staff_data->sur_name. ' ' . $staff_data->given_name;
-			$tokenData->company_id  = $staff_data->m_company_id;
-			$tokenData->staff_cat	= $staff_data->staff_cat;
+			$minDiff = $this->dateDifference($staff_data->token_update,date("Y-m-d H:i:s"),'%i');
+
+			if ($minDiff <= 30 ){
+				$tokenData->status      = $staff_data->del_flag;
+				$tokenData->user_id     = $staff_data->id;
+				$tokenData->staff_name  = $staff_data->sur_name. ' ' . $staff_data->given_name;
+				$tokenData->company_id  = $staff_data->m_company_id;
+				$tokenData->staff_cat	= $staff_data->staff_cat;
+	
+				//update token data
+				$this->db->set(['updated_date' => date("Y-m-d H:i:s"),'test'=>$minDiff]);
+				$this->db->where(['id' => $staff_data->tokenId]);
+				$this->db->update('t_tokens');
+			} else {
+				//update token data
+				$this->db->set(['del_flag' => 1,'test'=>$minDiff]);
+				$this->db->where(['id' => $staff_data->tokenId]);
+				$this->db->update('t_tokens');
+			}
+			//echo $minDiff;
+			//if ($staff_data->token_update > date("Y-m-d H:i:s"))
+            
+
         }
 
         return $tokenData;
    }
 
+
+	//////////////////////////////////////////////////////////////////////
+	//PARA: Date Should In YYYY-MM-DD Format
+	//RESULT FORMAT:
+	// '%y Year %m Month %d Day %h Hours %i Minute %s Seconds'        =>  1 Year 3 Month 14 Day 11 Hours 49 Minute 36 Seconds
+	// '%y Year %m Month %d Day'                                    =>  1 Year 3 Month 14 Days
+	// '%m Month %d Day'                                            =>  3 Month 14 Day
+	// '%d Day %h Hours'                                            =>  14 Day 11 Hours
+	// '%d Day'                                                        =>  14 Days
+	// '%h Hours %i Minute %s Seconds'                                =>  11 Hours 49 Minute 36 Seconds
+	// '%i Minute %s Seconds'                                        =>  49 Minute 36 Seconds
+	// '%h Hours                                                    =>  11 Hours
+	// '%a Days                                                        =>  468 Days
+	//////////////////////////////////////////////////////////////////////
+	protected function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' ){
+		$datetime1 = date_create($date_1);
+		$datetime2 = date_create($date_2);
+		
+		$interval = date_diff($datetime1, $datetime2);
+		
+		return $interval->format($differenceFormat);
+		
+	}
 
     public function checkFormatDate($date01){
         if(preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/",$date01)){

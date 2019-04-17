@@ -158,7 +158,21 @@ export class UnitListComponent extends OriginalListComponent {
 				//cancel delete data
 				alert('hiii');
 			} else {
-				//start deleete data
+				//console.log(result);
+				//start delete data
+				localStorage.setItem('unit_input.delete_id',result);
+				this.unitS.deleteById().subscribe(data =>{
+					if (data['status'] == 'success'){
+						this.snackBar.openFromComponent(MyMessageComponent,{
+							data:['ทำการลบรายการแล้ว'],
+							duration:5000,
+							panelClass:['mat-snack-bar-container-message']
+						})
+						this.ngOnInit();
+					} else {
+						console.log(data['message']);
+					}
+				});
 			}
 		})
 	}

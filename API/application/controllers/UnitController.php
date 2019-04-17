@@ -72,17 +72,22 @@ class UnitController extends Origin001
      */
     public function delete_data_by_id_post(){
         $data       = $this->post();
+		$data		= json_decode($data[0]);
 
         //init data
-        $token      = isset($data['token']) ? $data['token'] : '';
-        $id         = isset($data['id']) ? $data['id'] : -1;
+        $token      = isset($data->token) ? $data->token : '';
+        $id         = isset($data->id) ? $data->id : -1;
 
 		$result     = $this->_checkToken($token);
 		$permission	= $this->_getMenuPermission(8,$result->staff_cat);
 
-        if($result->user_id > 0 && $permission == menuPermission::read){
+        if($result->user_id > 0 && $permission == menuPermission::write){
 			
-			$data	= $this->db->delete('m_units',['id'=>$id,'m_company_id' => $result->company_id]);
+			$data	= $this->db->update(
+				'm_units',
+				['del_flag'	=> 1],
+				['id'=>$id,'m_company_id' => $result->company_id]
+			);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";

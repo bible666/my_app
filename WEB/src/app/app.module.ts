@@ -64,6 +64,8 @@ import { UnitInputComponent } from './master/unit/unit-input/unit-input.componen
 import { OriginalListComponent } from './original/original-list/original-list.component';
 import { MyMessageComponent } from './common/my-message/my-message.component';
 import { ShowDialogComponent } from './common/show-dialog/show-dialog.component';
+import { ItemTypeListComponent } from './master/item-type/item-type-list/item-type-list/item-type-list.component';
+import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-type-input/item-type-input.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import { ShowDialogComponent } from './common/show-dialog/show-dialog.component'
     OriginalListComponent,
     MyMessageComponent,
     ShowDialogComponent,
+    ItemTypeListComponent,
+    ItemTypeInputComponent,
 ],
   imports: [
     BrowserModule,

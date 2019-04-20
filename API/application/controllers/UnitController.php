@@ -32,13 +32,13 @@ class UnitController extends Origin001
 
         if($result->user_id > 0 && $permission !== menuPermission::error){
             $query_str	= "
-            SELECT *
+            SELECT *, ? as permission
             FROM m_units
             WHERE m_company_id = ? AND id = ?
                 AND del_flag = 0
             ";
 
-            $item_data	= $this->db->query($query_str, [$result->company_id,$id])->row();
+            $item_data	= $this->db->query($query_str, [$permission,$result->company_id,$id])->row();
 			
 			if ( is_null($item_data) ){
 				//insert
@@ -48,12 +48,14 @@ class UnitController extends Origin001
 					'unit_name'		=> $data->unitName,
 					'remark'		=> '',
 					'del_flag'		=> 0,
+					'permission'	=> $permission,
 					'created_date'	=> date('Y-m-d h:i:s'),
 					'created'		=> $result->user_id
 				];
 				$this->db->insert('m_units', $item_data);
 			} else {
 				//update
+				//$item_data['permission']	= $permission;
 			}
             $dataDB['status']   = "success";
             $dataDB['message']  = "";

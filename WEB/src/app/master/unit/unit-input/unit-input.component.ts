@@ -18,9 +18,11 @@ export class UnitInputComponent implements OnInit {
 	// Set Form for input
 	//----------------------------------------------------------------
 	id:number;
-
+	bReadonly:boolean = false;
+	readonlyText:string = "(อ่านอย่างเดียว)";
+	
 	inputForm = new FormGroup({
-		'unit_code': new FormControl('',	 [ Validators.required ]),
+		'unit_code': new FormControl('', [ Validators.required ]),
 		'unit_name': new FormControl(''),
 		'remark':new FormControl('')
 	});
@@ -38,7 +40,7 @@ export class UnitInputComponent implements OnInit {
 
 	ngOnInit() {
 		this.id	= +localStorage.getItem('unit_input.id');
-
+		
 		if (this.id == -1){
 			this.inputForm.patchValue({
 				unit_code: '',
@@ -48,12 +50,20 @@ export class UnitInputComponent implements OnInit {
 		} else {
 			this.unitS.getById().subscribe(data =>{
 				if (data['status'] == 'success'){
-					console.log(data['data']);
+
 					this.inputForm.patchValue({
 						unit_code: data['data']['unit_code'],
 						unit_name: data['data']['unit_name'],
 						remark: data['data']['remark']
-					});	
+					});
+					//data['data']['unit_code']['disabled'] = true;
+					if (data['data']['permission'] == 1){
+						this.bReadonly		= true;
+					}else {
+						this.readonlyText	= '';
+					}
+					
+					//this.permission	= data['data']['permission'];
 				}
 			});
 		}

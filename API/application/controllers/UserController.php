@@ -12,7 +12,29 @@ class UserController extends Origin001
         $this->load->database();
         $this->load->library('encrypt');
         
-    }
+	}
+	
+	public function checkToken_post(){
+		$data		= $this->post();
+		$data		= json_decode($data[0]);
+
+		//init data
+		$token      = isset($data->token) ? $data->token : '';
+		$result     = $this->_checkToken($token);
+
+		if($result->user_id > 0 ){
+			//token active
+			$dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = '';
+		} else {
+			$dataDB['status']   = "error";
+            $dataDB['message']  = "token not found or you don't have permission";
+            $dataDB['data']     = '';
+		}
+
+		$this->response($dataDB,200);
+	}
 
 	public function getMenu_post(){
 		$data		= $this->post();
@@ -131,7 +153,9 @@ class UserController extends Origin001
                 $dataDB['status']   = "success";
                 $dataDB['message']  = "";
                 $dataDB['data'] = $result;
-            }
+            } else {
+				$dataDB['message'] = "not user.[".$user_login."]";
+			}
         }else{
             $dataDB['message'] = "not user.[".$user_login."]";
         }

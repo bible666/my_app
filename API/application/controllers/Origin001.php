@@ -79,7 +79,6 @@ class Origin001 extends REST_Controller
 			}
 			//echo $minDiff;
 			//if ($staff_data->token_update > date("Y-m-d H:i:s"))
-            
 
         }
 
@@ -90,10 +89,10 @@ class Origin001 extends REST_Controller
 	//////////////////////////////////////////////////////////////////////
 	//PARA: Date Should In YYYY-MM-DD Format
 	//RESULT FORMAT:
-	// '%y Year %m Month %d Day %h Hours %i Minute %s Seconds'        =>  1 Year 3 Month 14 Day 11 Hours 49 Minute 36 Seconds
-	// '%y Year %m Month %d Day'                                    =>  1 Year 3 Month 14 Days
-	// '%m Month %d Day'                                            =>  3 Month 14 Day
-	// '%d Day %h Hours'                                            =>  14 Day 11 Hours
+	// '%y Year %m Month %d Day %h Hours %i Minute %s Seconds'	=>  1 Year 3 Month 14 Day 11 Hours 49 Minute 36 Seconds
+	// '%y Year %m Month %d Day'								=>  1 Year 3 Month 14 Days
+	// '%m Month %d Day'										=>  3 Month 14 Day
+	// '%d Day %h Hours'										=>  14 Day 11 Hours
 	// '%d Day'                                                        =>  14 Days
 	// '%h Hours %i Minute %s Seconds'                                =>  11 Hours 49 Minute 36 Seconds
 	// '%i Minute %s Seconds'                                        =>  49 Minute 36 Seconds

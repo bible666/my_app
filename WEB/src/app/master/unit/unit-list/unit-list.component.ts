@@ -156,7 +156,7 @@ export class UnitListComponent extends OriginalListComponent {
 		dialogRef.afterClosed().subscribe(result=>{
 			if (!result){
 				//cancel delete data
-				alert('hiii');
+				//alert('hiii');
 			} else {
 				//console.log(result);
 				//start delete data

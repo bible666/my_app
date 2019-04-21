@@ -21,7 +21,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	// set for grid
 	//----------------------------------------------------------------
-	displayedColumns: string[]		= ['unit_code','unit_name','update','delete'];
+	displayedColumns: string[]		= ['item_type_name','update','delete'];
 	
 	//----------------------------------------------------------------
 	// set datasort for show in list
@@ -32,8 +32,13 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// Set Valiable for use in form
 	//----------------------------------------------------------------
 	searchForm:FormGroup;
-	unitCode:string;
-	unitName:string;
+	itemTypeName:string;
+
+	//----------------------------------------------------------------
+	// set local store object
+	//----------------------------------------------------------------
+	localNameList:string	= 'itemTypeList';
+	localNameInput:string	= 'itemTypeInput';
 
 	private configError: MatSnackBarConfig = {
 		panelClass: ['style-error'],
@@ -53,8 +58,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// Clear Local Store Data
 	//----------------------------------------------------------------
 	private _clear_data(){
-		localStorage.setItem('unit_search.unit_code','');
-		localStorage.setItem('unit_search.unit_name','');
+		localStorage.setItem(this.localNameList + '.itemTypeName','');
 	}
 
 	//----------------------------------------------------------------
@@ -71,8 +75,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 		}else {
 			search_data.page_size		= this.paginator.pageSize;
 		}
-		search_data.unit_code		= this.unitCode;
-		search_data.unit_name		= this.unitName;
+		search_data.itemTypeName		= this.itemTypeName;
 
 		return this.unitS.getListData(search_data);
 	}
@@ -81,12 +84,10 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// set init data from local store
 	//----------------------------------------------------------------
 	protected _set_init(){
-		this.unitCode =  localStorage.getItem('unit_search.unit_code');
-		this.unitName =  localStorage.getItem('unit_search.unit_name');
+		this.itemTypeName =  localStorage.getItem(this.localNameList + '.itemTypeName');
 
 		this.searchForm = new FormGroup({
-            'unit_code': new FormControl(this.unitCode),
-            'unit_name': new FormControl(this.unitName),
+            'itemTypeName': new FormControl(this.itemTypeName),
         });
 	}
 
@@ -142,8 +143,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// event on search click
 	//----------------------------------------------------------------
 	onSearchClick(){
-		localStorage.setItem('unit_search.unit_code',this.searchForm.controls['unit_code'].value);
-		localStorage.setItem('unit_search.unit_name',this.searchForm.controls['unit_name'].value);
+		localStorage.setItem(this.localNameList + '.itemTypeName',this.searchForm.controls['itemTypeName'].value);
 		this.ngOnInit();
 	}
 
@@ -160,7 +160,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// event on add click
 	//----------------------------------------------------------------
 	onAdd(){
-		localStorage.setItem('unit_input.id','-1');
+		localStorage.setItem(this.localNameInput + '.id','-1');
 		this.router.navigateByUrl('unit_input');
 	}
 
@@ -168,7 +168,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// event on edit
 	//----------------------------------------------------------------
 	onEdit(id:number){
-		localStorage.setItem('unit_input.id',String(id));
+		localStorage.setItem(this.localNameInput + '.id',String(id));
 		this.router.navigateByUrl('unit_input');
 	}
 
@@ -185,11 +185,11 @@ export class ItemTypeListComponent extends OriginalListComponent {
 		dialogRef.afterClosed().subscribe(result=>{
 			if (!result){
 				//cancel delete data
-				alert('hiii');
+				//alert('hiii');
 			} else {
 				//console.log(result);
 				//start delete data
-				localStorage.setItem('unit_input.delete_id',result);
+				localStorage.setItem( this.localNameInput + '.delete_id',result);
 				this.unitS.deleteById().subscribe(data =>{
 					if (data['status'] == 'success'){
 						this.snackBar.openFromComponent(MyMessageComponent,{
@@ -210,7 +210,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 
 export interface ListElement {
 	id:number;
-	unit_code: string;
-	unit_name: string;
+	item_type_name: string;
+	sorted: string;
 	remark: string;
 }

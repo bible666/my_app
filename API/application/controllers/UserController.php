@@ -154,7 +154,7 @@ class UserController extends Origin001
                 $dataDB['message']  = "";
                 $dataDB['data'] = $result;
             } else {
-				$dataDB['message'] = "not user.[".$user_login."]";
+				$dataDB['message'] = "not user22.[".$user_login."]";
 			}
         }else{
             $dataDB['message'] = "not user.[".$user_login."]";

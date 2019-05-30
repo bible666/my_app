@@ -182,8 +182,7 @@ class ItemTypeController extends Origin001
         //init data
         $token          = isset($data->token) ? $data->token : '';
 		$id             = isset($data->id) ? $data->id : '';
-		$unit_code      = isset($data->unitCode) ? $data->unitCode : '';
-		$unit_name      = isset($data->unitName) ? $data->unitName : '';
+		$item_type_name	= isset($data->itemTypeName) ? $data->itemTypeName : '';
         $remark         = isset($data->remark) ? $data->remark : '';
 
         //get data from token
@@ -210,7 +209,7 @@ class ItemTypeController extends Origin001
             if ($id < 0 ){
                 $insert_data['created_date']   = date("Y-m-d H:i:s");
                 $insert_data['created']        = $result->user_id;
-                $this->db->insert('m_units', $insert_data);
+                $this->db->insert('m_item_types', $insert_data);
             }else{
                 $insert_data['updated_date']    = date("Y-m-d H:i:s");
                 $insert_data['updated']         = $result->user_id;

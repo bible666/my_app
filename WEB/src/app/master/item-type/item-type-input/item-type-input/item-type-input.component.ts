@@ -33,7 +33,7 @@ export class ItemTypeInputComponent implements OnInit {
 	private configError: MatSnackBarConfig = {
 		panelClass: ['style-error'],
 		duration: 2000,
-	  };
+	};
 
 
 
@@ -63,13 +63,9 @@ export class ItemTypeInputComponent implements OnInit {
 					}else {
 						this.readonlyText	= '';
 					}
-					
-					//this.permission	= data['data']['permission'];
 				}
 			});
 		}
-		
-		
 	}
 
 	onBackClick(){
@@ -78,9 +74,9 @@ export class ItemTypeInputComponent implements OnInit {
 
 	onSave(){
 		let unitI: cInput = new cInput();
-		unitI.id		= this.id;
+		unitI.id			= this.id;
 		unitI.itemTypeName	= this.inputForm.controls['item_type_name'].value;
-		unitI.remark	= this.inputForm.controls['remark'].value;
+		unitI.remark		= this.inputForm.controls['remark'].value;
 		
 		this.Service.updateById(unitI)
 		.subscribe(data=>{

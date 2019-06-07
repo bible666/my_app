@@ -5,6 +5,8 @@ use CI_Controller;
 use Exception;
 use stdClass;
 
+require('Format.php');
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**

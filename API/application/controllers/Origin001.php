@@ -1,8 +1,12 @@
 <?php
+//use Restserver\Libraries;
 defined('BASEPATH') OR exit('No direct script access allowed');
 require(APPPATH.'libraries/REST_Controller.php');
 require(APPPATH.'libraries/PHPMailer-master/PHPMailerAutoload.php');
+date_default_timezone_set('Asia/Bangkok');
 
+// use namespace
+use Restserver\Libraries\REST_Controller;
 
 class Origin001 extends REST_Controller
 {

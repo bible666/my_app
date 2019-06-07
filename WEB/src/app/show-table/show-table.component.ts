@@ -10,8 +10,8 @@ export class ShowTableComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','code'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort:MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort:MatSort;
 
   constructor() { }
 

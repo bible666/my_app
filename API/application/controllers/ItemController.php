@@ -91,9 +91,10 @@ class ItemController extends Origin001
         $id             = isset($data['id']) ? $data['id'] : '';
         $item_code      = isset($data['item_code']) ? $data['item_code'] : '';
         $item_name      = isset($data['item_name']) ? $data['item_name'] : '';
-        $m_unit_id      = isset($data['m_unit_id']) ? $data['m_unit_id'] : '';
-        $m_item_type_id = isset($data['m_item_type_id']) ? $data['m_item_type_id'] : '';
-        $lot_flag       = isset($data['lot_flag']) ? $data['lot_flag'] : '';
+        $m_unit_id      = isset($data['m_unit_id']) ? $data['m_unit_id'] : 1;
+        $m_item_type_id = isset($data['m_item_type_id']) ? $data['m_item_type_id'] : 1;
+		$lot_flag       = isset($data['lot_flag']) ? $data['lot_flag'] : 0;
+		$mrp_flag       = isset($data['lot_flag']) ? $data['mrp_flag'] : 0;
         $remark         = isset($data['remark']) ? $data['remark'] : '';
 
         //get data from token
@@ -108,7 +109,8 @@ class ItemController extends Origin001
             $insert_data['item_name']       = $item_name;
             $insert_data['m_unit_id']       = $m_unit_id;
             $insert_data['m_item_type_id']  = $m_item_type_id;
-            $insert_data['lot_flag']        = $lot_flag;
+			$insert_data['lot_flag']        = $lot_flag;
+			$insert_data['mrp_flag']		= $mrp_flag;
             $insert_data['remark']          = $remark;
 
             $this->db->trans_start();

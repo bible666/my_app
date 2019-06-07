@@ -19,8 +19,8 @@ export class OriginalListComponent implements OnInit {
 	isLoadingResults	= true;
 	isRateLimitReached	= false;
 
-	@ViewChild(MatPaginator, /* TODO: add static flag */ {}) paginator: MatPaginator;
-	@ViewChild(MatSort, /* TODO: add static flag */ {}) sort:MatSort;
+	@ViewChild(MatPaginator, /* TODO: add static flag */ {static:true}) paginator: MatPaginator;
+	@ViewChild(MatSort, /* TODO: add static flag */ {static:true}) sort:MatSort;
 
 	constructor() { }
 

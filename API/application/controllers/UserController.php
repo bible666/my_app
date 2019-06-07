@@ -10,7 +10,7 @@ class UserController extends Origin001
         $this->load->helper(array('form', 'url'));
         $this->load->helper('date');
         $this->load->database();
-        $this->load->library('encrypt');
+        $this->load->library('encryption');
         
 	}
 	
@@ -129,7 +129,8 @@ class UserController extends Origin001
 
         if (isset($row))
         {
-            if ($user_password == $this->encrypt->decode($row['staff_pwd'])){
+			$my = $this->encryption->decrypt($row['staff_pwd']);
+            if ($user_password == $this->encryption->decrypt($row['staff_pwd'])){
                 $token = $this->_getGUID();
 
                 $staff_id = $row['id'];
@@ -154,7 +155,7 @@ class UserController extends Origin001
                 $dataDB['message']  = "";
                 $dataDB['data'] = $result;
             } else {
-				$dataDB['message'] = "not user22.[".$user_login."]";
+				$dataDB['message'] = "not user22.[".$user_login."]";//.$my;//.$this->encryption->encrypt('password');
 			}
         }else{
             $dataDB['message'] = "not user.[".$user_login."]";

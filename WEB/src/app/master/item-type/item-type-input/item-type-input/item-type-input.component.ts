@@ -63,6 +63,8 @@ export class ItemTypeInputComponent implements OnInit {
 					}else {
 						this.readonlyText	= '';
 					}
+				} else {
+					
 				}
 			});
 		}

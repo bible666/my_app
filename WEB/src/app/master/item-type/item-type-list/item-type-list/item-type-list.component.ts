@@ -169,7 +169,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	onEdit(id:number){
 		localStorage.setItem(this.localNameInput + '.id',String(id));
-		this.router.navigateByUrl('unit_input');
+		this.router.navigateByUrl('item_type_input');
 	}
 
 	//----------------------------------------------------------------

@@ -58,12 +58,12 @@ class Origin001 extends REST_Controller
                 AND t.del_flag = 0
         ";
         $staff_data = $this->db->query($query_str, [$token])->row();
-
+		//print_r($staff_data);
         $tokenData = new check_token_class();
         
         if (isset($staff_data)){
 			$minDiff = $this->dateDifference($staff_data->token_update,date("Y-m-d H:i:s"),'%i');
-
+			//print_r($minDiff);
 			if ($minDiff <= 30 ){
 				$tokenData->status      = $staff_data->del_flag;
 				$tokenData->user_id     = $staff_data->id;

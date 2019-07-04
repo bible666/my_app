@@ -69,13 +69,15 @@ class ItemTypeController extends Origin001
      * get data by id
      */
     public function delete_data_by_id_post(){
-        $data       = $this->post();
+		$data       = $this->post();
+		$data		= json_decode($data[0]);
 
         //init data
-        $token      = isset($data['token']) ? $data['token'] : '';
-        $id         = isset($data['id']) ? $data['id'] : -1;
+        $token      = isset($data->token) ? $data->token : '';
+        $id         = isset($data->id) ? $data->id : -1;
 
-        $result     = $this->_checkToken($token);
+		$result     = $this->_checkToken($token);
+		//print_r($result);
         if($result->user_id > 0){
 			$insert_data['del_flag']    	= 1;
 			$insert_data['updated_date']    = date("Y-m-d H:i:s");

@@ -66,6 +66,8 @@ import { MyMessageComponent } from './common/my-message/my-message.component';
 import { ShowDialogComponent } from './common/show-dialog/show-dialog.component';
 import { ItemTypeListComponent } from './master/item-type/item-type-list/item-type-list/item-type-list.component';
 import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-type-input/item-type-input.component';
+import { CustomerListComponent } from './master/customer/customer-list/customer-list.component';
+import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +90,8 @@ import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-
     ShowDialogComponent,
     ItemTypeListComponent,
     ItemTypeInputComponent,
+    CustomerListComponent,
+    CustomerInputComponent,
 ],
   imports: [
     BrowserModule,

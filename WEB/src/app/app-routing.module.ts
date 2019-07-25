@@ -13,6 +13,8 @@ import { UnitListComponent } from './master/unit/unit-list/unit-list.component';
 import { UnitInputComponent } from './master/unit/unit-input/unit-input.component';
 import { ItemTypeListComponent } from './master/item-type/item-type-list/item-type-list/item-type-list.component'
 import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-type-input/item-type-input.component'
+import { CustomerListComponent } from './master/customer/customer-list/customer-list.component';
+import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
 
 
 const routes: Routes = [
@@ -27,7 +29,11 @@ const routes: Routes = [
   { path: 'unit_list', component: UnitListComponent,canActivate:[AuthGuard]},
   { path: 'unit_input', component: UnitInputComponent,canActivate:[AuthGuard]},
   { path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
-  { path: 'item_type_input', component: ItemTypeInputComponent,canActivate:[AuthGuard]}
+  { path: 'item_type_input', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
+  { path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
+  { path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]}
+  
+
 
 ];
 

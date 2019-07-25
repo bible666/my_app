@@ -89,7 +89,7 @@ class CustomerController extends Origin001
 				'id'			=> $id,
 				'm_company_id'	=> $result->company_id
 			]);
-            $this->db->update('m_customer_cd',$insert_data);
+            $this->db->update('m_customers',$insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -188,35 +188,30 @@ class CustomerController extends Origin001
 		$id             = isset($data->id) ? $data->id : '';
 		
 		//Set Data for this table
-		$customer_cd	= isset($data->customer_cd) ? $data->customer_cd : '';
-		$customer_name	= isset($data->customer_name) ? $data->customer_name : '';
-		$customer_add1	= isset($data->customer_add1) ? $data->customer_add1 : '';
-		$customer_add2	= isset($data->customer_add2) ? $data->customer_add2 : '';
-		$customer_add3	= isset($data->customer_add3) ? $data->customer_add3 : '';
-		$customer_zip	= isset($data->customer_zip) ? $data->customer_zip : '';
-		$customer_tel	= isset($data->customer_tel) ? $data->customer_tel : '';
-		$customer_fa	= isset($data->customer_fa) ? $data->customer_fa : '';
-		$customer_email	= isset($data->customer_email) ? $data->customer_email : '';
-		$contract_name	= isset($data->contract_name) ? $data->contract_name : '';
-		$delivery_time	= isset($data->delivery_time) ? $data->delivery_time : '';
-		$m_transport_id	= isset($data->m_transport_id) ? $data->m_transport_id : '';
-		$tax_no			= isset($data->tax_no) ? $data->tax_no : '';
-		$payment_tearm	= isset($data->payment_tearm) ? $data->payment_tearm : '';
-		$remark			= isset($data->remark) ? $data->remark : '';
+		$AR_data = [];
+		$AR_data['customer_cd']		= isset($data->customer_cd) ? $data->customer_cd : '';
+		$AR_data['customer_name']	= isset($data->customer_name) ? $data->customer_name : '';
+		$AR_data['customer_add1']	= isset($data->customer_add1) ? $data->customer_add1 : '';
+		$AR_data['customer_add2']	= isset($data->customer_add2) ? $data->customer_add2 : '';
+		$AR_data['customer_add3']	= isset($data->customer_add3) ? $data->customer_add3 : '';
+		$AR_data['customer_zip']	= isset($data->customer_zip) ? $data->customer_zip : '';
+		$AR_data['customer_tel']	= isset($data->customer_tel) ? $data->customer_tel : '';
+		$AR_data['customer_fa']		= isset($data->customer_fa) ? $data->customer_fa : '';
+		$AR_data['customer_email']	= isset($data->customer_email) ? $data->customer_email : '';
+		$AR_data['contract_name']	= isset($data->contract_name) ? $data->contract_name : '';
+		$AR_data['delivery_time']	= isset($data->delivery_time) ? $data->delivery_time : '';
+		$AR_data['m_transport_id']	= isset($data->m_transport_id) ? $data->m_transport_id : '';
+		$AR_data['tax_no']			= isset($data->tax_no) ? $data->tax_no : '';
+		$AR_data['payment_tearm']	= isset($data->payment_tearm) ? $data->payment_tearm : '';
+		$AR_data['remark']			= isset($data->remark) ? $data->remark : '';
+		$AR_data['del_flag']		= 0;//0 Active, 1 Inactive
 
         //get data from token
         $result     = $this->_checkToken($token);
 
         if($result->user_id > 0){
 
-            $insert_data = [];
-
-            $insert_data['m_company_id']    = $result->company_id;
-            $insert_data['item_type_name']	= $item_type_name;
-			$insert_data['remark']          = $remark;
-			$insert_data['del_flag']		= 0;//0 Active, 1 Inactive
-
-			$error	= $this->_validate($result->company_id,$insert_data,$id);
+			$error	= $this->_validate($result->company_id,$AR_data,$id);
 			if (count($error) > 0){
 				$dataDB['status']	= 'error';
 				$dataDB['message']	= $error;
@@ -226,15 +221,15 @@ class CustomerController extends Origin001
 			}
             $this->db->trans_start();
             if ($id < 0 ){
-                $insert_data['created_date']   = date("Y-m-d H:i:s");
-                $insert_data['created']        = $result->user_id;
-                $this->db->insert('m_item_types', $insert_data);
+                $AR_data['created_date']   = date("Y-m-d H:i:s");
+                $AR_data['created']        = $result->user_id;
+                $this->db->insert('m_item_types', $AR_data);
             }else{
-                $insert_data['updated_date']    = date("Y-m-d H:i:s");
-                $insert_data['updated']         = $result->user_id;
+                $AR_data['updated_date']    = date("Y-m-d H:i:s");
+                $AR_data['updated']         = $result->user_id;
 
                 $this->db->where('id', $id);
-                $this->db->update('m_item_types',$insert_data);
+                $this->db->update('m_item_types',$AR_data);
             }
             $this->db->trans_complete();
 			$message	= [];
@@ -266,28 +261,26 @@ class CustomerController extends Origin001
 		$error		= [];
 
 		//check empty data
-		if ($AR_data['item_type_name'] == ''){
-			$error[]	= 'ประเภทข้อมูลวัตถุดิบห้ามเป็นค่าว่าง';
+		if ($AR_data['customer_name'] == ''){
+			$error[]	= 'ชื่อลูกค้าห้ามเป็นค่าว่าง';
 		}
 
 		//check unit code same in DB
 		$query_str	= "
             SELECT *
-            FROM m_item_types
-            WHERE m_company_id = ? AND item_type_name = ? AND id <> ?
+            FROM m_customers
+            WHERE m_company_id = ? AND customer_name = ? AND id <> ?
                 AND del_flag = 0
             ";
 
         $item_data	= $this->db->query($query_str, [$companyId,$AR_data['item_type_name'],$id])->row();
 		if ( !is_null($item_data) ){
-			$error[]	= 'มีประเภทข้อมูลวัตถุดิบ['.$AR_data['item_type_name'].']นี้แล้วในระบบ';
+			$error[]	= 'มีชื่อลูกค้า['.$AR_data['item_type_name'].']นี้แล้วในระบบ';
 		}
 
 		return $error;
 	}
 
-
 }
-
 
 ?>

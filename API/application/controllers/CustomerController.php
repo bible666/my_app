@@ -117,8 +117,8 @@ class CustomerController extends Origin001
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
 			//Setup Where Condition
-			if (isset($data->item_type_name)){
-				$where .= " AND item_type_name like '%".$data->item_type_name."%' ";
+			if (isset($data->customer_name)){
+				$where .= " AND customer_name like '%".$data->customer_name."%' ";
 			}
 
             $query_str = "
@@ -134,10 +134,10 @@ class CustomerController extends Origin001
 				if ($data->sort_column !== '' && $data->sort_direction !== ''){
 					$query_str .= " ORDER BY ". $data->sort_column . " ". $data->sort_direction;
 				}else {
-					$query_str .= " ORDER BY sorted asc ";
+					$query_str .= " ORDER BY customer_cd asc ";
 				}
 			}else {
-				$query_str .= " ORDER BY sorted asc ";
+				$query_str .= " ORDER BY customer_cd asc ";
 			}
 
 			if (isset($data->page_size)){
@@ -187,8 +187,20 @@ class CustomerController extends Origin001
         $token          = isset($data->token) ? $data->token : '';
 		$id             = isset($data->id) ? $data->id : '';
 		
+		//get data from token
+		$result     = $this->_checkToken($token);
+		
+		if($result->user_id <= 0){
+			$dataDB['status']	= 'error';
+			$dataDB['message']	= 'Token not found';
+			$dataDB['data']		= [];
+			$this->response($dataDB,200);
+			exit;
+		}
+
 		//Set Data for this table
 		$AR_data = [];
+		$AR_data['m_company_id']    = $result->company_id;
 		$AR_data['customer_cd']		= isset($data->customer_cd) ? $data->customer_cd : '';
 		$AR_data['customer_name']	= isset($data->customer_name) ? $data->customer_name : '';
 		$AR_data['customer_add1']	= isset($data->customer_add1) ? $data->customer_add1 : '';
@@ -199,10 +211,10 @@ class CustomerController extends Origin001
 		$AR_data['customer_fa']		= isset($data->customer_fa) ? $data->customer_fa : '';
 		$AR_data['customer_email']	= isset($data->customer_email) ? $data->customer_email : '';
 		$AR_data['contract_name']	= isset($data->contract_name) ? $data->contract_name : '';
-		$AR_data['delivery_time']	= isset($data->delivery_time) ? $data->delivery_time : '';
-		$AR_data['m_transport_id']	= isset($data->m_transport_id) ? $data->m_transport_id : '';
+		//$AR_data['delivery_time']	= isset($data->delivery_time) ? $data->delivery_time : '';
+		//$AR_data['m_transport_id']	= isset($data->m_transport_id) ? $data->m_transport_id : '';
 		$AR_data['tax_no']			= isset($data->tax_no) ? $data->tax_no : '';
-		$AR_data['payment_tearm']	= isset($data->payment_tearm) ? $data->payment_tearm : '';
+		//$AR_data['payment_tearm']	= isset($data->payment_tearm) ? $data->payment_tearm : '';
 		$AR_data['remark']			= isset($data->remark) ? $data->remark : '';
 		$AR_data['del_flag']		= 0;//0 Active, 1 Inactive
 
@@ -223,20 +235,20 @@ class CustomerController extends Origin001
             if ($id < 0 ){
                 $AR_data['created_date']   = date("Y-m-d H:i:s");
                 $AR_data['created']        = $result->user_id;
-                $this->db->insert('m_item_types', $AR_data);
+                $this->db->insert('m_customers', $AR_data);
             }else{
                 $AR_data['updated_date']    = date("Y-m-d H:i:s");
                 $AR_data['updated']         = $result->user_id;
 
                 $this->db->where('id', $id);
-                $this->db->update('m_item_types',$AR_data);
+                $this->db->update('m_customers',$AR_data);
             }
             $this->db->trans_complete();
 			$message	= [];
 			$message[]	= 'บันทึกสำเร็จ';
             $dataDB['status']   = "success";
             $dataDB['message']  = $message;
-            $dataDB['data']     = $insert_data;
+            $dataDB['data']     = $AR_data;
         }else{
 			$message	= [];
 			$message[]	= 'token not found';
@@ -261,21 +273,21 @@ class CustomerController extends Origin001
 		$error		= [];
 
 		//check empty data
-		if ($AR_data['customer_name'] == ''){
-			$error[]	= 'ชื่อลูกค้าห้ามเป็นค่าว่าง';
+		if ($AR_data['customer_cd'] == ''){
+			$error[]	= 'รหัสลูกค้าห้ามเป็นค่าว่าง';
 		}
 
 		//check unit code same in DB
 		$query_str	= "
             SELECT *
             FROM m_customers
-            WHERE m_company_id = ? AND customer_name = ? AND id <> ?
+            WHERE m_company_id = ? AND customer_cd = ? AND id <> ?
                 AND del_flag = 0
             ";
 
-        $item_data	= $this->db->query($query_str, [$companyId,$AR_data['item_type_name'],$id])->row();
+        $item_data	= $this->db->query($query_str, [$companyId,$AR_data['customer_cd'],$id])->row();
 		if ( !is_null($item_data) ){
-			$error[]	= 'มีชื่อลูกค้า['.$AR_data['item_type_name'].']นี้แล้วในระบบ';
+			$error[]	= 'มีชื่อลูกค้า['.$AR_data['customer_cd'].']นี้แล้วในระบบ';
 		}
 
 		return $error;

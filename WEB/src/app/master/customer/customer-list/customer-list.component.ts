@@ -21,7 +21,7 @@ export class CustomerListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	// set for grid
 	//----------------------------------------------------------------
-	displayedColumns: string[]		= ['item_type_name','update','delete'];
+	displayedColumns: string[]		= ['customer_cd','customer_name','update','delete'];
 	
 	//----------------------------------------------------------------
 	// set datasort for show in list
@@ -32,13 +32,13 @@ export class CustomerListComponent extends OriginalListComponent {
 	// Set Valiable for use in form
 	//----------------------------------------------------------------
 	searchForm:FormGroup;
-	itemTypeName:string;
+	customer_name:string;
 
 	//----------------------------------------------------------------
 	// set local store object
 	//----------------------------------------------------------------
-	localNameList:string	= 'itemTypeList';
-	localNameInput:string	= 'itemTypeInput';
+	localNameList:string	= 'customer_list';
+	localNameInput:string	= 'customer_input';
 
 	private configError: MatSnackBarConfig = {
 		panelClass: ['style-error'],
@@ -58,7 +58,7 @@ export class CustomerListComponent extends OriginalListComponent {
 	// Clear Local Store Data
 	//----------------------------------------------------------------
 	private _clear_data(){
-		localStorage.setItem(this.localNameList + '.itemTypeName','');
+		localStorage.setItem(this.localNameList + '.customer_name','');
 	}
 
 	//----------------------------------------------------------------
@@ -75,7 +75,7 @@ export class CustomerListComponent extends OriginalListComponent {
 		}else {
 			search_data.page_size		= this.paginator.pageSize;
 		}
-		search_data.itemTypeName		= this.itemTypeName;
+		search_data.customer_name		= this.customer_name;
 
 		return this.unitS.getListData(search_data);
 	}
@@ -84,10 +84,10 @@ export class CustomerListComponent extends OriginalListComponent {
 	// set init data from local store
 	//----------------------------------------------------------------
 	protected _set_init(){
-		this.itemTypeName =  localStorage.getItem(this.localNameList + '.itemTypeName');
+		this.customer_name =  localStorage.getItem(this.localNameList + '.customer_name');
 
 		this.searchForm = new FormGroup({
-            'itemTypeName': new FormControl(this.itemTypeName),
+            'customer_name': new FormControl(this.customer_name),
         });
 	}
 
@@ -143,7 +143,7 @@ export class CustomerListComponent extends OriginalListComponent {
 	// event on search click
 	//----------------------------------------------------------------
 	onSearchClick(){
-		localStorage.setItem(this.localNameList + '.itemTypeName',this.searchForm.controls['itemTypeName'].value);
+		localStorage.setItem(this.localNameList + '.customer_name',this.searchForm.controls['customer_name'].value);
 		this.ngOnInit();
 	}
 
@@ -161,7 +161,7 @@ export class CustomerListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	onAdd(){
 		localStorage.setItem(this.localNameInput + '.id','-1');
-		this.router.navigateByUrl('item_type_input');
+		this.router.navigateByUrl(this.localNameInput);
 	}
 
 	//----------------------------------------------------------------
@@ -169,7 +169,7 @@ export class CustomerListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	onEdit(id:number){
 		localStorage.setItem(this.localNameInput + '.id',String(id));
-		this.router.navigateByUrl('item_type_input');
+		this.router.navigateByUrl(this.localNameInput);
 	}
 
 	//----------------------------------------------------------------
@@ -210,7 +210,7 @@ export class CustomerListComponent extends OriginalListComponent {
 
 export interface ListElement {
 	id:number;
-	item_type_name: string;
+	customer_name: string;
 	sorted: string;
 	remark: string;
 }

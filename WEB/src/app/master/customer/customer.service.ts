@@ -59,13 +59,26 @@ export class cSearch{
 	page_index:number;
 	page_size:number;
 
-	itemTypeName:string;
+	customer_name:string;
+	customer_cd:string;
 }
 
 export class cInput{
-	token:string;
-	id:number;
-	itemTypeName:string;
-	sorted:number;
+	token			: string;
+	id				: number;
+	customer_cd		: string;
+	customer_name	: string;
+	customer_add1	: string;
+	customer_add2	: string;
+	customer_add3	: string;
+	customer_zip	: string;
+	customer_tel	: string;
+	customer_fa		: string;
+	customer_email	: string;
+	contract_name	: string;
+	delivery_time	: number;
+	m_transport_id	: number;
+	tax_no			: string;
+	payment_tearm	: number;
 	remark:string;
 }

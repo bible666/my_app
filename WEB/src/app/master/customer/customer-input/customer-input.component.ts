@@ -65,8 +65,21 @@ export class CustomerInputComponent implements OnInit {
 				if (data['status'] == 'success'){
 
 					this.inputForm.patchValue({
-						item_type_name: data['data']['item_type_name'],
-						remark: data['data']['remark']
+						customer_cd		: data['data']['customer_cd'],
+						customer_name	: new FormControl('', [ Validators.required ]),
+						customer_add1	: new FormControl(''),
+						customer_add2	: new FormControl(''),
+						customer_add3	: new FormControl(''),
+						customer_zip	: new FormControl(''),
+						customer_tel	: new FormControl(''),
+						customer_fa		: new FormControl(''),
+						customer_email	: new FormControl(''),
+						contract_name	: new FormControl(''),
+						delivery_time	: new FormControl(''),
+						m_transport_id	: new FormControl(''),
+						tax_no			: new FormControl(''),
+						payment_tearm	: new FormControl(''),
+						remark			: data['data']['remark']
 					});
 					//data['data']['unit_code']['disabled'] = true;
 					if (data['data']['permission'] == 1){

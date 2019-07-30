@@ -22,7 +22,7 @@ export class CustomerService {
 	public getById(){
 		let search_data:cGetById	= new cGetById();
 		search_data.token			= localStorage.getItem('token');
-		search_data.id				= +localStorage.getItem('itemTypeInput.id');
+		search_data.id				= +localStorage.getItem('customer_input.id');
 
 		let strJSON:string = JSON.stringify(search_data);
 		return this.http.post(BASE_URL+'/get_data_by_id',strJSON);

@@ -68,6 +68,8 @@ import { ItemTypeListComponent } from './master/item-type/item-type-list/item-ty
 import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-type-input/item-type-input.component';
 import { CustomerListComponent } from './master/customer/customer-list/customer-list.component';
 import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
+import { MyDropdownComponent } from './common/my-dropdown/my-dropdown.component';
+import { MyDropdownDialogComponent } from './common/my-dropdown-dialog/my-dropdown-dialog.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { CustomerInputComponent } from './master/customer/customer-input/custome
     ItemTypeInputComponent,
     CustomerListComponent,
     CustomerInputComponent,
+    MyDropdownComponent,
+    MyDropdownDialogComponent,
 ],
   imports: [
     BrowserModule,
@@ -138,6 +142,6 @@ import { CustomerInputComponent } from './master/customer/customer-input/custome
   ],
   providers: [AuthGuard,LoadingService,UserService],
   bootstrap: [AppComponent],
-  entryComponents:[MyMessageComponent, ShowDialogComponent]
+  entryComponents:[MyMessageComponent, ShowDialogComponent, MyDropdownDialogComponent]
 })
 export class AppModule { }

@@ -1,0 +1,14 @@
+.textInput{
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.textDisplay{
+	margin-left: 5px;
+}
+
+.myButton{
+	width: 5px!important;
+	min-width: unset!important;
+	text-align: center;
+}

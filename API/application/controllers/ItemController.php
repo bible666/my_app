@@ -46,6 +46,39 @@ class ItemController extends Origin001
             $dataDB['data']     = "";
         }
         $this->response($dataDB,200);
+	}
+	
+	/**
+     * get data by code
+     */
+    public function get_data_by_code_post(){
+        $data	= $this->post();
+		$data			= json_decode($data[0]);
+
+        //init data
+        $token	= isset($data->token) ? $data->token : '';
+        $code	= isset($data->code) ? $data->code : -1;
+
+        $result     = $this->_checkToken($token);
+        if($result->user_id > 0){
+            $query_str = "
+            SELECT *
+            FROM m_item
+            WHERE m_company_id = ? AND item_code = ?
+            ";
+
+            $itemn_data = $this->db->query($query_str, [$result->company_id,$code])->row();
+            
+            $dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $itemn_data;
+
+        }else{
+            $dataDB['status']   = "error";
+            $dataDB['message']  = "token not found";
+            $dataDB['data']     = "";
+        }
+        $this->response($dataDB,200);
     }
 
     /**
@@ -53,6 +86,7 @@ class ItemController extends Origin001
      */
     public function get_data_list_post(){
         $data       = $this->post();
+		$data		= json_decode($data[0]);
 
         //init data
         $token      = isset($data['token']) ? $data['token'] : '';

@@ -1,5 +1,9 @@
-<mat-form-field class="textInput">
-	<input [attr.readonly]="bReadonly" matInput placeholder="ชื่อผู้ติดต่อ" width="200">
+<mat-form-field class="textInput" [ngStyle] = "{'width': width}">
+	<input matInput placeholder="ชื่อผู้ติดต่อ" [(ngModel)]="code" (blur)="onLostFocus()">
+	<button mat-button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
+		<mat-icon>close</mat-icon>
+	</button>
 </mat-form-field>
 <button mat-mini-fab color="warn" (click)="openDialog()" >...</button>
-<input class="textDisplay" readonly/>
+
+<label [ngStyle] = "{'width': label_width}">{{name}}</label>

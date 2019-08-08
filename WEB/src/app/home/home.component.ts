@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
 	registerForm:FormGroup;
 
+	myCode: string = '555';
+
 	constructor(private service:HomeService,private router: Router) { }
 
 	ngOnInit() {
@@ -23,6 +25,10 @@ export class HomeComponent implements OnInit {
 			}
 		});
 
+	}
+
+	onCodeChange(newCode: string){
+		this.myCode = newCode;
 	}
 
 }

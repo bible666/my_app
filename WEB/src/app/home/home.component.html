@@ -2,4 +2,18 @@
   home works!
 </p>
 
-<my-dropdown></my-dropdown>
+<my-dropdown 
+	[width]				=200
+	[label_width]		=400
+	[col_display]		="'item_name'"
+	[col_value]			="'item_code'"
+	[service_check]		="'ItemController/get_data_by_code'"
+	[service_display]	="'ItemController/get_data_by_code'"
+	[code]				=myCode
+	(return_code)		="onCodeChange($event)">
+
+</my-dropdown>
+
+
+<br>
+value from home [{{myCode}}]

@@ -61,7 +61,7 @@ export class MyDropdownComponent implements OnInit {
 
 	openDialog(): void {
 		const dialogRef = this.dialog.open(MyDropdownDialogComponent, {
-			width: '350px',
+			width: '550px',
 			data: {name: this.col_display, code: this.col_value,service_name:this.service_display}
 		});
 	

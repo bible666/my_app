@@ -19,7 +19,9 @@ export interface DialogData {
 })
 export class MyDropdownDialogComponent implements OnInit {
 
-	grdData:	any;
+	grdData:		any;
+	search_code:	string	= '';
+	search_name:	string	= '';
 
 	constructor(
 		public dialogRef: MatDialogRef<MyDropdownComponent>,
@@ -56,11 +58,15 @@ export class MyDropdownDialogComponent implements OnInit {
 	}
 
   	onNoClick(): void {
-		console.log('no click');
 		this.dialogRef.close();
-	  }
-	  
-	onRowSelected(row_data:any){
+	}
+	
+	onSearch() {
+		console.log(this.search_code);
+		console.log(this.search_name);
+	}
+
+	onRowSelected(row_data:any) {
 		this.dialogRef.close(row_data);
 
 	}

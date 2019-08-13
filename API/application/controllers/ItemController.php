@@ -89,15 +89,48 @@ class ItemController extends Origin001
 		$data		= json_decode($data[0]);
 
         //init data
-        $token      = isset($data['token']) ? $data['token'] : '';
+        $token      = isset($data->token) ? $data->token : '';
 
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
             $query_str = "
             SELECT *
-            FROM item
+            FROM m_item
             WHERE m_company_id = ?
-                AND del_flag = 0
+            ";
+
+            $itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+            
+            $dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $itemn_data;
+
+        }else{
+            $dataDB['status']   = "error";
+            $dataDB['message']  = "token not found";
+            $dataDB['data']     = "";
+        }
+        $this->response($dataDB,200);
+	}
+	
+	/**
+     * get list data
+     */
+    public function get_data_combo_post(){
+        $data       = $this->post();
+		$data		= json_decode($data[0]);
+
+        //init data
+		$token      = isset($data->token) ? $data->token : '';
+		$colVal      = isset($data->colVal) ? $data->colVal : '';
+		$colDisplay      = isset($data->colDisplay) ? $data->colDisplay : '';
+
+        $result     = $this->_checkToken($token);
+        if($result->user_id > 0){
+            $query_str = "
+            SELECT ".$colVal." as code, ". $colDisplay . " as display
+            FROM m_item
+            WHERE m_company_id = ?
             ";
 
             $itemn_data = $this->db->query($query_str, [$result->company_id])->result();

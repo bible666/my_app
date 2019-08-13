@@ -29,7 +29,7 @@ export class MyDropdownComponent implements OnInit {
   	constructor(public dialog: MatDialog,private http:HttpClient) { }
 
 	ngOnInit() {
-	
+		this.onLostFocus();
 	}
 
 	onLostFocus(){
@@ -40,7 +40,7 @@ export class MyDropdownComponent implements OnInit {
 		let my_service	= BASE_URL + this.service_check;
 		
 		let strJSON:string = JSON.stringify(search_data);
-		
+
 		this.http.post(my_service,strJSON).subscribe(data =>{
 			let retValue = '';
 			if (data['status'] == 'success'){
@@ -61,14 +61,15 @@ export class MyDropdownComponent implements OnInit {
 
 	openDialog(): void {
 		const dialogRef = this.dialog.open(MyDropdownDialogComponent, {
-		  width: '250px',
-		  //data: {name: this.name, code: this.code}
-		  data: {name: 'myyyyyyyhammmmm', code: this.code}
+			width: '350px',
+			data: {name: this.col_display, code: this.col_value,service_name:this.service_display}
 		});
 	
 		dialogRef.afterClosed().subscribe(result => {
-		  console.log('The dialog was closed');
-		  this.code = result;
+			if (result){
+				this.code	= result.code;
+				this.name	= result.display;
+			}
 		});
 	}
 

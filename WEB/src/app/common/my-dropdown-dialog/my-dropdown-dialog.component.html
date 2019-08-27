@@ -30,9 +30,9 @@
 					</thead>
 	
 					<tbody>
-						<tr *ngFor="let my_data of grdData" (click)="onRowSelected(my_data);">
-							<td nowrap="" class="c">{{my_data.code}}</td>
-							<td nowrap="" class="c">{{my_data.display}}</td>
+						<tr *ngFor="let my_data of grdData" (click)="onRowSelected(my_data);" >
+							<td nowrap="" class="c" [ngClass]="{'row_selected':my_data == returnData}">{{my_data.code}}</td>
+							<td nowrap="" class="c" [ngClass]="{'row_selected':my_data == returnData}">{{my_data.display}}</td>
 	
 						</tr>
 
@@ -43,4 +43,8 @@
 		</div><!--/.Card-->
 	
 	</div><!--/.col-md-12-->
+</div>
+<div mat-dialog-actions>
+	<button mat-button (click)="onNoClick()">ยกเลิก</button>
+	<button mat-button [mat-dialog-close]="returnData" >ยืนยัน</button>
 </div>

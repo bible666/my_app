@@ -5,3 +5,7 @@ mat-form-field {
 .width_code {
 	width: 80px;
 }
+
+.row_selected{
+	background-color: pink;
+}

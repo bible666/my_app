@@ -3,17 +3,18 @@
 </p>
 
 <my-dropdown 
-	[width]				=200
-	[label_width]		=400
-	[col_display]		="'item_name'"
-	[col_value]			="'item_code'"
-	[service_check]		="'ItemController/get_data_by_code'"
-	[service_display]	="'ItemController/get_data_combo'"
-	[code]				=myCode
-	(return_code)		="onCodeChange($event)">
+	[width]				= 200
+	[label_width]		= 400
+	[col_display]		= "'item_name'"
+	[col_value]			= "'item_code'"
+	[table_name]		= "'m_item'"
+	[order_by]			= "'item_code'"
+	[where_condition]	= "''"
+	[code]				= myCode
+	(return_code)		= "onCodeChange($event)">
 
 </my-dropdown>
-
+<!-- ตัวอย่าง where condition "'item_code = \'1\' AND item_name = \'222\' '" -->
 
 <br>
 value from home [{{myCode}}]

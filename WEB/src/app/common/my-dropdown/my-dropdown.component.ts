@@ -17,10 +17,12 @@ export class MyDropdownComponent implements OnInit {
 
 	@Input() width:				number = 200;
 	@Input() label_width:		number = 200;
-	@Input() service_display:	string = ''; // service for call to show data from db
 	@Input() service_check:		string = ''; // service for check code to display name
 	@Input() col_display:		string = ''; // column for display data in label
 	@Input() col_value:			string = ''; // column for display data in code
+	@Input() table_name:		string = ''; // Table for select data
+	@Input() order_by:			string = ''; // Order data
+	@Input() where_condition:	string = ''; // SP where condition
 	@Input() code:				string = '';
 
 	@Output() return_code = new EventEmitter<string>();
@@ -36,8 +38,13 @@ export class MyDropdownComponent implements OnInit {
 		let search_data:cGetByCode	= new cGetByCode();
 		search_data.token			= localStorage.getItem('token');
 		search_data.code			= this.code;
+		search_data.col_display		= this.col_display;
+		search_data.col_value		= this.col_value;
+		search_data.table_name		= this.table_name;
+		search_data.where_condition	= this.where_condition;
+		search_data.order_by		= this.order_by;
 		
-		let my_service	= BASE_URL + this.service_check;
+		let my_service	= BASE_URL + 'DropdownController/get_data_by_code';
 		
 		let strJSON:string = JSON.stringify(search_data);
 
@@ -62,7 +69,13 @@ export class MyDropdownComponent implements OnInit {
 	openDialog(): void {
 		const dialogRef = this.dialog.open(MyDropdownDialogComponent, {
 			width: '550px',
-			data: {name: this.col_display, code: this.col_value,service_name:this.service_display}
+			data: {
+				name: 				this.col_display, 
+				code: 				this.col_value,
+				table:				this.table_name,
+				whereCondition:		this.where_condition,
+				orderBy:			this.order_by
+			}
 		});
 	
 		dialogRef.afterClosed().subscribe(result => {
@@ -77,6 +90,11 @@ export class MyDropdownComponent implements OnInit {
 
 
 export class cGetByCode{
-	token:string;
-	code:string;
+	token:				string;
+	code:				string;
+	col_display:		string; // column for display data in label
+	col_value:			string; // column for display data in code
+	table_name:			string; // Table for select data
+	order_by:			string; // Order data
+	where_condition:	string; // SP where condition
 }

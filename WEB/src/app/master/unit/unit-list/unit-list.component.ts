@@ -11,7 +11,7 @@ import { ShowDialogComponent } from '../../../common/show-dialog/show-dialog.com
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MyMessageComponent } from '../../../common/my-message/my-message.component'
 import {MatPaginator} from '@angular/material/paginator';
-
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-unit-list',
@@ -44,8 +44,9 @@ export class UnitListComponent extends OriginalListComponent {
 	};
 
 	constructor(private unitS: UnitService, private router: Router, 
-		public dialog: MatDialog,private snackBar: MatSnackBar) {
+		public dialog: MatDialog,private snackBar: MatSnackBar,private translate: TranslateService) {
 		super();
+		translate.setDefaultLang('th');
 	 }
 
 	//----------------------------------------------------------------

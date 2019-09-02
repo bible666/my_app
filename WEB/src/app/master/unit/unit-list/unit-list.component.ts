@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { UnitService, cUnitSearch } from '../unit.service';
 import {merge, Observable, of as observableOf} from 'rxjs';
@@ -10,6 +10,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ShowDialogComponent } from '../../../common/show-dialog/show-dialog.component'
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MyMessageComponent } from '../../../common/my-message/my-message.component'
+import {MatPaginator} from '@angular/material/paginator';
 
 
 @Component({
@@ -22,6 +23,8 @@ export class UnitListComponent extends OriginalListComponent {
 	// set for grid
 	//----------------------------------------------------------------
 	displayedColumns: string[]		= ['unit_code','unit_name','update','delete'];
+
+	@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 	
 	//----------------------------------------------------------------
 	// set datasort for show in list

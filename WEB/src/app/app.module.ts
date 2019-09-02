@@ -8,7 +8,11 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+// import ngx-translate
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AuthGuard } from './auth.guard';
 
@@ -138,10 +142,23 @@ import { MyDropdownDialogComponent } from './common/my-dropdown-dialog/my-dropdo
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-    LayoutModule,
+	LayoutModule,
+	// ngx-translate and loader module
+	TranslateModule.forRoot({
+		loader: {
+			provide: TranslateLoader,
+			useFactory: HttpLoaderFactory,
+			deps: [HttpClient]
+		}
+	})
   ],
   providers: [AuthGuard,LoadingService,UserService],
   bootstrap: [AppComponent],
   entryComponents:[MyMessageComponent, ShowDialogComponent, MyDropdownDialogComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}

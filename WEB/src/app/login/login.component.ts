@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../service/user.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,11 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
 
   constructor(private userService:UserService,
-    private router: Router,) { 
-    this.userService.clear_cache();
+	private router: Router,
+	private translate: TranslateService) {
+	
+	this.userService.clear_cache();
+	translate.setDefaultLang('th');
   }
 
   ngOnInit() {

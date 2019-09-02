@@ -42,6 +42,7 @@ export class UnitInputComponent implements OnInit {
 		this.id	= +localStorage.getItem('unit_input.id');
 		
 		if (this.id == -1){
+			this.readonlyText	= '';
 			this.inputForm.patchValue({
 				unit_code: '',
 				unit_name: '',

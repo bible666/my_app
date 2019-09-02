@@ -146,11 +146,12 @@ class UnitController extends Origin001
 				$query_str .= " ORDER BY unit_code asc ";
 			}
 
+			$query_data_str = $query_str;
 			if (isset($data->page_size)){
-				$query_str .= " LIMIT ". $data->page_size."  OFFSET ".($data->page_index * $data->page_size);
+				$query_data_str .= " LIMIT ". $data->page_size."  OFFSET ".($data->page_index * $data->page_size);
 			}
 
-			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+			$itemn_data = $this->db->query($query_data_str, [$result->company_id])->result();
 			
 			//Get All Record Data
 			$count_num	= $this->db->query($query_str, [$result->company_id])->num_rows();

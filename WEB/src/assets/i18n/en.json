@@ -1,0 +1,10 @@
+{
+	"login_form" : {
+		"Login"	: "Login",
+		"Password" : "รหัสผ่าน"
+	},
+
+	"item_unit" : {
+		"list_title" : "หน่วยวัตถุดิบ"
+	}
+}

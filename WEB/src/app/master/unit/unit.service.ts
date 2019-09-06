@@ -20,10 +20,10 @@ export class UnitService {
 		return this.http.post(BASE_URL+'/get_data_list',strJSON);
 	}
 
-	public getById(){
+	public getById(id:number){
 		let search_data:cUnitGetById	= new cUnitGetById();
 		search_data.token				= localStorage.getItem('token');
-		search_data.id					= +localStorage.getItem('unit_input.id');
+		search_data.id					= id;
 
 		let strJSON:string = JSON.stringify(search_data);
 		return this.http.post(BASE_URL+'/get_data_by_id',strJSON);
@@ -67,4 +67,8 @@ export class cUnitInput{
 	unitCode:string;
 	unitName:string;
 	remark:string;
+
+	public constructor(init?: Partial<cUnitInput>){
+		Object.assign(this,init);
+	}
 }

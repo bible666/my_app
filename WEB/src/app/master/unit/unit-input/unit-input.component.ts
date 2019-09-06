@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
-import { UnitService, cUnitSearch, cUnitInput } from '../unit.service';
+import { UnitService, cUnitInput } from '../unit.service';
 import { MyMessageComponent } from '../../../common/my-message/my-message.component'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-unit-input',
@@ -18,90 +19,100 @@ export class UnitInputComponent implements OnInit {
 	// Set Form for input
 	//----------------------------------------------------------------
 	id:number;
-	bReadonly:boolean = false;
-	readonlyText:string = "(อ่านอย่างเดียว)";
-	
+	bReadonly:boolean	= false;
+	readonlyText:string	= "(อ่านอย่างเดียว)";
+	texts:any;
+	back_url:string		= 'unit_list';
+
+	//set form Controller
 	inputForm = new FormGroup({
 		'unit_code': new FormControl('', [ Validators.required ]),
 		'unit_name': new FormControl(''),
 		'remark':new FormControl('')
 	});
 
-	private configError: MatSnackBarConfig = {
-		panelClass: ['style-error'],
-		duration: 2000,
-	  };
-
-
-
 	constructor(private router: Router, 
 		private snackBar: MatSnackBar, 
-		private unitS: UnitService) { }
+		private unitS: UnitService,
+		private param: ActivatedRoute,
+		private translate: TranslateService) {
+			//constructor code
+			this.translate.setDefaultLang('th');
+		}
 
 	ngOnInit() {
-		this.id	= +localStorage.getItem('unit_input.id');
-		
-		if (this.id == -1){
-			this.readonlyText	= '';
-			this.inputForm.patchValue({
-				unit_code: '',
-				unit_name: '',
-				remark: ''
-			});
-		} else {
-			this.unitS.getById().subscribe(data =>{
-				if (data['status'] == 'success'){
 
-					this.inputForm.patchValue({
-						unit_code: data['data']['unit_code'],
-						unit_name: data['data']['unit_name'],
-						remark: data['data']['remark']
-					});
-					//data['data']['unit_code']['disabled'] = true;
-					if (data['data']['permission'] == 1){
-						this.bReadonly		= true;
-					}else {
-						this.readonlyText	= '';
+		//Load Text
+		this.translate.get(['common.data_not_found'])
+		.subscribe(texts => {
+			this.texts = texts;
+
+			//get id
+			this.id	= this.param.snapshot.params.id;
+
+			if (this.id == -1){
+				this.readonlyText	= '';
+				this.inputForm.patchValue({
+					unit_code: '',
+					unit_name: '',
+					remark: ''
+				});
+			} else {
+				this.unitS.getById(this.id).subscribe(data =>{
+					if (data['status'] == 'success'){
+						//have id in database
+						this.inputForm.patchValue({
+							unit_code: data['data']['unit_code'],
+							unit_name: data['data']['unit_name'],
+							remark: data['data']['remark']
+						});
+
+						if (data['data']['permission'] == 1){
+							this.bReadonly		= true;
+						}else {
+							this.readonlyText	= '';
+						}
+					} else {
+						//not have data
+	
+						this.snackBar.openFromComponent(MyMessageComponent,{
+							data:[this.texts['common.data_not_found']],
+							duration:5000,
+							panelClass:['mat-snack-bar-container-message']
+						});
+
+						this.router.navigateByUrl(this.back_url);
 					}
-					
-					//this.permission	= data['data']['permission'];
-				}
-			});
-		}
-		
-		
+				});
+			}
+			
+		});
+
 	}
 
 	onBackClick(){
-		this.router.navigateByUrl('unit_list');
+		this.router.navigateByUrl(this.back_url);
 	}
 
 	onSave(){
-		let unitI: cUnitInput = new cUnitInput();
+		let unitI: cUnitInput = new cUnitInput(this.inputForm.value);
 		unitI.id		= this.id;
-		unitI.unitCode	= this.inputForm.controls['unit_code'].value;
-		unitI.unitName	= this.inputForm.controls['unit_name'].value;
-		unitI.remark	= this.inputForm.controls['remark'].value;
 		
 		this.unitS.updateById(unitI)
 		.subscribe(data=>{
 			if (data['status']== 'success'){
-				//this.snackBar.open("บันทึกสำเร็จ", "",  {
-				//	duration: 2000,
-				//	panelClass: ['mat-snack-bar-container-message']
-				//});
 				this.snackBar.openFromComponent(MyMessageComponent,{
 					data:data['message'],
 					duration:5000,
 					panelClass:['mat-snack-bar-container-message']
 				})
+				this.router.navigateByUrl(this.back_url);
 			} else {
 				this.snackBar.openFromComponent(MyMessageComponent,{
 					data:data['message'],
 					duration:2000,
 					panelClass:['mat-snack-bar-container-warning']
 				})
-				
 			}
 			
 		},

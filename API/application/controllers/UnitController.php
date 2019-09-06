@@ -41,25 +41,18 @@ class UnitController extends Origin001
             $item_data	= $this->db->query($query_str, [$permission,$result->company_id,$id])->row();
 			
 			if ( is_null($item_data) ){
-				//insert
-				$item_data	= [
-					'm_company_id'	=> $result->company_id,
-					'unit_code'		=> $data->unitCode,
-					'unit_name'		=> $data->unitName,
-					'remark'		=> '',
-					'del_flag'		=> 0,
-					'permission'	=> $permission,
-					'created_date'	=> date('Y-m-d h:i:s'),
-					'created'		=> $result->user_id
-				];
-				$this->db->insert('m_units', $item_data);
+				//not have unit data
+				//return error
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "data not found";
+				$dataDB['data']     = '';
 			} else {
-				//update
-				//$item_data['permission']	= $permission;
+				//have unit data
+				$dataDB['status']   = "success";
+				$dataDB['message']  = "";
+				$dataDB['data']     = $item_data;
 			}
-            $dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $item_data;
+            
 
         }else{
             $dataDB['status']   = "error";

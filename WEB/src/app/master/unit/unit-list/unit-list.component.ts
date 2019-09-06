@@ -1,22 +1,22 @@
 import { Component, ViewChild} from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { UnitService, cUnitSearch } from '../unit.service';
-import {merge, Observable, of as observableOf} from 'rxjs';
-import {catchError, map, startWith, switchMap} from 'rxjs/operators';
-import {FormControl, FormGroup} from '@angular/forms';
+import { merge, Observable, of as observableOf} from 'rxjs';
+import { catchError, map, startWith, switchMap} from 'rxjs/operators';
+import { FormControl, FormGroup } from '@angular/forms';
 import { OriginalListComponent } from 'src/app/original/original-list/original-list.component';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ShowDialogComponent } from '../../../common/show-dialog/show-dialog.component'
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { MyMessageComponent } from '../../../common/my-message/my-message.component'
-import {MatPaginator} from '@angular/material/paginator';
-import {TranslateService} from '@ngx-translate/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-unit-list',
-  templateUrl: './unit-list.component.html',
-  styleUrls: ['./unit-list.component.css']
+	selector: 'app-unit-list',
+	templateUrl: './unit-list.component.html',
+	styleUrls: ['./unit-list.component.css']
 })
 export class UnitListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
@@ -45,8 +45,10 @@ export class UnitListComponent extends OriginalListComponent {
 
 	constructor(private unitS: UnitService, private router: Router, 
 		public dialog: MatDialog,private snackBar: MatSnackBar,private translate: TranslateService) {
+		
+		//Constructior code
 		super();
-		translate.setDefaultLang('th');
+		this.translate.setDefaultLang('th');
 	 }
 
 	//----------------------------------------------------------------
@@ -140,35 +142,23 @@ export class UnitListComponent extends OriginalListComponent {
 		this.ngOnInit();
 	}
 
-	onAdd(){
-		localStorage.setItem('unit_input.id','-1');
-		this.router.navigateByUrl('unit_input');
-	}
-
-	onEdit(id:number){
-		localStorage.setItem('unit_input.id',String(id));
-		this.router.navigateByUrl('unit_input');
-	}
-
 	onDelete(id:number){
 		const dialogRef = this.dialog.open(ShowDialogComponent,{
 			width: '350px',
 			height: '200px',
-			data: {description:'คุณต้องการลบรายการนี้จริิงหรือเปล่า',id:id}
+			data: {description:this.translate.instant('common.delete_question'),id:id}
 		})
 		
 		dialogRef.afterClosed().subscribe(result=>{
 			if (!result){
 				//cancel delete data
-				//alert('hiii');
+
 			} else {
-				//console.log(result);
-				//start delete data
 				localStorage.setItem('unit_input.delete_id',result);
 				this.unitS.deleteById().subscribe(data =>{
 					if (data['status'] == 'success'){
 						this.snackBar.openFromComponent(MyMessageComponent,{
-							data:['ทำการลบรายการแล้ว'],
+							data:[this.translate.instant('common.delete_complete')],
 							duration:5000,
 							panelClass:['mat-snack-bar-container-message']
 						})

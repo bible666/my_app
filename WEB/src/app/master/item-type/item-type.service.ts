@@ -18,10 +18,10 @@ export class ItemTypeService {
 		return this.http.post(BASE_URL+'/get_data_list',strJSON);
 	}
 
-	public getById(){
+	public getById(id){
 		let search_data:cGetById	= new cGetById();
 		search_data.token			= localStorage.getItem('token');
-		search_data.id				= +localStorage.getItem('itemTypeInput.id');
+		search_data.id				= id;
 
 		let strJSON:string = JSON.stringify(search_data);
 		return this.http.post(BASE_URL+'/get_data_by_id',strJSON);
@@ -58,13 +58,16 @@ export class cSearch{
 	page_index:number;
 	page_size:number;
 
-	itemTypeName:string;
+	item_type_name:string;
 }
 
 export class cInput{
 	token:string;
 	id:number;
-	itemTypeName:string;
-	sorted:number;
+	item_type_name:string;
 	remark:string;
+
+	public constructor(init?: Partial<cInput>){
+		Object.assign(this,init);
+	}
 }

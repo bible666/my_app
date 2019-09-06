@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'unit_list', component: UnitListComponent,canActivate:[AuthGuard]},
   { path: 'unit_input/:id', component: UnitInputComponent,canActivate:[AuthGuard]},
   { path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
-  { path: 'item_type_input', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
+  { path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
   { path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
   { path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]}
   

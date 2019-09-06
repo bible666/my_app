@@ -39,23 +39,16 @@ class ItemTypeController extends Origin001
 			
 			if ( is_null($item_data) ){
 				//insert
-				$item_data	= [
-					'm_company_id'	=> $result->company_id,
-					'id'			=> $data->id,
-					'item_type_name'=> $data->item_type_name,
-					'sorted'		=> $data->sorted,
-					'remark'		=> $data->remark,
-					'del_flag'		=> 0,
-					'created_date'	=> date('Y-m-d h:i:s'),
-					'created'		=> $result->user_id
-				];
-				$this->db->insert('m_item_types', $item_data);
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "data_not_found";
+				$dataDB['data']     = '';
 			} else {
 				//update
+				$dataDB['status']   = "success";
+				$dataDB['message']  = "";
+				$dataDB['data']     = $item_data;
 			}
-            $dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $item_data;
+            
 
         }else{
             $dataDB['status']   = "error";
@@ -184,7 +177,7 @@ class ItemTypeController extends Origin001
         //init data
         $token          = isset($data->token) ? $data->token : '';
 		$id             = isset($data->id) ? $data->id : '';
-		$item_type_name	= isset($data->itemTypeName) ? $data->itemTypeName : '';
+		$item_type_name	= isset($data->item_type_name) ? $data->item_type_name : '';
         $remark         = isset($data->remark) ? $data->remark : '';
 
         //get data from token

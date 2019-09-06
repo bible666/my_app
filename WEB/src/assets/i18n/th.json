@@ -10,6 +10,12 @@
 		"unit_name"		: "ชื่อข้อมูลวัตถุดิบ"
 	},
 
+	"item_type" : {
+		"list_title"		: "ประเภทวัตถุดิบ",
+		"item_type_name"	: "ชื่อ",
+		"remark"			: "หมายเหตุ"
+	},
+
 	"common" : {
 		"add"				: "เพิ่ม",
 		"search"			: "ค้นหา",
@@ -19,6 +25,7 @@
 		"loading"			: "กำลังทำการดึงข้อมูล ...",
 		"delete_question"	: "คุณต้องการลบรายการนี้จริิงหรือเปล่า",
 		"delete_complete"	: "ทำการลบรายการแล้ว",
-		"data_not_found"	: "ไม่พบข้อมูล"
+		"data_not_found"	: "ไม่พบข้อมูล",
+		"please_input_data"	: "กรุณากรอกข้อมูล"
 	}
 }

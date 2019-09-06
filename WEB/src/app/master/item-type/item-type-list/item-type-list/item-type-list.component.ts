@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { ItemTypeService, cSearch } from '../../item-type.service';
 import {merge, Observable, of as observableOf} from 'rxjs';
@@ -9,12 +9,14 @@ import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { ShowDialogComponent } from '../../../../common/show-dialog/show-dialog.component'
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
-import { MyMessageComponent } from '../../../../common/my-message/my-message.component'
+import { MyMessageComponent } from '../../../../common/my-message/my-message.component';
+import { TranslateService } from '@ngx-translate/core';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-item-type-list',
-  templateUrl: './item-type-list.component.html',
-  styleUrls: ['./item-type-list.component.css']
+	selector: 'app-item-type-list',
+	templateUrl: './item-type-list.component.html',
+	styleUrls: ['./item-type-list.component.css']
 })
 export class ItemTypeListComponent extends OriginalListComponent {
 
@@ -23,6 +25,8 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	displayedColumns: string[]		= ['item_type_name','update','delete'];
 	
+	@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+
 	//----------------------------------------------------------------
 	// set datasort for show in list
 	//----------------------------------------------------------------
@@ -40,25 +44,27 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	localNameList:string	= 'itemTypeList';
 	localNameInput:string	= 'itemTypeInput';
 
-	private configError: MatSnackBarConfig = {
-		panelClass: ['style-error'],
-		duration: 2000,
-	};
-
+	//----------------------------------------------------------------
+	// set local valiable
+	//----------------------------------------------------------------
+	texts:any;
 
 	//-----------------------------------------------------------------
 	// constructor class
 	//-----------------------------------------------------------------
 	constructor(private unitS: ItemTypeService, private router: Router, 
-		public dialog: MatDialog,private snackBar: MatSnackBar) {
+		public dialog: MatDialog, private snackBar: MatSnackBar, private translate: TranslateService ) {
+		
+		//Constructior code
 		super();
-	 }
+		this.translate.setDefaultLang('th');
+	}
 
 	//----------------------------------------------------------------
 	// Clear Local Store Data
 	//----------------------------------------------------------------
 	private _clear_data(){
-		localStorage.setItem(this.localNameList + '.itemTypeName','');
+		localStorage.setItem(this.localNameList + '.item_type_name','');
 	}
 
 	//----------------------------------------------------------------
@@ -70,12 +76,14 @@ export class ItemTypeListComponent extends OriginalListComponent {
 		search_data.sort_column		= this.sort.active;
 		search_data.sort_direction	= this.sort.direction;
 		search_data.page_index		= this.paginator.pageIndex;
+
 		if (this.paginator.pageSize == null){
 			search_data.page_size		= this.AR_pages[0];
 		}else {
 			search_data.page_size		= this.paginator.pageSize;
 		}
-		search_data.itemTypeName		= this.itemTypeName;
+
+		search_data.item_type_name		= this.itemTypeName;
 
 		return this.unitS.getListData(search_data);
 	}
@@ -84,10 +92,10 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// set init data from local store
 	//----------------------------------------------------------------
 	protected _set_init(){
-		this.itemTypeName =  localStorage.getItem(this.localNameList + '.itemTypeName');
-
+		this.itemTypeName =  localStorage.getItem(this.localNameList + '.item_type_name');
+		console.log(this.itemTypeName);
 		this.searchForm = new FormGroup({
-            'itemTypeName': new FormControl(this.itemTypeName),
+            'item_type_name': new FormControl(this.itemTypeName),
         });
 	}
 
@@ -95,55 +103,62 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	// event on Init
 	//----------------------------------------------------------------
 	ngOnInit() {
+		//Load Text
+		this.translate.get([
+			'common.delete_question',
+			'common.delete_complete'
+		])
+		.subscribe(texts => {
+			this.texts = texts;
+			this._set_init();
+			
+			// If the user changes the sort order, reset back to the first page.
+			this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 
-		this._set_init();
-		
-		// If the user changes the sort order, reset back to the first page.
-		this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+			merge(this.sort.sortChange,this.paginator.page)
+				.pipe(
+					startWith({}),
+					switchMap(()=>{
+						this.isLoadingResults = true;
+						return this._set_search_data();
+					}),
+					map(data =>{
+						this.isLoadingResults	= false;
+						this.isRateLimitReached	= false;
 
-		merge(this.sort.sortChange,this.paginator.page)
-			.pipe(
-				startWith({}),
-				switchMap(()=>{
-					this.isLoadingResults = true;
-					return this._set_search_data();
-				}),
-				map(data =>{
-					this.isLoadingResults	= false;
-					this.isRateLimitReached	= false;
-
-					if (data['status'] == 'error'){
-						this.snackBar.openFromComponent(MyMessageComponent,{
-							data: [data['message']],
-							duration:2000,
-							panelClass:['mat-snack-bar-container-message']
-						})
+						if (data['status'] == 'error'){
+							this.snackBar.openFromComponent(MyMessageComponent,{
+								data: [data['message']],
+								duration:2000,
+								panelClass:['mat-snack-bar-container-message']
+							})
+							
+						}
 						
-					}
-					
-					this.resultsLength		= data['data_count'];
-					return data['data'];
-				}),
-				catchError(error => {
-					this.isLoadingResults = false;
-					console.log(error);
-					// Catch if the GitHub API has reached its rate limit. Return empty data.
-					this.isRateLimitReached = true;
-					return observableOf([]);
-				})
-			)
-			.subscribe(data=>{
-				this.dataSource = new MatTableDataSource(data);
-			}
-		);
-
+						this.resultsLength		= data['data_count'];
+						return data['data'];
+					}),
+					catchError(error => {
+						this.isLoadingResults = false;
+						console.log(error);
+						// Catch if the GitHub API has reached its rate limit. Return empty data.
+						this.isRateLimitReached = true;
+						return observableOf([]);
+					})
+				)
+				.subscribe(data=>{
+					this.dataSource = new MatTableDataSource(data);
+				}
+			);
+		});
 	}
 
 	//----------------------------------------------------------------
 	// event on search click
 	//----------------------------------------------------------------
 	onSearchClick(){
-		localStorage.setItem(this.localNameList + '.itemTypeName',this.searchForm.controls['itemTypeName'].value);
+		console.log(this.searchForm.controls['item_type_name'].value);
+		localStorage.setItem(this.localNameList + '.item_type_name',this.searchForm.controls['item_type_name'].value);
 		this.ngOnInit();
 	}
 
@@ -157,29 +172,13 @@ export class ItemTypeListComponent extends OriginalListComponent {
 	}
 
 	//----------------------------------------------------------------
-	// event on add click
-	//----------------------------------------------------------------
-	onAdd(){
-		localStorage.setItem(this.localNameInput + '.id','-1');
-		this.router.navigateByUrl('item_type_input');
-	}
-
-	//----------------------------------------------------------------
-	// event on edit
-	//----------------------------------------------------------------
-	onEdit(id:number){
-		localStorage.setItem(this.localNameInput + '.id',String(id));
-		this.router.navigateByUrl('item_type_input');
-	}
-
-	//----------------------------------------------------------------
 	// event on delete
 	//----------------------------------------------------------------
 	onDelete(id:number){
 		const dialogRef = this.dialog.open(ShowDialogComponent,{
 			width: '350px',
 			height: '200px',
-			data: {description:'คุณต้องการลบรายการนี้จริิงหรือเปล่า',id:id}
+			data: {description: this.texts['common.delete_question'],id:id}
 		})
 		
 		dialogRef.afterClosed().subscribe(result=>{
@@ -193,7 +192,7 @@ export class ItemTypeListComponent extends OriginalListComponent {
 				this.unitS.deleteById().subscribe(data =>{
 					if (data['status'] == 'success'){
 						this.snackBar.openFromComponent(MyMessageComponent,{
-							data:['ทำการลบรายการแล้ว'],
+							data:[this.texts['common.delete_complete']],
 							duration:5000,
 							panelClass:['mat-snack-bar-container-message']
 						})

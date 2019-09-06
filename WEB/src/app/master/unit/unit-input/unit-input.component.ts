@@ -8,10 +8,10 @@ import { MyMessageComponent } from '../../../common/my-message/my-message.compon
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-unit-input',
-  templateUrl: './unit-input.component.html',
-  styleUrls: ['./unit-input.component.css'],
-  encapsulation: ViewEncapsulation.None
+	selector: 'app-unit-input',
+	templateUrl: './unit-input.component.html',
+	styleUrls: ['./unit-input.component.css'],
+	encapsulation: ViewEncapsulation.None
 })
 export class UnitInputComponent implements OnInit {
 
@@ -97,7 +97,7 @@ export class UnitInputComponent implements OnInit {
 	onSave(){
 		let unitI: cUnitInput = new cUnitInput(this.inputForm.value);
 		unitI.id		= this.id;
-		
+
 		this.unitS.updateById(unitI)
 		.subscribe(data=>{
 			if (data['status']== 'success'){
@@ -105,14 +105,14 @@ export class UnitInputComponent implements OnInit {
 					data:data['message'],
 					duration:5000,
 					panelClass:['mat-snack-bar-container-message']
-				})
+				});
 				this.router.navigateByUrl(this.back_url);
 			} else {
 				this.snackBar.openFromComponent(MyMessageComponent,{
 					data:data['message'],
 					duration:2000,
 					panelClass:['mat-snack-bar-container-warning']
-				})
+				});
 			}
 			
 		},

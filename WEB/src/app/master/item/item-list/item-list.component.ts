@@ -23,7 +23,7 @@ export class ItemListComponent extends OriginalListComponent {
 	//----------------------------------------------------------------
 	// set for grid
 	//----------------------------------------------------------------
-	displayedColumns: string[]		= ['item_type_name','update','delete'];
+	displayedColumns: string[]		= ['item_name','update','delete'];
 	
 	@ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -39,13 +39,13 @@ export class ItemListComponent extends OriginalListComponent {
 		'item_name': new FormControl('')
 	});
 
-	itemTypeName:string;
+	item_name:string;
 
 	//----------------------------------------------------------------
 	// set local store object
 	//----------------------------------------------------------------
-	localNameList:string	= 'itemTypeList';
-	localNameInput:string	= 'itemTypeInput';
+	localNameList:string	= 'itemList';
+	localNameInput:string	= 'itemInput';
 
 	//----------------------------------------------------------------
 	// set local valiable
@@ -67,7 +67,11 @@ export class ItemListComponent extends OriginalListComponent {
 	// Clear Local Store Data
 	//----------------------------------------------------------------
 	private _clear_data(){
-		localStorage.setItem(this.localNameList + '.item_type_name','');
+		localStorage.setItem(this.localNameList + '.item_name','');
+
+		this.searchForm.patchValue({
+			item_name: ''
+		});
 	}
 
 	//----------------------------------------------------------------
@@ -86,7 +90,7 @@ export class ItemListComponent extends OriginalListComponent {
 			search_data.page_size		= this.paginator.pageSize;
 		}
 
-		search_data.name		= this.itemTypeName;
+		search_data.name		= this.item_name;
 
 		return this.unitS.getListData(search_data);
 	}
@@ -95,7 +99,7 @@ export class ItemListComponent extends OriginalListComponent {
 	// set init data from local store
 	//----------------------------------------------------------------
 	protected _set_init(){
-		this.itemTypeName =  localStorage.getItem(this.localNameList + '.item_type_name');
+		this.item_name =  localStorage.getItem(this.localNameList + '.item_name');
 
 	}
 

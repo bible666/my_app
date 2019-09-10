@@ -65,7 +65,7 @@ class ItemController extends Origin001
             $query_str = "
             SELECT *
             FROM m_item
-            WHERE m_company_id = ?
+            WHERE m_company_id = ? and item_name like '%".$data->name."%'
             ";
 
             $itemn_data = $this->db->query($query_str, [$result->company_id])->result();

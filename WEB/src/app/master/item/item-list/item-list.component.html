@@ -34,7 +34,7 @@
 	</mat-card>
 	<br/>
 	<div class="example-button-row">
-		<a [routerLink]="['/item_type_input',-1]" class="btn btn-success">
+		<a [routerLink]="['/item_input',-1]" class="btn btn-success">
 			<mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>{{'common.add' | translate}}
 		</a>
 	</div>
@@ -50,10 +50,10 @@
 		</div>
 	
 		<table mat-table [dataSource]="dataSource" 
-			matSort matSortActive="item_type_name" matSortDisableClear matSortDirection="asc">
+			matSort matSortActive="item_name" matSortDisableClear matSortDirection="asc">
 	  
 			<!-- Position Column -->
-			<ng-container matColumnDef="item_type_name" >
+			<ng-container matColumnDef="item_name" >
 				<th mat-header-cell *matHeaderCellDef mat-sort-header> {{'item.item_name' | translate}} </th>
 				<td mat-cell *matCellDef="let element"> {{element.item_name}} </td>
 			</ng-container>
@@ -63,7 +63,7 @@
 			<ng-container matColumnDef="update" >
 				<th mat-header-cell *matHeaderCellDef  > </th>
 				<td mat-cell *matCellDef="let element">
-					<a [routerLink]="['/item_type_input',element.id]" class="btn btn-info">
+					<a [routerLink]="['/item_input',element.id]" class="btn btn-info">
 						<mat-icon aria-label="Example icon-button with a heart icon">build</mat-icon>{{'common.edit' | translate}}
 					</a>
 				</td>

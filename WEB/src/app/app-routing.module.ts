@@ -18,27 +18,25 @@ import { CustomerInputComponent } from './master/customer/customer-input/custome
 
 
 const routes: Routes = [
-  { path: '' , component: HomeComponent ,canActivate:[AuthGuard]},
-  { path: 'about' , component: AboutComponent },
-  { path: 'contact' , component: ContactComponent },
-  { path: 'table', component: ShowTableComponent},
-  { path: 'company', component: CompanyComponent,canActivate:[AuthGuard]},
-  { path: 'login', component: LoginComponent},
-  { path: 'item_list', component: ItemListComponent, canActivate:[AuthGuard]},
-  { path: 'item_input', component: ItemEntryComponent,canActivate:[AuthGuard]},
-  { path: 'unit_list', component: UnitListComponent,canActivate:[AuthGuard]},
-  { path: 'unit_input/:id', component: UnitInputComponent,canActivate:[AuthGuard]},
-  { path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
-  { path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
-  { path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
-  { path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]}
-  
-
+	{ path: '' , component: HomeComponent ,canActivate:[AuthGuard]},
+	{ path: 'about' , component: AboutComponent },
+	{ path: 'contact' , component: ContactComponent },
+	{ path: 'table', component: ShowTableComponent},
+	{ path: 'company', component: CompanyComponent,canActivate:[AuthGuard]},
+	{ path: 'login', component: LoginComponent},
+	{ path: 'item_list', component: ItemListComponent, canActivate:[AuthGuard]},
+	{ path: 'item_input/:id', component: ItemEntryComponent,canActivate:[AuthGuard]},
+	{ path: 'unit_list', component: UnitListComponent,canActivate:[AuthGuard]},
+	{ path: 'unit_input/:id', component: UnitInputComponent,canActivate:[AuthGuard]},
+	{ path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
+	{ path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
+	{ path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
+	{ path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule { }

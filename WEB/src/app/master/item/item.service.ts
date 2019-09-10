@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { SortDirection } from '@angular/material';
 
-const BASE_URL	= environment.api_url+'/UnitController';
+const BASE_URL	= environment.api_url+'/itemController';
 
 @Injectable({
   providedIn: 'root'
@@ -58,8 +58,9 @@ export class cSearch{
 	sort_direction:SortDirection;
 	page_index:number;
 	page_size:number;
-	unit_code:string;
-	unit_name:string;
+	
+	code:string;
+	name:string;
 }
 
 export class cInput{

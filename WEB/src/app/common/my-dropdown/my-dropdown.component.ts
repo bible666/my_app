@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { MyDropdownDialogComponent } from '../my-dropdown-dialog/my-dropdown-dialog.component';
 import { environment } from '../../../environments/environment';
@@ -17,13 +17,13 @@ export class MyDropdownComponent implements OnInit {
 
 	@Input() width:				number = 200;
 	@Input() label_width:		number = 200;
-	@Input() service_check:		string = ''; // service for check code to display name
 	@Input() col_display:		string = ''; // column for display data in label
 	@Input() col_value:			string = ''; // column for display data in code
 	@Input() table_name:		string = ''; // Table for select data
 	@Input() order_by:			string = ''; // Order data
 	@Input() where_condition:	string = ''; // SP where condition
 	@Input() code:				string = '';
+	@Input() show_text:			string = '';
 
 	@Output() return_code = new EventEmitter<string>();
 
@@ -31,6 +31,10 @@ export class MyDropdownComponent implements OnInit {
   	constructor(public dialog: MatDialog,private http:HttpClient) { }
 
 	ngOnInit() {
+		this.onLostFocus();
+	}
+
+	ngOnChanges(changes: SimpleChange) {
 		this.onLostFocus();
 	}
 
@@ -47,7 +51,6 @@ export class MyDropdownComponent implements OnInit {
 		let my_service	= BASE_URL + 'DropdownController/get_data_by_code';
 		
 		let strJSON:string = JSON.stringify(search_data);
-
 		this.http.post(my_service,strJSON).subscribe(data =>{
 			let retValue = '';
 			if (data['status'] == 'success'){
@@ -82,6 +85,7 @@ export class MyDropdownComponent implements OnInit {
 			if (result){
 				this.code	= result.code;
 				this.name	= result.display;
+				this.return_code.emit(result.code);
 			}
 		});
 	}

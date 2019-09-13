@@ -33,13 +33,13 @@ export class ItemEntryComponent implements OnInit {
 	readonlyText:string = "(อ่านอย่างเดียว)";
 
 	inputForm = new FormGroup({
-		'item_code' : new FormControl('', [ Validators.required ]),
-		'item_name':new FormControl(''),
-		'm_unit_id':new FormControl(''),
-		'm_item_type_id':new FormControl(''),
-		'lot_flag':new FormControl(''),
-		'mrp_flag':new FormControl(''),
-		'remark':new FormControl('')
+		'item_code'			: new FormControl('', [ Validators.required ]),
+		'item_name'			: new FormControl(''),
+		'm_unit_id'			: new FormControl(''),
+		'm_item_type_id'	: new FormControl(''),
+		'lot_flag'			: new FormControl(''),
+		'mrp_flag'			: new FormControl(''),
+		'remark'			: new FormControl('')
 	});
 
 	constructor(private router: Router, 
@@ -59,9 +59,11 @@ export class ItemEntryComponent implements OnInit {
 			this.id	= this.param.snapshot.params.id;
 			console.log(this.id);
 			if (this.id == -1){
+				console.log("this is setting");
 				this.inputForm.patchValue({
 					item_type_name: '',
-					remark: ''
+					remark: '',
+					m_unit_id: '0101'
 				});
 			} else {
 				this.Service.getById(this.id).subscribe(data =>{
@@ -101,37 +103,57 @@ export class ItemEntryComponent implements OnInit {
 		if (!this.inputForm.valid){
 			return;
 		}
-		let unitI: cInput = new cInput(this.inputForm.value);
-		unitI.id			= this.id;
 
-		this.Service.updateById(unitI)
-		.subscribe(data=>{
-			if (data['status']== 'success'){
+		let input_data	: cInput = new cInput(this.inputForm.value);
 
-				this.snackBar.openFromComponent(MyMessageComponent,{
-					data:data['message'],
-					duration:5000,
-					panelClass:['mat-snack-bar-container-message']
-				});
-				this.router.navigateByUrl(this.back_url);
-			} else {
-				this.snackBar.openFromComponent(MyMessageComponent,{
-					data:data['message'],
-					duration:2000,
-					panelClass:['mat-snack-bar-container-warning']
-				});
+		console.log(input_data);
+		// let unitI: cInput = new cInput(this.inputForm.value);
+		// unitI.id			= this.id;
+
+		// this.Service.updateById(unitI)
+		// .subscribe(data=>{
+		// 	if (data['status']== 'success'){
+
+		// 		this.snackBar.openFromComponent(MyMessageComponent,{
+		// 			data:data['message'],
+		// 			duration:5000,
+		// 			panelClass:['mat-snack-bar-container-message']
+		// 		});
+		// 		this.router.navigateByUrl(this.back_url);
+		// 	} else {
+		// 		this.snackBar.openFromComponent(MyMessageComponent,{
+		// 			data:data['message'],
+		// 			duration:2000,
+		// 			panelClass:['mat-snack-bar-container-warning']
+		// 		});
 				
-			}
+		// 	}
 			
-		},
-		error=>{
-			console.log(error);
-			this.snackBar.open(error, "close",  {
-				duration: 2000,
-				panelClass: ['mat-snack-bar-container-error']
-			});
-		});
+		// },
+		// error=>{
+		// 	console.log(error);
+		// 	this.snackBar.open(error, "close",  {
+		// 		duration: 2000,
+		// 		panelClass: ['mat-snack-bar-container-error']
+		// 	});
+		// });
 
+	}
+
+	onUnitChange(newCode: string){
+		console.log(newCode);
+		this.inputForm.patchValue({
+			m_unit_id: newCode
+		});
+		console.log(this.inputForm.value);
+	}
+
+	onItemTypeChange(newCode: string){
+		console.log(newCode);
+		this.inputForm.patchValue({
+			m_item_type_id: newCode
+		});
+		console.log(this.inputForm.value);
 	}
 
 }

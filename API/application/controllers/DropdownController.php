@@ -52,7 +52,7 @@ class DropdownController extends Origin001
 				$query_str .= " ORDER BY " . $orderBy;
 			}
 
-
+			$query_str .= " LIMIT 5";
 
             $itemn_data = $this->db->query($query_str, [$result->company_id])->result();
             

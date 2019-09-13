@@ -20,7 +20,7 @@ export class ItemService {
 		return this.http.post(BASE_URL+'/get_data_list',strJSON);
 	}
 
-	public getById(id){
+	public getById(id:number){
 		let search_data:cGetById	= new cGetById();
 		search_data.token			= localStorage.getItem('token');
 		search_data.id				= id;
@@ -64,8 +64,8 @@ export class cSearch{
 }
 
 export class cInput{
-	token			:string;
-	id				:number;
+	token			: string;
+	id				: number;
 	item_code		: string;
 	item_name		: string;
 	m_unit_id		: number;

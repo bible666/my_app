@@ -15,9 +15,9 @@ export interface DialogData {
 }
 
 @Component({
-  selector: 'app-my-dropdown-dialog',
-  templateUrl: './my-dropdown-dialog.component.html',
-  styleUrls: ['./my-dropdown-dialog.component.css']
+	selector: 'app-my-dropdown-dialog',
+	templateUrl: './my-dropdown-dialog.component.html',
+	styleUrls: ['./my-dropdown-dialog.component.css']
 })
 export class MyDropdownDialogComponent implements OnInit {
 

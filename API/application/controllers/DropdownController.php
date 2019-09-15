@@ -39,7 +39,7 @@ class DropdownController extends Origin001
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
             $query_str = "
-            SELECT ".$colVal." as code, ". $colDisplay . " as display
+            SELECT id,".$colVal." as code, ". $colDisplay . " as display
             FROM ".$tableName."
             WHERE m_company_id = ? AND ".$colVal." like '%".$searchCode."%' AND ".$colDisplay." like '%".$searchName."%'
 			";
@@ -87,7 +87,7 @@ class DropdownController extends Origin001
         $result     = $this->_checkToken($token);
         if($result->user_id > 0){
             $query_str = "
-            SELECT ".$col_value.",".$col_display."
+            SELECT id,".$col_value.",".$col_display."
             FROM ".$table_name."
             WHERE m_company_id = ? AND ".$col_value." = ?
 			";

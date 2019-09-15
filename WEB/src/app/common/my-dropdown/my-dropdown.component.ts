@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChange } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, throwMatDialogContentAlreadyAttachedError} from '@angular/material/dialog';
 import { MyDropdownDialogComponent } from '../my-dropdown-dialog/my-dropdown-dialog.component';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +13,9 @@ const BASE_URL	= environment.api_url+'/';
 })
 export class MyDropdownComponent implements OnInit {
 
-	name: string;
+	ret_value	: cRetValue;
+	
+	name		: string = '';
 
 	@Input() width:				number = 200;
 	@Input() label_width:		number = 200;
@@ -25,7 +27,7 @@ export class MyDropdownComponent implements OnInit {
 	@Input() code:				string = '';
 	@Input() show_text:			string = '';
 
-	@Output() return_code = new EventEmitter<string>();
+	@Output() return_code = new EventEmitter<cRetValue>();
 
 
   	constructor(public dialog: MatDialog,private http:HttpClient) { }
@@ -53,18 +55,26 @@ export class MyDropdownComponent implements OnInit {
 		let strJSON:string = JSON.stringify(search_data);
 		this.http.post(my_service,strJSON).subscribe(data =>{
 			let retValue = '';
+			this.ret_value	= new cRetValue();
+			
+			this.ret_value.id	= -1;
+			this.ret_value.code	= '';
+			this.ret_value.name	= '';
+
+			this.name		= '';
+
 			if (data['status'] == 'success'){
 				if (data['data']){
-					this.name = data['data'][this.col_display];
-					retValue	= this.code;
-				} else {
-					this.name = '';
+					this.ret_value.name	= data['data'][this.col_display];
+					this.ret_value.code	= data['data'][this.col_value];
+					this.ret_value.id	= data['data']['id'];
+
+					this.name = this.ret_value.name;
 				}
 
-			} else {
-				this.name = '';
 			}
-			this.return_code.emit(retValue);
+
+			this.return_code.emit(this.ret_value);
 		});
 		
 	}
@@ -81,11 +91,23 @@ export class MyDropdownComponent implements OnInit {
 			}
 		});
 	
+		this.ret_value	= new cRetValue();
+			
+		this.ret_value.id	= -1;
+		this.ret_value.code	= '';
+		this.ret_value.name	= '';
+
+		this.name		= '';
+
 		dialogRef.afterClosed().subscribe(result => {
 			if (result){
-				this.code	= result.code;
-				this.name	= result.display;
-				this.return_code.emit(result.code);
+				this.ret_value.name	= result.display;
+				this.ret_value.code	= result.code;
+				this.ret_value.id	= result.id;
+
+				this.name	= result.name;
+
+				this.return_code.emit(this.ret_value);
 			}
 		});
 	}
@@ -101,4 +123,10 @@ export class cGetByCode{
 	table_name:			string; // Table for select data
 	order_by:			string; // Order data
 	where_condition:	string; // SP where condition
+}
+
+export class cRetValue{
+	id		: number;
+	code	: string;
+	name	: string;
 }

@@ -68,10 +68,12 @@ export class cInput{
 	id				: number;
 	item_code		: string;
 	item_name		: string;
-	m_unit_id		: number;
-	m_item_type_id	: number;
-	lot_flag		: number;
-	mrp_flag		: number;
+	unit_id			: number;
+	unit_code		: string;
+	item_type_id	: number;
+	item_type_code	: string;
+	lot_flag		: boolean;
+	mrp_flag		: boolean;
 	remark			: string;
 
 	public constructor(init?: Partial<cInput>){

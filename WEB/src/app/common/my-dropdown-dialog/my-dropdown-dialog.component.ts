@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { MyDropdownComponent } from '../my-dropdown/my-dropdown.component';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 const BASE_URL	= environment.api_url+'/';
 
@@ -26,7 +27,7 @@ export class MyDropdownDialogComponent implements OnInit {
 	search_name:	string	= '';
 	returnData:		any;
 
-	constructor(
+	constructor(private router: Router,
 		public dialogRef: MatDialogRef<MyDropdownComponent>,
 		@Inject(MAT_DIALOG_DATA) public data: DialogData,private http:HttpClient) {
 		
@@ -55,7 +56,7 @@ export class MyDropdownDialogComponent implements OnInit {
 				}
 
 			} else {
-				
+				this.router.navigateByUrl('login');
 			}
 			
 		});
@@ -96,7 +97,7 @@ export class MyDropdownDialogComponent implements OnInit {
 				}
 
 			} else {
-				
+				this.router.navigateByUrl('login');
 			}
 			
 		});

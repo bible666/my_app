@@ -6,6 +6,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 import { ItemService, cSearch, cInput } from '../item.service';
 import { MyMessageComponent } from '../../../common/my-message/my-message.component'
 import { TranslateService } from '@ngx-translate/core';
+import { cRetValue } from '../../../common/my-dropdown/my-dropdown.component'
 
 @Component({
 	selector: 'app-item-entry',
@@ -35,10 +36,12 @@ export class ItemEntryComponent implements OnInit {
 	inputForm = new FormGroup({
 		'item_code'			: new FormControl('', [ Validators.required ]),
 		'item_name'			: new FormControl(''),
-		'm_unit_id'			: new FormControl(''),
-		'm_item_type_id'	: new FormControl(''),
-		'lot_flag'			: new FormControl(''),
-		'mrp_flag'			: new FormControl(''),
+		'unit_id'			: new FormControl(-1),
+		'unit_code'			: new FormControl(''),
+		'item_type_id'		: new FormControl(-1),
+		'item_type_code'	: new FormControl(''),
+		'lot_flag'			: new FormControl(false),
+		'mrp_flag'			: new FormControl(false),
 		'remark'			: new FormControl('')
 	});
 
@@ -53,25 +56,25 @@ export class ItemEntryComponent implements OnInit {
 
     ngOnInit() {
 		//Load Text
-		this.translate.get(['common.data_not_found'])
+		this.translate.get(['common.data_not_found','common.save_complete'])
 		.subscribe(texts => {
 			this.texts = texts;
 			this.id	= this.param.snapshot.params.id;
-			console.log(this.id);
-			if (this.id == -1){
-				console.log("this is setting");
-				this.inputForm.patchValue({
-					item_type_name: '',
-					remark: '',
-					m_unit_id: '0101'
-				});
-			} else {
+
+			if (this.id != -1){
 				this.Service.getById(this.id).subscribe(data =>{
 					if (data['status'] == 'success'){
 						//have id in database
 						this.inputForm.patchValue({
-							item_type_name: data['data']['item_type_name'],
-							remark: data['data']['remark']
+							item_code		: data['data']['item_code'],
+							item_name		: data['data']['item_name'],
+							unit_id			: data['data']['unit_id'],
+							unit_code		: data['data']['unit_code'],
+							item_type_id	: data['data']['item_type_id'],
+							item_type_code	: data['data']['item_type_code'],
+							lot_flag		: data['data']['lot_flag'] == 1 ? true : false,
+							mrp_flag		: data['data']['mrp_flag'] == 1 ? true : false,
+							remark			: data['data']['remark']
 						});
 						//data['data']['unit_code']['disabled'] = true;
 						if (data['data']['permission'] == 1){
@@ -105,55 +108,57 @@ export class ItemEntryComponent implements OnInit {
 		}
 
 		let input_data	: cInput = new cInput(this.inputForm.value);
+		input_data.id	= this.id;
 
-		console.log(input_data);
-		// let unitI: cInput = new cInput(this.inputForm.value);
-		// unitI.id			= this.id;
+		this.Service.updateById(input_data)
+		.subscribe(data=>{
 
-		// this.Service.updateById(unitI)
-		// .subscribe(data=>{
-		// 	if (data['status']== 'success'){
+			if (data['status']== 'success'){
 
-		// 		this.snackBar.openFromComponent(MyMessageComponent,{
-		// 			data:data['message'],
-		// 			duration:5000,
-		// 			panelClass:['mat-snack-bar-container-message']
-		// 		});
-		// 		this.router.navigateByUrl(this.back_url);
-		// 	} else {
-		// 		this.snackBar.openFromComponent(MyMessageComponent,{
-		// 			data:data['message'],
-		// 			duration:2000,
-		// 			panelClass:['mat-snack-bar-container-warning']
-		// 		});
+				this.snackBar.openFromComponent(MyMessageComponent,{
+					data:[this.texts['common.save_complete']],
+					duration:5000,
+					panelClass:['mat-snack-bar-container-message']
+				});
+				this.router.navigateByUrl(this.back_url);
+			} else {
+				if (data['message'] == 'token not found') {
+					this.router.navigateByUrl('login');
+				} else {
+					this.snackBar.openFromComponent(MyMessageComponent,{
+						data:data['message'],
+						duration:2000,
+						panelClass:['mat-snack-bar-container-warning']
+					});
+				}
 				
-		// 	}
+				
+			}
 			
-		// },
-		// error=>{
-		// 	console.log(error);
-		// 	this.snackBar.open(error, "close",  {
-		// 		duration: 2000,
-		// 		panelClass: ['mat-snack-bar-container-error']
-		// 	});
-		// });
+		},
+		error=>{
+			this.snackBar.open(error, "close",  {
+				duration: 2000,
+				panelClass: ['mat-snack-bar-container-error']
+			});
+		});
 
 	}
 
-	onUnitChange(newCode: string){
-		console.log(newCode);
+	//event when unit code change
+	onUnitChange(newCode: cRetValue){
 		this.inputForm.patchValue({
-			m_unit_id: newCode
+			unit_id		: newCode.id,
+			unit_code	: newCode.code
 		});
-		console.log(this.inputForm.value);
 	}
 
-	onItemTypeChange(newCode: string){
-		console.log(newCode);
+	//event when item type change
+	onItemTypeChange(newCode: cRetValue){
 		this.inputForm.patchValue({
-			m_item_type_id: newCode
+			item_type_id	: newCode.id,
+			item_type_code	: newCode.code
 		});
-		console.log(this.inputForm.value);
 	}
 
 }

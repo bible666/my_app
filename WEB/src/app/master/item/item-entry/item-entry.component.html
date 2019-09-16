@@ -1,6 +1,6 @@
 <h1>{{'item.title' | translate}}</h1>
 
-<form class="example-form" [formGroup]="inputForm" [style.fontSize.px]="16" (ngSubmit)="onSubmit()">
+<form class="example-form" [formGroup]="inputForm" [style.fontSize.px]="16" >
 <mat-card class="example-card">
 
 <mat-card-header>
@@ -39,7 +39,7 @@
 			[table_name]		= "'m_units'"
 			[order_by]			= "'unit_code'"
 			[where_condition]	= "'del_flag = 0'"
-			[code]				= "inputForm.get('m_unit_id').value"
+			[code]				= "inputForm.get('unit_code').value"
 			[show_text]			= "'item.unit_code' | translate"
 			(return_code)		= "onUnitChange($event)">
 		</my-dropdown>
@@ -54,33 +54,30 @@
 			[table_name]		= "'m_item_types'"
 			[order_by]			= "'item_type_code'"
 			[where_condition]	= "'del_flag = 0'"
-			[code]				= "inputForm.get('m_item_type_id').value"
-			[show_text]			= "'item.unit_code' | translate"
+			[code]				= "inputForm.get('item_type_code').value"
+			[show_text]			= "'item.item_type' | translate"
 			(return_code)		= "onItemTypeChange($event)">
 		</my-dropdown>
-		<mat-form-field class="input_text">
-		<input formControlName="m_item_type_id" matInput placeholder="รหัสวัตถุดิบ">
-		</mat-form-field>
+	
 	</div>
 </div>
-
 <div class="row">
-	<div class="col-sm-6">
-		<mat-form-field class="lot_flag">
-		<input formControlName="m_unit_id" matInput placeholder="รหัสวัตถุดิบ">
-		</mat-form-field>
+	<div class="col-sm-3">
+		<mat-slide-toggle formControlName="lot_flag">
+			{{'item.lot_flag' | translate}}
+		</mat-slide-toggle>
 	</div>
-
-	<div class="col-sm-6">
-		<mat-form-field class="mrp_flag">
-		<input formControlName="m_item_type_id" matInput placeholder="รหัสวัตถุดิบ">
-		</mat-form-field>
+	
+	<div class="col-sm-3">
+		<mat-slide-toggle formControlName="mrp_flag">
+			{{'item.mrp_flag' | translate}}
+		</mat-slide-toggle>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-sm-12">
-		<mat-form-field class="lot_flag">
+		<mat-form-field class="input_text">
 		<input formControlName="remark" matInput placeholder="รหัสวัตถุดิบ">
 		</mat-form-field>
 	</div>
@@ -96,7 +93,7 @@
 	<button mat-raised-button color="primary" (click)="onBackClick()">
 		<mat-icon aria-label="Example icon-button with a heart icon">backspace</mat-icon> กลับ
 	</button>
-	<button mat-raised-button color="primary" type="submit">
+	<button mat-raised-button color="primary" (click)="onSubmit()">
 		<mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon> บันทึก
 	</button>
 </mat-card-actions>
@@ -104,5 +101,3 @@
 </mat-card>
 
 </form>
-
-{{inputForm.get('m_unit_id').value}}

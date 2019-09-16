@@ -20,7 +20,10 @@
 		"title"		: "วัตถุดิบ",
 		"item_code"	: "รหัสวัตถุดิบ",
 		"item_name"	: "ชื่อวัตถุดิบ",
-		"unit_code"	: "หน่วยวัตถุดิบ"
+		"unit_code"	: "หน่วยวัตถุดิบ",
+		"item_type"	: "ประเภทวัตถุดิบ",
+		"lot_flag"	: "ควบคุม lot",
+		"mrp_flag"	: "คำนวน MRP"
 	},
 
 	"common" : {
@@ -33,6 +36,7 @@
 		"delete_question"	: "คุณต้องการลบรายการนี้จริิงหรือเปล่า",
 		"delete_complete"	: "ทำการลบรายการแล้ว",
 		"data_not_found"	: "ไม่พบข้อมูล",
-		"please_input_data"	: "กรุณากรอกข้อมูล"
+		"please_input_data"	: "กรุณากรอกข้อมูล",
+		"save_complete"		: "บันทึกเสร็จแล้ว"
 	}
 }

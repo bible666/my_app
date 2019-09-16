@@ -178,6 +178,7 @@ export class ItemListComponent extends OriginalListComponent {
 	// event on delete
 	//----------------------------------------------------------------
 	onDelete(id:number){
+
 		const dialogRef = this.dialog.open(ShowDialogComponent,{
 			width: '350px',
 			height: '200px',
@@ -191,8 +192,8 @@ export class ItemListComponent extends OriginalListComponent {
 			} else {
 				//console.log(result);
 				//start delete data
-				localStorage.setItem( this.localNameInput + '.delete_id',result);
-				this.unitS.deleteById().subscribe(data =>{
+				
+				this.unitS.deleteById(id).subscribe(data =>{
 					if (data['status'] == 'success'){
 						this.snackBar.openFromComponent(MyMessageComponent,{
 							data:[this.texts['common.delete_complete']],

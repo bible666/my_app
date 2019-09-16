@@ -36,11 +36,11 @@ export class ItemService {
 		return this.http.post(BASE_URL+'/update_data',strJSON);
 	}
 
-	public deleteById(){
+	public deleteById(id:number){
 		let search_data:cGetById	= new cGetById();
-		search_data.token				= localStorage.getItem('token');
-		search_data.id					= +localStorage.getItem('unit_input.delete_id');
-		console.log(search_data);
+		search_data.token			= localStorage.getItem('token');
+		search_data.id				= id;
+
 		let strJSON:string = JSON.stringify(search_data);
 		return this.http.post(BASE_URL+'/delete_data_by_id',strJSON);
 	}

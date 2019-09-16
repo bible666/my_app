@@ -16,6 +16,42 @@ class ItemController extends Origin001
 	}
 
 	/**
+     * delete data by id
+     */
+    public function delete_data_by_id_post(){
+		$data       = $this->post();
+		$data		= json_decode($data[0]);
+
+        //init data
+        $token      = isset($data->token) ? $data->token : '';
+        $id         = isset($data->id) ? $data->id : -1;
+
+		$result     = $this->_checkToken($token);
+		//print_r($result);
+        if($result->user_id > 0){
+			$insert_data['del_flag']    	= 1;
+			$insert_data['updated_date']    = date("Y-m-d H:i:s");
+            $insert_data['updated']         = $result->user_id;
+
+            $this->db->where([
+				'id'			=> $id,
+				'm_company_id'	=> $result->company_id
+			]);
+            $this->db->update('m_items',$insert_data);
+            
+            $dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $data;
+
+        }else{
+            $dataDB['status']   = "error";
+            $dataDB['message']  = "token not found";
+            $dataDB['data']     = "";
+        }
+        $this->response($dataDB,200);
+    }
+
+	/**
 	 * get data by id
 	 */
 	public function get_data_by_id_post(){
@@ -66,7 +102,7 @@ class ItemController extends Origin001
 			$query_str = "
 			SELECT *
 			FROM m_items
-			WHERE m_company_id = ? and item_name like '%".$data->name."%'
+			WHERE m_company_id = ? and item_name like '%".$data->name."%' AND del_flag = 0
 			";
 
 			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();

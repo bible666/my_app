@@ -26,6 +26,12 @@
 		"mrp_flag"	: "คำนวน MRP"
 	},
 
+	"supplier" : {
+		"title"			: "ผู้ผลิต",
+		"supplier_cd"	: "รหัสผู้ผลิต",
+		"supplier_name"	: "ชื่อผู้ผลิต"
+	},
+
 	"common" : {
 		"add"				: "เพิ่ม",
 		"search"			: "ค้นหา",

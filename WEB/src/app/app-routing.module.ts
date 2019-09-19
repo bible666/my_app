@@ -33,9 +33,9 @@ const routes: Routes = [
 	{ path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
 	{ path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
 	{ path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
-	{ path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]},
+	{ path: 'customer_input/:id', component: CustomerInputComponent,canActivate:[AuthGuard]},
 	{ path: 'staff_list', component: StaffListComponent,canActivate:[AuthGuard]},
-	{ path: 'staff_input', component: StaffInputComponent,canActivate:[AuthGuard]}
+	{ path: 'staff_input/:id', component: StaffInputComponent,canActivate:[AuthGuard]}
 
 ];
 

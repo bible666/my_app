@@ -17,6 +17,8 @@ import { CustomerListComponent } from './master/customer/customer-list/customer-
 import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
 import { StaffListComponent } from './master/staff/staff-list/staff-list.component';
 import { StaffInputComponent } from './master/staff/staff-input/staff-input.component';
+import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
+import { SupplierInputComponent } from './master/supplier/supplier-input/supplier-input.component';
 
 
 const routes: Routes = [
@@ -35,7 +37,9 @@ const routes: Routes = [
 	{ path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
 	{ path: 'customer_input/:id', component: CustomerInputComponent,canActivate:[AuthGuard]},
 	{ path: 'staff_list', component: StaffListComponent,canActivate:[AuthGuard]},
-	{ path: 'staff_input/:id', component: StaffInputComponent,canActivate:[AuthGuard]}
+	{ path: 'staff_input/:id', component: StaffInputComponent,canActivate:[AuthGuard]},
+	{ path: 'supplier_list', component: SupplierListComponent,canActivate:[AuthGuard]},
+	{ path: 'supplier_input/:id', component: SupplierInputComponent,canActivate:[AuthGuard]}
 
 ];
 

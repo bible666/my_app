@@ -15,6 +15,8 @@ import { ItemTypeListComponent } from './master/item-type/item-type-list/item-ty
 import { ItemTypeInputComponent } from './master/item-type/item-type-input/item-type-input/item-type-input.component'
 import { CustomerListComponent } from './master/customer/customer-list/customer-list.component';
 import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
+import { StaffListComponent } from './master/staff/staff-list/staff-list.component';
+import { StaffInputComponent } from './master/staff/staff-input/staff-input.component';
 
 
 const routes: Routes = [
@@ -31,7 +33,9 @@ const routes: Routes = [
 	{ path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
 	{ path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
 	{ path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
-	{ path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]}
+	{ path: 'customer_input', component: CustomerInputComponent,canActivate:[AuthGuard]},
+	{ path: 'staff_list', component: StaffListComponent,canActivate:[AuthGuard]},
+	{ path: 'staff_input', component: StaffInputComponent,canActivate:[AuthGuard]}
 
 ];
 

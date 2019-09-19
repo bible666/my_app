@@ -74,6 +74,8 @@ import { CustomerListComponent } from './master/customer/customer-list/customer-
 import { CustomerInputComponent } from './master/customer/customer-input/customer-input.component';
 import { MyDropdownComponent } from './common/my-dropdown/my-dropdown.component';
 import { MyDropdownDialogComponent } from './common/my-dropdown-dialog/my-dropdown-dialog.component';
+import { StaffListComponent } from './master/staff/staff-list/staff-list.component';
+import { StaffInputComponent } from './master/staff/staff-input/staff-input.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { MyDropdownDialogComponent } from './common/my-dropdown-dialog/my-dropdo
     CustomerInputComponent,
     MyDropdownComponent,
     MyDropdownDialogComponent,
+    StaffListComponent,
+    StaffInputComponent,
 ],
   imports: [
     BrowserModule,

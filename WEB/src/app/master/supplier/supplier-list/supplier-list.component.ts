@@ -134,11 +134,15 @@ export class SupplierListComponent extends OriginalListComponent {
 						this.isRateLimitReached	= false;
 
 						if (data['status'] == 'error'){
-							this.snackBar.openFromComponent(MyMessageComponent,{
-								data: [data['message']],
-								duration:2000,
-								panelClass:['mat-snack-bar-container-message']
-							})
+							if (data['message'] == 'token not found') {
+								this.router.navigateByUrl('login');
+							} else {
+								this.snackBar.openFromComponent(MyMessageComponent,{
+									data: [data['message']],
+									duration:2000,
+									panelClass:['mat-snack-bar-container-message']
+								});
+							}
 							
 						}
 						

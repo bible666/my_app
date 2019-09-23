@@ -127,31 +127,78 @@ class SupplierController extends Origin001
 		$data			= json_decode($data[0]);
 
 		//init data
-		$token          = isset($data->token) ? $data->token : '';
-		$id             = isset($data->id) ? $data->id : -1;
-		$item_code      = isset($data->item_code) ? $data->item_code : '';
-		$item_name      = isset($data->item_name) ? $data->item_name : '';
-		$unit_id		= isset($data->unit_id) ? $data->unit_id : null;
-		$item_type_id	= isset($data->item_type_id) ? $data->item_type_id : null;
-		$lot_flag       = isset($data->lot_flag) ? $data->lot_flag : 1;
-		$mrp_flag       = isset($data->lot_flag) ? $data->mrp_flag : 1;
-		$remark         = isset($data->remark) ? $data->remark : '';
+		$token          = isset($data->token)			? $data->token			: '';
+		$id             = isset($data->id)				? $data->id				: -1;
+		$supplier_cd	= isset($data->supplier_cd)		? $data->supplier_cd	: '';
+		$supplier_name	= isset($data->supplier_name)	? $data->supplier_name	: '';
+		$supplier_add1	= isset($data->supplier_add1)	? $data->supplier_add1	: '';
+		$supplier_add2	= isset($data->supplier_add2)	? $data->supplier_add2	: '';
+		$supplier_add3	= isset($data->supplier_add3)	? $data->supplier_add3	: '';
+		$supplier_zip	= isset($data->supplier_zip)	? $data->supplier_zip	: '';
+		$supplier_tel	= isset($data->supplier_tel)	? $data->supplier_tel	: '';
+		$supplier_fax	= isset($data->supplier_fax)	? $data->supplier_fax	: '';
+		$supplier_email	= isset($data->supplier_email)	? $data->supplier_email	: '';
+		$contract_name	= isset($data->contract_name)	? $data->contract_name	: '';
+		$delivery_time	= isset($data->delivery_time)	? $data->delivery_time	: -1;
+		$m_transport_id	= isset($data->m_transport_id)	? $data->m_transport_id	: -1;
+		$tax_no			= isset($data->tax_no)			? $data->tax_no			: '';
+		$payment_tearm	= isset($data->payment_tearm)	? $data->payment_tearm	: '';
+		$remark         = isset($data->remark)			? $data->remark			: '';
+
+		//Validation Data
+		if ( $token == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token is empty";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $supplier_cd == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "supplier code is empty";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $supplier_name == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "supplier name is empty";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
 
 		//get data from token
 		$result     = $this->_checkToken($token);
 
 		if($result->user_id > 0){
 
+			if ($this->chk_suppliser_cd($result->company_id,$supplier_cd,$id)){
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "supplier_code_dupplicate";
+				$dataDB['data']     = "";
+				$this->response($dataDB,200);
+			}
+
 			$insert_data = [];
 
 			$insert_data['m_company_id']    = $result->company_id;
-			$insert_data['item_code']       = $item_code;
-			$insert_data['item_name']       = $item_name;
-			$insert_data['unit_id']			= $unit_id;
-			$insert_data['item_type_id']	= $item_type_id;
-			$insert_data['lot_flag']        = $lot_flag;
-			$insert_data['mrp_flag']		= $mrp_flag;
-			$insert_data['remark']          = $remark;
+
+			//set data to array for add or update
+			$insert_data['supplier_cd']		= $supplier_cd;
+			$insert_data['supplier_name']	= $supplier_name;
+			$insert_data['supplier_add1']	= $supplier_add1;
+			$insert_data['supplier_add2']	= $supplier_add2;
+			$insert_data['supplier_add3']	= $supplier_add3;
+			$insert_data['supplier_zip']	= $supplier_zip;
+			$insert_data['supplier_tel']	= $supplier_tel;
+			$insert_data['supplier_fax']	= $supplier_fax;
+			$insert_data['supplier_email']	= $supplier_email;
+			$insert_data['contract_name']	= $contract_name;
+			$insert_data['delivery_time']	= $delivery_time;
+			$insert_data['m_transport_id']	= $m_transport_id;
+			$insert_data['tax_no']			= $tax_no;
+			$insert_data['payment_tearm']	= $payment_tearm;
+			$insert_data['remark']			= $remark;
 
 			$this->db->trans_start();
 			if ($id < 0 ){
@@ -176,6 +223,33 @@ class SupplierController extends Origin001
 			$dataDB['data']     = "";
 		}
 		$this->response($dataDB,200);
+	}
+
+	/**
+    * check suppliser code dupplicate
+    *
+    * @param $m_company_id company id
+	* @param $supplier_cd suppliser code
+	* @param $suppliser_id suppliser id
+    *
+    * @return boolean
+    */
+	private function chk_suppliser_cd($m_company_id,$supplier_cd,$suppliser_id){
+		$is_check	= true;
+
+		$suppliser_data	= $this->db->get_where('m_suppliers',[
+			'm_company_id'	=> $m_company_id,
+			'supplier_cd'	=> $supplier_cd,
+			'del_flag'		=> 0,
+			'id != '		=> $suppliser_id
+		])->row();
+
+		if (isset($suppliser_data)){
+
+		} else {
+			$is_check = false;
+		}
+		return $is_check;
 	}
 }
 

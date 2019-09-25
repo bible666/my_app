@@ -19,27 +19,31 @@ import { StaffListComponent } from './master/staff/staff-list/staff-list.compone
 import { StaffInputComponent } from './master/staff/staff-input/staff-input.component';
 import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
 import { SupplierInputComponent } from './master/supplier/supplier-input/supplier-input.component';
+import { PoListComponent } from './po/po-management/po-list/po-list.component';
+import { PoInputComponent } from './po/po-management/po-input/po-input.component';
 
 
 const routes: Routes = [
-	{ path: '' , component: HomeComponent ,canActivate:[AuthGuard]},
-	{ path: 'about' , component: AboutComponent },
-	{ path: 'contact' , component: ContactComponent },
-	{ path: 'table', component: ShowTableComponent},
-	{ path: 'company', component: CompanyComponent,canActivate:[AuthGuard]},
-	{ path: 'login', component: LoginComponent},
-	{ path: 'item_list', component: ItemListComponent, canActivate:[AuthGuard]},
-	{ path: 'item_input/:id', component: ItemEntryComponent,canActivate:[AuthGuard]},
-	{ path: 'unit_list', component: UnitListComponent,canActivate:[AuthGuard]},
-	{ path: 'unit_input/:id', component: UnitInputComponent,canActivate:[AuthGuard]},
-	{ path: 'item_type_list', component: ItemTypeListComponent,canActivate:[AuthGuard]},
-	{ path: 'item_type_input/:id', component: ItemTypeInputComponent,canActivate:[AuthGuard]},
-	{ path: 'customer_list', component: CustomerListComponent,canActivate:[AuthGuard]},
-	{ path: 'customer_input/:id', component: CustomerInputComponent,canActivate:[AuthGuard]},
-	{ path: 'staff_list', component: StaffListComponent,canActivate:[AuthGuard]},
-	{ path: 'staff_input/:id', component: StaffInputComponent,canActivate:[AuthGuard]},
-	{ path: 'supplier_list', component: SupplierListComponent,canActivate:[AuthGuard]},
-	{ path: 'supplier_input/:id', component: SupplierInputComponent,canActivate:[AuthGuard]}
+	{ path: '' ,					component: HomeComponent ,canActivate:[AuthGuard]},
+	{ path: 'about' , 				component: AboutComponent },
+	{ path: 'contact' , 			component: ContactComponent },
+	{ path: 'table', 				component: ShowTableComponent},
+	{ path: 'company',				component: CompanyComponent,canActivate:[AuthGuard]},
+	{ path: 'login',				component: LoginComponent},
+	{ path: 'item_list',			component: ItemListComponent, canActivate:[AuthGuard]},
+	{ path: 'item_input/:id',		component: ItemEntryComponent,canActivate:[AuthGuard]},
+	{ path: 'unit_list',			component: UnitListComponent,canActivate:[AuthGuard]},
+	{ path: 'unit_input/:id',		component: UnitInputComponent,canActivate:[AuthGuard]},
+	{ path: 'item_type_list',		component: ItemTypeListComponent,canActivate:[AuthGuard]},
+	{ path: 'item_type_input/:id',	component: ItemTypeInputComponent,canActivate:[AuthGuard]},
+	{ path: 'customer_list',		component: CustomerListComponent,canActivate:[AuthGuard]},
+	{ path: 'customer_input/:id',	component: CustomerInputComponent,canActivate:[AuthGuard]},
+	{ path: 'staff_list',			component: StaffListComponent,canActivate:[AuthGuard]},
+	{ path: 'staff_input/:id',		component: StaffInputComponent,canActivate:[AuthGuard]},
+	{ path: 'supplier_list',		component: SupplierListComponent,canActivate:[AuthGuard]},
+	{ path: 'supplier_input/:id',	component: SupplierInputComponent,canActivate:[AuthGuard]},
+	{ path: 'po_list',				component: PoListComponent,canActivate:[AuthGuard]},
+	{ path: 'po_input/:id',			component: PoInputComponent,canActivate:[AuthGuard]}
 
 ];
 

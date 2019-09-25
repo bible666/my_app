@@ -78,6 +78,8 @@ import { StaffListComponent } from './master/staff/staff-list/staff-list.compone
 import { StaffInputComponent } from './master/staff/staff-input/staff-input.component';
 import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
 import { SupplierInputComponent } from './master/supplier/supplier-input/supplier-input.component';
+import { PoListComponent } from './po/po-management/po-list/po-list.component';
+import { PoInputComponent } from './po/po-management/po-input/po-input.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +110,8 @@ import { SupplierInputComponent } from './master/supplier/supplier-input/supplie
     StaffInputComponent,
     SupplierListComponent,
     SupplierInputComponent,
+    PoListComponent,
+    PoInputComponent,
 ],
   imports: [
     BrowserModule,

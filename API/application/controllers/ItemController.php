@@ -65,7 +65,7 @@ class ItemController extends Origin001
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
-			SELECT a.* ,b.unit_code,c.item_type_code
+			SELECT a.* ,b.unit_code,b.unit_name,c.item_type_code
 			FROM m_items a LEFT JOIN m_units b on a.unit_id = b.id 
 				LEFT JOIN m_item_types c on a.item_type_id = c.id
 			WHERE a.m_company_id = ? AND a.id = ?

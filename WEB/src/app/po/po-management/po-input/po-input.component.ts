@@ -202,7 +202,7 @@ export class PoInputComponent implements OnInit {
 	//event when item type change
 	onItemChange(newCode: cRetValue,seq_num: number){
 		console.log(newCode);
-		this.inputForm.get('po_details').value[seq_num].item_code = newCode.code;
+		//this.inputForm.get('po_details').value[seq_num].item_name = newCode.name;
 		// this.inputForm.patchValue({
 		// 	item_type_id	: newCode.id,
 		// 	item_type_code	: newCode.code

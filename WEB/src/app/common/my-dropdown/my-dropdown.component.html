@@ -6,4 +6,4 @@
 </mat-form-field>
 <button mat-mini-fab color="warn" (click)="openDialog()" >...</button>
 
-<label [ngStyle] = "{'width': label_width}">{{name}}</label>
+<label *ngIf="label_width > 0" [ngStyle] = "{'width': label_width}">{{value}}</label>

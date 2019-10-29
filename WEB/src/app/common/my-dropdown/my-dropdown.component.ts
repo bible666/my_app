@@ -14,8 +14,6 @@ const BASE_URL	= environment.api_url+'/';
 export class MyDropdownComponent implements OnInit {
 
 	ret_value	: cRetValue;
-	
-	name		: string = '';
 
 	@Input() width:				number = 200;
 	@Input() label_width:		number = 200;
@@ -25,6 +23,7 @@ export class MyDropdownComponent implements OnInit {
 	@Input() order_by:			string = ''; // Order data
 	@Input() where_condition:	string = ''; // SP where condition
 	@Input() code:				string = '';
+	@Input() value:				string = '';
 	@Input() show_text:			string = '';
 
 	@Output() return_code = new EventEmitter<cRetValue>();
@@ -33,11 +32,11 @@ export class MyDropdownComponent implements OnInit {
   	constructor(public dialog: MatDialog,private http:HttpClient) { }
 
 	ngOnInit() {
-		this.onLostFocus();
+		//this.onLostFocus();
 	}
 
 	ngOnChanges(changes: SimpleChange) {
-		this.onLostFocus();
+		//this.onLostFocus();
 	}
 
 	onLostFocus(){
@@ -61,7 +60,7 @@ export class MyDropdownComponent implements OnInit {
 			this.ret_value.code	= '';
 			this.ret_value.name	= '';
 
-			this.name		= '';
+			this.value		= '';
 
 			if (data['status'] == 'success'){
 				if (data['data']){
@@ -69,7 +68,7 @@ export class MyDropdownComponent implements OnInit {
 					this.ret_value.code	= data['data'][this.col_value];
 					this.ret_value.id	= data['data']['id'];
 
-					this.name = this.ret_value.name;
+					this.value = this.ret_value.name;
 				}
 
 			}
@@ -97,7 +96,7 @@ export class MyDropdownComponent implements OnInit {
 		this.ret_value.code	= '';
 		this.ret_value.name	= '';
 
-		this.name		= '';
+		this.value		= '';
 
 		dialogRef.afterClosed().subscribe(result => {
 			if (result){
@@ -105,7 +104,7 @@ export class MyDropdownComponent implements OnInit {
 				this.ret_value.code	= result.code;
 				this.ret_value.id	= result.id;
 
-				this.name	= result.name;
+				this.value	= result.name;
 
 				this.return_code.emit(this.ret_value);
 			}

@@ -99,13 +99,13 @@ export class MyDropdownComponent implements OnInit {
 		this.value		= '';
 
 		dialogRef.afterClosed().subscribe(result => {
+			
 			if (result){
 				this.ret_value.name	= result.display;
 				this.ret_value.code	= result.code;
 				this.ret_value.id	= result.id;
 
-				this.value	= result.name;
-
+				this.value	= result.display;
 				this.return_code.emit(this.ret_value);
 			}
 		});

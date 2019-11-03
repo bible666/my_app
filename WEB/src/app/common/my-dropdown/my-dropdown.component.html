@@ -1,9 +1,19 @@
-<mat-form-field class="textInput" [ngStyle] = "{'width': width}">
-	<input matInput [placeholder]="show_text" [(ngModel)]="code" (change)="onLostFocus()">
-	<button mat-button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
-		<mat-icon>close</mat-icon>
-	</button>
-</mat-form-field>
-<button mat-mini-fab color="warn" (click)="openDialog()" >...</button>
+<table>
+	<tr>
+		<td>
+			<mat-form-field class="textInput" [ngStyle] = "{'width': width}">
+				<input matInput [placeholder]="show_text" [(ngModel)]="code" (change)="onLostFocus()">
+				<button mat-button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
+					<mat-icon>close</mat-icon>
+				</button>
+			</mat-form-field>
+		</td>
+		<td>
+			<a class="material-icons orange600" (click)="openDialog()">search</a>
+		</td>
+		<td *ngIf="label_width > 0" class="textLabel" [ngStyle] = "{'width': label_width}">
+			{{value}}
+		</td>
+	</tr>
+</table>
 
-<label *ngIf="label_width > 0" [ngStyle] = "{'width': label_width}">{{value}}</label>

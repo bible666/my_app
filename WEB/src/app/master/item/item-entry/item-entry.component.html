@@ -56,6 +56,7 @@
 			[order_by]			= "'item_type_code'"
 			[where_condition]	= "'del_flag = 0'"
 			[code]				= "inputForm.get('item_type_code').value"
+			[value]				= "inputForm.get('item_type_name').value"
 			[show_text]			= "'item.item_type' | translate"
 			(return_code)		= "onItemTypeChange($event)">
 		</my-dropdown>

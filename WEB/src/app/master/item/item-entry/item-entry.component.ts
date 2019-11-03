@@ -41,6 +41,7 @@ export class ItemEntryComponent implements OnInit {
 		'unit_name'			: new FormControl(''),
 		'item_type_id'		: new FormControl(-1),
 		'item_type_code'	: new FormControl(''),
+		'item_type_name'	: new FormControl(''),
 		'lot_flag'			: new FormControl(false),
 		'mrp_flag'			: new FormControl(false),
 		'remark'			: new FormControl('')
@@ -74,6 +75,7 @@ export class ItemEntryComponent implements OnInit {
 							unit_name		: data['data']['unit_name'],
 							item_type_id	: data['data']['item_type_id'],
 							item_type_code	: data['data']['item_type_code'],
+							item_type_name	: data['data']['item_type_name'],
 							lot_flag		: data['data']['lot_flag'] == 1 ? true : false,
 							mrp_flag		: data['data']['mrp_flag'] == 1 ? true : false,
 							remark			: data['data']['remark']
@@ -160,7 +162,8 @@ export class ItemEntryComponent implements OnInit {
 	onItemTypeChange(newCode: cRetValue){
 		this.inputForm.patchValue({
 			item_type_id	: newCode.id,
-			item_type_code	: newCode.code
+			item_type_code	: newCode.code,
+			item_type_name	: newCode.name
 		});
 	}
 

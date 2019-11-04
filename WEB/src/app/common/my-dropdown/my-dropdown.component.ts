@@ -25,6 +25,7 @@ export class MyDropdownComponent implements OnInit {
 	@Input() code:				string = '';
 	@Input() value:				string = '';
 	@Input() show_text:			string = '';
+	@Input() type_input:		string = 'text';
 
 	@Output() return_code = new EventEmitter<cRetValue>();
 
@@ -56,9 +57,10 @@ export class MyDropdownComponent implements OnInit {
 			let retValue = '';
 			this.ret_value	= new cRetValue();
 			
-			this.ret_value.id	= -1;
-			this.ret_value.code	= '';
-			this.ret_value.name	= '';
+			this.ret_value.id		= -1;
+			this.ret_value.code		= '';
+			this.ret_value.name		= '';
+			this.ret_value.input	= this.code;
 
 			this.value		= '';
 
@@ -128,4 +130,5 @@ export class cRetValue{
 	id		: number;
 	code	: string;
 	name	: string;
+	input	: string;
 }

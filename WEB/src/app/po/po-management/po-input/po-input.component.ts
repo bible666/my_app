@@ -21,6 +21,9 @@ export class PoInputComponent implements OnInit {
 	id			: number;
 	texts		: any;
 	back_url	: string		= 'po_list';
+	qty			: number		= 0;
+	price		: number		= 0;
+	total_price	: number 		= 0;
 
 	//----------------------------------------------------------------
 	// set local store object
@@ -56,8 +59,9 @@ export class PoInputComponent implements OnInit {
 		'vat'				: new FormControl(0),
 		'final_amount'		: new FormControl(0),
 		'remark'			: new FormControl(''),
-		'add_item_cd'		: new FormControl(''),
-		'add_item_name'		: new FormControl(''),
+		'add_item_id'		: new FormControl(''),
+		'add_item_cd'		: new FormControl('', [Validators.required]),
+		'add_item_name'		: new FormControl('', [Validators.required]),
 		'add_qty'			: new FormControl(''),
 		'add_unit_cd'		: new FormControl(''),
 		'add_unit_price'	: new FormControl(''),
@@ -134,11 +138,14 @@ export class PoInputComponent implements OnInit {
 	}
 
 	onAddItem(){
+		if (!this.inputForm.valid){
+			return;
+		}
 		let new_detail = new FormGroup({
-			'item_id'		: new FormControl(-1),
-			'item_code'		: new FormControl(''),
-			'item_name'		: new FormControl(''),
-			'qty'			: new FormControl(99),
+			'item_id'		: new FormControl(this.inputForm.get('add_item_id').value),
+			'item_code'		: new FormControl(this.inputForm.get('add_item_cd').value),
+			'item_name'		: new FormControl(this.inputForm.get('add_item_name').value),
+			'qty'			: new FormControl(this.inputForm.get('add_qty').value),
 			'unit_id'		: new FormControl(-1),
 			'unit_code'		: new FormControl(''),
 			'unit_price'	: new FormControl(''),
@@ -212,6 +219,26 @@ export class PoInputComponent implements OnInit {
 		// 	item_type_id	: newCode.id,
 		// 	item_type_code	: newCode.code
 		// });
+	}
+
+	onAddItemChange(newCode: cRetValue){
+		console.log(newCode);
+		this.inputForm.patchValue({
+			add_item_id		: newCode.id,
+			add_item_cd		: newCode.code,
+			add_item_name	: newCode.name
+		});
+	}
+
+	onQtyChange(){
+		this.qty			= this.inputForm.get('add_qty').value;
+		this.total_price	= this.qty * this.price;
+	}
+
+	onPriceChange(newCode: cRetValue){
+		
+		this.price			= +newCode.input;
+		this.total_price	= this.qty * this.price;
 	}
 
 }

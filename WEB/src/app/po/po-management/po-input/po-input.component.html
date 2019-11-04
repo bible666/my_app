@@ -115,8 +115,9 @@
 									[table_name]		= "'m_items'"
 									[order_by]			= "'item_code'"
 									[where_condition]	= "'del_flag = 0'"
+									[code]				= "inputForm.get('add_item_cd').value"
 									[show_text]			= "'item.item_name' | translate"
-									(return_code)		= "onItemChange($event,po_detail_i)">
+									(return_code)		= "onAddItemChange($event)">
 								</my-dropdown>
 							</th>
 							<th [ngStyle] = "{'width': '40%'}">
@@ -126,7 +127,7 @@
 							</th>
 							<th [ngStyle] = "{'width': '10%','align':'text-right'}">
 								<mat-form-field class="input_text" [ngStyle] = "{'width': '90'}">
-									<input formControlName="add_qty" matInput placeholder="{{'po.item_qty' | translate}}">
+									<input formControlName="add_qty" type="number" matInput placeholder="{{'po.item_qty' | translate}}" (change)="onQtyChange()">
 								</mat-form-field>
 							</th>
 							<th [ngStyle] = "{'width': '10%'}">
@@ -150,10 +151,11 @@
 									[order_by]			= "'item_code'"
 									[where_condition]	= "'del_flag = 0'"
 									[show_text]			= "'po.unit_price' | translate"
-									(return_code)		= "onItemChange($event,po_detail_i)">
+									[type_input]		= "'number'"
+									(return_code)		= "onPriceChange($event)">
 								</my-dropdown>
 							</th>
-							<th [ngStyle] = "{'width': '10%'}">มูลค่า</th>
+							<th [ngStyle] = "{'width': '10%'}">{{total_price | number}}</th>
 							<th [ngStyle] = "{'width': '10%'}"><button (click)="onAddItem()">Add</button></th>
 						</tr>
 					</thead>

@@ -2,10 +2,8 @@
 	<tr>
 		<td [ngStyle] = "{'width': width}">
 			<mat-form-field class="textInput" [ngStyle] = "{'width': width }">
-				<input matInput [placeholder]="show_text" [(ngModel)]="code" (change)="onLostFocus()">
-				<button mat-button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
-					<mat-icon>close</mat-icon>
-				</button>
+				<input matInput [placeholder]="show_text" [type]="type_input" [(ngModel)]="code" (change)="onLostFocus()">
+				
 			</mat-form-field>
 		</td>
 		<td>

@@ -1,7 +1,7 @@
-<table>
+<table [ngStyle] = "{'width': width+label_width}">
 	<tr>
-		<td>
-			<mat-form-field class="textInput" [ngStyle] = "{'width': width}">
+		<td [ngStyle] = "{'width': width}">
+			<mat-form-field class="textInput" [ngStyle] = "{'width': width }">
 				<input matInput [placeholder]="show_text" [(ngModel)]="code" (change)="onLostFocus()">
 				<button mat-button *ngIf="code" matSuffix mat-icon-button aria-label="Clear" (click)="code=''">
 					<mat-icon>close</mat-icon>

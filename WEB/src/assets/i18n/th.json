@@ -67,7 +67,12 @@
 		"supplier_code_required"	: "กรุณากรอกรหัสผู้ผลิต",
 		"supplier_code_max_length"	: "รหัสผู้ผลิตยากเกิน",
 		"supplier_name_required"	: "กรุณากรอกชื่อผู้ผลิต",
-		"supplier_name_max_length"	: "ชื่อผู้ผลิตยากเกิน"
+		"supplier_name_max_length"	: "ชื่อผู้ผลิตยากเกิน",
+		"item_cd"					: "รหัสวัตถุดิบ",
+		"item_name"					: "ชื่อวัตถุดิบ",
+		"item_qty"					: "จำนวน",
+		"unit_cd"					: "หน่วย",
+		"unit_price"				: "ราคา"
 	},
 
 	"common" : {

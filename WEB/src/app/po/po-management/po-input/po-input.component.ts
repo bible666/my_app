@@ -56,6 +56,11 @@ export class PoInputComponent implements OnInit {
 		'vat'				: new FormControl(0),
 		'final_amount'		: new FormControl(0),
 		'remark'			: new FormControl(''),
+		'add_item_cd'		: new FormControl(''),
+		'add_item_name'		: new FormControl(''),
+		'add_qty'			: new FormControl(''),
+		'add_unit_cd'		: new FormControl(''),
+		'add_unit_price'	: new FormControl(''),
 		'po_details'		: new FormArray([])
 
 	});

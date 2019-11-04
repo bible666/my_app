@@ -103,55 +103,126 @@
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-sm-12">
-						<button (click)="onAddItem()">Add</button>
-					</div>
-				</div>
+				<table >
+					<thead>
+						<tr>
+							<th [ngStyle] = "{'width': '10%'}">
+								<my-dropdown 
+									[width]				= 150
+									[label_width]		= 0
+									[col_display]		= "'item_name'"
+									[col_value]			= "'item_code'"
+									[table_name]		= "'m_items'"
+									[order_by]			= "'item_code'"
+									[where_condition]	= "'del_flag = 0'"
+									[show_text]			= "'item.item_name' | translate"
+									(return_code)		= "onItemChange($event,po_detail_i)">
+								</my-dropdown>
+							</th>
+							<th [ngStyle] = "{'width': '40%'}">
+								<mat-form-field class="input_text">
+									<input formControlName="add_item_name" matInput placeholder="{{'po.item_name' | translate}}">
+								</mat-form-field>
+							</th>
+							<th [ngStyle] = "{'width': '10%','align':'text-right'}">
+								<mat-form-field class="input_text" [ngStyle] = "{'width': '90'}">
+									<input formControlName="add_qty" matInput placeholder="{{'po.item_qty' | translate}}">
+								</mat-form-field>
+							</th>
+							<th [ngStyle] = "{'width': '10%'}">
+								<mat-form-field [ngStyle] = "{'width': '100'}">
+									<mat-label>{{'po.unit_cd' | translate}}</mat-label>
+									<select matNativeControl required>
+										<option value="volvo">Volvo</option>
+										<option value="saab">Saab</option>
+										<option value="mercedes">Mercedes</option>
+										<option value="audi">Audi</option>
+									</select>
+								</mat-form-field>
+							</th>
+							<th [ngStyle] = "{'width': '10%'}">
+								<my-dropdown 
+									[width]				= 90
+									[label_width]		= 0
+									[col_display]		= "'item_name'"
+									[col_value]			= "'item_code'"
+									[table_name]		= "'m_items'"
+									[order_by]			= "'item_code'"
+									[where_condition]	= "'del_flag = 0'"
+									[show_text]			= "'po.unit_price' | translate"
+									(return_code)		= "onItemChange($event,po_detail_i)">
+								</my-dropdown>
+							</th>
+							<th [ngStyle] = "{'width': '10%'}">มูลค่า</th>
+							<th [ngStyle] = "{'width': '10%'}"><button (click)="onAddItem()">Add</button></th>
+						</tr>
+					</thead>
+				</table>
 
+				<table >
+					<thead>
+						<tr>
+							<th [ngStyle] = "{'width': '10%'}">รหัส</th>
+							<th [ngStyle] = "{'width': '40%'}">รายการ</th>
+							<th [ngStyle] = "{'width': '10%','align':'text-right'}">จำนวน</th>
+							<th [ngStyle] = "{'width': '10%'}">หน่วย</th>
+							<th [ngStyle] = "{'width': '10%'}">ราคา</th>
+							<th [ngStyle] = "{'width': '10%'}">มูลค่า</th>
+							<th [ngStyle] = "{'width': '10%'}"></th>
+						</tr>
+					</thead>
 
-				<div class="row" formArrayName="po_details" *ngFor="let po_detail of po_details.controls; let po_detail_i = index">
-					<div [formGroupName]="po_detail_i" class="col-sm-3">
-						<my-dropdown 
-							[width]				= 100
-							[label_width]		= 200
-							[col_display]		= "'item_name'"
-							[col_value]			= "'item_code'"
-							[table_name]		= "'m_items'"
-							[order_by]			= "'item_code'"
-							[where_condition]	= "'del_flag = 0'"
-							[code]				= "this.inputForm.get('po_details').value[po_detail_i].item_code"
-							[show_text]			= "'item.item_name' | translate"
-							(return_code)		= "onItemChange($event,po_detail_i)">
-						</my-dropdown>
-					</div>
-					<div [formGroupName]="po_detail_i" class="col-sm-3">
-						<mat-form-field class="input_text">
-							<input formControlName="item_name" matInput placeholder="{{'supplier.remark' | translate}}">
-						</mat-form-field>
-					</div>
-					<div [formGroupName]="po_detail_i" class="col-sm-3">
-						<mat-form-field class="input_text">
-							<input formControlName="qty" matInput placeholder="{{'supplier.remark' | translate}}">
-						</mat-form-field>
-					</div>
-					<div [formGroupName]="po_detail_i" class="col-sm-3">
-						<my-dropdown 
-							[width]				= 100
-							[label_width]		= 200
-							[col_display]		= "'item_name'"
-							[col_value]			= "'item_code'"
-							[table_name]		= "'m_items'"
-							[order_by]			= "'item_code'"
-							[where_condition]	= "'del_flag = 0'"
-							[code]				= "this.inputForm.get('po_details').value[po_detail_i].item_code"
-							[show_text]			= "'item.item_name' | translate"
-							(return_code)		= "onItemChange($event,po_detail_i)">
-						</my-dropdown>
-					</div>
-				</div>
-				
-				
+					<tr formArrayName="po_details" *ngFor="let po_detail of po_details.controls; let po_detail_i = index">
+						<td [ngStyle] = "{'width': '10%'}">
+							<div [formGroupName]="po_detail_i" >
+								<my-dropdown 
+									[width]				= 150
+									[label_width]		= 0
+									[col_display]		= "'item_name'"
+									[col_value]			= "'item_code'"
+									[table_name]		= "'m_items'"
+									[order_by]			= "'item_code'"
+									[where_condition]	= "'del_flag = 0'"
+									[code]				= "this.inputForm.get('po_details').value[po_detail_i].item_code"
+									[show_text]			= "'item.item_name' | translate"
+									(return_code)		= "onItemChange($event,po_detail_i)">
+								</my-dropdown>
+							</div>
+						</td>
+						<td [ngStyle] = "{'width': '40%'}">
+							<div [formGroupName]="po_detail_i" >
+								<mat-form-field class="input_text">
+									<input formControlName="item_name" matInput placeholder="{{'po.item_name' | translate}}">
+								</mat-form-field>
+							</div>
+						</td>
+						<td [ngStyle] = "{'width': '10%'}">
+							<div [formGroupName]="po_detail_i" >
+								<mat-form-field class="input_text" [ngStyle] = "{'width': '100'}">
+									<input formControlName="qty" matInput placeholder="{{'po.item_qty' | translate}}">
+								</mat-form-field>
+							</div>
+						</td>
+						<td [ngStyle] = "{'width': '10%'}">
+							ชิ้น
+						</td>
+						<td [ngStyle] = "{'width': '10%'}">
+							20
+						</td>
+						<td [ngStyle] = "{'width': '10%'}">
+							40
+						</td>
+						<td [ngStyle] = "{'width': '10%'}">
+							edit
+						</td>
+					</tr>
+					<tr>
+						<td colspan="5">Total</td>
+						<td >300</td>
+						<td ></td>
+					</tr>
+				</table>
+
 			</div> <!-- end div container -->
 	
 		</mat-card-content>

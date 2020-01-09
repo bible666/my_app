@@ -105,6 +105,12 @@ class UserController extends Origin001
         $data           = $this->post();
         $data           = json_decode($data[0]);
 
+        $headers=array();
+        foreach (getallheaders() as $name => $value) {
+            $headers[$name] = $value;
+        }
+
+        
         //init data
         $user_login     = '';
         $user_password  = '';
@@ -158,7 +164,7 @@ class UserController extends Origin001
 				$dataDB['message'] = "not user22.[".$user_login."]";//.$my;//.$this->encryption->encrypt('password');
 			}
         }else{
-            $dataDB['message'] = "not user.[".$user_login."]";
+            $dataDB['message'] = "not user.[".$user_login.$headers['Authorization']."]";
         }
 
         $this->response($dataDB,200);

@@ -72,7 +72,8 @@
 		"item_name"					: "ชื่อวัตถุดิบ",
 		"item_qty"					: "จำนวน",
 		"unit_cd"					: "หน่วย",
-		"unit_price"				: "ราคา"
+		"unit_price"				: "ราคา",
+		"please_input_data"			: "กรุณาใส่ข้อมูลการสั่งซื้อวัถตุดิบให้ครบ"
 	},
 
 	"common" : {

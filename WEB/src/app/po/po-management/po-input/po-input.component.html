@@ -127,19 +127,23 @@
 							</th>
 							<th [ngStyle] = "{'width': '10%','align':'text-right'}">
 								<mat-form-field class="input_text" [ngStyle] = "{'width': '90'}">
-									<input formControlName="add_qty" type="number" matInput placeholder="{{'po.item_qty' | translate}}" (change)="onQtyChange()">
+									<input formControlName="add_qty" type="number" matInput placeholder="{{'po.item_qty' | translate}}" (change)="onAddQtyChange()">
 								</mat-form-field>
 							</th>
 							<th [ngStyle] = "{'width': '10%'}">
-								<mat-form-field [ngStyle] = "{'width': '100'}">
-									<mat-label>{{'po.unit_cd' | translate}}</mat-label>
-									<select matNativeControl required>
-										<option value="volvo">Volvo</option>
-										<option value="saab">Saab</option>
-										<option value="mercedes">Mercedes</option>
-										<option value="audi">Audi</option>
-									</select>
-								</mat-form-field>
+								<my-dropdown 
+									[width]				= 50
+									[label_width]		= 100
+									[col_display]		= "'unit_name'"
+									[col_value]			= "'unit_code'"
+									[table_name]		= "'m_units'"
+									[order_by]			= "'unit_code'"
+									[where_condition]	= "'del_flag = 0'"
+									[code]				= "inputForm.get('add_unit_cd').value"
+									[value]				= "inputForm.get('add_unit_name').value"
+									[show_text]			= "'po.unit_cd' | translate"
+									(return_code)		= "onAddUnitChange($event)">
+								</my-dropdown>
 							</th>
 							<th [ngStyle] = "{'width': '10%'}">
 								<my-dropdown 
@@ -152,7 +156,8 @@
 									[where_condition]	= "'del_flag = 0'"
 									[show_text]			= "'po.unit_price' | translate"
 									[type_input]		= "'number'"
-									(return_code)		= "onPriceChange($event)">
+									[code]				= "price"
+									(return_code)		= "onAddPriceChange($event)">
 								</my-dropdown>
 							</th>
 							<th [ngStyle] = "{'width': '10%'}">{{total_price | number}}</th>
@@ -164,13 +169,7 @@
 				<table >
 					<thead>
 						<tr>
-							<th [ngStyle] = "{'width': '10%'}">รหัส</th>
-							<th [ngStyle] = "{'width': '40%'}">รายการ</th>
-							<th [ngStyle] = "{'width': '10%','align':'text-right'}">จำนวน</th>
-							<th [ngStyle] = "{'width': '10%'}">หน่วย</th>
-							<th [ngStyle] = "{'width': '10%'}">ราคา</th>
-							<th [ngStyle] = "{'width': '10%'}">มูลค่า</th>
-							<th [ngStyle] = "{'width': '10%'}"></th>
+							<th colspan="7" [ngStyle] = "{'text-align':'center'}">รายละเอียด P/O</th>
 						</tr>
 					</thead>
 
@@ -206,16 +205,40 @@
 							</div>
 						</td>
 						<td [ngStyle] = "{'width': '10%'}">
-							ชิ้น
+							<my-dropdown 
+								[width]				= 50
+								[label_width]		= 100
+								[col_display]		= "'unit_name'"
+								[col_value]			= "'unit_code'"
+								[table_name]		= "'m_units'"
+								[order_by]			= "'unit_code'"
+								[where_condition]	= "'del_flag = 0'"
+								[code]				= "this.inputForm.get('po_details').value[po_detail_i].unit_code"
+								[value]				= "this.inputForm.get('po_details').value[po_detail_i].unit_name"
+								[show_text]			= "'po.unit_cd' | translate"
+								(return_code)		= "onAddItemChange($event)">
+							</my-dropdown>
 						</td>
 						<td [ngStyle] = "{'width': '10%'}">
-							20
+							<my-dropdown 
+								[width]				= 90
+								[label_width]		= 0
+								[col_display]		= "'item_name'"
+								[col_value]			= "'item_code'"
+								[table_name]		= "'m_items'"
+								[order_by]			= "'item_code'"
+								[where_condition]	= "'del_flag = 0'"
+								[show_text]			= "'po.unit_price' | translate"
+								[type_input]		= "'number'"
+								[code]				= "this.inputForm.get('po_details').value[po_detail_i].unit_price"
+								(return_code)		= "onAddPriceChange($event)">
+							</my-dropdown>
 						</td>
 						<td [ngStyle] = "{'width': '10%'}">
-							40
+							{{this.inputForm.get('po_details').value[po_detail_i].total | number}}
 						</td>
 						<td [ngStyle] = "{'width': '10%'}">
-							edit
+							
 						</td>
 					</tr>
 					<tr>

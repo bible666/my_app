@@ -33,25 +33,25 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.loginForm.value).subscribe(
       data => { 
         if (data['status'] == 'success'){
-			this.userService.set_token(data['data']['token']);
-			this.userService.set_company_id(data['data']['company_id']);
-		  
-			this.userService.getMenu().subscribe(result=>{
-				if (result['status'] == 'success'){
-					
-					this.userService.Menu_Data = result['data'];
-					this.userService.changeMenu(this.userService.Menu_Data);
-				} else {
-					this.userService.Menu_Data = [{
-						name: 'menu1',
-						URL: '',
-						image: '',
-						children: []
-					}]
-					console.log(result['message']);
-				}
-				this.router.navigateByUrl('/');
-			})
+          this.userService.set_token(data['data']['token']);
+          this.userService.set_company_id(data['data']['company_id']);
+          
+          this.userService.getMenu().subscribe(result=>{
+            if (result['status'] == 'success'){
+              
+              this.userService.Menu_Data = result['data'];
+              this.userService.changeMenu(this.userService.Menu_Data);
+            } else {
+              this.userService.Menu_Data = [{
+                name: 'menu1',
+                URL: '',
+                image: '',
+                children: []
+              }]
+              console.log(result['message']);
+            }
+            this.router.navigateByUrl('/');
+          })
           
         }else{
           this.userService.clear_cache();

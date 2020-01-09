@@ -60,10 +60,12 @@ export class PoInputComponent implements OnInit {
 		'final_amount'		: new FormControl(0),
 		'remark'			: new FormControl(''),
 		'add_item_id'		: new FormControl(''),
-		'add_item_cd'		: new FormControl('', [Validators.required]),
-		'add_item_name'		: new FormControl('', [Validators.required]),
+		'add_item_cd'		: new FormControl(''),
+		'add_item_name'		: new FormControl(''),
 		'add_qty'			: new FormControl(''),
+		'add_unit_id'		: new FormControl(''),
 		'add_unit_cd'		: new FormControl(''),
+		'add_unit_name'		: new FormControl(''),
 		'add_unit_price'	: new FormControl(''),
 		'po_details'		: new FormArray([])
 
@@ -80,7 +82,9 @@ export class PoInputComponent implements OnInit {
 		this.translate.setDefaultLang('th');
 
 		//Load Text
-		this.translate.get(['common.data_not_found','common.save_complete','supplier.supplier_code_dupplicate'])
+		this.translate.get(['common.data_not_found','common.save_complete','supplier.supplier_code_dupplicate',
+			'po.please_input_data'
+		])
 		.subscribe(texts => {
 			this.texts = texts;
 			this.id	= this.param.snapshot.params.id;
@@ -138,21 +142,48 @@ export class PoInputComponent implements OnInit {
 	}
 
 	onAddItem(){
-		if (!this.inputForm.valid){
+		if (!this.inputForm.get('add_item_id').value ||
+			!this.inputForm.get('add_item_cd').value ||
+			!this.inputForm.get('add_item_name').value ||
+			!this.inputForm.get('add_qty').value ||
+			!this.inputForm.get('add_unit_id').value ||
+			!this.inputForm.get('add_unit_cd').value ||
+			!this.inputForm.get('add_unit_name').value ){
+
+			this.snackBar.openFromComponent(MyMessageComponent,{
+				data:[this.texts['po.please_input_data']],
+				duration:5000,
+				panelClass:['mat-snack-bar-container-message']
+			});
 			return;
 		}
+
 		let new_detail = new FormGroup({
 			'item_id'		: new FormControl(this.inputForm.get('add_item_id').value),
 			'item_code'		: new FormControl(this.inputForm.get('add_item_cd').value),
 			'item_name'		: new FormControl(this.inputForm.get('add_item_name').value),
 			'qty'			: new FormControl(this.inputForm.get('add_qty').value),
-			'unit_id'		: new FormControl(-1),
-			'unit_code'		: new FormControl(''),
-			'unit_price'	: new FormControl(''),
-			'total'			: new FormControl('')
+			'unit_id'		: new FormControl(this.inputForm.get('add_unit_id').value),
+			'unit_code'		: new FormControl(this.inputForm.get('add_unit_cd').value),
+			'unit_name'		: new FormControl(this.inputForm.get('add_unit_name').value),
+			'unit_price'	: new FormControl(this.price),
+			'total'			: new FormControl(this.total_price)
 		});
 		this.po_details.push(new_detail);
 
+
+		//clear po detail data
+		this.inputForm.patchValue({
+			add_item_id		: '',
+			add_item_cd		: '',
+			add_item_name	: '',
+			add_qty			: '',
+			add_unit_id		: '',
+			add_unit_cd		: '',
+			add_unit_name	: ''
+		});
+		this.price			= 0;
+		this.total_price	= 0;
 		this.test_input_data	= new cInput(this.inputForm.value);
 	}
 
@@ -222,7 +253,6 @@ export class PoInputComponent implements OnInit {
 	}
 
 	onAddItemChange(newCode: cRetValue){
-		console.log(newCode);
 		this.inputForm.patchValue({
 			add_item_id		: newCode.id,
 			add_item_cd		: newCode.code,
@@ -230,12 +260,20 @@ export class PoInputComponent implements OnInit {
 		});
 	}
 
-	onQtyChange(){
+	onAddUnitChange(newCode: cRetValue){
+		this.inputForm.patchValue({
+			add_unit_id		: newCode.id,
+			add_unit_cd		: newCode.code,
+			add_unit_name	: newCode.name
+		});
+	}
+
+	onAddQtyChange(){
 		this.qty			= this.inputForm.get('add_qty').value;
 		this.total_price	= this.qty * this.price;
 	}
 
-	onPriceChange(newCode: cRetValue){
+	onAddPriceChange(newCode: cRetValue){
 		
 		this.price			= +newCode.input;
 		this.total_price	= this.qty * this.price;

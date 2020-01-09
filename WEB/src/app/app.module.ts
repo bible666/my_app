@@ -80,6 +80,7 @@ import { SupplierListComponent } from './master/supplier/supplier-list/supplier-
 import { SupplierInputComponent } from './master/supplier/supplier-input/supplier-input.component';
 import { PoListComponent } from './po/po-management/po-list/po-list.component';
 import { PoInputComponent } from './po/po-management/po-input/po-input.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -112,6 +113,7 @@ import { PoInputComponent } from './po/po-management/po-input/po-input.component
     SupplierInputComponent,
     PoListComponent,
     PoInputComponent,
+    LogoutComponent,
 ],
   imports: [
     BrowserModule,

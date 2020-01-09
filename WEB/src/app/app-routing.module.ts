@@ -21,6 +21,7 @@ import { SupplierListComponent } from './master/supplier/supplier-list/supplier-
 import { SupplierInputComponent } from './master/supplier/supplier-input/supplier-input.component';
 import { PoListComponent } from './po/po-management/po-list/po-list.component';
 import { PoInputComponent } from './po/po-management/po-input/po-input.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -43,7 +44,8 @@ const routes: Routes = [
 	{ path: 'supplier_list',		component: SupplierListComponent,canActivate:[AuthGuard]},
 	{ path: 'supplier_input/:id',	component: SupplierInputComponent,canActivate:[AuthGuard]},
 	{ path: 'po_list',				component: PoListComponent,canActivate:[AuthGuard]},
-	{ path: 'po_input/:id',			component: PoInputComponent,canActivate:[AuthGuard]}
+	{ path: 'po_input/:id',			component: PoInputComponent,canActivate:[AuthGuard]},
+	{ path: 'logout',				component: LogoutComponent}
 
 ];
 

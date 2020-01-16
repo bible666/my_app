@@ -70,7 +70,7 @@ background-color: #FE9233; color: #fff;
 transition-duration:0.5s;
 }
 
-.navbar .navbar-nav .nav-item{  margin:4px 6px 4px 0px;}
+
 .navbar .navbar-nav .dropdown-menu .nav-item{  margin:4px 3px;}
 
 .navbar .navbar-nav.float-right .nav-item{
@@ -355,14 +355,14 @@ list-style: none;
   @media (max-width:991.98px) {
 .navbar .navbar-nav.navbar-nav-right{ align-items:normal;}
 }
-.navbar-expand-lg .navbar-nav { flex-direction: row; padding-left:8px;}
+.navbar-expand-lg .navbar-nav { flex-direction: row;}
 .navbar-nav {
   display: flex;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
-.navbar-nav.navbar-nav-right{display: block!important;}
+
 
 .navbar-toggler{
 padding: 0.15rem 0.5rem;

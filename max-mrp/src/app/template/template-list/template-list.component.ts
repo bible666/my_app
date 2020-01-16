@@ -18,18 +18,33 @@ export class TemplateListComponent implements OnInit {
   private AllPage       : number = 13;
 
   inputForm = new FormGroup({
-    'user_id'     : new FormControl(''),
-    'user_pass'   : new FormControl('')
+    'txt1'     : new FormControl(''),
+    'txt2'   : new FormControl(''),
+    'txt3'   : new FormControl(''),
+    'txt4'   : new FormControl('')
   });
 
-  constructor() { }
+  constructor() {
+    //set inital value when open form
+    this.onInitValue();
+  }
 
   ngOnInit() {
+  }
+
+  onInitValue(){
+    this.inputForm.patchValue({
+      'txt4'    : 'test4'
+    });
   }
 
   onSearch(){
     this.AllData += 1;
     this.CurrentPage += 1;
+  }
+
+  onClear(){
+    this.onInitValue();
   }
 
   onSelectPage(PageNumber:number){

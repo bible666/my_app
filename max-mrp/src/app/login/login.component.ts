@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
   public message: string[];
 
   inputForm = new FormGroup({
-    'user_id'     : new FormControl(''),
-    'user_pass'   : new FormControl('')
+    'login_name'     : new FormControl(''),
+    'login_pwd'   : new FormControl('')
   });
 
   constructor(

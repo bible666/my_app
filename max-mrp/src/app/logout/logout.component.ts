@@ -15,7 +15,7 @@ export class LogoutComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.message.setWarning('error his');
+    localStorage.clear();
     this.router.navigateByUrl('/login');
   }
 

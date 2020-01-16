@@ -638,10 +638,11 @@ padding:0.35rem 0rem 0.20rem 32px;
 background-repeat:no-repeat;
 background-position: center left;
 background-size:contain;
-background-image:url(../img/symbol_yonago.svg);
+background-image:url(../../assets/img/symbol_yonago.svg);
 }
 
 
+.nav-item_right{ background-color: #296BAA; padding: 3px 6px;}
 
 /* ヘッダー部 リンク色  */
 a.site_logo:link,
@@ -757,9 +758,17 @@ a.h_icon_master::before {
 .nav-tabs .nav-link:hover{ background-color: #FDE9A4; color: #aa0000;}
 
 
+.navbar-light .navbar-brand{background-image:url(../../assets/img/symbol_yonago.svg);
+	padding-left:35px;
+	background-repeat:no-repeat;
+	background-position:0px 7px;
+	background-size:30px auto;
+	
+}
 
 .navbar-light .navbar-toggler:hover .material-icons, .navbar-light .navbar-toggler:active .material-icons {
-    COLOR: #FFF!important;
+	COLOR: #FFF!important;
+	
 }
 
 
@@ -1726,7 +1735,7 @@ vertical-align: middle; display: table;
   .navbar .collapse .navbar-nav .nav-item .nav-link{  font-size:12px!important;}
   .navbar_user{ display: none; visibility: hidden;}
 }
-		
+	
 @media (max-width:991.98px) {
   .navbar-expand-lg .navbar-nav { flex-direction:column!important; width: auto;	text-align: left;}
   .navbar-nav li{ display:block;}
@@ -1767,14 +1776,20 @@ vertical-align: middle; display: table;
   .navbar-nav li A:active::before{color: #fff; }
 
 
-  .h-icon-help, .h-icon-logoff a{float: left!important; }
-  .navbar-nav li.nav-item.nav-item_right a{float:left!important;}
-  .h-icon-help, .h-icon-logoff {
-		width:26px;
-		height:26px;
-		margin-left:10px;
-		margin-right: 10px;
-				}
+  .h-icon-help{background-image:url(../../img/h-icon-help.svg);}
+  .h-icon-logoff{background-image:url(../../img/h-icon-logoff.svg);}
+  .h-icon-help,
+  .h-icon-logoff{ width:20px; height: 20px;
+  position: relative;
+  font-size: 12px; margin:6px 5px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  color: inherit;
+  padding: 0rem 0rem;
+  background-repeat:no-repeat;
+  background-position: center right;
+  background-size:contain;
+  }
 
 }
 

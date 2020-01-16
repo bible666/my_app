@@ -51,6 +51,7 @@ export class UserService {
     let httpData : cLogin = new cLogin();
     httpData.user_login     = pData['login_name'];
     httpData.user_password  = pData['login_pwd'];
+    //console.log(httpData);
     return this.http.post(BASE_URL+'/UserController/login',JSON.stringify(httpData),{headers});
   }
 

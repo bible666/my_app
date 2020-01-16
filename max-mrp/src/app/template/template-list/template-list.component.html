@@ -1,21 +1,12 @@
+<app-header></app-header>
 <show-message [message]="message"></show-message>
 
 <!-- ↓↓===== Page Title/Download ======↓↓ -->
 <div class="row wow pagetitle ml-2 mr-2 p-0">
     <div class="col-sm-8"><h1>Template List</h1></div>
     <div class="col-sm-4 text-lg-right">
-        <!--
-        <?= $this->Html->link(__d('faq','Category master'), ['controller' => 'FaqCategory', 'action' => 'index'], ['id' => 'btn_faq', 'class' => 'btn another_menu']) ?>
-        
-    
-    <?php if ($export_flag == true) {?>
-    <?= $this->Html->link(__('CSV Export'), ['action' => 'export'], ['class' => 'btn btn-default btn-lg btn-sm btn-download', 'id' => 'btnExportCSV']) ?>
-    <?php } else { ?>
-        <button class="btn btn-default btn-lg btn-sm" disabled="disabled"><?=__('CSV Export')?></button>
-    <?php } ?>
-    <?= $this->Html->link(__('CSV Import'), ['action' => 'import'], ['class' => 'btn btn-default btn-sm btn-upload', 'id' => 'btnImportCSV']) ?>
-    -->
-        
+        <button class="btn btn-default btn-lg btn-sm btn-download">CSV Export</button>
+        <button class="btn btn-default btn-sm btn-upload">CSV Import</button>
     </div>
 </div>
 <!-- ↑↑===== Page Title/Download ======↑↑ -->
@@ -33,7 +24,7 @@
                             <tr>
                                 <th>ประเภทการค้นหา1</th>
                                 <td>
-                                    <select class="form-control">
+                                    <select class="form-control" formControlName="txt1">
                                         <option value="volvo">20</option>
                                         <option value="saab">50</option>
                                         <option value="fiat">100</option>
@@ -41,12 +32,12 @@
                                     </select>
                                 </td>
                                 <th>การค้นหาสอง</th>
-                                <td><input type="text"/></td>
+                                <td><input type="text" formControlName="txt2"/></td>
                             </tr>
                             <tr>
                                 <th>ประเภทการค้นห3</th>
                                 <td>
-                                    <select class="form-control">
+                                    <select class="form-control" formControlName="txt3">
                                         <option value="volvo">20</option>
                                         <option value="saab">50</option>
                                         <option value="fiat">100</option>
@@ -54,7 +45,7 @@
                                     </select>
                                 </td>
                                 <th>การค้นหา4</th>
-                                <td><input type="text"/></td>
+                                <td><input type="text" formControlName="txt4"/></td>
                             </tr>
                         </table>
                     </div>
@@ -64,7 +55,7 @@
                     <div class="col-sm-2">
 
                         <button class="btn btn-search btn-sm w-100 p-3" (click)="onSearch()">ค้นหา</button>
-                        <button class="btn btn-clear btn-sm w-100">ยกเลิก</button>
+                        <button class="btn btn-clear btn-sm w-100" (click)="onClear()">ยกเลิก</button>
                         <div class='sort-area'>
                             <select class="form-control">
                                 <option value="volvo">20</option>

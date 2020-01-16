@@ -1,0 +1,124 @@
+<header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light main_menu_color scrolling-navbar">
+    
+        <!-- サイトタイトル -->
+        <a routerLink="/" class="navbar-brand ml-1  ">ระบบ MAX</a>
+
+        <!-- Collapse -->
+        <button class="navbar-toggler mr-2 collapsed" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"><i class="material-icons">menu</i></span>
+        </button>
+    
+        <!-- Links -->
+        <div class="navbar-collapse collapse" id="navbarSupportedContent" >
+
+            <!-- Left -->
+            <ul class="navbar-nav navbar-nav-left mr-auto">
+
+                <!-- ■TOP top:業務,所属,総務,産医 -->
+                <li class="nav-item ">
+                    <a href="/hyogo_healthcare/menus/business" class="nav-link waves-effectnav-item active">TOP menu</a>
+                </li>
+    
+                <!-- ■定期健康診断 medchk:業務,所属,産医 -->
+                <li class="nav-item dropdown">
+                    <a href="/hyogo_healthcare/medchk" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">定期健康診断</a>
+    
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/hyogo_healthcare/medchk">定期健康診断</a>
+                        </li>           <!-- medchk:業務,所属,産医 -->
+                        
+                        <li>
+                            <a href="/hyogo_healthcare/after">事後指導</a>
+                        </li>               <!-- after :業務,所属,産医 -->
+                        
+                        <li>
+                            <a href="/hyogo_healthcare/specific">特定保健指導</a>
+                        </li>           <!-- specific:業務,所属 -->
+
+                    </ul>
+                </li>
+
+                <!-- ■ストレス stress:業務,所属,総務,産医 -->
+                <li class="nav-item">
+                    <a href="/hyogo_healthcare/stress" class="nav-link waves-effectnav-item active">ストレス</a>
+                </li>
+                
+                <!-- ■長時間 overtime:業務,所属,総務,産医 -->
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">長時間</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/hyogo_healthcare/overtime-dpt">長時間労働（所属）</a></li>     <!-- overtimeDpt -->
+                        <li><a href="/hyogo_healthcare/overtime-staff">長時間労働（職員）</a></li>     <!-- overtimeStaff -->
+                    </ul>
+                
+                </li>
+
+                <!-- ■共済健診1 maid:業務用 -->
+                <li class="nav-item" style="display: none;">
+                    <a href="/hyogo_healthcare/maid" class="nav-link waves-effect">共済</a>
+                </li><!-- maid: -->
+                
+                <!-- ■共済健診2 maid:所属用 -->
+                <li class="nav-item dropdown">
+                    <a href="/hyogo_healthcare/maid" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">共済</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/hyogo_healthcare/maid">共済検診</a></li>         <!-- maid -->
+                        <li><a href="/hyogo_healthcare/maidproxyapp">共済検診 代理申込</a></li>     <!-- maidProxyApp -->
+                    </ul>
+                </li>
+
+                <!-- ■マスタ管理 master:業務,所属 -->
+                <li class="nav-item dropdown">
+                    <a href="/hyogo_healthcare/history/master-business" class="nav-link waves-effect dropdown-toggle nav-item active" data-toggle="dropdown">マスター管理</a><!-- master: -->
+                    <ul class="dropdown-menu">
+                    
+                        <li><a href="/hyogo_healthcare/staff">職員情報管理</a></li>                                    <!-- staff:業務,所属 -->
+                        <li><a href="/hyogo_healthcare/period">申込期間管理</a></li>                                  <!-- period:業務 -->
+
+                        <li><a href="/hyogo_healthcare/department">所属情報管理</a></li>                          <!-- department:業務,所属 -->
+                        <li><a href="/hyogo_healthcare/news">お知らせ管理</a></li>                                      <!-- news:業務 -->
+                        <li><a href="/hyogo_healthcare/recommend">勧奨日マスタ</a></li>                            <!-- recommend:業務 -->
+                        <li><a href="/hyogo_healthcare/maidbaseinfo">共済検診 基本情報管理</a></li>                      <!-- maidBaseInfo:業務 -->
+                        <li><a href="/hyogo_healthcare/common/edit">共通マスタ画面</a></li>   <!-- datamigration:業務 -->
+                        <li><a href="/hyogo_healthcare/specific-place">特保場所マスタ</a></li>   <!-- datamigration:業務 -->
+
+                    </ul>
+                </li>
+
+                <!-- ■お知らせ news: -->
+                <li class="nav-item">
+                    <a href="/hyogo_healthcare/news-disp" class="nav-link waves-effect">お知らせ</a>
+                </li>
+    
+                <li class="nav-item">
+                    <a href="/hyogo_healthcare/history" class="nav-link waves-effect">履歴</a>
+                </li>
+    
+            </ul>
+    
+    
+            <!-- Right -->
+            <ul class="navbar-nav navbar-nav-right nav-flex-icons">
+                <li class="nav-item f_11 pr-2">
+                    <span class="navbar_department">Test_Department | </span>
+                    <span class="navbar_user"><!--ADMIN00001：-->Test Admin User</span>
+                </li>
+                <li class="nav-item nav-item_right">
+                    <a href="/hyogo_healthcare/pages/manual" class="float-left h-icon-help"></a>
+                    <label (click)="onLogout()" class="float-right h-icon-logoff"></label> <!--ログオフ-->
+                </li>
+            </ul><!-- /navbar-nav nav-flex-icons -->
+    
+        </div>
+    
+        <!-- /collapse navbar-collapse -->
+    
+    
+    </nav>
+    <!-- Navbar -->
+
+</header>

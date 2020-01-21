@@ -27,20 +27,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //localStorage.setItem('ddd','2222');
-    //this.service.setWarning('king');
     this.message = this.service.getMessage();
-    //console.log(this.service.getMessage());
   }
 
   onLogin(){
 
     this.user.login(this.inputForm.value).subscribe(
-      data => { 
+      data => {
         if (data['status'] == 'success'){
           this.user.set_token(data['data']['token']);
           this.user.set_company_id(data['data']['company_id']);
-          
+          console.log(sessionStorage.getItem('token'));
           this.user.getMenu().subscribe(result=>{
             if (result['status'] == 'success'){
               
@@ -56,6 +53,7 @@ export class LoginComponent implements OnInit {
               console.log(result['message']);
             }
             this.router.navigateByUrl('/');
+          
           })
           
         }else{
@@ -64,6 +62,8 @@ export class LoginComponent implements OnInit {
           this.user.clear_cache();
           this.message = this.service.getMessage();
         }
+      },(err)=>{
+        console.log(err);
       });
   }
 

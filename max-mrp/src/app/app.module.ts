@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import {
+  MatDialogModule,
+  MatButtonModule
+} from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -13,6 +16,7 @@ import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { TemplateListComponent } from './template/template-list/template-list.component';
 import { PaginatorComponent } from './template/paginator/paginator.component';
 import { HeaderComponent } from './common/header/header.component';
+import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +27,18 @@ import { HeaderComponent } from './common/header/header.component';
     ShowMessageComponent,
     TemplateListComponent,
     PaginatorComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule, ReactiveFormsModule, BrowserAnimationsModule
+    FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
+    MatDialogModule, MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[ConfirmDialogComponent]
 })
 export class AppModule { }

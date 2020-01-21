@@ -16,7 +16,7 @@ class UserController extends Origin001
 	
 	public function checkToken_post(){
 		$data		= $this->post();
-		$data		= json_decode($data[0]);
+		$data		= json_decode($data);
 
 		//init data
 		$token      = isset($data->token) ? $data->token : '';
@@ -100,10 +100,10 @@ class UserController extends Origin001
 		$this->response($dataDB,200);
 	}
 
-    public function login_post()
-    {
+    public function login_post() {
         $data           = $this->post();
-        $data           = json_decode($data[0]);
+        //print_r($data);
+        $data           = @json_decode($data[0]);
 
         $headers=array();
         foreach (getallheaders() as $name => $value) {
@@ -133,10 +133,9 @@ class UserController extends Origin001
         $query  = $this->db->query($sql, array($user_login));
         $row    = $query->row_array();
 
-        if (isset($row))
-        {
-			$my = $this->encryption->decrypt($row['staff_pwd']);
-            if ($user_password == $this->encryption->decrypt($row['staff_pwd'])){
+        if (isset($row)) {
+            $my = $this->encryption->decrypt($row['staff_pwd']);
+            if ($user_password == $this->encryption->decrypt($row['staff_pwd'])) {
                 $token = $this->_getGUID();
 
                 $staff_id = $row['id'];

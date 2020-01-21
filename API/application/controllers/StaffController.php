@@ -85,6 +85,18 @@ class StaffController extends Origin001
 		$this->response($dataDB,200);
 	}
 
+	public function data_count_get(){
+		$headers=array();
+		foreach (getallheaders() as $name => $value) {
+			$headers[$name] = $value;
+		}
+		$data       = $this->get();
+
+		$dataDB['status']   = "error";
+		$dataDB['message']  = $headers['Authorization'];
+		$dataDB['data']     = $data;
+		$this->response($dataDB,200);
+	}
 
 	/**
 	 * get list data

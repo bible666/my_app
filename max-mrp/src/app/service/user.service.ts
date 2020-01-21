@@ -39,12 +39,12 @@ export class UserService {
 
   public getMenu(){
     let httpData : cGetMenu = new cGetMenu();
-    httpData.token	= localStorage.getItem('token');
+    httpData.token	= sessionStorage.getItem('token');
     return this.http.post(BASE_URL+'/UserController/getMenu',JSON.stringify(httpData));
   }
 
   public clear_cache(){
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
   public login(pData){
@@ -56,23 +56,23 @@ export class UserService {
   }
 
   public logout(){
-    localStorage.clear();
+    sessionStorage.clear();
   }
 
   public set_token(p_token){
-    localStorage.setItem('token', p_token);
+    sessionStorage.setItem('token', p_token);
   }
 
   public get_token(){
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
   public set_company_id(p_company_id){
-    localStorage.setItem('company_id', p_company_id);
+    sessionStorage.setItem('company_id', p_company_id);
   }
 
   public get_company_id(){
-    return localStorage.getItem('company_id');
+    return sessionStorage.getItem('company_id');
   }
 }
 

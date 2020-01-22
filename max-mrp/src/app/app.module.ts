@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {
   MatDialogModule,
-  MatButtonModule
+  MatButtonModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { TemplateListComponent } from './template/template-list/template-list.co
 import { PaginatorComponent } from './template/paginator/paginator.component';
 import { HeaderComponent } from './common/header/header.component';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
+import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +30,15 @@ import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.c
     TemplateListComponent,
     PaginatorComponent,
     HeaderComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    TemplateEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
-    MatDialogModule, MatButtonModule
+    MatDialogModule, MatButtonModule, MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

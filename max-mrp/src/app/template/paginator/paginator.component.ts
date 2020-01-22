@@ -49,9 +49,9 @@ export class PaginatorComponent implements OnInit {
     
     this.startShowPage  = start;
     this.endShowPage    = end;
-    console.log(this.currentPage);
-    console.log(start);
-    console.log(end);
+    //console.log(this.currentPage);
+    //console.log(start);
+    //console.log(end);
 
     this.pages = [];
     for (let i = start ; i <= end; i++){
@@ -66,7 +66,7 @@ export class PaginatorComponent implements OnInit {
       this.pages.push(myPageData);
     }
     
-    console.log(this.pages);
+    //console.log(this.pages);
   
   }
 

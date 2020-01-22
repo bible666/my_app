@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MessageClass } from '../../service/message.service';
 
 @Component({
   selector: 'show-message',
@@ -7,12 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShowMessageComponent implements OnInit {
 
-  @Input() message: string[]  = [];
+  @Input() message: MessageClass[]  = [];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.message);
+
   }
 
 }

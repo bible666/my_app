@@ -17,7 +17,7 @@ export class TemplateListComponent implements OnInit {
 
   public message: string[];
 
-  public CountData       : number = 20;
+  public CountData     : number = 20;
   public CurrentPage   : number = 3;
   public AllPage       : number = 13;
 
@@ -32,12 +32,14 @@ export class TemplateListComponent implements OnInit {
   constructor(
     private service: StaffService,
     public dialog: MatDialog,
+    private messageService: MessageService
   ) {
     //set inital value when open form
     this.onInitValue();
   }
 
   ngOnInit() {
+    this.message = this.messageService.getMessage();
   }
 
   onInitValue(){
@@ -58,12 +60,12 @@ export class TemplateListComponent implements OnInit {
     //});
 
     //Case Call moer then 1 service
-    forkJoin([
-      this.service.getListData(frm_data),
-      this.service.getListData2(frm_data)]).subscribe(results=>{
-        console.log(results[0]),
-        console.log(results[1])
-    })
+    //forkJoin([
+    //  this.service.getListData(frm_data),
+    //  this.service.getListData2(frm_data)]).subscribe(results=>{
+    //    //console.log(results[0]),
+    //    //console.log(results[1])
+    //})
 
   }
 
@@ -87,7 +89,7 @@ export class TemplateListComponent implements OnInit {
 				//cancel delete data
 				//alert('hiii');
 			} else {
-				console.log(result);
+				//console.log(result);
 				//start delete data
 				//sessionStorage.setItem( this.localNameInput + '.delete_id',result);
 				// this.unitS.deleteById().subscribe(data =>{

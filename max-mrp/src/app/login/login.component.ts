@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { MessageService } from '../service/message.service';
+import { MessageService, MessageClass } from '../service/message.service';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public message: string[];
+  public message: MessageClass[] = [];
 
   inputForm = new FormGroup({
     'login_name'     : new FormControl(''),
@@ -57,8 +57,8 @@ export class LoginComponent implements OnInit {
           })
           
         }else{
-          console.log(data);
-          this.service.setWarning(data['message']);
+          //login error
+          this.service.setError(data['message']);
           this.user.clear_cache();
           this.message = this.service.getMessage();
         }

@@ -101,39 +101,41 @@ class UserController extends Origin001
 	}
 
     public function login_post() {
+
         $data           = $this->post();
-        //print_r($data);
-        $data           = @json_decode($data[0]);
+        //$data           = json_decode($data[0]);
 
-        $headers=array();
-        foreach (getallheaders() as $name => $value) {
-            $headers[$name] = $value;
-        }
+        // $headers=array();
+        // foreach (getallheaders() as $name => $value) {
+        //     $headers[$name] = $value;
+        // }
 
+        // print_r($headers);
         
         //init data
         $user_login     = '';
         $user_password  = '';
         $token          = '';
 
-        $dataDB['status'] = "error";
-        $dataDB['message'] = "";
-        $dataDB['data'] = "";
+        $dataDB['status']   = "error";
+        $dataDB['message']  = "";
+        $dataDB['data']     = "";
 
         //Get Data From Post
-        if (isset($data->user_login)){
-            $user_login     = $data->user_login;
+        if (isset($data['user_login']) == 1){//$data['user_login']
+            $user_login     = $data['user_login'];
         }
 
-        if (isset($data->user_password)){
-            $user_password  = $data->user_password;
+        if (isset($data['user_password'])){
+            $user_password  = $data['user_password'];
         }
-
+        
         $sql    = "SELECT * FROM m_staffs WHERE staff_login = ? AND del_flag = 0";
-        $query  = $this->db->query($sql, array($user_login));
+        $query  = $this->db->query($sql, $user_login);
         $row    = $query->row_array();
-
+        //print_r($sql);
         if (isset($row)) {
+            //print_r($row);
             $my = $this->encryption->decrypt($row['staff_pwd']);
             if ($user_password == $this->encryption->decrypt($row['staff_pwd'])) {
                 $token = $this->_getGUID();
@@ -163,7 +165,7 @@ class UserController extends Origin001
 				$dataDB['message'] = "not user22.[".$user_login."]";//.$my;//.$this->encryption->encrypt('password');
 			}
         }else{
-            $dataDB['message'] = "not user.[".$user_login.$headers['Authorization']."]";
+            $dataDB['message'] = "not user.";
         }
 
         $this->response($dataDB,200);

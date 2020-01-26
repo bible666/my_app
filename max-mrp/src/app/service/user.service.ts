@@ -12,7 +12,13 @@ interface MenuNode {
 	children?: MenuNode[];
 }
 
-const headers = new HttpHeaders().set("Authorization", "custom header value");
+//const headers = new HttpHeaders().set("Authorization", "custom header value");
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -51,8 +57,8 @@ export class UserService {
     let httpData : cLogin = new cLogin();
     httpData.user_login     = pData['login_name'];
     httpData.user_password  = pData['login_pwd'];
-    //console.log(httpData);
-    return this.http.post(BASE_URL+'/UserController/login',JSON.stringify(httpData),{headers});
+    console.log(httpOptions);
+    return this.http.post(BASE_URL+'/UserController/login',JSON.stringify(httpData),httpOptions);
   }
 
   public logout(){

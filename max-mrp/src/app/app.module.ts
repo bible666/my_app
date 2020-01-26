@@ -19,6 +19,7 @@ import { PaginatorComponent } from './template/paginator/paginator.component';
 import { HeaderComponent } from './common/header/header.component';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
+import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { TemplateEditComponent } from './template/template-edit/template-edit.co
     PaginatorComponent,
     HeaderComponent,
     ConfirmDialogComponent,
-    TemplateEditComponent
+    TemplateEditComponent,
+    MasterMenuComponent
   ],
   imports: [
     BrowserModule,

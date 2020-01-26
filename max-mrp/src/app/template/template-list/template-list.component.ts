@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { MessageService } from '../../service/message.service';
+import { MessageService, MessageClass } from '../../service/message.service';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { StaffService, cSearch } from '../../service/staff.service';
@@ -15,7 +15,7 @@ import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dial
 })
 export class TemplateListComponent implements OnInit {
 
-  public message: string[];
+  public message: MessageClass[] = [];
 
   public CountData     : number = 20;
   public CurrentPage   : number = 3;

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api_url:'https://maxerp.000webhostapp.com/index.php'
+  api_url:'https://demo001.shanghaixiaolongpao.com/index.php'
 };

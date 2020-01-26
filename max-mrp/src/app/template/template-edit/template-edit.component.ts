@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
-import { MessageService } from '../../service/message.service';
+import { MessageService, MessageClass } from '../../service/message.service';
 import { UserService } from '../../service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StaffService, cSearch } from '../../service/staff.service';
@@ -15,6 +15,8 @@ import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dial
 })
 export class TemplateEditComponent implements OnInit {
 
+  public message: MessageClass[] = [];
+  
   inputForm = new FormGroup({
     'txt1'        : new FormControl(''),
     'txt2'        : new FormControl(''),

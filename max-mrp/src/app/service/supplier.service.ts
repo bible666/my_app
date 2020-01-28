@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const BASE_URL = environment.api_url;
+const BASE_URL = environment.api_url+'/SupplierController';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -29,9 +29,13 @@ export class SupplierService {
 
 export class cSearch{
   page_index  :number;
-  page_size   :number;
+  rowsPerpage   :number;
 
   //manual search condition
   supplier_cd   :string;
   supplier_name :string;
+
+  public constructor(init?: Partial<cSearch>){
+		Object.assign(this,init);
+	}
 }

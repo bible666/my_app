@@ -91,10 +91,18 @@ class SupplierController extends Origin001
 	 */
 	public function get_data_list_post(){
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
+		$token		= $this->getAuthHeader();
 
-		//init data
-		$token      = isset($data->token) ? $data->token : '';
+		//Validate Data
+		if (!is_numeric($data['rowsPerpage'])){
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "row per page must be number";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		$limit		= intval($data['rowsPerpage']);
+		$offset		= ($data['page_index']-1) * $limit;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
@@ -102,10 +110,11 @@ class SupplierController extends Origin001
 			SELECT *
 			FROM m_suppliers
 			WHERE m_company_id = ? AND del_flag = 0
+			LIMIT {$limit} OFFSET {$offset}
 			";
-
-			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
 			
+			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $itemn_data;

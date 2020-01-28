@@ -20,6 +20,8 @@ import { HeaderComponent } from './common/header/header.component';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
+import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
+import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
     HeaderComponent,
     ConfirmDialogComponent,
     TemplateEditComponent,
-    MasterMenuComponent
+    MasterMenuComponent,
+    SupplierListComponent,
+    SupplierEditComponent
   ],
   imports: [
     BrowserModule,

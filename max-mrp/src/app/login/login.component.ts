@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         if (data['status'] == 'success'){
           this.user.set_token(data['data']['token']);
           this.user.set_company_id(data['data']['company_id']);
-          console.log(sessionStorage.getItem('token'));
+
           this.user.getMenu().subscribe(result=>{
             if (result['status'] == 'success'){
               

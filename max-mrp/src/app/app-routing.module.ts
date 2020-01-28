@@ -8,16 +8,20 @@ import { TemplateListComponent } from './template/template-list/template-list.co
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
+import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
+import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 
 
 const routes: Routes = [
-  { path: '' ,					component: MainMenuComponent ,canActivate:[AuthGuard]},
-  { path: 'login',        component:LoginComponent},
-  { path: 'logout',       component:LogoutComponent},
-  { path: 'main-menu',    component:MainMenuComponent,canActivate:[AuthGuard]},
-  { path: 'master-menu',    component:MasterMenuComponent,canActivate:[AuthGuard]},
-  { path: 'template/list',    component:TemplateListComponent,canActivate:[AuthGuard]},
-  { path: 'template/edit/:id',    component:TemplateEditComponent,canActivate:[AuthGuard]}
+  { path: '' ,                  component: MainMenuComponent ,canActivate:[AuthGuard]},
+  { path: 'login',              component:LoginComponent},
+  { path: 'logout',             component:LogoutComponent},
+  { path: 'main-menu',          component:MainMenuComponent,canActivate:[AuthGuard]},
+  { path: 'master-menu',        component:MasterMenuComponent,canActivate:[AuthGuard]},
+  { path: 'template/list',      component:TemplateListComponent,canActivate:[AuthGuard]},
+  { path: 'template/edit/:id',  component:TemplateEditComponent,canActivate:[AuthGuard]},
+  { path: 'supplier/list',      component:SupplierListComponent},
+  { path: 'supplier/edit/:id',  component:SupplierEditComponent}
 ];
 
 @NgModule({

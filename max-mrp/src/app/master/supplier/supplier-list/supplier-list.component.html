@@ -22,14 +22,9 @@
                     <div class="col-sm-10">
                         <table class="w-100" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <th>ประเภทการค้นหา1</th>
+                                <th>รหัส</th>
                                 <td>
-                                    <select class="form-control" formControlName="txt1">
-                                        <option value="volvo">20</option>
-                                        <option value="saab">50</option>
-                                        <option value="fiat">100</option>
-                                        <option value="audi">200</option>
-                                    </select>
+                                    <input type="text" formControlName="supplier_cd"/>
                                 </td>
                                 <th>การค้นหาสอง</th>
                                 <td><input type="text" formControlName="txt2"/></td>
@@ -101,24 +96,20 @@
                         <table class="table table-bordered table-striped" >
                             <thead>
                                 <tr>
-                                    <th nowrap>column 1</th>
-                                    <th >column 2</th>
-                                    <th scope="col">column 3</th>
-                                    <th scope="col" nowrap>column 4</th>
+                                    <th></th>
+                                    <th nowrap>รหัส</th>
+                                    <th >ชื่อ</th>
+                                    <th scope="col">ที่อยู่</th>
+                                    <th scope="col">เบอร์โทร</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Data 1</td>
-                                    <td class="c">Data 2</td>
-                                    <td class="c" nowrap>Data 3</td>
-                                    <td nowrap>Data 4</td>
-                                </tr>
-                                <tr>
-                                    <td><a [routerLink]="['/template/edit',20]" class="btn btn-primary btn-sm">edit</a></td>
-                                    <td class="c"><button type="button" class="btn btn-default btn-sm" (click)="onDelete(1)">delete</button></td>
-                                    <td class="c" nowrap>Data 3</td>
-                                    <td nowrap>Data 4</td>
+                                <tr *ngFor="let gridData of gridDatas">
+                                    <td><a [routerLink]="['/supplier/edit',gridData.id]" class="btn btn-primary btn-sm">edit</a></td>
+                                    <td>{{gridData.supplier_cd}}</td>
+                                    <td class="c">{{gridData.supplier_name}}</td>
+                                    <td class="c" nowrap>{{gridData.supplier_add1}}{{gridData.supplier_add2}} {{gridData.supplier_add3}}</td>
+                                    <td nowrap>{{gridData.supplier_tel}}</td>
                                 </tr>
                             </tbody>
                         </table>

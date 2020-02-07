@@ -94,12 +94,7 @@ class SupplierController extends Origin001
 		$token		= $this->getAuthHeader();
 
 		//Validate Data
-		if (!is_numeric($data['rowsPerpage'])){
-			$dataDB['status']   = "error";
-			$dataDB['message']  = "row per page must be number";
-			$dataDB['data']     = "";
-			$this->response($dataDB,200);
-		}
+
 
 		$limit		= intval($data['rowsPerpage']);
 		$offset		= ($data['page_index']-1) * $limit;
@@ -110,14 +105,24 @@ class SupplierController extends Origin001
 			SELECT *
 			FROM m_suppliers
 			WHERE m_company_id = ? AND del_flag = 0
+			ORDER BY supplier_cd
 			LIMIT {$limit} OFFSET {$offset}
+			";
+
+			$query_count = "
+			SELECT count(m_company_id) as my_count
+			FROM m_suppliers
+			WHERE m_company_id = ? AND del_flag = 0
 			";
 			
 			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
 
+			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $itemn_data;
+			$dataDB['max_rows']	= $itemn_count[0]->my_count;
 
 		}else{
 			$dataDB['status']   = "error";

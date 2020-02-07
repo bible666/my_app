@@ -39,3 +39,8 @@ export class cSearch{
 		Object.assign(this,init);
 	}
 }
+
+export class cData{
+  supplier_cd : string;
+  supplier_name : string;
+}

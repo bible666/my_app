@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MainMenuComponent implements OnInit {
 
+  public message: string;
+  
   constructor(
     private router: Router
   ) { }

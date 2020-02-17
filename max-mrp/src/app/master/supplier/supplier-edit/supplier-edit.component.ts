@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessageService, MessageClass } from '../../../service/message.service';
 
 @Component({
   selector: 'app-supplier-edit',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupplierEditComponent implements OnInit {
 
+  public message: MessageClass[] = [];
+  submitted: boolean = false;
+
+  inputForm = new FormGroup({
+    'supplier_cd'         : new FormControl('', [ Validators.required, Validators.maxLength(20) ]),
+    'supplier_name'       : new FormControl('', [ Validators.required, Validators.maxLength(200) ]),
+    'supplier_add1'       : new FormControl('', [ Validators.maxLength(100) ]),
+    'supplier_add2'       : new FormControl('', [ Validators.maxLength(100) ]),
+    'supplier_add3'       : new FormControl('', [ Validators.maxLength(100) ]),
+    'supplier_zip'        : new FormControl('', [ Validators.maxLength(20) ]),
+    'supplier_tel'        : new FormControl('', [ Validators.maxLength(45) ]),
+    'supplier_fax'        : new FormControl('', [ Validators.maxLength(45) ]),
+    'supplier_email'      : new FormControl('', [ Validators.email,Validators.maxLength(45) ]),
+    'contract_name'       : new FormControl('', [ Validators.maxLength(100) ]),
+    'delivery_time'       : new FormControl(0),
+    'm_transport_id'      : new FormControl(0),
+    'm_transport_cd'      : new FormControl(''),
+    'tax_no'              : new FormControl('', [ Validators.maxLength(20) ]),
+    'payment_tearm'       : new FormControl('', [ Validators.maxLength(200) ]),
+    'remark'              : new FormControl('', [ Validators.maxLength(200) ])
+  });
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    if (this.inputForm.invalid){
+      return;
+    }
+    console.log('saved');
   }
 
 }

@@ -137,27 +137,26 @@ class SupplierController extends Origin001
 	 * ีupdate / insert data to database
 	 */
 	public function update_data_post(){
+		$token		= $this->getAuthHeader();
 		$data           = $this->post();
-		$data			= json_decode($data[0]);
 
 		//init data
-		$token          = isset($data->token)			? $data->token			: '';
-		$id             = isset($data->id)				? $data->id				: -1;
-		$supplier_cd	= isset($data->supplier_cd)		? $data->supplier_cd	: '';
-		$supplier_name	= isset($data->supplier_name)	? $data->supplier_name	: '';
-		$supplier_add1	= isset($data->supplier_add1)	? $data->supplier_add1	: '';
-		$supplier_add2	= isset($data->supplier_add2)	? $data->supplier_add2	: '';
-		$supplier_add3	= isset($data->supplier_add3)	? $data->supplier_add3	: '';
-		$supplier_zip	= isset($data->supplier_zip)	? $data->supplier_zip	: '';
-		$supplier_tel	= isset($data->supplier_tel)	? $data->supplier_tel	: '';
-		$supplier_fax	= isset($data->supplier_fax)	? $data->supplier_fax	: '';
-		$supplier_email	= isset($data->supplier_email)	? $data->supplier_email	: '';
-		$contract_name	= isset($data->contract_name)	? $data->contract_name	: '';
-		$delivery_time	= isset($data->delivery_time)	? $data->delivery_time	: -1;
-		$m_transport_id	= isset($data->m_transport_id)	? $data->m_transport_id	: -1;
-		$tax_no			= isset($data->tax_no)			? $data->tax_no			: '';
-		$payment_tearm	= isset($data->payment_tearm)	? $data->payment_tearm	: '';
-		$remark         = isset($data->remark)			? $data->remark			: '';
+		$id             = isset($data['id'])				? $data['id']				: -1;
+		$supplier_cd	= isset($data['supplier_cd'])		? $data['supplier_cd']		: '';
+		$supplier_name	= isset($data['supplier_name'])		? $data['supplier_name']	: '';
+		$supplier_add1	= isset($data['supplier_add1'])		? $data['supplier_add1']	: '';
+		$supplier_add2	= isset($data['supplier_add2'])		? $data['supplier_add2']	: '';
+		$supplier_add3	= isset($data['supplier_add3'])		? $data['supplier_add3']	: '';
+		$supplier_zip	= isset($data['supplier_zip'])		? $data['supplier_zip']		: '';
+		$supplier_tel	= isset($data['supplier_tel'])		? $data['supplier_tel']		: '';
+		$supplier_fax	= isset($data['supplier_fax'])		? $data['supplier_fax']		: '';
+		$supplier_email	= isset($data['supplier_email'])	? $data['supplier_email']	: '';
+		$contract_name	= isset($data['contract_name'])		? $data['contract_name']	: '';
+		$delivery_time	= isset($data['delivery_time'])		? $data['delivery_time']	: -1;
+		$m_transport_id	= isset($data['m_transport_id'])	? $data['m_transport_id']	: -1;
+		$tax_no			= isset($data['tax_no'])			? $data['tax_no']			: '';
+		$payment_tearm	= isset($data['payment_tearm'])		? $data['payment_tearm']	: '';
+		$remark         = isset($data['remark'])			? $data['remark']			: '';
 
 		//Validation Data
 		if ( $token == '') {
@@ -191,6 +190,7 @@ class SupplierController extends Origin001
 				$dataDB['message']  = "supplier_code_dupplicate";
 				$dataDB['data']     = "";
 				$this->response($dataDB,200);
+				exit;
 			}
 
 			$insert_data = [];

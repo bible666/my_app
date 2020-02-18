@@ -26,8 +26,8 @@
         <div class="col-md-9 edit_area">
             <input type="text" formControlName="supplier_cd"/>
             <div *ngIf="submitted && inputForm.controls['supplier_cd'].hasError">
-            <span class="help" *ngIf="inputForm.controls['supplier_cd'].hasError('required')">กรุณาใส่ข้อมูล</span>
-            <span class="help" *ngIf="inputForm.controls['supplier_cd'].hasError('maxlength')">ใส่ได้ไม่เกิน 20 ตัวอักษร</span>
+                <span class="help" *ngIf="inputForm.controls['supplier_cd'].hasError('required')">กรุณาใส่ข้อมูล</span>
+                <span class="help" *ngIf="inputForm.controls['supplier_cd'].hasError('maxlength')">ใส่ได้ไม่เกิน 20 ตัวอักษร</span>
             </div>
         </div>
     </div>
@@ -38,7 +38,10 @@
         </div>
         <div class="col-md-9 edit_area">
             <input type="text" formControlName="supplier_name"/>
-            <span class="help"></span>
+            <div *ngIf="submitted && inputForm.controls['supplier_name'].hasError">
+                <span class="help" *ngIf="inputForm.controls['supplier_name'].hasError('required')">กรุณาใส่ข้อมูล</span>
+                <span class="help" *ngIf="inputForm.controls['supplier_name'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
+            </div>
         </div>
     </div>
 

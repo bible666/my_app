@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
+import { cInput, SupplierService } from '../../../service/supplier.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-supplier-edit',
@@ -12,6 +14,11 @@ export class SupplierEditComponent implements OnInit {
   public message: MessageClass[] = [];
   submitted: boolean = false;
 
+  //----------------------------------------------------------------
+  // set local Valiable
+  //----------------------------------------------------------------
+  id      : number;
+  
   inputForm = new FormGroup({
     'supplier_cd'         : new FormControl('', [ Validators.required, Validators.maxLength(20) ]),
     'supplier_name'       : new FormControl('', [ Validators.required, Validators.maxLength(200) ]),
@@ -31,9 +38,13 @@ export class SupplierEditComponent implements OnInit {
     'remark'              : new FormControl('', [ Validators.maxLength(200) ])
   });
   
-  constructor() { }
+  constructor(private param: ActivatedRoute,
+    private Service: SupplierService,
+    private ServiceMessage: MessageService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.id	= this.param.snapshot.params.id;
   }
 
   onSubmit(){
@@ -41,7 +52,25 @@ export class SupplierEditComponent implements OnInit {
     if (this.inputForm.invalid){
       return;
     }
-    console.log('saved');
+
+    let input_data	: cInput = new cInput(this.inputForm.value);
+    input_data.id	= this.id;
+    this.Service.updateById(input_data)
+    .subscribe(data=>{
+
+      if (data['status']== 'success'){
+        this.ServiceMessage.setSuccess('บันทึกสำเร็จ');
+        this.router.navigateByUrl('/supplier/list');
+			} else {
+        this.ServiceMessage.setError(data['message']);
+        this.message = this.ServiceMessage.getMessage();
+      }
+			
+    },
+    error=>{
+      this.ServiceMessage.setError('บันทึกผิดพลาด');
+      this.message = this.ServiceMessage.getMessage();
+    });
   }
 
 }

@@ -1,0 +1,17 @@
+sequenceDiagram
+participant Batch
+participant GERAS
+participant shared
+participant ESB
+participant income as Msa-AgentProduct
+
+note over Batch,income : Import table agpt_period
+Batch->>+GERAS: requet agpt_period
+GERAS->>-Batch: send agpt_period
+Batch->>shared: create and upload CSV File
+ESB->>shared: check create new file
+shared->>ESB: read new file 
+ESB->>+income: delete data
+income->>-ESB: delete data finished
+ESB->>+income: import data
+income->>-ESB: import data finished

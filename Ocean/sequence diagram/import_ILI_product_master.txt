@@ -1,0 +1,17 @@
+sequenceDiagram
+participant Batch
+participant GERAS
+participant shared
+participant ESB
+participant income as Msa-AgentProduct
+
+note over Batch,income : Import table ILI_product_master
+Batch->>+GERAS: requet ILI_product_master
+GERAS->>-Batch: send ILI_product_master
+Batch->>shared: create and upload CSV File
+ESB->>shared: check create new file
+shared->>ESB: read new file 
+ESB->>+income: delete data
+income->>-ESB: delete data finished
+ESB->>+income: import data
+income->>-ESB: import data finished

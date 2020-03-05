@@ -1,0 +1,16 @@
+rect rgba(50, 100, 255, .1)
+    Note over user,db: list search
+    user->>login: input user/password
+    login->>serviceLogin: check user/password
+    serviceLogin-->>login: login ok
+    login->>home: redirect
+    user->>home: click menu news
+    home->>news_list: redirect
+    user->>news_list: input search condition
+    user->>news_list: click search
+    news_list->>service: call service for get data
+    service->>+db: send query for get data
+    db-->>-service: data for show in list
+    service->>news_list: send data for list
+    news_list->>user:update list data
+end

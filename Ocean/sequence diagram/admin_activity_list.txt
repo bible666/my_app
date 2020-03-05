@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant user
+    participant login as msa-nbsportal
+    participant home as msa-agentteam
+    participant news_list as msa-agentnewskm
+    participant db
+
+rect rgba(0, 0, 255, .1)
+    Note over user,db: show activity
+    user->>login: input user/password
+    login->>login: call service for check login
+    login->>home: redirect to main menu
+    user->>home: click menu activity
+    home->>news_list: redirect activity list
+    news_list->>news_list:call service GET activity
+    news_list->>+db: send query for get data
+    db-->>-news_list: data for show in list
+    news_list->>news_list: refresh activity data
+
+end
+
+rect rgba(150, 150, 255, .1)
+    Note over user,db: Search activity
+    user->>news_list: input search condition
+    user->>news_list: click search
+    news_list->>news_list: call service GET activity
+    news_list->>+db: send query for get data
+    db-->>-news_list: data for show in list
+    news_list->>news_list:update activity data
+end

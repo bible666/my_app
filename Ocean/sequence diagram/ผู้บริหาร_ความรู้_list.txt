@@ -1,0 +1,70 @@
+sequenceDiagram
+    participant user as ผู้บริหาร
+    participant login as msa-nbsportal
+    participant home as msa-oilauth
+    participant team as msa-agentteam
+    participant news_list as msa-agentnewskm
+    participant sea as msa-seaweedgw
+    participant db
+
+rect rgba(0, 0, 255, .1)
+    Note over user,db: Login
+    user->>login: input user/password
+    login-->>login: Authen with Ocean PAD/LDAP
+    login->>login: Create session login
+    login->>home: create JWT
+    home->>login:return JWT
+    login->>user: redirect to Agent List
+    user->>login: select Agent for view as
+    login->>team : select view as and go to main page
+    team->>team : request token
+    team-->>user : return token
+    user->>team : send token
+    team->>team : verify token
+    team->>user: show main page
+
+Note over user,db: show  ความรู้ list
+    user->>team: click menu ข่าวสาร และ ความรู้
+    team->>news_list: redirect to page ข่าวสำคัญ
+
+    news_list->>user : show page ข่าวสำคัญ
+
+    user->>news_list: click ความรู้
+    news_list->>news_list: redirect to page ความรู้
+    news_list->>user : show page ความรู้
+
+    user->>news_list: call service getKnowledgeCategory
+    news_list->>+db : send query for get knowledge category
+    db-->>-news_list : return knowledge category data 
+    news_list->>user: return knowledge category
+
+    user->>news_list: call service getActiveNewsAndKnowledge
+    news_list->>+db : send query for get knowledge
+    db-->>-news_list : return knowledge data for agent
+    news_list->>user: return knowledge data
+
+loop Loop for get cover image
+    user->>news_list: call service getImage
+    news_list->>+sea : request image
+    sea->>-news_list : return image
+    news_list->>user: return image
+ end
+
+    user->>user : show knowledge data
+end
+
+Note over user,db: show  content
+    user->>news_list: user เลือกความรู้ ที่ต้องการดูรายละเอียด
+    news_list->>news_list: redirect to knows detail page
+    news_list->>user: show knows detail
+    user->>news_list: call service getContent
+    news_list->>+db : send query for get content
+    db-->>-news_list : return content data
+    news_list->>user: return content data
+loop Loop for get Image for content
+    user->>news_list: call service getImage
+    news_list->>+sea : request image
+    sea->>-news_list : return image
+    news_list->>user: return image
+ end
+    user->>user: show content data

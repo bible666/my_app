@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require('Origin001.php');
 
-class MigrationController extends Origin001
+class MigrationController extends CI_Controller
 {
     /**
      * Constructure class
@@ -14,8 +14,9 @@ class MigrationController extends Origin001
 
     }
 
-    public function last_version_post()
+    public function index()
     {
+        echo "111";
         if ($this->migration->latest() === FALSE)
         {
             show_error($this->migration->error_string());

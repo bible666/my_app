@@ -160,8 +160,10 @@ class UserController extends Origin001
                 $dataDB['message']  = "";
                 $dataDB['data'] = $result;
             } else {
+
                 $user_update = [
                     'last_ng_time'  => date("Y-m-d H:i:s"),
+                    'update_date'   => date("Y-m-d H:i:s"),
                     'ng_count'      => $row['ng_count'] + 1
                 ];
                 $this->db->set($user_update);

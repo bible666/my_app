@@ -126,18 +126,19 @@ class UserController extends Origin001
         if (isset($data['user_password'])){
             $user_password  = $data['user_password'];
         }
-        
-        $sql    = "SELECT * FROM m_staffs WHERE staff_login = ? AND del_flag = 0";
+       
+        $sql    = "SELECT * FROM mst_user WHERE login_id = ? AND active_flag = 1";
         $query  = $this->db->query($sql, $user_login);
         $row    = $query->row_array();
         //print_r($sql);
         if (isset($row)) {
             //print_r($row);
-            $my = $this->encryption->decrypt($row['staff_pwd']);
-            if ($user_password == $this->encryption->decrypt($row['staff_pwd'])) {
+            //$my = $this->encryption->decrypt($row['staff_pwd']);
+            //if ($user_password == $this->encryption->decrypt($row['staff_pwd'])) {
+            if ($user_password == $row['user_password']) {
                 $token = $this->_getGUID();
 
-                $staff_id = $row['id'];
+                $staff_id = $row['user_id'];
 
                 //Clear Old Token Data
                 $data = array('del_flag' => 1);
@@ -159,7 +160,14 @@ class UserController extends Origin001
                 $dataDB['message']  = "";
                 $dataDB['data'] = $result;
             } else {
-				$dataDB['message'] = "not user22.[".$user_login."]";//.$my;//.$this->encryption->encrypt('password');
+                $user_update = [
+                    'last_ng_time'  => date("Y-m-d H:i:s"),
+                    'ng_count'      => $row['ng_count'] + 1
+                ];
+                $this->db->set($user_update);
+                $this->db->where('user_id',$row['user_id']);
+                $this->db->update('mst_user');
+				$dataDB['message'] = "not user22.[".$user_login."]".time();//.$my;//.$this->encryption->encrypt('password');
 			}
         }else{
             $dataDB['message'] = "not user.";//.$headers['Authorization'];

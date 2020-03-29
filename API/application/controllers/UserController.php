@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 require('Origin001.php');
+require('shared.php');
 
 class UserController extends Origin001
 {
@@ -135,7 +136,14 @@ class UserController extends Origin001
             //print_r($row);
             //$my = $this->encryption->decrypt($row['staff_pwd']);
             //if ($user_password == $this->encryption->decrypt($row['staff_pwd'])) {
-            if ($user_password == $row['user_password']) {
+
+            $nowData = strtotime(date("Y-m-d H:i:s"));
+            $diff_time = round(abs($nowData - strtotime($row['last_ng_time'])) / 60,2);
+            if ($row['ng_count'] >= max_system::max_login_count && $diff_time <= max_system::max_lock_login_time_mininus){
+                
+                
+                $dataDB['message'] = 'คุณ login เกินจำนวนครั้งที่กำหนด กรุณาลองใหม่อีกครั้งหลังผ่่าน 30 นาที';//.$headers['Authorization'];
+            } else if ($user_password == $row['user_password']) {
                 $token = $this->_getGUID();
 
                 $staff_id = $row['user_id'];
@@ -143,15 +151,15 @@ class UserController extends Origin001
                 //Clear Old Token Data
                 $data = array('del_flag' => 1);
                 $where = "m_staff_id = ".$staff_id." AND del_flag = 0";
-                $str = $this->db->update('t_tokens', $data, $where);
+                $str = $this->db->update('prg_token', $data, $where);
 
 
                 //insert New Token Data
-                $TokenData['m_staff_id']	= $staff_id;
-                $TokenData['token']			= $token;
-				$TokenData['del_flag']		= 0;
-				$TokenData['updated_date']	= date("Y-m-d H:i:s");
-                $this->db->insert('t_tokens',$TokenData);
+                $TokenData['user_id']	= $staff_id;
+                $TokenData['token_code']			= $token;
+				$TokenData['active_flag']		= 0;
+				$TokenData['create_date']	= date("Y-m-d H:i:s");
+                $this->db->insert('prg_token',$TokenData);
 
 
                 $result['token']        = $token;

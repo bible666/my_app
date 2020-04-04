@@ -41,63 +41,67 @@ class UserController extends Origin001
 		$data		= $this->post();
 		$data		= json_decode($data[0]);
 
-        //init data
-		$token      = isset($data->token) ? $data->token : '';
-		$result     = $this->_checkToken($token);
+        // //init data
+		// $token      = isset($data->token) ? $data->token : '';
+		// $result     = $this->_checkToken($token);
 
-		if($result->user_id > 0 ){
+		// if($result->user_id > 0 ){
 
-			$ret_menu_data = [];
+		// 	$ret_menu_data = [];
 
-			$sql = "
-			SELECT a.*
-			FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
-				INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
-			WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 1
-			ORDER BY a.menu_seq
-			";
+		// 	$sql = "
+		// 	SELECT a.*
+		// 	FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
+		// 		INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
+		// 	WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 1
+		// 	ORDER BY a.menu_seq
+		// 	";
 
-			$item_data	= $this->db->query($sql, [$result->company_id,$result->user_id])->result();
+		// 	$item_data	= $this->db->query($sql, [$result->company_id,$result->user_id])->result();
 
-			foreach($item_data as $menuData){
-				$menu1 = [];
-				$menu1['name']	= $menuData->menu_name;
-				$menu1['URL']	= $menuData->URL;
-				$menu1['image']	= $menuData->image;
-				//get sub menu level 2
-				$sql2 = "
-					SELECT a.*
-					FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
-						INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
-					WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 2 AND a.parent_menu_id = ?
-					ORDER BY a.menu_seq
-				";
+		// 	foreach($item_data as $menuData){
+		// 		$menu1 = [];
+		// 		$menu1['name']	= $menuData->menu_name;
+		// 		$menu1['URL']	= $menuData->URL;
+		// 		$menu1['image']	= $menuData->image;
+		// 		//get sub menu level 2
+		// 		$sql2 = "
+		// 			SELECT a.*
+		// 			FROM m_menu_controls a inner join m_menu_staff_category b on a.id = b.m_menu_control_id
+		// 				INNER JOIN m_staffs c on b.m_staff_category_id = c.staff_cat
+		// 			WHERE c.m_company_id = ? and c.id = ? AND a.menu_level = 2 AND a.parent_menu_id = ?
+		// 			ORDER BY a.menu_seq
+		// 		";
 
-				$menu_data2	= $this->db->query($sql2, [$result->company_id,$result->user_id,$menuData->id])->result();
+		// 		$menu_data2	= $this->db->query($sql2, [$result->company_id,$result->user_id,$menuData->id])->result();
 
-				$subMenu = [];
-				foreach($menu_data2 as $menuData2){
-					$menu2 = [];
-					$menu2['name']	= $menuData2->menu_name;
-					$menu2['URL']	= $menuData2->URL;
-					$menu2['image']	= $menuData2->image;
+		// 		$subMenu = [];
+		// 		foreach($menu_data2 as $menuData2){
+		// 			$menu2 = [];
+		// 			$menu2['name']	= $menuData2->menu_name;
+		// 			$menu2['URL']	= $menuData2->URL;
+		// 			$menu2['image']	= $menuData2->image;
 
-					$subMenu[] = $menu2;
-				}
+		// 			$subMenu[] = $menu2;
+		// 		}
 
-				$menu1['children']	= $subMenu;
+		// 		$menu1['children']	= $subMenu;
 
-				$ret_menu_data[]	= $menu1;
-			}
+		// 		$ret_menu_data[]	= $menu1;
+		// 	}
 
-			$dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $ret_menu_data;
-		} else {
-			$dataDB['status']   = "error";
-            $dataDB['message']  = "token not found or you don't have permission";
-            $dataDB['data']     = '';
-		}
+		// 	$dataDB['status']   = "success";
+        //     $dataDB['message']  = "";
+        //     $dataDB['data']     = $ret_menu_data;
+		// } else {
+		// 	$dataDB['status']   = "error";
+        //     $dataDB['message']  = "token not found or you don't have permission";
+        //     $dataDB['data']     = '';
+        // }
+        
+        $dataDB['status']   = "success";
+        $dataDB['message']  = "";
+        $dataDB['data']     = "";
 		$this->response($dataDB,200);
 	}
 
@@ -149,17 +153,28 @@ class UserController extends Origin001
                 $staff_id = $row['user_id'];
 
                 //Clear Old Token Data
-                $data = array('del_flag' => 1);
-                $where = "m_staff_id = ".$staff_id." AND del_flag = 0";
+                $data = array('active_flag' => 1);
+                $where = "user_id = ".$staff_id." AND active_flag = 0";
                 $str = $this->db->update('prg_token', $data, $where);
 
 
                 //insert New Token Data
-                $TokenData['user_id']	= $staff_id;
-                $TokenData['token_code']			= $token;
-				$TokenData['active_flag']		= 0;
+                $TokenData['user_id']       = $staff_id;
+                $TokenData['token_code']	= $token;
+				$TokenData['active_flag']	= 0;
 				$TokenData['create_date']	= date("Y-m-d H:i:s");
                 $this->db->insert('prg_token',$TokenData);
+
+
+                //update user table
+                $data = [
+                    'update_date'       => date("Y-m-d H:i:s"),
+                    'last_login_time'   => date("Y-m-d H:i:s"),
+                    'last_ng_time'      => null,
+                    'ng_count'          => 0
+                ];
+                $where = "user_id = ".$staff_id;
+                $str = $this->db->update('mst_user', $data, $where);
 
 
                 $result['token']        = $token;

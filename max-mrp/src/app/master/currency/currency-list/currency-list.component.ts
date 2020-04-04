@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
-import { UserService } from '../../../service/user.service';
-import { Router } from '@angular/router';
 import { SupplierService, cSearch, cData } from '../../../service/supplier.service';
-import { Observable, forkJoin } from 'rxjs';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../../../common/confirm-dialog/confirm-dialog.component'
 
@@ -25,8 +22,8 @@ export class CurrencyListComponent implements OnInit {
 
   inputForm = new FormGroup({
     'currency_code' : new FormControl(''),
-    'description'        : new FormControl(''),
-    'rowsPerpage' : new FormControl('20')
+    'description'   : new FormControl(''),
+    'rowsPerpage'   : new FormControl('20')
   });
 
   constructor(
@@ -64,6 +61,7 @@ export class CurrencyListComponent implements OnInit {
   getData(){
     this.frmSearchData.page_index = this.CurrentPage;
     this.service.getListData(this.frmSearchData).subscribe(data => {
+      console.log(data);
       if (data['status'] == 'success'){
         this.CountData    = data['max_rows'];
         this.AllPage      = Math.ceil(this.CountData / this.inputForm.value.rowsPerpage);

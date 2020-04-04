@@ -100,7 +100,7 @@ class CurrencyController extends Origin001
 		$offset		= ($data['page_index']-1) * $limit;
 
 		$result     = $this->_checkToken($token);
-		if($result->user_id > 0){
+		if($result->user_id >= 0){
 			$query_str = "
 			SELECT *
 			FROM mst_currency

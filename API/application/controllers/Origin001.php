@@ -52,40 +52,41 @@ class Origin001 extends REST_Controller
      */
     protected function _checkToken($token){
         $query_str = "
-            SELECT s.*,t.id as tokenId,t.updated_date as token_update
-            FROM t_tokens t INNER JOIN m_staffs s ON t.m_staff_id = s.id
-            WHERE t.token = ?
-                AND t.del_flag = 0
+            SELECT s.*,t.id as token_code,t.create_date as token_update,t.active_flag
+            FROM prg_token t INNER JOIN mst_user s ON t.user_id = s.user_id
+            WHERE t.token_code = ?
+                AND t.active_flag = 0
         ";
+
         $staff_data = $this->db->query($query_str, [$token])->row();
         //print_r($staff_data);
         $tokenData = new check_token_class();
-        
+
         if (isset($staff_data)){
-            $minDiff = $this->dateDifference($staff_data->token_update,date("Y-m-d H:i:s"),'%i');
+            //$minDiff = $this->dateDifference($staff_data->token_update,date("Y-m-d H:i:s"),'%i');
             //print_r($minDiff);
-            if ($minDiff <= 30 ){
-                $tokenData->status      = $staff_data->del_flag;
-                $tokenData->user_id     = $staff_data->id;
-                $tokenData->staff_name  = $staff_data->sur_name. ' ' . $staff_data->given_name;
-                $tokenData->company_id  = $staff_data->m_company_id;
-                $tokenData->staff_cat    = $staff_data->staff_cat;
+            //if ($minDiff <= 30 ){
+                $tokenData->status      = $staff_data->active_flag;
+                $tokenData->user_id     = $staff_data->user_id;
+                $tokenData->staff_name  = $staff_data->user_name;
+                $tokenData->company_id  = 0;
+                $tokenData->staff_cat    = $staff_data->user_group_id;
     
-                //update token data
-                $this->db->set(['updated_date' => date("Y-m-d H:i:s"),'test'=>$minDiff]);
-                $this->db->where(['id' => $staff_data->tokenId]);
-                $this->db->update('t_tokens');
-            } else {
-                //update token data
-                $this->db->set(['del_flag' => 1,'test'=>$minDiff]);
-                $this->db->where(['id' => $staff_data->tokenId]);
-                $this->db->update('t_tokens');
-            }
+            //     //update token data
+            //     $this->db->set(['update_date' => date("Y-m-d H:i:s")]);
+            //     $this->db->where(['id' => $staff_data->token_code]);
+            //     $this->db->update('prg_token');
+            // } else {
+            //     //update token data
+            //     $this->db->set(['del_flag' => 1]);
+            //     $this->db->where(['id' => $staff_data->token_code]);
+            //     $this->db->update('prg_token');
+            // }
             //echo $minDiff;
             //if ($staff_data->token_update > date("Y-m-d H:i:s"))
 
         }
-
+        
         return $tokenData;
    }
 

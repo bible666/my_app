@@ -22,6 +22,8 @@ import { TemplateEditComponent } from './template/template-edit/template-edit.co
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
 import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
+import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
+import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-
     TemplateEditComponent,
     MasterMenuComponent,
     SupplierListComponent,
-    SupplierEditComponent
+    SupplierEditComponent,
+    CurrencyEditComponent,
+    CurrencyListComponent
   ],
   imports: [
     BrowserModule,

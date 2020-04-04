@@ -10,6 +10,8 @@ import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
 import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
+import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
+import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,9 @@ const routes: Routes = [
   { path: 'template/list',      component:TemplateListComponent,canActivate:[AuthGuard]},
   { path: 'template/edit/:id',  component:TemplateEditComponent,canActivate:[AuthGuard]},
   { path: 'supplier/list',      component:SupplierListComponent},
-  { path: 'supplier/edit/:id',  component:SupplierEditComponent}
+  { path: 'supplier/edit/:id',  component:SupplierEditComponent},
+  { path: 'currency/list',      component:CurrencyListComponent},
+  { path: 'currency/edit/:id',  component:CurrencyEditComponent}
 ];
 
 @NgModule({

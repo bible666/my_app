@@ -7,7 +7,7 @@ class Migration_mst_currency extends CI_Migration {
     public function up()
     {
         $this->db->query("
-    CREATE TABLE mst_currenct(
+    CREATE TABLE mst_currency(
         currency_id INT AUTO_INCREMENT PRIMARY KEY,
         currency_code VARCHAR(10),
         description VARCHAR(255),

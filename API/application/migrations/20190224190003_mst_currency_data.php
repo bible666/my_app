@@ -156,13 +156,13 @@ class Migration_mst_currency_data extends CI_Migration {
             ]
         ];
 
-        $this->db->insert_batch('mst_currenct', $data);
+        $this->db->insert_batch('mst_currency', $data);
     }
 
     public function down()
     {
         $this->db->query("
-    DELETE TABLE mst_currenct(
+    DELETE TABLE mst_currency(
         currency_id INT AUTO_INCREMENT PRIMARY KEY,
         currency_code VARCHAR(10),
         description VARCHAR(255),

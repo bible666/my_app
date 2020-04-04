@@ -68,7 +68,7 @@ class Origin001 extends REST_Controller
             //if ($minDiff <= 30 ){
                 $tokenData->status      = $staff_data->active_flag;
                 $tokenData->user_id     = $staff_data->user_id;
-                $tokenData->staff_name  = $staff_data->user_name;
+                $tokenData->staff_name  = $staff_data->first_name;
                 $tokenData->company_id  = 0;
                 $tokenData->staff_cat    = $staff_data->user_group_id;
     

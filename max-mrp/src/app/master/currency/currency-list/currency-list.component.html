@@ -24,24 +24,11 @@
                             <tr>
                                 <th>รหัส</th>
                                 <td>
-                                    <input type="text" formControlName="supplier_cd"/>
+                                    <input type="text" formControlName="currency_code"/>
                                 </td>
-                                <th>การค้นหาสอง</th>
-                                <td><input type="text" formControlName="txt2"/></td>
+                                
                             </tr>
-                            <tr>
-                                <th>ประเภทการค้นห3</th>
-                                <td>
-                                    <select class="form-control" formControlName="txt3">
-                                        <option value="volvo">20</option>
-                                        <option value="saab">50</option>
-                                        <option value="fiat">100</option>
-                                        <option value="audi">200</option>
-                                    </select>
-                                </td>
-                                <th>การค้นหา4</th>
-                                <td><input type="text" formControlName="txt4"/></td>
-                            </tr>
+                            
                         </table>
                     </div>
                     <!-- ↑↑Search Item Area----------------------↑↑ -->
@@ -103,9 +90,9 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let gridData of gridDatas">
-                                    <td><a [routerLink]="['/supplier/edit',gridData.id]" class="btn btn-primary btn-sm">edit</a></td>
+                                    <td><a [routerLink]="['/currency/edit',gridData.currency_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
                                     <td>{{gridData.currency_code}}</td>
-                                    <td class="c">{{gridData.description}}</td>
+                                    <td class="c">{{gridData.currency_name}}</td>
                                 </tr>
                             </tbody>
                         </table>

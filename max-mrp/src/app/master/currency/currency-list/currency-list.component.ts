@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
-import { SupplierService, cSearch, cData } from '../../../service/supplier.service';
+import { CurrencyService, cSearch, cData } from '../../../service/currency.service';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from '../../../common/confirm-dialog/confirm-dialog.component'
 
@@ -27,7 +27,7 @@ export class CurrencyListComponent implements OnInit {
   });
 
   constructor(
-    private service: SupplierService,
+    private service: CurrencyService,
     public dialog: MatDialog,
     private messageService: MessageService
   ) {

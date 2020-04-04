@@ -19,12 +19,12 @@ class Migration_mst_user extends CI_Migration {
                 user_password VARCHAR(200) NOT NULL,
                 user_group_id int not null,
                 remark varchar(200) ,
-                active_flag bool,
+                active_flag int,
 
                 last_login_time DATETIME,
                 last_ng_time DATETIME,
                 ng_count INT DEFAULT 0,
-                account_loack bool,
+                account_loack int,
 
                 create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 update_date DATETIME ,

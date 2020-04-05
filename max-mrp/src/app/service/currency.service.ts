@@ -25,6 +25,13 @@ export class CurrencyService {
     return this.http.post(BASE_URL+'/get_data_list',strJSON,httpOptions);
   }
 
+  public getDataById(id:string){
+    let inputData = new cInput();
+    inputData.id = id;
+    let strJSON:string  = JSON.stringify(inputData);
+    return this.http.post(BASE_URL+'/get_data_by_id',strJSON,httpOptions);
+  }
+
   public updateById(inputData:cInput){
     let strJSON:string  = JSON.stringify(inputData);
     return this.http.post(BASE_URL+'/update_data',strJSON,httpOptions);
@@ -52,11 +59,13 @@ export class cData{
 
 export class cInput{
   token         : string;
-  id            : number;
+  id            : string;
 
-  currency_id     : number;
-  currency_code   : string;
-  description     : string;
+  currency_id       : string;
+  currency_code     : string;
+  currency_name     : string;
+  default_currency  : boolean;
+  remark            : string;
 
   public constructor(init?: Partial<cInput>){
     Object.assign(this,init);

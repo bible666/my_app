@@ -15,6 +15,8 @@ import { SupplierListComponent } from './master/supplier/supplier-list/supplier-
 import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
 import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
+import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
+import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
 
 
 const routes: Routes = [
@@ -31,7 +33,9 @@ const routes: Routes = [
   { path: 'supplier/list',              component:SupplierListComponent,canActivate:[AuthGuard]},
   { path: 'supplier/edit/:id',          component:SupplierEditComponent,canActivate:[AuthGuard]},
   { path: 'currency/list',              component:CurrencyListComponent,canActivate:[AuthGuard]},
-  { path: 'currency/edit/:id',          component:CurrencyEditComponent,canActivate:[AuthGuard]}
+  { path: 'currency/edit/:id',          component:CurrencyEditComponent,canActivate:[AuthGuard]},
+  { path: 'calendar/list',              component:CalendarListComponent,canActivate:[AuthGuard]},
+  { path: 'calendar/edit/:id',          component:CalendarEditComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -27,6 +27,8 @@ import { CurrencyListComponent } from './master/currency/currency-list/currency-
 import { BasicMasterComponent } from './menu/basic-master/basic-master.component';
 import { TransactionMasterComponent } from './menu/transaction-master/transaction-master.component';
 import { AdminMasterComponent } from './menu/admin-master/admin-master.component';
+import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
+import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { AdminMasterComponent } from './menu/admin-master/admin-master.component
     CurrencyListComponent,
     BasicMasterComponent,
     TransactionMasterComponent,
-    AdminMasterComponent
+    AdminMasterComponent,
+    CalendarEditComponent,
+    CalendarListComponent
   ],
   imports: [
     BrowserModule,

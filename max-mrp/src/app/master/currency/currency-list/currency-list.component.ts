@@ -81,11 +81,11 @@ export class CurrencyListComponent implements OnInit {
     this.getData();
   }
 
-  onDelete(id:number){
+  onDelete(id:string){
     const dialogRef = this.dialog.open(ConfirmDialogComponent,{
 			width: '350px',
 			height: '200px',
-			data: {description: 'ต้องการ',id:id}
+			data: {description: 'คุณต้องการลบรายการนี้หรือเปล่ารหัส '+id,id:id}
 		})
 		
 		dialogRef.afterClosed().subscribe(result=>{
@@ -93,22 +93,17 @@ export class CurrencyListComponent implements OnInit {
 				//cancel delete data
 				//alert('hiii');
 			} else {
-				//console.log(result);
-				//start delete data
-				//sessionStorage.setItem( this.localNameInput + '.delete_id',result);
-				// this.unitS.deleteById().subscribe(data =>{
-				// 	if (data['status'] == 'success'){
-				// 		this.snackBar.openFromComponent(MyMessageComponent,{
-				// 			data:[this.texts['common.delete_complete']],
-				// 			duration:5000,
-				// 			panelClass:['mat-snack-bar-container-message']
-				// 		})
-				// 		this.ngOnInit();
-				// 	} else {
-				// 		console.log(data['message']);
-				// 	}
-        // });
-        //alert('click ok');
+        this.service.deleteById(id)
+        .subscribe(data=>{
+          this.messageService.setError('ทำการลบเสร็จแล้ว');
+          this.onSearch();
+
+        },
+        error=>{
+            this.messageService.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+            this.message = this.messageService.getMessage();
+        });
+				
 			}
 		});
   }

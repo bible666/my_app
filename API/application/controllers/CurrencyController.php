@@ -20,24 +20,22 @@ class CurrencyController extends Origin001
      */
     public function delete_data_by_id_post(){
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
 
         //init data
-        $token      = isset($data->token) ? $data->token : '';
-        $id         = isset($data->id) ? $data->id : -1;
+        $token		= $this->getAuthHeader();
+        $id         = isset($data['id']) ? $data['id'] : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
         if($result->user_id > 0){
-			$insert_data['del_flag']    	= 1;
-			$insert_data['updated_date']    = date("Y-m-d H:i:s");
-            $insert_data['updated']         = $result->user_id;
+			$insert_data['active_flag']    	= false;
+			$insert_data['update_date']     = date("Y-m-d H:i:s");
+            $insert_data['update_user']     = $result->user_id;
 
             $this->db->where([
-				'id'			=> $id,
-				'm_company_id'	=> $result->company_id
+				'currency_code'			=> $id,
 			]);
-            $this->db->update('m_suppliers',$insert_data);
+            $this->db->update('mst_currency',$insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";

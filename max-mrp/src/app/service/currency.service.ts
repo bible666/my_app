@@ -25,6 +25,13 @@ export class CurrencyService {
     return this.http.post(BASE_URL+'/get_data_list',strJSON,httpOptions);
   }
 
+  public deleteById(id:string){
+    let inputData = new cInput();
+    inputData.id = id;
+    let strJSON:string  = JSON.stringify(inputData);
+    return this.http.post(BASE_URL+'/delete_data_by_id',strJSON,httpOptions);
+  }
+
   public getDataById(id:string){
     let inputData = new cInput();
     inputData.id = id;

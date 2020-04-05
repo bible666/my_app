@@ -84,6 +84,7 @@
                             <thead>
                                 <tr>
                                     <th></th>
+                                    <th></th>
                                     <th nowrap>รหัส</th>
                                     <th >คำอธิบาย</th>
                                 </tr>
@@ -91,6 +92,8 @@
                             <tbody>
                                 <tr *ngFor="let gridData of gridDatas">
                                     <td><a [routerLink]="['/currency/edit',gridData.currency_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
+                                    <td><a  (click)="onDelete(gridData.currency_code)" class="btn btn-primary btn-sm">ลบ</a></td>
+                                    
                                     <td>{{gridData.currency_code}}</td>
                                     <td class="c">{{gridData.currency_name}}</td>
                                 </tr>

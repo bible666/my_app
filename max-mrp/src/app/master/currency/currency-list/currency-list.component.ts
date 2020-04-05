@@ -42,7 +42,7 @@ export class CurrencyListComponent implements OnInit {
 
   onInitValue(){
     this.inputForm.patchValue({
-      'txt4'    : 'test4'
+      'currency_code'    : ''
     });
   }
 
@@ -73,6 +73,7 @@ export class CurrencyListComponent implements OnInit {
 
   onClear(){
     this.onInitValue();
+    this.onSearch();
   }
 
   onSelectPage(PageNumber:number){

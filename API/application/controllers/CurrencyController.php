@@ -86,6 +86,48 @@ class CurrencyController extends Origin001
 	}
 
 
+	private function _getCond($s)
+    {
+        $strCond    = "";
+		$params     = [];
+
+        foreach ($s as $key =>$val) {
+
+            if($val=="") continue;
+
+            switch($key){
+				//case "example":
+				//		$strCond .= "(example == false OR example IS NULL) \n";	// placeholders
+				//		//$params["{$key}"] = "%{$val}%";						// bindParam
+				//    break;
+				//case "start_date":
+				//		$strCond .= "start_date >= :{$key} AND \n";	// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+				//case "name":
+				//		$strCond .= "name like :{$key} AND \n";		// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+
+				case "currency_code":
+					$strCond .= " LOWER(currency_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+					break;
+				case "rowsPerpage":
+				case "page_index":
+				case "sort":
+				case "sort_preset":
+				case "direction":
+					break;
+				default:
+					$strCond .= "{$key}='{$val}' AND \n";	// placeholders		"key" = :key
+					$params["{$key}"] = "{$val}";			// bindParam		"key"=>val
+					break;
+            }
+        }
+
+        return [$strCond,$params];
+    }
+
 	/**
 	 * get list data
 	 */
@@ -101,19 +143,26 @@ class CurrencyController extends Origin001
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id >= 0){
+
+			// ???? Condition
+			list($strCond,$params) = $this->_getCond($data);
+
+
 			$query_str = "
 			SELECT *
 			FROM mst_currency
+			WHERE ". $strCond." TRUE
 			ORDER BY currency_code
 			LIMIT {$limit} OFFSET {$offset}
 			";
-
+			//print_r($query_str);exit;
 			$query_count = "
 			SELECT count(currency_code) as my_count
 			FROM mst_currency
+			WHERE ". $strCond." TRUE
 			";
 			
-			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
 
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
 

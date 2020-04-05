@@ -24,6 +24,9 @@ import { SupplierListComponent } from './master/supplier/supplier-list/supplier-
 import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
 import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
+import { BasicMasterComponent } from './menu/basic-master/basic-master.component';
+import { TransactionMasterComponent } from './menu/transaction-master/transaction-master.component';
+import { AdminMasterComponent } from './menu/admin-master/admin-master.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { CurrencyListComponent } from './master/currency/currency-list/currency-
     SupplierListComponent,
     SupplierEditComponent,
     CurrencyEditComponent,
-    CurrencyListComponent
+    CurrencyListComponent,
+    BasicMasterComponent,
+    TransactionMasterComponent,
+    AdminMasterComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,9 @@ import { TemplateListComponent } from './template/template-list/template-list.co
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
+import { BasicMasterComponent } from './menu/basic-master/basic-master.component';
+import { TransactionMasterComponent } from './menu/transaction-master/transaction-master.component';
+import { AdminMasterComponent } from './menu/admin-master/admin-master.component';
 import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
@@ -15,17 +18,20 @@ import { CurrencyEditComponent } from './master/currency/currency-edit/currency-
 
 
 const routes: Routes = [
-  { path: '' ,                  component: MainMenuComponent ,canActivate:[AuthGuard]},
-  { path: 'login',              component:LoginComponent},
-  { path: 'logout',             component:LogoutComponent},
-  { path: 'main-menu',          component:MainMenuComponent,canActivate:[AuthGuard]},
-  { path: 'master-menu',        component:MasterMenuComponent,canActivate:[AuthGuard]},
-  { path: 'template/list',      component:TemplateListComponent,canActivate:[AuthGuard]},
-  { path: 'template/edit/:id',  component:TemplateEditComponent,canActivate:[AuthGuard]},
-  { path: 'supplier/list',      component:SupplierListComponent},
-  { path: 'supplier/edit/:id',  component:SupplierEditComponent},
-  { path: 'currency/list',      component:CurrencyListComponent},
-  { path: 'currency/edit/:id',  component:CurrencyEditComponent}
+  { path: '' ,                          component: MainMenuComponent ,canActivate:[AuthGuard]},
+  { path: 'login',                      component:LoginComponent},
+  { path: 'logout',                     component:LogoutComponent},
+  { path: 'main-menu',                  component:MainMenuComponent,canActivate:[AuthGuard]},
+  { path: 'master-menu',                component:MasterMenuComponent,canActivate:[AuthGuard]},
+  { path: 'basic-master-menu',          component:BasicMasterComponent,canActivate:[AuthGuard]},
+  { path: 'transaction-master-menu',    component:TransactionMasterComponent,canActivate:[AuthGuard]},
+  { path: 'admin-master-menu',          component:AdminMasterComponent,canActivate:[AuthGuard]},
+  { path: 'template/list',              component:TemplateListComponent,canActivate:[AuthGuard]},
+  { path: 'template/edit/:id',          component:TemplateEditComponent,canActivate:[AuthGuard]},
+  { path: 'supplier/list',              component:SupplierListComponent,canActivate:[AuthGuard]},
+  { path: 'supplier/edit/:id',          component:SupplierEditComponent,canActivate:[AuthGuard]},
+  { path: 'currency/list',              component:CurrencyListComponent,canActivate:[AuthGuard]},
+  { path: 'currency/edit/:id',          component:CurrencyEditComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

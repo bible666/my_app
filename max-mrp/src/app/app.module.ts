@@ -4,7 +4,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {
   MatDialogModule,
   MatButtonModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,7 +62,8 @@ import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialo
     AppRoutingModule,
     HttpClientModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
-    MatDialogModule, MatButtonModule, MatProgressSpinnerModule
+    MatDialogModule, MatButtonModule, MatProgressSpinnerModule,MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent],

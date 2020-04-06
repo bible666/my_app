@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
 import { cInput, CarlendarService } from '../../../service/carlendar.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { CalendarDialogComponent } from '../../../common/calendar-dialog/calendar-dialog.component';
 
 
 @Component({
@@ -31,6 +33,7 @@ export class CalendarEditComponent implements OnInit {
   constructor(private param: ActivatedRoute,
     private Service: CarlendarService,
     private ServiceMessage: MessageService,
+    public dialog: MatDialog,
     private router: Router) { }
 
   ngOnInit() {
@@ -71,6 +74,30 @@ export class CalendarEditComponent implements OnInit {
   }
 
   onAddHoliday(){
+    const dialogRef = this.dialog.open(CalendarDialogComponent,{
+			width: '350px',
+			height: '200px',
+			data: {description: 'คุณต้องการลบรายการนี้หรือเปล่ารหัส '}
+		})
+		
+		dialogRef.afterClosed().subscribe(result=>{
+			if (!result){
+				//cancel delete data
+				//alert('hiii');
+			} else {
+        // this.service.deleteById(id)
+        // .subscribe(data=>{
+        //   this.messageService.setError('ทำการลบเสร็จแล้ว');
+        //   this.onSearch();
+
+        // },
+        // error=>{
+        //     this.messageService.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+        //     this.message = this.messageService.getMessage();
+        // });
+				
+			}
+		});
     let holiday = new FormGroup({
       'holiday_date'        : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
       'holiday_name'        : new FormControl('', [ Validators.required, Validators.maxLength(50) ]),

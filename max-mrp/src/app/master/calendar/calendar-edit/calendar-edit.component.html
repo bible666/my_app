@@ -83,7 +83,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let holiday of holidayForms.controls; let i=index" [formGroupName]="i">
-                                <td><button  class="btn btn-primary btn-sm">แก้ไข</button></td>
+                                <td><button (click)="onEditHoliday(i)" class="btn btn-primary btn-sm">แก้ไข</button></td>
                                 <td><button (click)="onDeleteHoliday(i)"  class="btn btn-primary btn-sm">ลบ</button></td>
                                 <td>{{holiday.controls['show_date'].value }}</td>
                                 <td class="c">{{holiday.controls['holiday_name'].value}}</td>

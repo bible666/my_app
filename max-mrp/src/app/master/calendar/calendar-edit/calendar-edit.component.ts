@@ -105,6 +105,33 @@ export class CalendarEditComponent implements OnInit {
     this.holidayForms.removeAt(i);
   }
 
+  onEditHoliday(i){
+    const dialogRef = this.dialog.open(CalendarDialogComponent,{
+			width: '500px',
+			height: '300px',
+			data: {
+        holiday_date:this.holidayForms.at(i).value.holiday_date,
+        holiday_text:this.holidayForms.at(i).value.holiday_name
+      }
+		})
+		
+		dialogRef.afterClosed().subscribe(result=>{
+			if (!result){
+				//cancel delete data
+				//alert('hiii');
+			} else {
+
+        this.holidayForms.at(i).patchValue({
+          'holiday_date'        : result.holiday_date,
+          'holiday_name'        : result.holiday_text,
+          'show_date'           : result.show_date
+        });
+        
+				
+			}
+		});
+  }
+
   onSubmit(){
     this.submitted = true;
     if (this.inputForm.invalid){

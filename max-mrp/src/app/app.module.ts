@@ -32,6 +32,7 @@ import { AdminMasterComponent } from './menu/admin-master/admin-master.component
 import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
 import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
 import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialog.component';
+import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 
 @NgModule({
   declarations: [
@@ -63,9 +64,12 @@ import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialo
     HttpClientModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
     MatDialogModule, MatButtonModule, MatProgressSpinnerModule,MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,MatMomentDateModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: "th-TH"}],
+  providers: [
+    {provide: LOCALE_ID, useValue: "th-TH"},
+    { provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: { useUtc: true } }
+  ],
   bootstrap: [AppComponent],
   entryComponents:[ConfirmDialogComponent]
 })

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {
   MatDialogModule,
@@ -65,7 +65,7 @@ import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialo
     MatDialogModule, MatButtonModule, MatProgressSpinnerModule,MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [],
+  providers: [{provide: LOCALE_ID, useValue: "th-TH"}],
   bootstrap: [AppComponent],
   entryComponents:[ConfirmDialogComponent]
 })

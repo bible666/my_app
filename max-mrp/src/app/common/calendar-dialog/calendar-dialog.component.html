@@ -1,11 +1,16 @@
-<h1 mat-dialog-title>กรุณายืนยัน</h1>
+<h1 mat-dialog-title>ข้อมูลวันหยุด เพิ่ม/แก้ไข</h1>
 <div mat-dialog-content>
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-
+  <form class="example-form" [formGroup]="inputForm"  >
+    <div class="col-md-3">
+      วันหยุด
+    </div>
+    <div class="col-md-9">
+        <input matInput [matDatepicker]="holiday_date" formControlName="holiday_date">
+        <mat-datepicker-toggle matSuffix [for]="holiday_date"></mat-datepicker-toggle>
+        <mat-datepicker #holiday_date></mat-datepicker>
+    </div>
+  </form>
+  {{inputForm.value|json}}
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">ยกเลิก</button>

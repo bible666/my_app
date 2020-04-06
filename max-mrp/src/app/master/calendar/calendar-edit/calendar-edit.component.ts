@@ -75,8 +75,8 @@ export class CalendarEditComponent implements OnInit {
 
   onAddHoliday(){
     const dialogRef = this.dialog.open(CalendarDialogComponent,{
-			width: '350px',
-			height: '200px',
+			width: '400px',
+			height: '300px',
 			data: {description: 'คุณต้องการลบรายการนี้หรือเปล่ารหัส '}
 		})
 		

@@ -29,6 +29,7 @@ import { TransactionMasterComponent } from './menu/transaction-master/transactio
 import { AdminMasterComponent } from './menu/admin-master/admin-master.component';
 import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
 import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
+import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CalendarListComponent } from './master/calendar/calendar-list/calendar-
     TransactionMasterComponent,
     AdminMasterComponent,
     CalendarEditComponent,
-    CalendarListComponent
+    CalendarListComponent,
+    CalendarDialogComponent
   ],
   imports: [
     BrowserModule,

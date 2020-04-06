@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 export interface DialogData {
   id: number;
-  holiday_date: string;
+  holiday_date: Date;
   holiday_text: string;
 }
 
@@ -17,7 +17,8 @@ export interface DialogData {
 export class CalendarDialogComponent implements OnInit {
 
   inputForm = new FormGroup({
-    'holiday_date'       : new FormControl('2020-05-14', [ Validators.required, Validators.maxLength(10) ]),
+    'holiday_date'       : new FormControl(this.data.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
+    'show_date'          : new FormControl(this.data.holiday_text),
     'holiday_text'       : new FormControl('', [ Validators.required, Validators.maxLength(50) ])
   });
 
@@ -26,6 +27,20 @@ export class CalendarDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: DialogData)
   {
 
+  }
+
+  onSave(){
+    if (this.inputForm.valid){
+      let holiday: Date = new Date(this.inputForm.controls['holiday_date'].value);
+      this.inputForm.patchValue({
+
+        'show_date'    : holiday.getDate() + '/' + (holiday.getMonth()+1) + '/' + holiday.getFullYear()
+
+      });
+
+      this.dialogRef.close(this.inputForm.value);
+    }
+    
   }
 
   ngOnInit() {

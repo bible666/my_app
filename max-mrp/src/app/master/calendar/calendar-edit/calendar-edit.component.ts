@@ -75,7 +75,7 @@ export class CalendarEditComponent implements OnInit {
 
   onAddHoliday(){
     const dialogRef = this.dialog.open(CalendarDialogComponent,{
-			width: '400px',
+			width: '500px',
 			height: '300px',
 			data: {description: 'คุณต้องการลบรายการนี้หรือเปล่ารหัส '}
 		})
@@ -85,25 +85,20 @@ export class CalendarEditComponent implements OnInit {
 				//cancel delete data
 				//alert('hiii');
 			} else {
-        // this.service.deleteById(id)
-        // .subscribe(data=>{
-        //   this.messageService.setError('ทำการลบเสร็จแล้ว');
-        //   this.onSearch();
+        console.log(result);
+        let holiday = new FormGroup({
+          'holiday_date'        : new FormControl(result.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
+          'holiday_name'        : new FormControl(result.holiday_text, [ Validators.required, Validators.maxLength(50) ]),
+          'show_date'           : new FormControl(result.show_date)
+        });
 
-        // },
-        // error=>{
-        //     this.messageService.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
-        //     this.message = this.messageService.getMessage();
-        // });
+        this.holidayForms.push(holiday);
 				
 			}
 		});
-    let holiday = new FormGroup({
-      'holiday_date'        : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
-      'holiday_name'        : new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
-    });
+    
 
-    this.holidayForms.push(holiday);
+    
   }
 
   onDeleteHoliday(i){

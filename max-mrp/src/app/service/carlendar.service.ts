@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const BASE_URL = environment.api_url+'/CurrencyController';
+const BASE_URL = environment.api_url+'/CalendarController';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -68,11 +68,9 @@ export class cInput{
   token         : string;
   id            : string;
 
-  currency_id       : string;
-  currency_code     : string;
-  currency_name     : string;
-  default_currency  : boolean;
-  remark            : string;
+  cal_no     : string;
+  remark     : string;
+  
 
   public constructor(init?: Partial<cInput>){
     Object.assign(this,init);

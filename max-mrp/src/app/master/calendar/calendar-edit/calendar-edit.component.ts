@@ -23,11 +23,9 @@ export class CalendarEditComponent implements OnInit {
   id      : string;
   
   inputForm = new FormGroup({
-    'currency_code'       : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
-    'currency_name'       : new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
-    'default_currency'    : new FormControl(false),
-    'remark'              : new FormControl('', [ Validators.maxLength(200) ]),
-    'holidays'             : new FormArray([])
+    'cal_no'       : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
+    'remark'       : new FormControl('', [ Validators.maxLength(200) ]),
+    'holidays'     : new FormArray([])
   });
   
   constructor(private param: ActivatedRoute,
@@ -139,13 +137,14 @@ export class CalendarEditComponent implements OnInit {
     }
 
     let input_data	: cInput = new cInput(this.inputForm.value);
+    
     input_data.id	= this.id;
     this.Service.updateById(input_data)
     .subscribe(data=>{
 
       if (data['status']== 'success'){
         this.ServiceMessage.setSuccess('บันทึกสำเร็จ');
-        this.router.navigateByUrl('/currency/list');
+        this.router.navigateByUrl('/calendar/list');
 			} else {
         this.ServiceMessage.setError(data['message']);
         this.message = this.ServiceMessage.getMessage();

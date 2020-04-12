@@ -55,6 +55,59 @@ class CalendarController extends Origin001
         return [$strCond,$params];
     }
 
+	/**
+	 * get data by id
+	 */
+	public function get_data_by_id_post(){
+		$token		= $this->getAuthHeader();
+		$data       = $this->post();
+
+		//init data
+		$id         = isset($data['id']) ? $data['id'] : -1;
+
+		$result     = $this->_checkToken($token);
+		if($result->user_id > 0){
+			$query_str = "
+			SELECT *
+			FROM mst_calendar
+			WHERE cal_no = '{$id}'
+				AND active_flag = true
+			";
+
+			$itemn_data = $this->db->query($query_str)->row();
+
+			$query_str = "
+			SELECT *
+			FROM mst_calendar_detail
+			WHERE cal_no = '{$id}'
+				AND active_flag = true
+			";
+
+			$itemn_data_details = $this->db->query($query_str)->result();
+
+			$itemn_data->holidays = [];
+			foreach ($itemn_data_details as $itemn_data_detail){
+				$detail = new calenddar_detail();
+
+				$detail->holiday_date = $itemn_data_detail->cal_date;
+				$detail->holiday_name = $itemn_data_detail->remark;
+				$itemn_data->holidays[] = $detail;
+				$itemn_data->holidays[] = $detail;
+
+			}
+
+			$dataDB['status']   = "success";
+			$dataDB['message']  = "";
+			$dataDB['data']     = $itemn_data;
+
+		}else{
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
+		$this->response($dataDB,200);
+	}
+
     /**
 	 * get list data
 	 */
@@ -182,7 +235,8 @@ class CalendarController extends Origin001
                 $ar_holidays                    = [];
                 $ar_holidays['cal_no']          = $id;
                 $ar_holidays['cal_date']        = $holiday['holiday_date'];
-                $ar_holidays['holiday_flag']    = true;
+				$ar_holidays['holiday_flag']    = true;
+				$ar_holidays['active_flag']		= true;
                 $ar_holidays['remark']          = $holiday['holiday_name'];
                 $ar_holidays['create_date']        = date("Y-m-d H:i:s");
 				$ar_holidays['create_user']        = $result->user_id;
@@ -207,5 +261,8 @@ class CalendarController extends Origin001
 }
 
 
-
-
+class calenddar_detail{
+	public $holiday_date;
+	public $holiday_name;
+	public $show_date;
+}

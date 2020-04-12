@@ -41,7 +41,7 @@ export class CalendarEditComponent implements OnInit {
       //get data from database
       this.Service.getDataById(this.id)
       .subscribe(data=>{
-        
+        console.log(data);
         if (data['status']== 'success'){
           console.log(data);
           let isDefault = true;
@@ -49,11 +49,22 @@ export class CalendarEditComponent implements OnInit {
             isDefault = false;
           }
           this.inputForm.patchValue({
-            'currency_code'    : data['data'].currency_code,
-            'currency_name'    : data['data'].currency_name,
-            'default_currency' : isDefault,
+            'cal_no'           : data['data'].cal_name,
             'remark'           : data['data'].remark
           });
+
+          data['data'].holidays.forEach(element => {
+            let ar_holiday = element.holiday_date.split("-");
+            let holiday = new FormGroup({
+              'holiday_date'        : new FormControl(element.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
+              'holiday_name'        : new FormControl(element.holiday_name, [ Validators.required, Validators.maxLength(50) ]),
+              'show_date'           : new FormControl(ar_holiday[2]+'/'+ar_holiday[1]+'/'+ar_holiday[0])
+            });
+            this.holidayForms.push(holiday);
+            console.log(element);
+          });
+
+          
         } else {
           this.ServiceMessage.setError(data['message']);
           this.message = this.ServiceMessage.getMessage();
@@ -83,7 +94,6 @@ export class CalendarEditComponent implements OnInit {
 				//cancel delete data
 				//alert('hiii');
 			} else {
-        console.log(result);
         let holiday = new FormGroup({
           'holiday_date'        : new FormControl(result.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
           'holiday_name'        : new FormControl(result.holiday_text, [ Validators.required, Validators.maxLength(50) ]),

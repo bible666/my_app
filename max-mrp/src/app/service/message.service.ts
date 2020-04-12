@@ -33,28 +33,37 @@ export class MessageService {
     let errorMessage: string[]    = this.messageError;
     let successMessage: string[]  = this.messageSuccess;
 
-    if (warningMessage.length > 0){
-      let warningClass  : MessageClass = new MessageClass();
-      warningClass.message      = warningMessage;
-      warningClass.messageType  = eMessageType.warnning;
+    if ( Array.isArray(warningMessage)  ){
+      if (warningMessage.length) {
+        let warningClass  : MessageClass = new MessageClass();
+        warningClass.message      = warningMessage;
+        warningClass.messageType  = eMessageType.warnning;
 
-      retMessage.push(warningClass);
+        retMessage.push(warningClass);
+      }
+      
     }
 
-    if (errorMessage.length > 0){
-      let errorClass  : MessageClass = new MessageClass();
-      errorClass.message      = errorMessage;
-      errorClass.messageType  = eMessageType.error;
-
-      retMessage.push(errorClass);
+    if (Array.isArray(errorMessage)  ){
+      if (errorMessage.length){
+        let errorClass  : MessageClass = new MessageClass();
+        errorClass.message      = errorMessage;
+        errorClass.messageType  = eMessageType.error;
+  
+        retMessage.push(errorClass);
+      }
+      
     }
 
-    if (successMessage.length > 0){
-      let successClass  : MessageClass = new MessageClass();
-      successClass.message      = successMessage;
-      successClass.messageType  = eMessageType.success;
-
-      retMessage.push(successClass);
+    if (Array.isArray(successMessage)){
+      if (successMessage.length){
+        let successClass  : MessageClass = new MessageClass();
+        successClass.message      = successMessage;
+        successClass.messageType  = eMessageType.success;
+  
+        retMessage.push(successClass);
+      }
+      
     }
 
     this.messageWarning   = [];

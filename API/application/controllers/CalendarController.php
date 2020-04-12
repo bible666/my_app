@@ -92,7 +92,6 @@ class CalendarController extends Origin001
 				$detail->holiday_date = $itemn_data_detail->cal_date;
 				$detail->holiday_name = $itemn_data_detail->remark;
 				$itemn_data->holidays[] = $detail;
-				$itemn_data->holidays[] = $detail;
 
 			}
 
@@ -159,6 +158,40 @@ class CalendarController extends Origin001
 		$this->response($dataDB,200);
 	}
 
+	/**
+     * delete data by id
+     */
+    public function delete_data_by_id_post(){
+		$data       = $this->post();
+
+        //init data
+        $token		= $this->getAuthHeader();
+        $id         = isset($data['id']) ? $data['id'] : -1;
+
+		$result     = $this->_checkToken($token);
+		//print_r($result);
+        if($result->user_id > 0){
+			$insert_data['active_flag']    	= false;
+			$insert_data['update_date']     = date("Y-m-d H:i:s");
+            $insert_data['update_user']     = $result->user_id;
+
+            $this->db->where([
+				'cal_no'			=> $id,
+			]);
+            $this->db->update('mst_calendar',$insert_data);
+            
+            $dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $data;
+
+        }else{
+            $dataDB['status']   = "error";
+            $dataDB['message']  = "token not found";
+            $dataDB['data']     = "";
+        }
+        $this->response($dataDB,200);
+	}
+	
     /**
      * 
      */
@@ -230,7 +263,9 @@ class CalendarController extends Origin001
 				$this->db->where('cal_no', $id);
 				$this->db->update('mst_calendar',$insert_data);
             }
-            
+			
+			$this->db->delete('mst_calendar_detail',['cal_no' => $id]);
+			
             foreach($holidays as $holiday){
                 $ar_holidays                    = [];
                 $ar_holidays['cal_no']          = $id;

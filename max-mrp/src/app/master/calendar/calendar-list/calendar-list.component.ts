@@ -21,8 +21,7 @@ export class CalendarListComponent implements OnInit {
   public frmSearchData  : cSearch;
 
   inputForm = new FormGroup({
-    'currency_code' : new FormControl(''),
-    'description'   : new FormControl(''),
+    'cal_name' : new FormControl(''),
     'rowsPerpage'   : new FormControl('20')
   });
 
@@ -32,17 +31,18 @@ export class CalendarListComponent implements OnInit {
     private messageService: MessageService
   ) {
     //set inital value when open form
-    this.onInitValue();
+    
   }
 
   ngOnInit() {
+    this.onInitValue();
     this.message = this.messageService.getMessage();
     this.onSearch();
   }
 
   onInitValue(){
     this.inputForm.patchValue({
-      'cal_no'    : ''
+      'cal_name'    : ''
     });
   }
 
@@ -55,13 +55,14 @@ export class CalendarListComponent implements OnInit {
 
     this.frmSearchData.page_index   = this.CurrentPage;
     this.frmSearchData.rowsPerpage  = this.inputForm.value.rowsPerpage;
+
     this.getData();
+
   }
 
   getData(){
     this.frmSearchData.page_index = this.CurrentPage;
     this.service.getListData(this.frmSearchData).subscribe(data => {
-      console.log(data);
       if (data['status'] == 'success'){
         this.CountData    = data['max_rows'];
         this.AllPage      = Math.ceil(this.CountData / this.inputForm.value.rowsPerpage);

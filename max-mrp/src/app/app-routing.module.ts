@@ -17,6 +17,8 @@ import { CurrencyListComponent } from './master/currency/currency-list/currency-
 import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
 import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
 import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
+import { CompanyEditComponent } from './master/company/company-edit/company-edit.component';
+import { CompanyListComponent } from './master/company/company-list/company-list.component';
 
 
 const routes: Routes = [
@@ -35,7 +37,9 @@ const routes: Routes = [
   { path: 'currency/list',              component:CurrencyListComponent,canActivate:[AuthGuard]},
   { path: 'currency/edit/:id',          component:CurrencyEditComponent,canActivate:[AuthGuard]},
   { path: 'calendar/list',              component:CalendarListComponent,canActivate:[AuthGuard]},
-  { path: 'calendar/edit/:id',          component:CalendarEditComponent,canActivate:[AuthGuard]}
+  { path: 'calendar/edit/:id',          component:CalendarEditComponent,canActivate:[AuthGuard]},
+  { path: 'company/list',               component:CompanyListComponent,canActivate:[AuthGuard]},
+  { path: 'company/edit/:id',           component:CompanyEditComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

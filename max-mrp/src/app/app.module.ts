@@ -33,6 +33,8 @@ import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-
 import { CalendarListComponent } from './master/calendar/calendar-list/calendar-list.component';
 import { CalendarDialogComponent } from './common/calendar-dialog/calendar-dialog.component';
 import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import { CompanyListComponent } from './master/company/company-list/company-list.component';
+import { CompanyEditComponent } from './master/company/company-edit/company-edit.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/m
     AdminMasterComponent,
     CalendarEditComponent,
     CalendarListComponent,
-    CalendarDialogComponent
+    CalendarDialogComponent,
+    CompanyListComponent,
+    CompanyEditComponent
   ],
   imports: [
     BrowserModule,

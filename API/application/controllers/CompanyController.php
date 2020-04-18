@@ -124,6 +124,21 @@ class CompanyController extends Origin001
         return [$strCond,$params];
     }
 
+	public function get_calendar_post(){
+		$token		= $this->getAuthHeader();
+
+		$query_str = " SELECT * FROM mst_calendar where active_flag = true";
+
+		$itemn_data = $this->db->query($query_str)->result();
+
+		$dataDB['status']   = "success";
+		$dataDB['message']  = "";
+		$dataDB['data']     = $itemn_data;
+
+		$this->response($dataDB,200);
+	}
+
+
 	/**
 	 * get list data
 	 */

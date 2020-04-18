@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const BASE_URL = environment.api_url+'CompanyController';
+const BASE_URL = environment.api_url+'/CompanyController';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -42,6 +42,11 @@ export class CompanyService {
   public updateById(inputData:cInput){
     let strJSON:string  = JSON.stringify(inputData);
     return this.http.post(BASE_URL+'/update_data',strJSON,httpOptions);
+  }
+
+  public getCalendar(){
+    let strJSON:string  = '';
+    return this.http.post(BASE_URL+'/get_calendar',strJSON,httpOptions);
   }
 }
 

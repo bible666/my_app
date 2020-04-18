@@ -1,0 +1,57 @@
+HERMES_REQ_BANK_PAYMENT
+Skip to end of metadata
+Added by ณัฎฐณิชา ทองวัลย์ดี, last edited by ภัคจิรา ขุนศรี on Oct 11, 2019  (view change)Go to start of metadata
+TOC
+
+[ Convention ] [ Table HERMES_REQ_BANK_PAYMENT ] [ Relations ]
+ 
+
+Convention
+<N/A ยังไม่ได้กำหนดน่ะเวลานี้>
+
+Table HERMES_REQ_BANK_PAYMENT
+เก็บข้อมูลการชำระด้วยช่องทาง direct debit
+
+NO
+KEY
+ATTRIBUTE_NAME
+DATA_TYPE
+LENGTH
+DESCRIPTION
+1	PK	policy_no	varchar	8	เลขกรมธรรม์
+2	 	policy_type	varchar	3	IND, GOV, ORD
+3	 	payment_mode	int	 	mode ที่ลงทะเบียนไว้
+4	 	register_date	date	 	วันที่สมัคร direct debit
+5	 	payment_cut	varchar	2	ช่วงที่ตัดยอดชำระ (1=15 , 2=สิ้นเดือน)
+6	 	account_name	varchar	100	ชื่อบัญชี
+7	 	account_no	varchar	30	เลขที่บัญชี
+8	 	type_deposits	varchar	30	ประเภทเงินฝาก
+SAV : ออมทรัพย์
+DDC : กระแสรายวัน
+9	 	relation	varchar	2	รหัสความสัมพันธุ์กับผู้เอาประกัน
+10	 	relation_other	varchar	50	ความสัมพันธ์อื่น ที่ไม่ใช่บุคคล 5 ประเภท
+11	 	status_code	varchar	2	รหัสสถานะเอกสาร
+1 = ใบคำร้องใหม่
+2 = รอผลการพิจารณาจากสนญ.
+3 = รอผลพิจารณาจากธนาคาร
+4 = ยกเลิก
+5 = ปฎิเสธจากธนาคาร
+6 = รอตัดเบี้ย
+7 = รอเอกสาร
+8 = ปฎิเสธจากสนญ.
+9 = ชำระเบี้ยประกันงวดแรก
+10 = ไม่อนุมัติ
+11 = รออนุมัติ(ช่องทาง ATM/NET)
+12	 	first_cut_date	date	 	วันที่เริ่มต้นตัดบัญชีธนาคาร
+13	 	send_payment_cut	varchar	1	ข้อมูลที่เคยส่งหักกับระบบ direct debit แล้ว
+Y = ข้อมูลที่เคยส่งหักกับระบบ direct debit แล้ว
+NULL = ไม่เคยส่งหักกับระบบ direct debit
+14	 	esb_created_date	timestamp	 	 
+15	 	case_type	varchar	20	ที่มาของการสมัคร
+16	 	
+created_date
+
+Timestamp	 	วันที่สร้างข้อมูล
+17	 	updated_date	Timestamp	 	วันที่ Update ข้อมูล
+18	 	bank_code	varchar	10	รหัสธนาคาร
+19	 	bank_branch	varchar	100	ธนาคารสาขา

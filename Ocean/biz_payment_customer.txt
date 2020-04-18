@@ -1,0 +1,21 @@
+biz_payment_customer
+Skip to end of metadata
+Added by ชุติมา รักษาภักดี, last edited by ชุติมา รักษาภักดี on Nov 04, 2019  (view change)Go to start of metadata
+TOC
+
+[ Convention ] [ Table BIZ_PAYMENT_CUSTOMER ] [ Relations ]
+ 
+
+Convention
+<N/A ยังไม่ได้กำหนดน่ะเวลานี้>
+
+Table BIZ_PAYMENT_CUSTOMER
+เป็น table ที่เก็บข้อมูลที่จ่ายผ่านระบบ biz payment ซึ่ง dump มาจากระบบ Biz Payment จะไม่นำมาทำการติดตาม
+
+Key	Column	Data Type	Size	Null(Y/N)	Description
+PK	policy_no	varchar	25	N	เลขที่กรมธรรม์
+ 	policy_type	varchar	10	N	ประเภทกรมธรรม์
+ 	bizpayment_channel	varchar	1	Y	หักผ่าน biz payment หรือไม่ Y=หัก, N=ไม่หัก
+ 	bank_account	varchar	10	Y	เลขที่บัญชีธนาคาร
+ 	bank_account_name	varchar	255	Y	ชื่อบัญชีธนาคาร
+ 	esb_created_date	timestamp	 	Y	วันที่ Create ข้อมูล (default localtimestamp)

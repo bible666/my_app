@@ -4,176 +4,303 @@ require('Origin001.php');
 
 class CompanyController extends Origin001
 {
-    /**
-     * Constructure class
+	/**
+	 * Constructure class
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('date');
+		$this->load->database();
+		
+	}
+
+	/**
+     * delete data by id
      */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->helper(array('form', 'url'));
-        $this->load->helper('date');
-        $this->load->database();
-        $this->load->library('encrypt');
-        
-    }
+    public function delete_data_by_id_post(){
+		$data       = $this->post();
 
-    /**
-     * get company data
-     */
-    public function get_data_post(){
-        $data       = $this->post();
-        $token      = isset($data['token']) ? $data['token'] : '';
-        $company_id = -1;
+        //init data
+        $token		= $this->getAuthHeader();
+        $id         = isset($data['id']) ? $data['id'] : -1;
 
-        $query_str = "
-            SELECT c.*
-            FROM t_tokens t INNER JOIN m_staffs s ON t.m_staff_id = s.id
-                INNER JOIN m_companies c ON s.m_company_id = c.id
-            WHERE t.token = ?
-                AND t.del_flag = 0
-        ";
+		$result     = $this->_checkToken($token);
+		//print_r($result);
+        if($result->user_id > 0){
+			$insert_data['active_flag']    	= false;
+			$insert_data['update_date']     = date("Y-m-d H:i:s");
+            $insert_data['update_user']     = $result->user_id;
 
-        $company_data = $this->db->query($query_str, [$token])->row();
-
-        if (isset($company_data)){
-            //Remove Unuse data
+            $this->db->where([
+				'company_code'			=> $id,
+			]);
+            $this->db->update('mst_company',$insert_data);
             
-
-            //return data
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
-            $dataDB['data']     = $company_data;
+            $dataDB['data']     = $data;
+
         }else{
             $dataDB['status']   = "error";
-            $dataDB['message']  = "data not found";
+            $dataDB['message']  = "token not found";
             $dataDB['data']     = "";
         }
-
         $this->response($dataDB,200);
     }
 
-    /**
-     * insert / update company data
-     */
-    public function update_data_post()
+	/**
+	 * get data by id
+	 */
+	public function get_data_by_id_post(){
+		$token		= $this->getAuthHeader();
+		$data       = $this->post();
+
+		//init data
+		$id         = isset($data['id']) ? $data['id'] : -1;
+
+		$result     = $this->_checkToken($token);
+		if($result->user_id > 0){
+			$query_str = "
+			SELECT *
+			FROM mst_company
+			WHERE company_code = '{$id}'
+				AND active_flag = true
+			";
+
+			$itemn_data = $this->db->query($query_str)->row();
+			$dataDB['status']   = "success";
+			$dataDB['message']  = "";
+			$dataDB['data']     = $itemn_data;
+
+		}else{
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
+		$this->response($dataDB,200);
+	}
+
+
+	private function _getCond($s)
     {
-        $data = $this->post();
-        $id = $data['id'];
-        unset($data['id']);
+        $strCond    = "";
+		$params     = [];
 
-        if ($id == -1){
-            $data['created_date']   = date("Y-m-d H:i:s");
-            $data['created']        = 1;
+        foreach ($s as $key =>$val) {
 
-            $this->db->trans_start();
+            if($val=="") continue;
 
-            $this->db->insert('m_companies', $data);
+            switch($key){
+				//case "example":
+				//		$strCond .= "(example == false OR example IS NULL) \n";	// placeholders
+				//		//$params["{$key}"] = "%{$val}%";						// bindParam
+				//    break;
+				//case "start_date":
+				//		$strCond .= "start_date >= :{$key} AND \n";	// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+				//case "name":
+				//		$strCond .= "name like :{$key} AND \n";		// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
 
-            $id = $this->db->insert_id();
-
-            //-----------------------------------
-            // insert item type
-            //-----------------------------------
-            $data_item_type['m_company_id']     = $id;
-            $data_item_type['item_type_name']   = 'Product';
-            $data_item_type['sorted']           = 1;
-            $data_item_type['del_flag']         = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_item_types', $data_item_type);
-
-            $data_item_type['m_company_id']     = $id;
-            $data_item_type['item_type_name']   = 'Work In Process';
-            $data_item_type['sorted']           = 2;
-            $data_item_type['del_flag']         = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_item_types', $data_item_type);
-
-            $data_item_type['m_company_id']     = $id;
-            $data_item_type['item_type_name']   = 'Material';
-            $data_item_type['sorted']           = 3;
-            $data_item_type['del_flag']         = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_item_types', $data_item_type);
-
-            //-----------------------------------
-            // insert unit
-            //-----------------------------------
-            $data_unit['m_company_id']          = $id;
-            $data_unit['unit_code']             = 'CM';
-            $data_unit['unit_name']             = 'cm.';
-            $data_unit['remark']                = 'เซนติเมตร';
-            $data_unit['del_flag']              = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_units', $data_unit);
-
-            $data_unit['m_company_id']          = $id;
-            $data_unit['unit_code']             = 'KG';
-            $data_unit['unit_name']             = 'kg.';
-            $data_unit['remark']                = 'กิโลกรัม';
-            $data_unit['del_flag']              = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_units', $data_unit);
-
-            $data_unit['m_company_id']          = $id;
-            $data_unit['unit_code']             = 'MT';
-            $data_unit['unit_name']             = 'm.';
-            $data_unit['remark']                = 'เมตร';
-            $data_unit['del_flag']              = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_units', $data_unit);
-
-            $data_unit['m_company_id']          = $id;
-            $data_unit['unit_code']             = 'PS';
-            $data_unit['unit_name']             = 'pcs.';
-            $data_unit['remark']                = 'ชิ้น';
-            $data_unit['del_flag']              = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_units', $data_unit);
-
-            //-----------------------------------
-            // insert staff
-            //-----------------------------------
-            $data_staff['m_company_id']         = $id;
-            $data_staff['staff_no']             = 'A00001';
-            $data_staff['title']                = 1;
-            $data_staff['sur_name']             = 'ผู้ดูแลระบบ';
-            $data_staff['given_name']           = 'ระบบ';
-            $data_staff['staff_cat']            = 1;
-            $data_staff['join_date']            = now();
-            $data_staff['staff_login']          = 'admin'.str_pad($id, 4, "0", STR_PAD_LEFT) ;
-            $data_staff['staff_pwd']            = $this->encrypt->encode('password');
-            $data_staff['m_user_group_id']      = 1;
-            $data_staff['del_flag']             = 0;
-            $data_item_type['created_date']     = date("Y-m-d H:i:s");
-            $data_item_type['created']          = 1;
-            $this->db->insert('m_staffs', $data_staff);
-
-            $this->db->trans_complete();
-        }else{
-            $data['updated_date']   = date("Y-m-d H:i:s");
-            $data['updated']        = 1;
-
-            $this->db->trans_start();
-
-            $this->db->where('id', $id);
-            $this->db->update('m_companies',$data);
-
-            $this->db->trans_complete();
+				case "company_name":
+					$strCond .= " LOWER(company_name) like '%".strtolower($val)."%' AND \n";	// placeholders
+					break;
+				case "rowsPerpage":
+				case "page_index":
+				case "sort":
+				case "sort_preset":
+				case "direction":
+					break;
+				default:
+					$strCond .= "{$key}='{$val}' AND \n";	// placeholders		"key" = :key
+					$params["{$key}"] = "{$val}";			// bindParam		"key"=>val
+					break;
+            }
         }
 
-        $this->response($data,200);
-
+        return [$strCond,$params];
     }
-  
+
+	/**
+	 * get list data
+	 */
+	public function get_data_list_post(){
+		$data       = $this->post();
+		$token		= $this->getAuthHeader();
+
+		//Validate Data
+
+
+		$limit		= intval($data['rowsPerpage']);
+		$offset		= ($data['page_index']-1) * $limit;
+
+		$result     = $this->_checkToken($token);
+		if($result->user_id >= 0){
+
+			// ???? Condition
+			list($strCond,$params) = $this->_getCond($data);
+
+
+			$query_str = "
+			SELECT *
+			FROM mst_company
+			WHERE ". $strCond." active_flag = true
+			ORDER BY company_code
+			LIMIT {$limit} OFFSET {$offset}
+			";
+			//print_r($query_str);exit;
+			$query_count = "
+			SELECT count(company_code) as my_count
+			FROM mst_company
+			WHERE ". $strCond." active_flag = true
+			";
+			
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
+
+			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
+
+			$dataDB['status']   = "success";
+			$dataDB['message']  = "";
+			$dataDB['data']     = $itemn_data;
+			$dataDB['max_rows']	= $itemn_count[0]->my_count;
+
+		}else{
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
+		$this->response($dataDB,200);
+	}
+	
+
+	/**
+	 * à¸µupdate / insert data to database
+	 */
+	public function update_data_post(){
+		$token			= $this->getAuthHeader();
+		$data           = $this->post();
+
+		//init data
+		$id  		        = isset($data['id'])			? $data['id']			: -1;
+        $company_name		= isset($data['company_name'])	? $data['company_name'] : '';
+        $addr_1             = isset($data['addr_1'])		? $data['addr_1']       : '';
+        $addr_2             = isset($data['addr_2'])		? $data['addr_2']       : '';
+        $addr_3             = isset($data['addr_3'])		? $data['addr_3']       : '';
+        $zip                = isset($data['zip'])           ? $data['zip']          : '';
+        $telno              = isset($data['telno'])         ? $data['telno']        : '';
+        $faxno              = isset($data['faxno'])         ? $data['faxno']        : '';
+        $email              = isset($data['email'])         ? $data['email']        : '';
+		$cal_no             = isset($data['cal_no'])        ? $data['cal_no']       : null;
+		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+
+		//Validation Data
+		if ( $token == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token is empty";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $company_name == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "???????????????????????????";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+
+		//get data from token
+		$result     = $this->_checkToken($token);
+
+		if($result->user_id > 0){
+
+			// if ($this->chk_currency_code($result->company_id,$currency_code,$id)){
+			// 	$dataDB['status']   = "error";
+			// 	$dataDB['message']  = "???????????????????";
+			// 	$dataDB['data']     = "";
+			// 	$this->response($dataDB,200);
+
+			// }
+
+			$insert_data = [];
+
+			//$insert_data['m_company_id']    = $result->company_id;
+
+			//set data to array for add or update
+			$insert_data['company_name']	= $company_name;
+			$insert_data['addr_1']		= $addr_1;
+            $insert_data['addr_2']		= $addr_2;
+            $insert_data['addr_3']		= $addr_3;
+            $insert_data['zip']			= $zip;
+            $insert_data['telno']		= $telno;
+            $insert_data['faxno']		= $faxno;
+            $insert_data['email']		= $email;
+            $insert_data['cal_no']		= $cal_no;
+			$insert_data['active_flag']	= true;
+			$insert_data['remark']		= $remark;
+
+			$this->db->trans_start();
+
+			if ($default_currency == true){
+				$update_data['update_date']    		= date("Y-m-d H:i:s");
+				$update_data['update_user']    		= $result->user_id;
+				$update_data['default_currency']    = false;
+
+				$this->db->update('mst_currency',$update_data);
+			}
+			if ($id == '-1' ){
+				$insert_data['create_date']        = date("Y-m-d H:i:s");
+				$insert_data['create_user']        = $result->user_id;
+				$this->db->insert('mst_currency', $insert_data);
+			}else{
+				$insert_data['update_date']    = date("Y-m-d H:i:s");
+				$insert_data['update_user']    = $result->user_id;
+
+				$this->db->where('currency_code', $id);
+				$this->db->update('mst_currency',$insert_data);
+			}
+			$this->db->trans_complete();
+
+			$dataDB['status']   = "success";
+			$dataDB['message']  = "";
+			$dataDB['data']     = $insert_data;
+		}else{
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
+		$this->response($dataDB,200);
+	}
+
+	/**
+    * check suppliser code dupplicate
+    *
+    * @param $m_company_id company id
+	* @param $currency_code currency code
+    *
+    * @return boolean
+    */
+	private function chk_currency_code($m_company_id,$currency_code,$old_currency){
+		$is_check	= true;
+
+		if ($currency_code == $old_currency) {
+			return false; // OK data
+		}
+
+		$currency_data	= $this->db->get_where('mst_currency',[
+			'currency_code'	=> $currency_code
+		])->row();
+
+		if (isset($currency_data)){
+
+		} else {
+			$is_check = false;
+		}
+		return $is_check;
+	}
 }
 
-
-
-
+?>

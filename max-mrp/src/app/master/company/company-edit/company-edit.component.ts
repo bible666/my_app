@@ -86,7 +86,7 @@ export class CompanyEditComponent implements OnInit {
     }
 
     let input_data	: cInput = new cInput(this.inputForm.value);
-    input_data.company_code	= this.id;
+    input_data.id	= this.id;
     this.Service.updateById(input_data)
     .subscribe(data=>{
 

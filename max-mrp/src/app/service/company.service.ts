@@ -82,8 +82,9 @@ export class cData{
 
 export class cInput{
   token         : string;
-  company_code  : string;
+  id  			: string;
 
+  company_code  : string;
   company_name  : string;
   addr_1        : string;
   addr_2        : string;

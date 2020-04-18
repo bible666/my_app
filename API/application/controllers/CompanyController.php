@@ -200,6 +200,7 @@ class CompanyController extends Origin001
 
 		//init data
 		$id  		        = isset($data['id'])			? $data['id']			: -1;
+		$company_code		= isset($data['company_code'])	? $data['company_code'] : '';
         $company_name		= isset($data['company_name'])	? $data['company_name'] : '';
         $addr_1             = isset($data['addr_1'])		? $data['addr_1']       : '';
         $addr_2             = isset($data['addr_2'])		? $data['addr_2']       : '';
@@ -245,6 +246,7 @@ class CompanyController extends Origin001
 			//$insert_data['m_company_id']    = $result->company_id;
 
 			//set data to array for add or update
+			$insert_data['company_code']	= $company_code;
 			$insert_data['company_name']	= $company_name;
 			$insert_data['addr_1']		= $addr_1;
             $insert_data['addr_2']		= $addr_2;
@@ -259,23 +261,16 @@ class CompanyController extends Origin001
 
 			$this->db->trans_start();
 
-			if ($default_currency == true){
-				$update_data['update_date']    		= date("Y-m-d H:i:s");
-				$update_data['update_user']    		= $result->user_id;
-				$update_data['default_currency']    = false;
-
-				$this->db->update('mst_currency',$update_data);
-			}
 			if ($id == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-				$this->db->insert('mst_currency', $insert_data);
+				$this->db->insert('mst_company', $insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->where('currency_code', $id);
-				$this->db->update('mst_currency',$insert_data);
+				$this->db->where('company_code', $id);
+				$this->db->update('mst_company',$insert_data);
 			}
 			$this->db->trans_complete();
 

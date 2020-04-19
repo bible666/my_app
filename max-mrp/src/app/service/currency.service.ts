@@ -4,17 +4,17 @@ import { environment } from '../../environments/environment';
 
 const BASE_URL = environment.api_url+'/CurrencyController';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type'  : 'application/json',
-    'Authorization' : sessionStorage.getItem('token')
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class CurrencyService {
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type'  : 'application/json',
+      'Authorization' : sessionStorage.getItem('token')
+    })
+  };
 
   constructor(
     private http:HttpClient
@@ -22,26 +22,26 @@ export class CurrencyService {
 
   public getListData(search_data:cSearch){
     let strJSON:string = JSON.stringify(search_data);
-    return this.http.post(BASE_URL+'/get_data_list',strJSON,httpOptions);
+    return this.http.post(BASE_URL+'/get_data_list',strJSON,this.httpOptions);
   }
 
   public deleteById(id:string){
     let inputData = new cInput();
     inputData.id = id;
     let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/delete_data_by_id',strJSON,httpOptions);
+    return this.http.post(BASE_URL+'/delete_data_by_id',strJSON,this.httpOptions);
   }
 
   public getDataById(id:string){
     let inputData = new cInput();
     inputData.id = id;
     let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/get_data_by_id',strJSON,httpOptions);
+    return this.http.post(BASE_URL+'/get_data_by_id',strJSON,this.httpOptions);
   }
 
   public updateById(inputData:cInput){
     let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/update_data',strJSON,httpOptions);
+    return this.http.post(BASE_URL+'/update_data',strJSON,this.httpOptions);
   }
 }
 

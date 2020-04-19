@@ -21,7 +21,8 @@ export class CompanyListComponent implements OnInit {
   public frmSearchData  : cSearch;
 
   inputForm = new FormGroup({
-    'currency_code' : new FormControl(''),
+    'company_code'  : new FormControl(''),
+    'company_name'  : new FormControl(''),
     'description'   : new FormControl(''),
     'rowsPerpage'   : new FormControl('20')
   });
@@ -36,6 +37,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.message = this.messageService.getMessage();
     this.onSearch();
   }

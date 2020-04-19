@@ -35,6 +35,7 @@ export class CompanyService {
   public getDataById(id:string){
     let inputData = new cInput();
     inputData.company_code = id;
+    inputData.id           = id;
     let strJSON:string  = JSON.stringify(inputData);
     return this.http.post(BASE_URL+'/get_data_by_id',strJSON,httpOptions);
   }
@@ -56,6 +57,7 @@ export class cSearch{
   rowsPerpage   :number;
 
   //manual search condition
+  company_code   : string;
   company_name   : string;
   address        : string;
   phone          : string;

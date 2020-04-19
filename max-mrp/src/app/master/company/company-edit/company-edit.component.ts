@@ -43,6 +43,7 @@ export class CompanyEditComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    window.scroll(0,0);
     this.id	= this.param.snapshot.params.id;
 
     this.Service.getCalendar().subscribe(data=>{
@@ -55,16 +56,22 @@ export class CompanyEditComponent implements OnInit {
       .subscribe(data=>{
         
         if (data['status']== 'success'){
-          console.log(data);
+          
           let isDefault = true;
-          if (data['data'].default_currency == 0){
-            isDefault = false;
-          }
+          
           this.inputForm.patchValue({
-            'currency_code'    : data['data'].currency_code,
-            'currency_name'    : data['data'].currency_name,
-            'default_currency' : isDefault,
-            'remark'           : data['data'].remark
+            'company_code'    : data['data'].company_code,
+            'company_name'    : data['data'].company_name,
+            'addr_1'          : data['data'].addr_1,
+            'addr_2'          : data['data'].addr_2,
+            'addr_3'          : data['data'].addr_3,
+            'zip'             : data['data'].zip,
+            'telno'           : data['data'].telno,
+            'faxno'           : data['data'].faxno,
+            'email'           : data['data'].email,
+            'cal_no'          : data['data'].cal_no,
+            'remark'          : data['data'].remark
+
           });
         } else {
           this.ServiceMessage.setError(data['message']);
@@ -92,7 +99,7 @@ export class CompanyEditComponent implements OnInit {
 
       if (data['status']== 'success'){
         this.ServiceMessage.setSuccess('บันทึกสำเร็จ');
-        this.router.navigateByUrl('/currency/list');
+        this.router.navigateByUrl('/company/list');
 			} else {
         this.ServiceMessage.setError(data['message']);
         this.message = this.ServiceMessage.getMessage();

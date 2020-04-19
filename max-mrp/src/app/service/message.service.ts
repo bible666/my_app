@@ -33,7 +33,7 @@ export class MessageService {
     let errorMessage: string[]    = this.messageError;
     let successMessage: string[]  = this.messageSuccess;
 
-    if ( Array.isArray(warningMessage)  ){
+    if ( warningMessage  ){
       if (warningMessage.length > 0) {
         let warningClass  : MessageClass = new MessageClass();
         warningClass.message      = warningMessage;
@@ -44,7 +44,7 @@ export class MessageService {
       
     }
 
-    if (Array.isArray(errorMessage)  ){
+    if (errorMessage  ){
       if (errorMessage.length > 0){
         let errorClass  : MessageClass = new MessageClass();
         errorClass.message      = errorMessage;
@@ -55,7 +55,7 @@ export class MessageService {
       
     }
 
-    if (Array.isArray(successMessage)){
+    if (successMessage){
       if (successMessage.length > 0){
         let successClass  : MessageClass = new MessageClass();
         successClass.message      = successMessage;

@@ -70,7 +70,7 @@ class CompanyController extends Origin001
 
 			$itemn_data = $this->db->query($query_str)->row();
 			$dataDB['status']   = "success";
-			$dataDB['message']  = "";
+			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
 
 		}else{

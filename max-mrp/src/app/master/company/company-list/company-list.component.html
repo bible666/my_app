@@ -24,7 +24,7 @@
                             <tr>
                                 <th>รหัส</th>
                                 <td>
-                                    <input type="text" formControlName="currency_code"/>
+                                    <input type="text" formControlName="company_code"/>
                                 </td>
                                 
                             </tr>
@@ -86,16 +86,16 @@
                                     <th></th>
                                     <th></th>
                                     <th nowrap>รหัส</th>
-                                    <th >คำอธิบาย</th>
+                                    <th >ชื่อ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let gridData of gridDatas">
-                                    <td><a [routerLink]="['/currency/edit',gridData.currency_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
-                                    <td><a  (click)="onDelete(gridData.currency_code)" class="btn btn-primary btn-sm">ลบ</a></td>
+                                    <td><a [routerLink]="['/company/edit',gridData.company_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
+                                    <td><a  (click)="onDelete(gridData.company_code)" class="btn btn-primary btn-sm">ลบ</a></td>
                                     
-                                    <td>{{gridData.currency_code}}</td>
-                                    <td class="c">{{gridData.currency_name}}</td>
+                                    <td>{{gridData.company_code}}</td>
+                                    <td class="c">{{gridData.company_name}}</td>
                                 </tr>
                             </tbody>
                         </table>

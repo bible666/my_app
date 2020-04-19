@@ -44,7 +44,8 @@ export class CompanyListComponent implements OnInit {
 
   onInitValue(){
     this.inputForm.patchValue({
-      'currency_code'    : ''
+      'company_code'    : '',
+      'company_name'    : ''
     });
   }
 
@@ -58,6 +59,7 @@ export class CompanyListComponent implements OnInit {
     this.frmSearchData.page_index   = this.CurrentPage;
     this.frmSearchData.rowsPerpage  = this.inputForm.value.rowsPerpage;
     this.getData();
+    this.message = this.messageService.getMessage();
   }
 
   getData(){

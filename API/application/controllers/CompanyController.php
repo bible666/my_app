@@ -20,10 +20,10 @@ class CompanyController extends Origin001
      */
     public function delete_data_by_id_post(){
 		$data       = $this->post();
-
+ 
         //init data
         $token		= $this->getAuthHeader();
-        $id         = isset($data['id']) ? $data['id'] : -1;
+        $id         = isset($data['company_code']) ? $data['company_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
@@ -233,13 +233,13 @@ class CompanyController extends Origin001
 
 		if($result->user_id > 0){
 
-			// if ($this->chk_currency_code($result->company_id,$currency_code,$id)){
-			// 	$dataDB['status']   = "error";
-			// 	$dataDB['message']  = "???????????????????";
-			// 	$dataDB['data']     = "";
-			// 	$this->response($dataDB,200);
+			if ($this->is_dupplicate_data($id, $company_code)){
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "รหัสบริษัทนี้ใช้งานแล้ว";
+				$dataDB['data']     = "";
+				$this->response($dataDB,200);
 
-			// }
+			}
 
 			$insert_data = [];
 
@@ -291,20 +291,21 @@ class CompanyController extends Origin001
     * @param $m_company_id company id
 	* @param $currency_code currency code
     *
-    * @return boolean
+    * @return boolean true= dupplicate, false not dupplicate
     */
-	private function chk_currency_code($m_company_id,$currency_code,$old_currency){
+	private function is_dupplicate_data($old,$new){
 		$is_check	= true;
 
-		if ($currency_code == $old_currency) {
+		if ($old == $new) {
 			return false; // OK data
 		}
 
-		$currency_data	= $this->db->get_where('mst_currency',[
-			'currency_code'	=> $currency_code
+		$data	= $this->db->get_where('mst_company',[
+			'company_code'	=> $new,
+			'company_code !=' => $old
 		])->row();
 
-		if (isset($currency_data)){
+		if (isset($data)){
 
 		} else {
 			$is_check = false;

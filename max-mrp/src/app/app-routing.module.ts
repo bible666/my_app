@@ -19,6 +19,8 @@ import { CalendarListComponent } from './master/calendar/calendar-list/calendar-
 import { CalendarEditComponent } from './master/calendar/calendar-edit/calendar-edit.component';
 import { CompanyEditComponent } from './master/company/company-edit/company-edit.component';
 import { CompanyListComponent } from './master/company/company-list/company-list.component';
+import { FactoryEditComponent } from './master/factory/factory-edit/factory-edit.component';
+import { FactoryListComponent } from './master/factory/factory-list/factory-list.component';
 
 
 const routes: Routes = [
@@ -39,7 +41,9 @@ const routes: Routes = [
   { path: 'calendar/list',              component:CalendarListComponent,canActivate:[AuthGuard]},
   { path: 'calendar/edit/:id',          component:CalendarEditComponent,canActivate:[AuthGuard]},
   { path: 'company/list',               component:CompanyListComponent,canActivate:[AuthGuard]},
-  { path: 'company/edit/:id',           component:CompanyEditComponent,canActivate:[AuthGuard]}
+  { path: 'company/edit/:id',           component:CompanyEditComponent,canActivate:[AuthGuard]},
+  { path: 'factory/list',               component:FactoryListComponent,canActivate:[AuthGuard]},
+  { path: 'factory/edit/:company_code/:factory_code',           component:FactoryEditComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

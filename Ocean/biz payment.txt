@@ -1,0 +1,731 @@
+Table name :	biz_payment_customer	เก็บข้อมูลลูกค้าที่จ่ายผ่านระบบ biz payment  
+Field	Type	Description	ตัวอย่างข้อมูล	Remark
+id	running number	ID	 	 
+branch_code	varchar(5)	รหัสสาขา	19700	 
+deduct_date	number	วันที่หักบัญชี	29	 
+bank_account	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีธนาคาร	8800015107	 
+bank_account_name	varchar(255)	ชื่อบัญชีธนาคาร	นายมะยม เฟื่องฟูลอย	 
+policy_type	varchar(10)	ประเภทกรมธรรม์	สม.	 
+policy_no	Varchar(25)	เลขที่กรมธรรม์	0001261	 
+bizpayment_channel	varchar(1)	หักผ่าน biz payment หรือไม่ Y=หัก, N=ไม่หัก	Y	 
+customer_type	varchar(10)	ประเภทลูกค้า	
+KP = ขพ
+
+GENERAL = ทั่วไป
+
+เก็บในเป็น enum constant >> CustomerType
+gen_giro	varchar(1)	Gen giro file หรือยัง Y=Gen, N=ยังไม่ Gen (Default value = N)	N	หลังกดสร้าง giro file กลับมา update เป็น Y และหลังจาก upload file จาก bank กลับมา update เป็น N
+created_date	timestamp	วันที่ Create ข้อมูล	 	 
+created_by	varchar(30)	username ผู้สร้างรายการ	 	 
+updated_date	timestamp	วันที่ update ข้อมูล	 	 
+updated_by	varchar(30)	username ผู้ update ข้อมูล	 	 
+other_channel	varchar(2)	เก็บข้อมูลลูกค้าช่องอื่น เช่น counter service, big C, M pay	CS	สร้างสำหรับเก็บข้อมูลการชำระช่องทางอื่นๆ
+send_r_biz_payment	varchar(1)	ประเภทการหักบัญชี	0 หรือ 1	0 = หักตรงงวด , 1 = หักล่วงหน้า
+ 
+
+ 
+
+Table name	biz_payment_sum_giro	สรุปรายการกรมธรรม์ที่ส่งหักบัญชี
+Field	Type	Description	ตัวอย่างข้อมูล
+id	running number	ID	 
+file_name	varchar(255)	ชื่อไฟล์ giro ที่ระบบ biz generate ให้	1970_29012557
+file_name_return	varchar(255)	ชื่อไฟล์ transaction ที่ Bank ส่งคืนกลับมาให้	1970_29012557_out
+send_record	number	จำนวนวรายการที่ส่งหัก	100
+holding_record	number	จำนวนรายการที่ไม่เข้าเงื่อนไขการส่งหัก เช่น ขาดผล, เวนคืน, ครบสัญญา	10
+bank_success	number	จำนวนรายการที่ส่งหักสำเร็จ	80
+bank_unsuccess	number	จำนวนวรายการที่ส่งหักไม่สำเร็จ	20
+bank_return_flag	varchar(1)	
+สถานะไฟล์ว่ามีการ update ผลการหักบัญชีจาก bank แล้วหรือยัง
+
+Y=มีการ update ผลการหักคืนกลับมาแล้ว
+
+N=ยังไม่มีการ update กลับคืนมา
+
+ 
+branch_code	varchar(5)	รหัสสาขา	 
+effective_date	date	วันที่หักบัญชี	 
+created_date	timestamp	วันที่ generate ข้อมูลส่งหัก	 
+created_by	varchar(30)	ชื่อผู้สร้างรายการ	 
+updated_date	timestamp	วันที่ update รายการเข้า	 
+updated_by	varchar(30)	ชื่อผู้ update รายการ	 
+company_ac	varchar(10)	เลขที่บัญชีบริษัท	 
+total_amt	Decimal(12,2)	จำนวนเงินรวมที่หักบัญชี	 
+ 
+
+ 
+
+table name :	biz_payment_temp	temp table เตรียมข้อมูลก่อนส่งหัก	AS400
+ 	Active	Lapse เฉพาะ ปช, ขพ
+Field	Type	Description	ประเภท กธ.	Table Name	Field	Remark	Table Name	Field
+id	running number	ID	 	 	 	 	 	 
+branch_code	varchar(5)	รหัสสาขา	 	 	 	 	 	 
+branch_name	varchar(255)	ชื่อสาขา	 	 	 	 	 	 
+effective_date	date	วันที่หักบัญชี	 	 	 	 	 	 
+bank_account	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีธนาคาร	 	 	 	 	 	 
+bank_account_name	varchar(255)	ชื่อบัญชีธนาคาร	 	 	 	 	 	 
+policy_type	varchar(10)	ประเภท	 	 	 	 	 	 
+policy_no	Varchar(20)	เลขที่กรมธรรม์	 	 	 	 	 	 
+policy_issue_date	date	วันที่เริ่มสัญญา	ปช.	
+ILISLIB.POLCYMB0
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBCDTE
+
+v5
+
+ 	ILISLIB.POLCYMX0	MXCDTE
+ขพ.	
+GOVLIB.GPLCYMB0
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBCDTE
+
+v5
+
+ 	GOVLIB.GPLCYMX0	MXCDTE
+สม.	OLIS.OLPPOLMS	POCMDT	 	-	-
+insured_title	varchar(10)	คำนำหน้าชื่อ	ปช.	
+ILISLIB.POLCYMB0
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBCSID
+
+v6b
+
+ILISLIB.CUSTMMC0.MCTITL	ILISLIB.POLCYMX0	MXCSID
+ขพ.	
+GOVLIB.GPLCYMB0
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBCSID
+
+v6b
+
+GOVLIB.GCUSTMC0.MCTITL	GOVLIB.GPLCYMX0	MXCSID
+สม.	OLIS.OLPPOLMS	CUSTM#	OLIS.OLPCUSMS.CUTITL	-	-
+insured_first_name	varchar(50)	ชื่อผู้เอาประกันภัย	ปช.	OCDATA»OCMASTER»dbXXXXX	v6	ILISLIB.CUSTMMC0.MCNAME	ILISLIB.POLCYMX0	MXCSID
+ขพ.	OCDATA»KP»OCMASTER»kp9XXXX	v6	GOVLIB.GCUSTMC0.MCNAME	GOVLIB.GPLCYMX0	MXCSID
+สม.	 	 	OLIS.OLPCUSMS.CUNAME	-	-
+insured_last_name	varchar(50)	นามสกุลผู้เอาประกันภัย	ปช.	OCDATA»OCMASTER»dbXXXXX	v6a	ILISLIB.CUSTMMC0.MCSURN	ILISLIB.POLCYMX0	MXCSID
+ขพ.	OCDATA»KP»OCMASTER»kp9XXXX	v6a	GOVLIB.GCUSTMC0.MCSURN	GOVLIB.GPLCYMX0	MXCSID
+สม.	 	 	OLIS.OLPCUSMS.CULSNM	-	-
+agent_code	varchar(7)	รหัสตัวแทน 7 หลัก	ปช/ขพ	
+ILISLIB.POLCYMB0
+
+OCDATA»OCAGENCY»agentid
+
+MBAGT#
+
+a19
+
+ 	ILISLIB.POLCYMX0	MXAGT#
+สม.	
+OLIS.OLPPOLMS
+
+CRAGT#
+
+ 
+
+ 	-	-
+agent_code5	varchar(5)	รหัสตัวแทน 5 หลัก	 	
+OCDATA»OCAGENCY»agentid
+
+a1	 	 	 
+agent_code2	varchar(2)	รหัสตัวแทน 2 หลัก	 	OCDATA»OCAGENCY»agentid	a2	 	 	 
+agent_name	varchar(100)	ชื่อตัวแทน	 	OCDATA»OCAGENCY»agentid	a5	 	 	 
+agent_title	varchar(10)	คำนำหน้าตัวแทน	ปช	 	 	LIPS.PSPAGMT1.AGTITL	 	 
+ 	 	 	ขพ	 	 	 	 	 
+ 	 	 	สม	LIPS.PSPAGMT1	 	LIPS.PSPAGMT1.AGTITL	 	 
+agent_first_name	varchar(50)	ชื่อตัวแทน	ปช	 	 	LIPS.PSPAGMT1.AGNAME	 	 
+ 	 	 	ขพ	 	 	 	 	 
+ 	 	 	สม	LIPS.PSPAGMT1	 	LIPS.PSPAGMT1.AGNAME	 	 
+agent_last_name	varchar(50)	นามสกุลตัวแทน	ปช	 	 	LIPS.PSPAGMT1.AGLSNM	 	 
+ 	 	 	ขพ	 	 	 	 	 
+ 	 	 	สม	LIPS.PSPAGMT1	 	LIPS.PSPAGMT1.AGLSNM	 	 
+main_premium	Decimal(12,2)	จำนวนเงินกรมธรรม์หลัก	ปช.	ILISLIB.POLCYMB0	MBPREM * mode_payment	 	ILISLIB.POLCYMX0	MXPREM * mode_payment
+ 	 	 	ขพ.	GOVLIB.GPLCYMB0	MBPREM * mode_payment	 	GOVLIB.GPLCYMX0	MXPREM * mode_payment
+ 	 	 	สม.	OLIS.OLPRECTR	(RCPOPR+RCPOEP) * mode_payment	 	-	-
+policy_status_code	varchar(1)	สถานะกรมธรรม์	ปช.	
+ILISLIB.POLCYMB0
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBSTAS
+
+v12
+
+ต้องเช็ค status ว่าครบชำระแล้วแล้วหรือยังให้ เอา due_date เปรียบเทียบกับ paid_up_date ถ้า due_date >= paid_up_date แสดงว่าชำระครบแล้ว
+
+ให้ stamp status = 8 //เพราะ status ชำระครบ ของ 400 จะ update ช้า 1 เดือน 
+
+ILISLIB.POLCYMX0	MXSTAS
+ 	 	 	ขพ.	
+GOVLIB.GPLCYMB0
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBSTAS
+
+v12
+
+ต้องเช็ค status ว่าครบชำระแล้วแล้วหรือยังให้ เอา due_date เปรียบเทียบกับ paid_up_date ถ้า due_date >= paid_up_date แสดงว่าชำระครบแล้ว
+
+ให้ stamp status = 8 //เพราะ status ชำระครบ ของ 400 จะ update ช้า 1 เดือน 
+
+GOVLIB.GPLCYMX0	MXSTAS
+ 	 	 	สม.	OLIS.OLPPOLMS	POSTS@	-	-	-
+due_date	date	วันที่ครบกำหนดชำระเบี้ย	ปช.	
+ILISLIB.POLCYMB0
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBCDTE
+
+dd (V5) + mm/yy(V15)
+
+ 
+
+ดึงวันที่ของวันเริ่มสัญญา ข้อมูลจาก data file ที่เครื่อง 53
+
+เอา dd (V5) + mm/yy(V15) ได้ วันเดือนปีที่ครบกำหนดชำระเบี้ย ถ้าวันที่เริ่มสัญญาเป็นวันที่ 29, 30, 31 ต้องเลื่อนวันตามสูตร ....
+
+ดูวิธีการหาที่ : Biz Payment Rules & Process Specifications (BIZ)
+
+-	-
+ 	 	 	ขพ.	
+GOVLIB.GPLCYMB0
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBCDTE
+
+dd (V5) + mm/yy(V15)
+
+ 
+
+ดึงวันที่ของวันเริ่มสัญญา ข้อมูลจาก data file ที่เครื่อง 53
+
+เอา dd (V5) + mm/yy(V15) ได้ วันเดือนปีที่ครบกำหนดชำระเบี้ย ถ้าวันที่เริ่มสัญญาเป็นวันที่ 29, 30, 31 ต้องเลื่อนวันตามสูตร ....
+
+ดูวิธีการหาที่ : Biz Payment Rules & Process Specifications (BIZ)
+
+-	-
+ 	 	 	สม.	OLIS.OLPRECTR	RCFRDT	 	-	-
+pay_from	varchar(50)	งวดเดือนที่จะชำระ (ตั้งแต่) mm/yy	ปช.	
+ILISLIB.POLCYMB0
+
+GWLIB.TMSLPIND
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBLSTP
+
+SLDUYM
+
+V15
+
+ดึงงวดชำระครั้งสุดท้าย ข้อมูลจาก data file ที่เครื่อง 53
+
+เปรียบเทียบ value 2 field แล้วหาเดือนปี ล่าลุด แล้ว +1 month จะได้งวดเดือนเริ่มต้นที่จะชำระครั้งต่อไป
+
+
+
+*Remark ที่ table GWLIB.TMSLPIND.SLDUYM
+
+จะเจอหลาย record ให้เอา record ล่าสุด มาเปรียบเทียบ
+
+-	-
+ 	 	 	ขพ.	
+GOVLIB.GPLCYMB0
+
+GWLIB.TMSLPGOV
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBLSTP
+
+SLDUYM
+
+V15
+
+ดึงงวดชำระครั้งสุดท้าย ข้อมูลจาก data file ที่เครื่อง 53
+
+เปรียบเทียบ value 2 field แล้วหาเดือนปี ล่าลุด แล้ว +1 month จะได้งวดเดือนเริ่มต้นที่จะชำระครั้งต่อไป
+
+
+
+*Remark ที่ table GWLIB.TMSLPGOV.SLDUYM
+
+ จะเจอหลาย record ให้เอา record ล่าสุด มาเปรียบเทียบ
+
+-	-
+ 	 	 	สม.	OLIS.OLPRECTR	RCFRDT	
+ให้เอา เลขกรมธรรม์ ไปหาข้อมูลที่ table นี้
+
+โดยที่ RCSTS@ มีค่าเป็น B หรือ C
+
+select มาจะได้ข้อมูลหลาย record ให้เอาข้อมูลที่มี RCFRDT เอา record แรก เรียงตามงวด
+
+ถ้าไม่เจอข้อมูลไม่ต้องดึงกรมธรรม์นี้ไปแสดงที่ biz
+
+ 
+
+select min(RCFRDT)
+from OLIS.OLPRECTR
+where RCPOL# = '0064986'
+and (RCSTS@ = 'B'
+or RCSTS@ = 'C')
+
+ 
+
+//RCSTS@ (status = B, C //B คือใบเสร็จรอพิมพ์ , C คือใบเสร็จรอชำระ ถ้าหาไม่เจอ ไม่ดึงข้อมูลไปทำ biz ให้ order by RCFRDT เอา record ล่าสุด) 
+
+-	-
+pay_to	varchar(50)	งวดเดือนที่จะชำระ (ถึง) mm/yy	
+ปช.ขพ.
+
+สม.
+
+pay_from + mode_payment	 	 	-	-
+mode_payment	varchar(2)	งวดการจ่าย	ปช.	OCDATA»OCMASTER»dbXXXXX	v20	
+จำนวนงวดที่ต้องการชำระ ดึงข้อมูลจาก data file ที่เครื่อง 53
+
+Remark ข้อมูลที่ดึงจะช้ากว่า 1 วัน
+
+OCDATA»OCMASTER»dbXXXXX	v20
+ 	 	 	ขพ.	OCDATA»KP»OCMASTER»kp9XXXX	v20	
+จำนวนงวดที่ต้องการชำระ
+
+Remark ข้อมูลที่ดึงจะช้ากว่า 1 วัน
+
+OCDATA»KP»OCMASTER»kp9XXXX	v20
+ 	 	 	สม.	OLIS.OLPPOLMS	POMOD#	 	-	-
+paid_up_date	date	วันที่ชำระครบ	ปช.	
+ILISLIB.POLCYMB0
+
+OCDATA»OCMASTER»dbXXXXX
+
+MBPDTE
+
+dd (V5) + mmyy(V17)
+
+เอาวันที่ของวันเริ่มสัญญา dd (V5) + mmyy(V17) เดือนปีที่ชำระครบ	-	-
+ 	 	 	ขพ.	
+GOVLIB.GPLCYMB0
+
+OCDATA»KP»OCMASTER»kp9XXXX
+
+MBPDTE
+
+dd (V5) + mmyy(V17)
+
+เอา dd (V5) + mmyy(V17) เดือนปีที่ชำระครบ	-	-
+ 	 	 	สม.	OLIS.OLPPOLMS	POPEDT	 	-	-
+discount_amt	Decimal(12,2)	ส่วนลด	ปช.	
+if mode_payment = 6
+
+main_premium*0.35
+
+if mode_payment = 12
+
+main_premium*0.75
+
+ 	
+6 เดือนลด 3.5%
+
+12 เดือนลด 7.5%
+
+-	-
+ 	 	 	ขพ.	
+if mode_payment = 6
+
+main_premium*0.35
+
+if mode_payment = 12
+
+main_premium*0.75
+
+ 	
+6 เดือนลด 3.5
+
+12 เดือนลด 7.5
+
+-	-
+created_date	timestamp	วันที่ generate ข้อมูลส่งหัก	 	 	 	 	 	 
+creator	varchar	ชื่อผู้สร้างรายการ	 	 	 	 	 	 
+ 
+
+ 
+
+Table name	biz_payment_temp_rider	temp table เตรียมข้อมูลก่อนส่งหักเฉพาะ Rider
+Field	Type	Description	 	 	 	 
+id	running number	ID	 	 	 	 
+temp_id	number(10)	เก็บ id จาก table biz_payment_temp	 	 	 	 
+rider_name	varchar(100)	ชื่อ rider	ปช.	
+GWLIB.TBRIDPLN
+
+RIDNAM
+
+ 
+ 	 	 	ขพ.	
+GWLIB.TBRIDPLN
+
+RIDNAM
+
+ 
+ 	 	 	สม.	default ให้แสดง "เบี้ยประกันภัยสัญญาเพิ่มเติม"	 	 
+rider_premium	Decimal(12,2)	จำนวนเงิน rider	ปช.	 	 	ดูวิธีการหาที่ : Biz Payment Rules & Process Specifications (BIZ)
+ 	 	 	ขพ.	 	 	ดูวิธีการหาที่ : Biz Payment Rules & Process Specifications (BIZ)
+ 	 	 	สม.	OLIS.OLPRECTR	RD13PR
++RD13EP
++RD24PR
++RD@5PR
++RD@6PR
++RD@6EP
++RD78PR
++RD@9PR	 
+ 
+
+ 
+
+Table name	biz_payment_giro_data	รายการกรมธรรม์ที่ส่งหักบัญชี 
+Field	Type	Description	ตัวอย่างข้อมูล
+id	running number	ID	 
+id_sum_giro	number(10)	เก็บ id จาก table biz_payment_sum_giro	 
+branch_code	varchar(5)	รหัสสาขา	1970
+branch_name	varchar(255)	ชื่อสาขา	ชลบุรี
+effective_date	date	วันที่หักบัญชี	29/01/2557
+bank_account	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีธนาคาร	8800015107
+bank_account_name	varchar(255)	ชื่อบัญชีธนาคาร	นายมะยม เฟื่องฟูลอย
+policy_type	varchar(1)	ประเภทกรมธรรม์	I
+policy_no	Varchar(25)	เลขที่กรมธรรม์	0001261
+policy_issue_date	date	วันที่เริ่มสัญญา	15/01/2556
+insured_title	varchar(10)	คำนำหน้าชื่อ	นาง
+insured_first_name	varchar(50)	ชื่อผู้เอาประกันภัย	ชนิกานต์
+insured_last_name	varchar(50)	นามสกุลผู้เอาประกันภัย	เอี่ยมคงสี
+agent_code	varchar(7)	รหัสตัวแทน	5463257
+agent_code5	varchar(5)	รหัสตัวแทน 7 หลัก	 
+agent_code2	varchar(2)	รหัสตัวแทน 2 หลัก	 
+agent_title	varchar(10)	คำนำหน้าตัวแทน	นางสาว
+agent_first_name	varchar(50)	ชื่อตัวแทน	นิตยา
+agent_last_name	varchar(50)	นามสกุลตัวแทน	มุสิกา
+premium_type	varchar(2)	เป็น เบี้ยหลัก หรือ rider (M=เบี้ยหลัก, R=Rider)	 
+total_premium	Decimal(12,2)	จำนวนเงินรวม (main+rider)	300.00
+main_premium	Decimal(12,2)	จำนวนเงินกรมธรรม์หลัก	300.00
+policy_status_code	varchar(1)	สถานะกรมธรรม์ก่อนส่งหักบัญชี	I
+last_status	varchar(1)	สถานะกรมธรรม์หลังส่งหักบัญชี	I
+bank_transaction_code	varchar(1)	ผลการหักจากธนาคาร	0
+pay_from	varchar(50)	งวดเดือนที่จะชำระ (ตั้งแต่) mm/yy	10/57
+pay_to	varchar(50)	งวดเดือนที่จะชำระ (ถึง) mm/yy	11/57
+created_date	timestamp	วันที่ generate ข้อมูลส่งหัก	 
+created_by	varchar(30)	ชื่อผู้สร้างรายการ	 
+updated_date	timestamp	วันที่ update รายการเข้า	 
+updated_by	varchar(30)	ชื่อผู้ update รายการ	 
+aslip_flag	varchar(1)	flag แสดงสถานะการส่ง	
+aslip_flag (สถานะการส่ง)
+0=รอส่ง
+1=ส่งสำเร็จ
+2=ส่งไม่สำเร็จ
+
+aslip_result	varchar(1)	ผลการสร้าง Aslip ว่าสำเร็จหรือไม่สำเร็จ	
+aslip_result (ผลการสร้าง Aslip)
+0=สำเร็จ
+1=ไม่สำเร็จ เนื่องจา งวดการจ่ายไม่ตรงกับงวดที่ออกใบเสร็จ
+2=ไม่สำเร็จ เนื่องจาก พบความผิดพลาด กรุณาทำใหม่อีกครั้ง
+
+aslip_remark	text	ฟิลด์เพิ่มเติมสำหรับใส่ remark การสร้าง Aslip	
+งวดการจ่ายไม่ตรงกับงวดที่ออกใบเสร็จ
+
+พบความผิดพลาด กรุณาทำใหม่อีกครั้ง
+
+ 
+
+ 
+
+Table name	biz_payment_giro_rider	รายการกรมธรรม์ที่ส่งหักบัญชี เฉพาะ Rider
+Field	Type	Description
+id	running number	ID
+id_main	number(10)	เก็บ id จาก biz_payment_giro_data
+rider_name	varchar(100)	ชื่อ rider
+rider_premium	Decimal(12,2)	จำนวนเงิน rider
+ 
+
+ 
+
+Table name	biz_payment_holding	รายการกรมธรรม์ที่ไม่ส่งหัก 
+Field	Type	Description	ตัวอย่างข้อมูล
+id	running number	ID	 
+branch_code	varchar(5)	รหัสสาขา	1970
+branch_name	varchar(255)	ชื่อสาขา	ชลบุรี
+effective_date	date	วันที่หักบัญชี	29/01/2557
+bank_account	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีธนาคาร	8800015107
+bank_account_name	varchar(255)	ชื่อบัญชีธนาคาร	นายมะยม เฟื่องฟูลอย
+policy_type	varchar(10)	ประเภท	สม.
+policy_no	Varchar(25)	เลขที่กรมธรรม์	0001261
+policy_issue_date	date	วันที่เริ่มสัญญา	15/01/2556
+insured_title	varchar(10)	คำนำหน้าชื่อ	นาง
+insured_first_name	varchar(50)	ชื่อผู้เอาประกันภัย	ชนิกานต์
+insured_last_name	varchar(50)	นามสกุลผู้เอาประกันภัย	เอี่ยมคงสี
+agent_code	varchar(7)	รหัสตัวแทน	5463257
+agent_code5	varchar(5)	รหัสตัวแทน 5 หลัก	 
+agent_code2	varchar(2)	รหัสตัวแทน 2 หลัก	 
+agent_title	varchar(10)	คำนำหน้าตัวแทน	นางสาว
+agent_first_name	varchar(50)	ชื่อตัวแทน	นิตยา
+agent_last_name	varchar(50)	นามสกุลตัวแทน	มุสิกา
+policy_status_code	varchar(1)	สถานะกรมธรรม์	I
+created_date	timestamp	วันที่ generate ข้อมูลส่งหัก	 
+created_by	varchar(30)	username ผู้สร้างรายการ	 
+main_premium	Decimal(12,2)	จำนวนเงินกรมธรรม์หลัก	 
+next_pay_from	varchar(50)	งวดเดือนที่จะชำระ (ตั้งแต่) mm/yy	 
+next_pay_to	varchar(50)	งวดเดือนที่จะชำระ (ถึง) mm/yy	 
+ 
+
+ 
+
+Table name	biz_payment_customer_Tracking	เก็บประวัติข้อมูลลูกค้า biz payment ทีมีการเปลี่ยนแปลง 
+Field	Type	Description	ตัวอย่างข้อมูล
+id	running number	ID	 
+branch_code	varchar(5)	รหัสสาขา	1970
+branch_name	varchar(255)	ชื่อสาขา	 
+deduct_date	number	วันที่หักบัญชี	29/01/2557
+bank_account	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีธนาคาร	8800015107
+bank_account_name	varchar(255)	ชื่อบัญชีธนาคาร	นายมะยม เฟื่องฟูลอย
+policy_type	varchar(10)	ประเภทกรมธรรม์	สม.
+policy_no	varchar(25)	เลขที่กรมธรรม์	0001261
+insured_title	varchar(50)	คำนำหน้าชื่อ	นาง
+insured_first_name	Varchar(50)	ชื่อผู้เอาประกันภัย	ชนิกานต์
+insured_last_name	Varchar(50)	นามสกุลผู้เอาประกันภัย	เอี่ยมคงสี
+agent_code	varchar(7)	รหัสตัวแทน 7 หลัก	5463257
+agent_code5	varchar(5)	รหัสตัวแทน 5 หลัก	 
+agent_code2	varchar(2)	รหัสตัวแทน 2 หลัก	 
+agent_title	varchar(50)	คำนำหน้าตัวแทน	นางสาว
+agent_first_name	varchar(50)	ชื่อตัวแทน	นิตยา
+agent_last_name	varchar(50)	นามสกุลตัวแทน	มุสิกา
+bizpayment_channel	varchar(1)	หักผ่าน biz payment หรือไม่ Y=หัก, N=ไม่หัก	Y
+change_issue	int(10)	
+เรื่องที่แก้ไข
+change_issue
+
+1 = เพิ่มข้อมูลลูกค้า
+2 = เลขที่บัญชีธนาคาร
+3 = ชื่อบัญชีธนาคาร
+4 = วันที่หักบัญชี
+5 = การหักผ่าน Biz Payment
+
+6 = สาขา
+
+7 = ตัวแทน
+
+1
+old_value	varchar(255)	จากเดิม	8800015107
+new_value	varchar(255)	เปลี่ยนเป็น	8800015555
+created_date	timestamp	วันที่ create ข้อมูล	 
+created_by	varchar(30)	username ผู้สร้างรายการ	 
+mode_payment	int(10)	 	 
+Table name	m_ind_policy_status	ตารางสถานะกรมธรรม์	 
+Field	Type	Description	ตัวอย่างข้อมูล
+code	varchar(1)	รหัส	0
+policy_type	varchar(1)	ประเภทกรมธรรม์	I
+description	varchar(50)	รายละเอียด	ชำระมีผล
+Table name	m_policy_type	ตารางประเภทกรมธรรม์	 
+Field	Type	Description	ตัวอย่างข้อมูล
+code	number	รหัส	I
+description	varchar(50)	รายละเอียด	ปช.
+Table name	m_bank_trn_status	ตาราง transaction status ของ bank	 
+Field	Type	Description	ตัวอย่างข้อมูล
+code	number	รหัส	0
+description	varchar(50)	รายละเอียด	Debit / Credit Success
+ 
+
+ 
+
+Table name	m_branch_account	เก็บข้อมูลเลขที่บัญชีของแต่ละสาขา	 
+Field	Type	Description	ตัวอย่างข้อมูล
+code	number	รหัส	0
+branch_code	varchar(50)	รหัสสาขา	0116
+bank_account_no	
+number(10)
+
+varchar(10)
+
+เลขที่บัญชีสาขา	0851069614
+e-mail	varchar(50)	e-mail ของสาขา	0116@ocean.co.th
+ 
+
+ 
+
+Table ที่ระบบ Prasino
+
+Table name	biz_payment_ind_payment	เก็บข้อมูลแต่ละกรมธรรม์ที่หักผ่านบัญชีธนาคารของแต่ละสาขา 
+Field	Type	Description	ตัวอย่างข้อมูล
+id
+
+running number	ID	 
+agent_code	varchar(7)	รหัสตัวแทน 7 หลัก	1234567
+agent_code2	varchar(2)	รหัสตัวแทน 2 หลัก	 
+agent_first_name	varchar(50)	ชื่อตัวแทน	นิตยา
+agent_last_name	varchar(50)	นามสกุลตัวแทน	มุสิกา
+agent_title	varchar(50)	คำนำหน้าชื่อตัวแทน	นางสาว
+branch_code	varchar(4)	รหัสสาขา	0116
+discount	decimal(12,2)	จำนวนเงินส่วนลด	1234.56
+effective_date	date	วันที่หักบัญชี	 
+insured_first_name	varchar(50)	ชื่อเจ้าของกรมธรรม์	ชนิกานต์
+insured_last_name	varchar(50)	นามสกุลเจ้าของกรมธรรม์	เอี่ยมคงสี
+insured_title	varchar(50)	คำนำหน้าชื่อเจ้าของกรมธรรม์	นางสาว
+main_premium	decimal(12,2)	จำนวนเงินกรมธรรม์หลัก	1200.00
+mode_payment	number	งวดการจ่าย (ถ้า 12 คือจ่ายทุกๆ 12 เดือน)	12
+pay_from	varchar(50)	งวดเดือนที่จะชำระ (ตั้งแต่) yymm	5801
+pay_to	varchar(50)	งวดเดือนที่จะชำระ (ถึง) yymm	5812
+policy_issue_date	date	วันที่เริ่มสัญญา	 
+policy_no	varchar(25)	เลขที่กรมธรรม์	ข000001
+policy_status	varchar(1)	สถานะกรมธรรม์	0
+policy_type	varchar(1)	ประเภทกรมธรรม์ (I=ปช., G=ขพ.)	G
+total_premium	decimal(12,2)	จำนวนเงินรวม (main+rider)	1234.56
+created_date	timestamp	วันที่สร้างรายการ	 
+created_by	varchar(30)	username ผู้สร้างรายการ	boss
+updated_date	timestamp	วันที่แก้ไขรายการ	 
+updated_by	varchar(30)	username ผู้แก้ไขรายการ	boss
+rider_premium	decimal(12,2)	จำนวนเงิน rider	1234.56
+agent5_code	varchar(5)	รหัสตัวแทน 5 หลัก	12345
+aslip_flag	varchar(10)	สถานะการส่งข้อมูล Bulk (C#) (Wait, Fail, Success)	Wait
+aslip_remark	text	หมายเหตุที่ได้รับจากการส่งข้อมูลไป Bulk	ขาดผลจากค้างชำระ 123 วัน
+ref_code	number	รหัสอ้างอิงของ Bulk	1
+first_year_premium	decimal(12,2)	จำนวนเงินเบี้ยปีแรก	1234.56
+renewal_premium	decimal(12,2)	จำนวนเงินเบี้ยปีต่อไป	1234.56
+commission	decimal(12,2)	จำนวนเงินค่าบำเหน็จ	1234.56
+tax	decimal(12,2)	จำนวนเงินภาษี	1234.56
+guarantee	decimal(12,2)	จำนวนเงินค้ำประกัน	1234.56
+activity	decimal(12,2)	จำนวนเงินสมทบกิจกรรม	1234.56
+promote	decimal(12,2)	 	1234.56
+first_year_discount	decimal(12,2)	จำนวนเงินส่วนลดปีแรก	1234.56
+renewal_discount	decimal(12,2)	จำนวนเงินส่วนลดปีต่อไป	1234.56
+Table name	
+biz_payment_report_cover
+
+เก็บข้อมูลใบส่งเงิน
+
+Field	Type	Description	ตัวอย่างข้อมูล
+id
+
+running number	ID	 
+policy_type
+
+varchar(1)	 	 
+cover_no	varchar(20)	 	 
+branch_code	varchar(4)	 	 
+branch_name	varchar(50)	 	 
+receipt_from_code	varchar(10)	 	 
+receipt_from_name	varchar(200)	 	 
+cover_date	varchar(10)	 	 
+count_slips	varchar(4)	 	 
+first_year_premium	varchar(20)	 	 
+next_year_premium	varchar(20)	 	 
+total_premium	varchar(20)	 	 
+charge	varchar(20)	 	 
+spacial_commission	varchar(20)	 	 
+spacial_charge	varchar(20)	 	 
+first_year_discount	varchar(20)	 	 
+next_year_discount	varchar(20)	 	 
+total_charge	varchar(20)	 	 
+tax	varchar(20)	 	 
+guarantee	varchar(20)	 	 
+activity	varchar(20)	 	 
+relations	varchar(20)	 	 
+total_other	varchar(20)	 	 
+summary_total	varchar(20)	 	 
+send_account	varchar(200)	 	 
+recorder_account	varchar(200)	 	 
+manager_account	varchar(200)	 	 
+chief_account	varchar(200)	 	 
+created_by	varchar(50)	 	 
+created_date	timestamp	 	 
+Table name	
+biz_payment_report_slip
+
+เก็บข้อมูลใบเสร็จรับเงิน
+
+Field	Type	Description	ตัวอย่างข้อมูล
+id
+
+running number	ID	 
+bar_code
+
+varchar(15)	 	 
+no	varchar(15)	 	 
+branch_code	varchar(20)	 	 
+agent	varchar(50)	 	 
+policy_no	varchar(50)	 	 
+insure_name	varchar(50)	 	 
+year_period	varchar(50)	 	 
+amount	varchar(20) 	 	 
+receive_date	varchar(10)	 	 
+policy_no2 	varchar(15)	 	 
+start_date	varchar(50)	 	 
+cover_term	varchar(20)	 	 
+plan_name	varchar(50)	 	 
+insure_name2	varchar(50)	 	 
+agent05	varchar(10)	 	 
+attorney	varchar(50)	 	 
+note1	varchar(200)	 	 
+note2	varchar(200)	 	 
+note3	varchar(200)	 	 
+branch_name	varchar(50)	 	 
+pay_per	varchar(100)	 	 
+start_due	varchar(30)	 	 
+end_due	varchar(30)	 	 
+premium	varchar(20)	 	 
+premium_label	varchar(50)	 	 
+premium_other	varchar(50)	 	 
+premium_other_label	varchar(50)	 	 
+sum_premium	varchar(20)	 	 
+sum_premium_label	varchar(50)	 	 
+sum_premium_text	varchar(200)	 	 
+phone_no	varchar(20)	 	 
+cover_no	varchar(20)	 	 
+created_by	varchar(50)	 	 
+created_date	timestamp	 	 
+print_by	varchar(50)	 	 
+print_date	timestamp	 	 
+Table name	
+biz_payment_report_cover_log
+
+เก็บข้อมูลใบเสร็จรับเงิน
+
+Field	Type	Description	ตัวอย่างข้อมูล
+id
+
+running number	ID	 
+cover_id
+
+number	 	 
+created_by	varchar(50)	 	 
+created_date	timestamp	 	 

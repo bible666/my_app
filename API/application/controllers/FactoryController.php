@@ -22,8 +22,9 @@ class FactoryController extends Origin001
 		$data       = $this->post();
  
         //init data
-        $token		= $this->getAuthHeader();
-        $id         = isset($data['company_code']) ? $data['company_code'] : -1;
+		$token				= $this->getAuthHeader();
+		$factory_cd         = isset($data['factory_code']) ? $data['factory_code'] : -1;
+        $company_cd         = isset($data['company_code']) ? $data['company_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
@@ -33,7 +34,8 @@ class FactoryController extends Origin001
             $insert_data['update_user']     = $result->user_id;
 
             $this->db->where([
-				'company_code'			=> $id,
+				'company_code'			=> $company_cd,
+				'factory_code'			=> $factory_cd
 			]);
             $this->db->update('mst_factory',$insert_data);
             
@@ -57,14 +59,16 @@ class FactoryController extends Origin001
 		$data       = $this->post();
 
 		//init data
-		$id         = isset($data['id']) ? $data['id'] : -1;
+		$factory_cd         = isset($data['factory_code']) ? $data['factory_code'] : -1;
+        $company_cd         = isset($data['company_code']) ? $data['company_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
 			SELECT *
 			FROM mst_factory
-			WHERE company_code = '{$id}'
+			WHERE company_code = '{$company_cd}'
+				AND factory_code = '{$factory_cd}'
 				AND active_flag = true
 			";
 
@@ -138,6 +142,19 @@ class FactoryController extends Origin001
 		$this->response($dataDB,200);
 	}
 
+	public function get_company_post(){
+		$token		= $this->getAuthHeader();
+
+		$query_str = " SELECT * FROM mst_company where active_flag = true";
+
+		$itemn_data = $this->db->query($query_str)->result();
+
+		$dataDB['status']   = "success";
+		$dataDB['message']  = "";
+		$dataDB['data']     = $itemn_data;
+
+		$this->response($dataDB,200);
+	}
 
 	/**
 	 * get list data
@@ -171,6 +188,7 @@ class FactoryController extends Origin001
 			SELECT count(company_code) as my_count
 			FROM mst_factory
 			WHERE ". $strCond." active_flag = true
+			ORDER BY company_code,factory_code
 			";
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
@@ -199,18 +217,24 @@ class FactoryController extends Origin001
 		$data           = $this->post();
 
 		//init data
-		$id  		        = isset($data['id'])			? $data['id']			: -1;
+		$old_company  		= isset($data['old_company'])	? $data['old_company']			: -1;
+		$old_factory  		= isset($data['old_factory'])	? $data['old_factory']			: -1;
+
+		$factory_code		= isset($data['factory_code'])	? $data['factory_code'] : '';
 		$company_code		= isset($data['company_code'])	? $data['company_code'] : '';
-        $company_name		= isset($data['company_name'])	? $data['company_name'] : '';
+        $factory_name		= isset($data['factory_name'])	? $data['factory_name'] : '';
         $addr_1             = isset($data['addr_1'])		? $data['addr_1']       : '';
         $addr_2             = isset($data['addr_2'])		? $data['addr_2']       : '';
-        $addr_3             = isset($data['addr_3'])		? $data['addr_3']       : '';
-        $zip                = isset($data['zip'])           ? $data['zip']          : '';
-        $telno              = isset($data['telno'])         ? $data['telno']        : '';
+		$addr_3             = isset($data['addr_3'])		? $data['addr_3']       : '';
+		$telno              = isset($data['telno'])         ? $data['telno']        : '';
         $faxno              = isset($data['faxno'])         ? $data['faxno']        : '';
-        $email              = isset($data['email'])         ? $data['email']        : '';
+		$email              = isset($data['email'])         ? $data['email']        : '';
 		$cal_no             = isset($data['cal_no'])        ? $data['cal_no']       : null;
 		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+
+        
+        
+		
 
 		//Validation Data
 		if ( $token == '') {
@@ -220,9 +244,9 @@ class FactoryController extends Origin001
 			$this->response($dataDB,200);
 		}
 
-		if ( $company_name == '') {
+		if ( $factory_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "???????????????????????????";
+			$dataDB['message']  = "กรุณาระบุชื่อโรงงาน";
 			$dataDB['data']     = "";
 			$this->response($dataDB,200);
 		}
@@ -233,9 +257,9 @@ class FactoryController extends Origin001
 
 		if($result->user_id > 0){
 
-			if ($this->is_dupplicate_data($id, $company_code)){
+			if ($this->is_dupplicate_data($old_company,$old_factory, $company_code,$factory_code)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "รหัสบริษัทนี้ใช้งานแล้ว";
+				$dataDB['message']  = "รหัสนี้ใช้งานแล้ว";
 				$dataDB['data']     = "";
 				$this->response($dataDB,200);
 
@@ -247,11 +271,12 @@ class FactoryController extends Origin001
 
 			//set data to array for add or update
 			$insert_data['company_code']	= $company_code;
-			$insert_data['company_name']	= $company_name;
+			$insert_data['factory_code']	= $factory_code;
+			$insert_data['factory_name']	= $factory_name;
 			$insert_data['addr_1']		= $addr_1;
             $insert_data['addr_2']		= $addr_2;
             $insert_data['addr_3']		= $addr_3;
-            $insert_data['zip']			= $zip;
+
             $insert_data['telno']		= $telno;
             $insert_data['faxno']		= $faxno;
             $insert_data['email']		= $email;
@@ -261,7 +286,7 @@ class FactoryController extends Origin001
 
 			$this->db->trans_start();
 
-			if ($id == '-1' ){
+			if ($old_company == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
 				$this->db->insert('mst_factory', $insert_data);
@@ -269,8 +294,7 @@ class FactoryController extends Origin001
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->where('company_code', $id);
-				$this->db->update('mst_factory',$insert_data);
+				$this->db->update('mst_factory',$insert_data,['company_code' => $old_company, 'factory_code' => $old_factory]);
 			}
 			$this->db->trans_complete();
 
@@ -293,16 +317,18 @@ class FactoryController extends Origin001
     *
     * @return boolean true= dupplicate, false not dupplicate
     */
-	private function is_dupplicate_data($old,$new){
+	private function is_dupplicate_data($old_company,$old_factory,$company,$factory){
 		$is_check	= true;
 
-		if ($old == $new) {
+		if (($old_company == $company) && ($old_factory == $factory)) {
 			return false; // OK data
 		}
 
 		$data	= $this->db->get_where('mst_factory',[
-			'company_code'	=> $new,
-			'company_code !=' => $old
+			'company_code'	=> $company,
+			'company_code !=' => $old_company,
+			'factory_code' => $factory,
+			'factory_code != ' => $old_factory
 		])->row();
 
 		if (isset($data)){

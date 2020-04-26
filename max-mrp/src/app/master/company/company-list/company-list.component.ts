@@ -38,7 +38,6 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0);
-    this.message = this.messageService.getMessage();
     this.onSearch();
   }
 

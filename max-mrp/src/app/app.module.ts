@@ -37,6 +37,8 @@ import { CompanyListComponent } from './master/company/company-list/company-list
 import { CompanyEditComponent } from './master/company/company-edit/company-edit.component';
 import { FactoryListComponent } from './master/factory/factory-list/factory-list.component';
 import { FactoryEditComponent } from './master/factory/factory-edit/factory-edit.component';
+import { LocationEditComponent } from './master/location/location-edit/location-edit.component';
+import { LocationListComponent } from './master/location/location-list/location-list.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { FactoryEditComponent } from './master/factory/factory-edit/factory-edit
     CompanyListComponent,
     CompanyEditComponent,
     FactoryListComponent,
-    FactoryEditComponent
+    FactoryEditComponent,
+    LocationEditComponent,
+    LocationListComponent
   ],
   imports: [
     BrowserModule,

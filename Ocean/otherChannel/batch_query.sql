@@ -95,5 +95,5 @@
 	   left join biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
 	where to_date(:current_date::text,'YYYYMMDD') >= ipm.start_date::date and
 	 	  to_date(:current_date::text,'YYYYMMDD') <= ipm.end_date::date and 
-	 	  ipm.agent_code = :agent_cod::text
+	 	  ipm.agent_code = :agent_code::text
 	 	  

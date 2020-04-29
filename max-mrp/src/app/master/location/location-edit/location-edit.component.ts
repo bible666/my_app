@@ -27,8 +27,8 @@ export class LocationEditComponent implements OnInit {
     'factory_code'        : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
     'location_code'       : new FormControl('', [ Validators.required, Validators.maxLength(10) ]),
     'location_name'       : new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
-    'mrp_flag'            : new FormControl(-1),
-    'expire_flag'         : new FormControl(-1),
+    'mrp_flag'            : new FormControl(false),
+    'expire_flag'         : new FormControl(false),
     'remark'              : new FormControl('', [ Validators.maxLength(200) ])
   });
   
@@ -58,18 +58,12 @@ export class LocationEditComponent implements OnInit {
           let isDefault = true;
           
           this.inputForm.patchValue({
-            'company_code'    : data['data'].company_code,
             'factory_code'    : data['data'].factory_code,
-            'factory_name'    : data['data'].factory_name,
-            'addr_1'          : data['data'].addr_1,
-            'addr_2'          : data['data'].addr_2,
-            'addr_3'          : data['data'].addr_3,
-            'telno'           : data['data'].telno,
-            'faxno'           : data['data'].faxno,
-            'email'           : data['data'].email,
-            'cal_no'          : data['data'].cal_no,
+            'location_code'    : data['data'].location_code,
+            'location_name'    : data['data'].location_name,
+            'mrp_flag'          : data['data'].mrp_flag,
+            'expire_flag'          : data['data'].expire_flag,
             'remark'          : data['data'].remark
-
           });
         } else {
           this.ServiceMessage.setError(data['message']);

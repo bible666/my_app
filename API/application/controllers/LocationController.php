@@ -206,20 +206,15 @@ class LocationController extends Origin001
 		$old_location  		= isset($data['old_location'])	? $data['old_location']			: -1;
 		$old_factory  		= isset($data['old_factory'])	? $data['old_factory']			: -1;
 
-		$location_code		= isset($data['location_code'])	? $data['location_code'] : '';
-		$factory_code		= isset($data['factory_code'])	? $data['factory_code'] : '';
-        $location_name		= isset($data['location_name'])	? $data['location_name'] : '';
-        $addr_1             = isset($data['addr_1'])		? $data['addr_1']       : '';
-        $addr_2             = isset($data['addr_2'])		? $data['addr_2']       : '';
-		$addr_3             = isset($data['addr_3'])		? $data['addr_3']       : '';
-		$telno              = isset($data['telno'])         ? $data['telno']        : '';
-        $faxno              = isset($data['faxno'])         ? $data['faxno']        : '';
-		$email              = isset($data['email'])         ? $data['email']        : '';
-		$remark         	= isset($data['remark'])		? $data['remark']       : '';
-
-        
-        
 		
+		$factory_code		= isset($data['factory_code'])	? $data['factory_code'] : '';
+		$location_code		= isset($data['location_code'])	? $data['location_code'] : '';
+		$location_name		= isset($data['location_name'])	? $data['location_name'] : '';
+		
+        $mrp_flag             = isset($data['mrp_flag'])		? $data['mrp_flag']       : '';
+        $expire_flag             = isset($data['expire_flag'])		? $data['expire_flag']       : '';
+	
+		$remark         	= isset($data['remark'])		? $data['remark']       : '';
 
 		//Validation Data
 		if ( $token == '') {
@@ -229,9 +224,16 @@ class LocationController extends Origin001
 			$this->response($dataDB,200);
 		}
 
-		if ( $factory_name == '') {
+		if ( $location_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "กรุณาระบุชื่อโรงงาน";
+			$dataDB['message']  = "กรุณาระบุชื่อพื้นที่เก็บของ";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $location_code == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "กรุณาระบุรหัสพื้นที่เก็บของ";
 			$dataDB['data']     = "";
 			$this->response($dataDB,200);
 		}
@@ -242,7 +244,7 @@ class LocationController extends Origin001
 
 		if($result->user_id > 0){
 
-			if ($this->is_dupplicate_data($old_location,$old_factory, $factory_code,$location_code)){
+			if ($this->is_dupplicate_data($old_factory,$old_location, $factory_code,$location_code)){
 				$dataDB['status']   = "error";
 				$dataDB['message']  = "รหัสนี้ใช้งานแล้ว";
 				$dataDB['data']     = "";
@@ -257,29 +259,24 @@ class LocationController extends Origin001
 			//set data to array for add or update
 			$insert_data['factory_code']	= $factory_code;
 			$insert_data['location_code']	= $location_code;
-			$insert_data['factory_name']	= $factory_name;
-			$insert_data['addr_1']		= $addr_1;
-            $insert_data['addr_2']		= $addr_2;
-            $insert_data['addr_3']		= $addr_3;
-
-            $insert_data['telno']		= $telno;
-            $insert_data['faxno']		= $faxno;
-            $insert_data['email']		= $email;
-            $insert_data['cal_no']		= $cal_no;
-			$insert_data['active_flag']	= true;
-			$insert_data['remark']		= $remark;
+			$insert_data['location_name']	= $location_name;
+			$insert_data['mrp_flag']		= $mrp_flag;
+            $insert_data['expire_flag']		= $expire_flag;
+            $insert_data['remark']			= $remark;
+			$insert_data['active_flag']		= true;
+			
 
 			$this->db->trans_start();
 
 			if ($old_location == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-				$this->db->insert('mst_factory', $insert_data);
+				$this->db->insert('mst_location', $insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->update('mst_factory',$insert_data,['factory_code' => $old_location, 'location_code' => $old_factory]);
+				$this->db->update('mst_location',$insert_data,['factory_code' => $old_location, 'location_code' => $old_factory]);
 			}
 			$this->db->trans_complete();
 
@@ -302,18 +299,18 @@ class LocationController extends Origin001
     *
     * @return boolean true= dupplicate, false not dupplicate
     */
-	private function is_dupplicate_data($old_location,$old_factory,$company,$factory){
+	private function is_dupplicate_data($old_factory,$old_location,$factory,$location){
 		$is_check	= true;
 
-		if (($old_location == $company) && ($old_factory == $factory)) {
+		if (($old_location == $location) && ($old_factory == $factory)) {
 			return false; // OK data
 		}
 
-		$data	= $this->db->get_where('mst_factory',[
-			'factory_code'	=> $company,
-			'factory_code !=' => $old_location,
-			'location_code' => $factory,
-			'location_code != ' => $old_factory
+		$data	= $this->db->get_where('mst_location',[
+			'factory_code'	=> $factory,
+			'factory_code !=' => $old_factory,
+			'location_code' => $location,
+			'location_code != ' => $old_location
 		])->row();
 
 		if (isset($data)){

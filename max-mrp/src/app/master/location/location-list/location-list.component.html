@@ -97,8 +97,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let gridData of gridDatas">
-                                    <td><a [routerLink]="['/factory/edit',gridData.company_code,gridData.factory_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
-                                    <td><a  (click)="onDelete(gridData.company_code,gridData.factory_code)" class="btn btn-primary btn-sm">ลบ</a></td>
+                                    <td><a [routerLink]="['/location/edit',gridData.factory_code,gridData.location_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
+                                    <td><a  (click)="onDelete(gridData.factory_code,gridData.location_code)" class="btn btn-primary btn-sm">ลบ</a></td>
                                     
                                     <td>{{gridData.factory_code}}</td>
                                     <td>{{gridData.location_code}}</td>

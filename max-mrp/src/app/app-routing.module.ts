@@ -23,9 +23,13 @@ import { FactoryEditComponent } from './master/factory/factory-edit/factory-edit
 import { FactoryListComponent } from './master/factory/factory-list/factory-list.component';
 import { LocationListComponent } from './master/location/location-list/location-list.component';
 import { LocationEditComponent } from './master/location/location-edit/location-edit.component';
-
+import { PurchaseModule } from './purchase/purchase.module';
 
 const routes: Routes = [
+  {
+    path:'purchase',
+    loadChildren: () => PurchaseModule
+  },
   { path: '' ,                          component: MainMenuComponent ,canActivate:[AuthGuard]},
   { path: 'login',                      component:LoginComponent},
   { path: 'logout',                     component:LogoutComponent},

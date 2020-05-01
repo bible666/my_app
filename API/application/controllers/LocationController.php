@@ -109,9 +109,12 @@ class LocationController extends Origin001
 				//		$params["{$key}"] = "%{$val}%";				// bindParam
 				//    break;
 
-				case "company_name":
-					$strCond .= " LOWER(company_name) like '%".strtolower($val)."%' AND \n";	// placeholders
+				case "location_name":
+					$strCond .= " LOWER(location_name) like '%".strtolower($val)."%' AND \n";	// placeholders
 					break;
+				case "location_code":
+						$strCond .= " LOWER(location_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+						break;
 				case "rowsPerpage":
 				case "page_index":
 				case "sort":

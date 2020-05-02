@@ -18,7 +18,6 @@ import { ShowMessageComponent } from './common/show-message/show-message.compone
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { TemplateListComponent } from './template/template-list/template-list.component';
 import { PaginatorComponent } from './template/paginator/paginator.component';
-import { HeaderComponent } from './common/header/header.component';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
@@ -40,6 +39,8 @@ import { FactoryEditComponent } from './master/factory/factory-edit/factory-edit
 import { LocationEditComponent } from './master/location/location-edit/location-edit.component';
 import { LocationListComponent } from './master/location/location-list/location-list.component';
 
+import { SharedCommonModule } from './common/common.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,6 @@ import { LocationListComponent } from './master/location/location-list/location-
     ShowMessageComponent,
     TemplateListComponent,
     PaginatorComponent,
-    HeaderComponent,
     ConfirmDialogComponent,
     TemplateEditComponent,
     MasterMenuComponent,
@@ -76,7 +76,7 @@ import { LocationListComponent } from './master/location/location-list/location-
     HttpClientModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
     MatDialogModule, MatButtonModule, MatProgressSpinnerModule,MatDatepickerModule,
-    MatNativeDateModule,MatMomentDateModule
+    MatNativeDateModule,MatMomentDateModule,SharedCommonModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: "th-TH"},

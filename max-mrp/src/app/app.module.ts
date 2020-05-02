@@ -16,7 +16,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
 import { TemplateListComponent } from './template/template-list/template-list.component';
-import { PaginatorComponent } from './template/paginator/paginator.component';
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
@@ -39,6 +38,7 @@ import { LocationEditComponent } from './master/location/location-edit/location-
 import { LocationListComponent } from './master/location/location-list/location-list.component';
 
 import { SharedCommonModule } from './common/common.module';
+import { SharedTemplateModule } from './template/template.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +47,6 @@ import { SharedCommonModule } from './common/common.module';
     LogoutComponent,
     MainMenuComponent,
     TemplateListComponent,
-    PaginatorComponent,
     ConfirmDialogComponent,
     TemplateEditComponent,
     MasterMenuComponent,
@@ -74,7 +73,7 @@ import { SharedCommonModule } from './common/common.module';
     HttpClientModule,
     FormsModule, ReactiveFormsModule, BrowserAnimationsModule,
     MatDialogModule, MatButtonModule, MatProgressSpinnerModule,MatDatepickerModule,
-    MatNativeDateModule,MatMomentDateModule,SharedCommonModule
+    MatNativeDateModule,MatMomentDateModule,SharedCommonModule,SharedTemplateModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: "th-TH"},

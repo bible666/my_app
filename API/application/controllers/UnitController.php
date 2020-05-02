@@ -156,7 +156,7 @@ class UnitController extends Origin001
 			";
 			//print_r($query_str);exit;
 			$query_count = "
-			SELECT count(factory_code) as my_count
+			SELECT count(unit_code) as my_count
 			FROM mst_unit
 			WHERE ". $strCond." active_flag = true
 			ORDER BY unit_code

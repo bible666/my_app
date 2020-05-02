@@ -24,11 +24,16 @@ import { FactoryListComponent } from './master/factory/factory-list/factory-list
 import { LocationListComponent } from './master/location/location-list/location-list.component';
 import { LocationEditComponent } from './master/location/location-edit/location-edit.component';
 import { PurchaseModule } from './purchase/purchase.module';
+import { SystemModule } from './system/system.module';
 
 const routes: Routes = [
   {
     path:'purchase',
     loadChildren: () => PurchaseModule
+  },
+  {
+    path:'system',
+    loadChildren: () => SystemModule
   },
   { path: '' ,                          component: MainMenuComponent ,canActivate:[AuthGuard]},
   { path: 'login',                      component:LoginComponent},

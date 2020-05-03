@@ -20,24 +20,22 @@ class ItemController extends Origin001
      */
     public function delete_data_by_id_post(){
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
-
+ 
         //init data
-        $token      = isset($data->token) ? $data->token : '';
-        $id         = isset($data->id) ? $data->id : -1;
+		$token				= $this->getAuthHeader();
+		$item_code          = isset($data['item_code']) ? $data['item_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
         if($result->user_id > 0){
-			$insert_data['del_flag']    	= 1;
-			$insert_data['updated_date']    = date("Y-m-d H:i:s");
-            $insert_data['updated']         = $result->user_id;
+			$insert_data['active_flag']    	= false;
+			$insert_data['update_date']     = date("Y-m-d H:i:s");
+            $insert_data['update_user']     = $result->user_id;
 
             $this->db->where([
-				'id'			=> $id,
-				'm_company_id'	=> $result->company_id
+				'item_code'			=> $item_code
 			]);
-            $this->db->update('m_items',$insert_data);
+            $this->db->update('mst_item',$insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -55,27 +53,24 @@ class ItemController extends Origin001
 	 * get data by id
 	 */
 	public function get_data_by_id_post(){
+		$token		= $this->getAuthHeader();
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
 
 		//init data
-		$token      = isset($data->token) ? $data->token : '';
-		$id         = isset($data->id) ? $data->id : -1;
+		$item_code         = isset($data['item_code']) ? $data['item_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
-			SELECT a.* ,b.unit_code,b.unit_name,c.item_type_code,c.item_type_name
-			FROM m_items a LEFT JOIN m_units b on a.unit_id = b.id 
-				LEFT JOIN m_item_types c on a.item_type_id = c.id
-			WHERE a.m_company_id = ? AND a.id = ?
-				AND a.del_flag = 0
+			SELECT *
+			FROM mst_item
+			WHERE item_code = '{$item_code}'
+				AND active_flag = true
 			";
 
-			$itemn_data = $this->db->query($query_str, [$result->company_id,$id])->row();
-			
+			$itemn_data = $this->db->query($query_str)->row();
 			$dataDB['status']   = "success";
-			$dataDB['message']  = "";
+			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
 
 		}else{
@@ -87,29 +82,94 @@ class ItemController extends Origin001
 	}
 
 
+	private function _getCond($s)
+    {
+        $strCond    = "";
+		$params     = [];
+
+        foreach ($s as $key =>$val) {
+
+            if($val=="") continue;
+
+            switch($key){
+				//case "example":
+				//		$strCond .= "(example == false OR example IS NULL) \n";	// placeholders
+				//		//$params["{$key}"] = "%{$val}%";						// bindParam
+				//    break;
+				//case "start_date":
+				//		$strCond .= "start_date >= :{$key} AND \n";	// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+				//case "name":
+				//		$strCond .= "name like :{$key} AND \n";		// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+
+				case "item_name":
+					$strCond .= " LOWER(item_name) like '%".strtolower($val)."%' AND \n";	// placeholders
+					break;
+				case "item_code":
+						$strCond .= " LOWER(item_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+						break;
+				case "rowsPerpage":
+				case "page_index":
+				case "sort":
+				case "sort_preset":
+				case "direction":
+					break;
+				default:
+					$strCond .= "{$key}='{$val}' AND \n";	// placeholders		"key" = :key
+					$params["{$key}"] = "{$val}";			// bindParam		"key"=>val
+					break;
+            }
+        }
+
+        return [$strCond,$params];
+    }
+
 	/**
 	 * get list data
 	 */
 	public function get_data_list_post(){
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
+		$token		= $this->getAuthHeader();
 
-		//init data
-		$token      = isset($data->token) ? $data->token : '';
+		//Validate Data
+
+
+		$limit		= intval($data['rowsPerpage']);
+		$offset		= ($data['page_index']-1) * $limit;
 
 		$result     = $this->_checkToken($token);
-		if($result->user_id > 0){
+		if($result->user_id >= 0){
+
+			// ???? Condition
+			list($strCond,$params) = $this->_getCond($data);
+
+
 			$query_str = "
 			SELECT *
-			FROM m_items
-			WHERE m_company_id = ? and item_name like '%".$data->name."%' AND del_flag = 0
+			FROM mst_item
+			WHERE ". $strCond." active_flag = true
+			ORDER BY item_code
+			LIMIT {$limit} OFFSET {$offset}
 			";
-
-			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+			//print_r($query_str);exit;
+			$query_count = "
+			SELECT count(item_code) as my_count
+			FROM mst_item
+			WHERE ". $strCond." active_flag = true
+			ORDER BY item_code
+			";
 			
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
+
+			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $itemn_data;
+			$dataDB['max_rows']	= $itemn_count[0]->my_count;
 
 		}else{
 			$dataDB['status']   = "error";
@@ -124,47 +184,92 @@ class ItemController extends Origin001
 	 * ีupdate / insert data to database
 	 */
 	public function update_data_post(){
+		$token			= $this->getAuthHeader();
 		$data           = $this->post();
-		$data		= json_decode($data[0]);
 
 		//init data
-		$token          = isset($data->token) ? $data->token : '';
-		$id             = isset($data->id) ? $data->id : -1;
-		$item_code      = isset($data->item_code) ? $data->item_code : '';
-		$item_name      = isset($data->item_name) ? $data->item_name : '';
-		$unit_id		= isset($data->unit_id) ? $data->unit_id : null;
-		$item_type_id	= isset($data->item_type_id) ? $data->item_type_id : null;
-		$lot_flag       = isset($data->lot_flag) ? $data->lot_flag : 1;
-		$mrp_flag       = isset($data->lot_flag) ? $data->mrp_flag : 1;
-		$remark         = isset($data->remark) ? $data->remark : '';
+		$old_item_code  	= isset($data['old_item_code'])	? $data['old_item_code']	: -1;
+
+		$item_code		= isset($data['item_code'])	? $data['item_code'] : '';
+		$item_name		= isset($data['item_name'])	? $data['item_name'] : '';
+		$item_type		= isset($data['item_type'])	? $data['item_type'] : '';
+
+		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
+		$production_lead_time		= isset($data['production_lead_time'])	? $data['production_lead_time'] : 0;
+		$request_decimal		= isset($data['request_decimal'])	? $data['request_decimal'] : 0;
+		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
+		$mrp_flag		= isset($data['mrp_flag'])	? $data['mrp_flag'] : false;
+		$standard_location		= isset($data['standard_location'])	? $data['standard_location'] : '';
+		
+
+		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+
+		//Validation Data
+		if ( $token == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token is empty";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $item_name == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "?????????????????????";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
+		if ( $item_code == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "?????????????????????";
+			$dataDB['data']     = "";
+			$this->response($dataDB,200);
+		}
+
 
 		//get data from token
 		$result     = $this->_checkToken($token);
 
 		if($result->user_id > 0){
 
+			if ($this->is_dupplicate_data($old_factory,$old_location, $factory_code,$location_code)){
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "?????????????????";
+				$dataDB['data']     = "";
+				$this->response($dataDB,200);
+
+			}
+
 			$insert_data = [];
 
-			$insert_data['m_company_id']    = $result->company_id;
-			$insert_data['item_code']       = $item_code;
-			$insert_data['item_name']       = $item_name;
-			$insert_data['unit_id']			= $unit_id;
-			$insert_data['item_type_id']	= $item_type_id;
-			$insert_data['lot_flag']        = $lot_flag;
-			$insert_data['mrp_flag']		= $mrp_flag;
-			$insert_data['remark']          = $remark;
+			//$insert_data['m_company_id']    = $result->company_id;
+
+			//set data to array for add or update
+			$insert_data['item_code']				= $item_code;
+			$insert_data['item_name']				= $item_name;
+			$insert_data['item_type']				= $item_type;
+			$insert_data['lot_flag']				= $lot_flag;
+			$insert_data['unit_code']				= $unit_code;
+			$insert_data['standard_location']		= $standard_location;
+			$insert_data['production_lead_time']	= $production_lead_time;
+			$insert_data['request_decimal']			= $request_decimal;
+			$insert_data['mrp_flag']				= $mrp_flag;
+
+            $insert_data['remark']					= $remark;
+			$insert_data['active_flag']				= true;
+			
 
 			$this->db->trans_start();
-			if ($id < 0 ){
-				$insert_data['created_date']   = date("Y-m-d H:i:s");
-				$insert_data['created']        = $result->user_id;
-				$this->db->insert('m_items', $insert_data);
-			}else{
-				$insert_data['updated_date']    = date("Y-m-d H:i:s");
-				$insert_data['updated']         = $result->user_id;
 
-				$this->db->where('id', $id);
-				$this->db->update('m_items',$insert_data);
+			if ($old_location == '-1' ){
+				$insert_data['create_date']        = date("Y-m-d H:i:s");
+				$insert_data['create_user']        = $result->user_id;
+				$this->db->insert('mst_item', $insert_data);
+			}else{
+				$insert_data['update_date']    = date("Y-m-d H:i:s");
+				$insert_data['update_user']    = $result->user_id;
+
+				$this->db->update('mst_item',$insert_data,['factory_code' => $old_location, 'location_code' => $old_factory]);
 			}
 			$this->db->trans_complete();
 
@@ -177,6 +282,34 @@ class ItemController extends Origin001
 			$dataDB['data']     = "";
 		}
 		$this->response($dataDB,200);
+	}
+
+	/**
+    * check suppliser code dupplicate
+    *
+    * @param $m_company_id company id
+	* @param $currency_code currency code
+    *
+    * @return boolean true= dupplicate, false not dupplicate
+    */
+	private function is_dupplicate_data($old_item_code,$item_code){
+		$is_check	= true;
+
+		if ($old_item_code == $item_code)  {
+			return false; // OK data
+		}
+
+		$data	= $this->db->get_where('mst_item',[
+			'item_code'	=> $item_code,
+			'item_code !=' => $old_item_code
+		])->row();
+
+		if (isset($data)){
+
+		} else {
+			$is_check = false;
+		}
+		return $is_check;
 	}
 }
 

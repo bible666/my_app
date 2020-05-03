@@ -60,16 +60,61 @@
         </form>
         <!-- ↑↑===== Search area ===================================================↑↑ -->
     </div><!-- /container-fluid -->
-    
+
     <!-- ↓↓===== pagenation = ===================================================↓↓ -->
     <div class="row wow">
         <!-- ↓↓ 新規追加ボタン↓↓ -->
         <div class="col-sm-6 mb-0">
-            <a [routerLink]="['/location/edit',-1,-1]" class="btn btn-warning btn-add btn-sm" name="btnAdd">เพิ่ม</a>
+            <a [routerLink]="['/system/unit/edit',-1]" class="btn btn-warning btn-add btn-sm" name="btnAdd">เพิ่ม</a>
         </div>
         <!-- ↑↑ 新規追加ボタン↑↑ -->
 
         <div class="col-sm-6 f_13 text-right float-right">
+            <paginator
+                [AllPage]       = AllPage
+                [currentPage]   = CurrentPage
+                [AllData]       = CountData
+                (clickEvent)    = "onSelectPage($event)"
+            >
+            </paginator>
+        </div>
+    </div><!-- /row wow -->
+    <!-- ↑↑===== pagenation Area= ===================================================↑↑ -->
+
+    <!-- ↓↓===== List Area= ===================================================↓↓ -->
+    <div class="row wow pagenation">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th >รหัส</th>
+                                <th >ชื่อ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let gridData of gridDatas">
+                                <td><a [routerLink]="['/system/unit/edit',gridData.unit_code]" class="btn btn-primary btn-sm">แก้ไข</a></td>
+                                <td><a  (click)="onDelete(gridData.unit_code)" class="btn btn-primary btn-sm">ลบ</a></td>
+                                
+                                <td>{{gridData.unit_code}}</td>
+                                <td>{{gridData.unit_name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!--/.card-body-->
+            </div><!--/.Card-->
+        </div><!--/.col-md-12-->
+    </div><!-- /row wow -->
+    <!-- ↑↑===== List Area= ===================================================↑↑ -->
+
+    <!-- ↓↓===== pagenation = ===================================================↓↓ -->
+    <div class="row wow pagenation">
+
+        <div class="col-sm-12 text-right float-right">
             <paginator
                 [AllPage]       = AllPage
                 [currentPage]   = CurrentPage

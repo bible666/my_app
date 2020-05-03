@@ -109,7 +109,7 @@ class UnitController extends Origin001
 					$strCond .= " LOWER(unit_code) like '%".strtolower($val)."%' AND \n";	// placeholders
 					break;
 				case "unit_name":
-						$strCond .= " LOWER(unit_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+						$strCond .= " LOWER(unit_name) like '%".strtolower($val)."%' AND \n";	// placeholders
 						break;
 				case "rowsPerpage":
 				case "page_index":
@@ -246,7 +246,7 @@ class UnitController extends Origin001
 
 			$this->db->trans_start();
 
-			if ($old_location == '-1' ){
+			if ($old_unit_code == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
 				$this->db->insert('mst_unit', $insert_data);
@@ -280,7 +280,7 @@ class UnitController extends Origin001
 	private function is_dupplicate_data($old_unit_code,$unit_code){
 		$is_check	= true;
 
-		if (($old_location == $location) && ($old_factory == $factory)) {
+		if ( ($old_unit_code == $unit_code)) {
 			return false; // OK data
 		}
 

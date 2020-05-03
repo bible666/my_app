@@ -21,8 +21,8 @@ export class UnitListComponent implements OnInit {
   public frmSearchData  : cSearch;
 
   inputForm = new FormGroup({
-    'unit_code' : new FormControl(''),
-    'unit_name'  : new FormControl(''),
+    'unit_code'     : new FormControl(''),
+    'unit_name'     : new FormControl(''),
     'rowsPerpage'   : new FormControl('20')
   });
 
@@ -58,6 +58,7 @@ export class UnitListComponent implements OnInit {
     this.frmSearchData.rowsPerpage  = this.inputForm.value.rowsPerpage;
     this.getData();
     this.message = this.messageService.getMessage();
+
   }
 
   getData(){
@@ -98,7 +99,7 @@ export class UnitListComponent implements OnInit {
 			} else {
         this.service.deleteById(unit_code)
         .subscribe(data=>{
-          this.messageService.setError('ทำการลบเสร็จแล้ว');
+          this.messageService.setSuccess('ทำการลบเสร็จแล้ว');
           this.onSearch();
 
         },

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'unit/list',                  component:UnitListComponent,canActivate:[AuthGuard]},
   { path: 'unit/edit/:unit_code',       component:UnitEditComponent,canActivate:[AuthGuard]},
   { path: 'item/list',                  component:ItemListComponent,canActivate:[AuthGuard]},
-  { path: 'item/edit/:unit_code',       component:ItemEditComponent,canActivate:[AuthGuard]},
+  { path: 'item/edit/:item_code',       component:ItemEditComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule({

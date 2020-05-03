@@ -195,6 +195,7 @@ class ItemController extends Origin001
 		$item_type		= isset($data['item_type'])	? $data['item_type'] : '';
 
 		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
+		$unit_code		= isset($data['unit_code'])	? $data['unit_code'] : '';
 		$production_lead_time		= isset($data['production_lead_time'])	? $data['production_lead_time'] : 0;
 		$request_decimal		= isset($data['request_decimal'])	? $data['request_decimal'] : 0;
 
@@ -232,9 +233,9 @@ class ItemController extends Origin001
 
 		if($result->user_id > 0){
 
-			if ($this->is_dupplicate_data($old_factory,$old_location, $factory_code,$location_code)){
+			if ($this->is_dupplicate_data($old_item_code,$item_code)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "?????????????????";
+				$dataDB['message']  = "??????????????????????????????";
 				$dataDB['data']     = "";
 				$this->response($dataDB,200);
 
@@ -261,7 +262,7 @@ class ItemController extends Origin001
 
 			$this->db->trans_start();
 
-			if ($old_location == '-1' ){
+			if ($old_item_code == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
 				$this->db->insert('mst_item', $insert_data);
@@ -269,7 +270,7 @@ class ItemController extends Origin001
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->update('mst_item',$insert_data,['factory_code' => $old_location, 'location_code' => $old_factory]);
+				$this->db->update('mst_item',$insert_data,['item_code' => $old_item_code]);
 			}
 			$this->db->trans_complete();
 

@@ -60,6 +60,25 @@
         </form>
         <!-- ↑↑===== Search area ===================================================↑↑ -->
     </div><!-- /container-fluid -->
+    
+    <!-- ↓↓===== pagenation = ===================================================↓↓ -->
+    <div class="row wow">
+        <!-- ↓↓ 新規追加ボタン↓↓ -->
+        <div class="col-sm-6 mb-0">
+            <a [routerLink]="['/location/edit',-1,-1]" class="btn btn-warning btn-add btn-sm" name="btnAdd">เพิ่ม</a>
+        </div>
+        <!-- ↑↑ 新規追加ボタン↑↑ -->
 
+        <div class="col-sm-6 f_13 text-right float-right">
+            <paginator
+                [AllPage]       = AllPage
+                [currentPage]   = CurrentPage
+                [AllData]       = CountData
+                (clickEvent)    = "onSelectPage($event)"
+            >
+            </paginator>
+        </div>
+    </div><!-- /row wow -->
+    <!-- ↑↑===== pagenation Area= ===================================================↑↑ -->
 </main><!-- /main -->
 <!-- ↑↑===== Main layout ==========================================================↑↑ -->

@@ -197,7 +197,7 @@ class ItemController extends Origin001
 		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
 		$production_lead_time		= isset($data['production_lead_time'])	? $data['production_lead_time'] : 0;
 		$request_decimal		= isset($data['request_decimal'])	? $data['request_decimal'] : 0;
-		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
+
 		$mrp_flag		= isset($data['mrp_flag'])	? $data['mrp_flag'] : false;
 		$standard_location		= isset($data['standard_location'])	? $data['standard_location'] : '';
 		
@@ -310,6 +310,20 @@ class ItemController extends Origin001
 			$is_check = false;
 		}
 		return $is_check;
+	}
+
+	public function get_unit_post(){
+		$token		= $this->getAuthHeader();
+
+		$query_str = " SELECT * FROM mst_unit where active_flag = true order by unit_code asc";
+
+		$itemn_data = $this->db->query($query_str)->result();
+
+		$dataDB['status']   = "success";
+		$dataDB['message']  = "";
+		$dataDB['data']     = $itemn_data;
+
+		$this->response($dataDB,200);
 	}
 }
 

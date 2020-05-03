@@ -7,11 +7,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SystemRoutingModule } from './system-routing.module';
 import { UnitListComponent } from './unit-list/unit-list.component';
 import { UnitEditComponent } from './unit-edit/unit-edit.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { ItemEditComponent } from './item-edit/item-edit.component';
 
 
 @NgModule({
   declarations: [
-    UnitListComponent, UnitEditComponent
+    UnitListComponent, UnitEditComponent, ItemListComponent, ItemEditComponent
   ],
   imports: [
     CommonModule,

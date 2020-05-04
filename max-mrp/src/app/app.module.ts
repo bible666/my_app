@@ -19,8 +19,6 @@ import { TemplateListComponent } from './template/template-list/template-list.co
 import { ConfirmDialogComponent } from './common/confirm-dialog/confirm-dialog.component';
 import { TemplateEditComponent } from './template/template-edit/template-edit.component';
 import { MasterMenuComponent } from './menu/master-menu/master-menu.component';
-import { SupplierListComponent } from './master/supplier/supplier-list/supplier-list.component';
-import { SupplierEditComponent } from './master/supplier/supplier-edit/supplier-edit.component';
 import { CurrencyEditComponent } from './master/currency/currency-edit/currency-edit.component';
 import { CurrencyListComponent } from './master/currency/currency-list/currency-list.component';
 import { BasicMasterComponent } from './menu/basic-master/basic-master.component';
@@ -50,8 +48,6 @@ import { SharedTemplateModule } from './template/template.module';
     ConfirmDialogComponent,
     TemplateEditComponent,
     MasterMenuComponent,
-    SupplierListComponent,
-    SupplierEditComponent,
     CurrencyEditComponent,
     CurrencyListComponent,
     BasicMasterComponent,

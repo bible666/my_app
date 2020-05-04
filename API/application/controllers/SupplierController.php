@@ -20,24 +20,22 @@ class SupplierController extends Origin001
      */
     public function delete_data_by_id_post(){
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
-
+ 
         //init data
-        $token      = isset($data->token) ? $data->token : '';
-        $id         = isset($data->id) ? $data->id : -1;
+		$token				= $this->getAuthHeader();
+		$supplier_code      = isset($data['supplier_code']) ? $data['supplier_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
         if($result->user_id > 0){
-			$insert_data['del_flag']    	= 1;
-			$insert_data['updated_date']    = date("Y-m-d H:i:s");
-            $insert_data['updated']         = $result->user_id;
+			$insert_data['active_flag']    	= false;
+			$insert_data['update_date']     = date("Y-m-d H:i:s");
+            $insert_data['update_user']     = $result->user_id;
 
             $this->db->where([
-				'id'			=> $id,
-				'm_company_id'	=> $result->company_id
+				'supplier_code'			=> $supplier_code
 			]);
-            $this->db->update('m_suppliers',$insert_data);
+            $this->db->update('mst_supplier',$insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -55,26 +53,24 @@ class SupplierController extends Origin001
 	 * get data by id
 	 */
 	public function get_data_by_id_post(){
+		$token		= $this->getAuthHeader();
 		$data       = $this->post();
-		$data		= json_decode($data[0]);
 
 		//init data
-		$token      = isset($data->token) ? $data->token : '';
-		$id         = isset($data->id) ? $data->id : -1;
+		$supplier_code         = isset($data['supplier_code']) ? $data['supplier_code'] : -1;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
-			SELECT s.*
-			FROM m_suppliers s
-			WHERE s.m_company_id = ? AND s.id = ?
-				AND s.del_flag = 0
+			SELECT *
+			FROM mst_supplier
+			WHERE supplier_code = :supplier_code
+				AND active_flag = true
 			";
 
-			$itemn_data = $this->db->query($query_str, [$result->company_id,$id])->row();
-			
+			$itemn_data = $this->db->query($query_str,['supplier_code' => $supplier_code])->row();
 			$dataDB['status']   = "success";
-			$dataDB['message']  = "";
+			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
 
 		}else{
@@ -85,6 +81,51 @@ class SupplierController extends Origin001
 		$this->response($dataDB,200);
 	}
 
+
+	private function _getCond($s)
+    {
+        $strCond    = "";
+		$params     = [];
+
+        foreach ($s as $key =>$val) {
+
+            if($val=="") continue;
+
+            switch($key){
+				//case "example":
+				//		$strCond .= "(example == false OR example IS NULL) \n";	// placeholders
+				//		//$params["{$key}"] = "%{$val}%";						// bindParam
+				//    break;
+				//case "start_date":
+				//		$strCond .= "start_date >= :{$key} AND \n";	// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+				//case "name":
+				//		$strCond .= "name like :{$key} AND \n";		// placeholders
+				//		$params["{$key}"] = "%{$val}%";				// bindParam
+				//    break;
+
+				case "supplier_name":
+					$strCond .= " LOWER(supplier_name) like '%".strtolower($val)."%' AND \n";	// placeholders
+					break;
+				case "supplier_code":
+						$strCond .= " LOWER(supplier_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+						break;
+				case "rowsPerpage":
+				case "page_index":
+				case "sort":
+				case "sort_preset":
+				case "direction":
+					break;
+				default:
+					$strCond .= "{$key}='{$val}' AND \n";	// placeholders		"key" = :key
+					$params["{$key}"] = "{$val}";			// bindParam		"key"=>val
+					break;
+            }
+        }
+
+        return [$strCond,$params];
+    }
 
 	/**
 	 * get list data
@@ -100,22 +141,28 @@ class SupplierController extends Origin001
 		$offset		= ($data['page_index']-1) * $limit;
 
 		$result     = $this->_checkToken($token);
-		if($result->user_id > 0){
+		if($result->user_id >= 0){
+
+			// ???? Condition
+			list($strCond,$params) = $this->_getCond($data);
+
+
 			$query_str = "
 			SELECT *
-			FROM m_suppliers
-			WHERE m_company_id = ? AND del_flag = 0
-			ORDER BY supplier_cd
+			FROM mst_supplier
+			WHERE ". $strCond." active_flag = true
+			ORDER BY supplier_code
 			LIMIT {$limit} OFFSET {$offset}
 			";
-
+			//print_r($query_str);exit;
 			$query_count = "
-			SELECT count(m_company_id) as my_count
-			FROM m_suppliers
-			WHERE m_company_id = ? AND del_flag = 0
+			SELECT count(supplier_code) as my_count
+			FROM mst_supplier
+			WHERE ". $strCond." active_flag = true
+			ORDER BY supplier_code
 			";
 			
-			$itemn_data = $this->db->query($query_str, [$result->company_id])->result();
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
 
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
 
@@ -137,26 +184,28 @@ class SupplierController extends Origin001
 	 * ีupdate / insert data to database
 	 */
 	public function update_data_post(){
-		$token		= $this->getAuthHeader();
+		$token			= $this->getAuthHeader();
 		$data           = $this->post();
 
 		//init data
-		$id             = isset($data['id'])				? $data['id']				: -1;
-		$supplier_cd	= isset($data['supplier_cd'])		? $data['supplier_cd']		: '';
-		$supplier_name	= isset($data['supplier_name'])		? $data['supplier_name']	: '';
-		$supplier_add1	= isset($data['supplier_add1'])		? $data['supplier_add1']	: '';
-		$supplier_add2	= isset($data['supplier_add2'])		? $data['supplier_add2']	: '';
-		$supplier_add3	= isset($data['supplier_add3'])		? $data['supplier_add3']	: '';
-		$supplier_zip	= isset($data['supplier_zip'])		? $data['supplier_zip']		: '';
-		$supplier_tel	= isset($data['supplier_tel'])		? $data['supplier_tel']		: '';
-		$supplier_fax	= isset($data['supplier_fax'])		? $data['supplier_fax']		: '';
-		$supplier_email	= isset($data['supplier_email'])	? $data['supplier_email']	: '';
-		$contract_name	= isset($data['contract_name'])		? $data['contract_name']	: '';
-		$delivery_time	= isset($data['delivery_time'])		? $data['delivery_time']	: -1;
-		$m_transport_id	= isset($data['m_transport_id'])	? $data['m_transport_id']	: -1;
-		$tax_no			= isset($data['tax_no'])			? $data['tax_no']			: '';
-		$payment_tearm	= isset($data['payment_tearm'])		? $data['payment_tearm']	: '';
-		$remark         = isset($data['remark'])			? $data['remark']			: '';
+		$old_supplier_code  	= isset($data['old_supplier_code'])	? $data['old_supplier_code']	: -1;
+
+		$supplier_code		= isset($data['supplier_code'])	? $data['supplier_code'] : '';
+		$supplier_name		= isset($data['supplier_name'])	? $data['supplier_name'] : '';
+		$addr1				= isset($data['addr1'])	? $data['addr1'] : '';
+		$addr2				= isset($data['addr2'])	? $data['addr2'] : '';
+		$addr3				= isset($data['addr3'])	? $data['addr3'] : '';
+		$post_code			= isset($data['post_code'])	? $data['post_code'] : '';
+		$tel_no				= isset($data['tel_no'])	? $data['tel_no'] : '';
+		$fax_no				= isset($data['fax_no'])	? $data['fax_no'] : '';
+		$e_mail				= isset($data['e_mail'])	? $data['e_mail'] : '';
+		$contact			= isset($data['contact'])	? $data['contact'] : '';
+		$delivery_time		= isset($data['delivery_time'])	? $data['delivery_time'] : 0;
+		$tax_id				= isset($data['tax_id'])	? $data['tax_id'] : '';
+		$payment_tearm		= isset($data['payment_tearm'])	? $data['payment_tearm'] : '';
+
+		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+
 
 		//Validation Data
 		if ( $token == '') {
@@ -166,65 +215,68 @@ class SupplierController extends Origin001
 			$this->response($dataDB,200);
 		}
 
-		if ( $supplier_cd == '') {
+		if ( $supplier_code == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "supplier code is empty";
+			$dataDB['message']  = "?????????????";
 			$dataDB['data']     = "";
 			$this->response($dataDB,200);
 		}
 
 		if ( $supplier_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "supplier name is empty";
+			$dataDB['message']  = "?????????????";
 			$dataDB['data']     = "";
 			$this->response($dataDB,200);
 		}
+
 
 		//get data from token
 		$result     = $this->_checkToken($token);
 
 		if($result->user_id > 0){
 
-			if ($this->chk_suppliser_cd($result->company_id,$supplier_cd,$id)){
+			if ($this->is_dupplicate_data($old_supplier_code,$supplier_code)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "supplier_code_dupplicate";
+				$dataDB['message']  = "??????????????????????";
 				$dataDB['data']     = "";
 				$this->response($dataDB,200);
-				exit;
+
 			}
 
 			$insert_data = [];
 
-			$insert_data['m_company_id']    = $result->company_id;
+			//$insert_data['m_company_id']    = $result->company_id;
 
 			//set data to array for add or update
-			$insert_data['supplier_cd']		= $supplier_cd;
-			$insert_data['supplier_name']	= $supplier_name;
-			$insert_data['supplier_add1']	= $supplier_add1;
-			$insert_data['supplier_add2']	= $supplier_add2;
-			$insert_data['supplier_add3']	= $supplier_add3;
-			$insert_data['supplier_zip']	= $supplier_zip;
-			$insert_data['supplier_tel']	= $supplier_tel;
-			$insert_data['supplier_fax']	= $supplier_fax;
-			$insert_data['supplier_email']	= $supplier_email;
-			$insert_data['contract_name']	= $contract_name;
-			$insert_data['delivery_time']	= $delivery_time;
-			$insert_data['m_transport_id']	= $m_transport_id;
-			$insert_data['tax_no']			= $tax_no;
-			$insert_data['payment_tearm']	= $payment_tearm;
-			$insert_data['remark']			= $remark;
+			$insert_data['supplier_code']		= $supplier_code;
+			$insert_data['supplier_name']		= $supplier_name;
+			$insert_data['addr1']				= $addr1;
+			$insert_data['addr2']				= $addr2;
+			$insert_data['addr3']				= $addr3;
+			$insert_data['post_code']			= $post_code;
+			$insert_data['tel_no']				= $tel_no;
+			$insert_data['fax_no']				= $fax_no;
+			$insert_data['e_mail']				= $e_mail;
+			$insert_data['contact']				= $contact;
+			$insert_data['delivery_time']		= $delivery_time;
+			$insert_data['tax_id']				= $tax_id;
+			$insert_data['payment_tearm']		= $payment_tearm;
+
+            $insert_data['remark']				= $remark;
+			$insert_data['active_flag']			= true;
+			
 
 			$this->db->trans_start();
-			if ($id < 0 ){
-				$insert_data['created_date']   = date("Y-m-d H:i:s");
-				$insert_data['created']        = $result->user_id;
-				$this->db->insert('m_suppliers', $insert_data);
-			}else{
-				$insert_data['updated_date']    = date("Y-m-d H:i:s");
-				$insert_data['updated']         = $result->user_id;
 
-				$this->db->where('id', $id);
-				$this->db->update('m_suppliers',$insert_data);
+			if ($old_item_code == '-1' ){
+				$insert_data['create_date']        = date("Y-m-d H:i:s");
+				$insert_data['create_user']        = $result->user_id;
+				$this->db->insert('mst_supplier', $insert_data);
+			}else{
+				$insert_data['update_date']    = date("Y-m-d H:i:s");
+				$insert_data['update_user']    = $result->user_id;
+
+				$this->db->update('mst_supplier',$insert_data,['supplier_code' => $old_supplier_code]);
 			}
 			$this->db->trans_complete();
 
@@ -243,28 +295,31 @@ class SupplierController extends Origin001
     * check suppliser code dupplicate
     *
     * @param $m_company_id company id
-	* @param $supplier_cd suppliser code
-	* @param $suppliser_id suppliser id
+	* @param $currency_code currency code
     *
-    * @return boolean
+    * @return boolean true= dupplicate, false not dupplicate
     */
-	private function chk_suppliser_cd($m_company_id,$supplier_cd,$suppliser_id){
+	private function is_dupplicate_data($old_supplier_code,$supplier_code){
 		$is_check	= true;
 
-		$suppliser_data	= $this->db->get_where('m_suppliers',[
-			'm_company_id'	=> $m_company_id,
-			'supplier_cd'	=> $supplier_cd,
-			'del_flag'		=> 0,
-			'id != '		=> $suppliser_id
+		if ($old_supplier_code == $supplier_code)  {
+			return false; // OK data
+		}
+
+		$data	= $this->db->get_where('mst_supplier',[
+			'supplier_code'	=> $supplier_code,
+			'supplier_code !=' => $old_supplier_code,
+			'active_flag' => true
 		])->row();
 
-		if (isset($suppliser_data)){
+		if (isset($data)){
 
 		} else {
 			$is_check = false;
 		}
 		return $is_check;
 	}
+
 }
 
 ?>

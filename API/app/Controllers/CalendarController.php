@@ -224,21 +224,21 @@ class CalendarController extends Origin001
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "token is empty";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
         }
         
         if ( $cal_name == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "กรุณากรอกชื่อปฏิทิน";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
         }
         
         if ($this->_is_dupplicate($id,$cal_name)){
             $dataDB['status']   = "error";
 			$dataDB['message']  = "มีการใช้ชื่อปฏิทินนี้แล้วในระบบ";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
         }
 
         $result     = $this->_checkToken($token);

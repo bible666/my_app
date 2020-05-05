@@ -58,7 +58,7 @@ class UserController extends Origin001
     //         $dataDB['data']     = '';
 	// 	}
 
-	// 	$this->response($dataDB,200);
+	// 	return $this->respond($dataDB,200);
 	// }
 
 	// public function getMenu_post(){
@@ -126,7 +126,7 @@ class UserController extends Origin001
     //     $dataDB['status']   = "success";
     //     $dataDB['message']  = "";
     //     $dataDB['data']     = "";
-	// 	$this->response($dataDB,200);
+	// 	return $this->respond($dataDB,200);
 	// }
 
     public function login() {

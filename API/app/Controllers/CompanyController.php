@@ -3,12 +3,11 @@ namespace App\Controllers;
 
 use Config\App;
 
-class CurrencyController extends Origin001
+class CompanyController extends Origin001
 {
-
 	protected $format    = 'json';
     
-    protected $mst_currency;
+	protected $mst_company;
 
 	/**
 	 * Constructure class
@@ -25,7 +24,7 @@ class CurrencyController extends Origin001
 		// E.g.:
         // $this->session = \Config\Services::session();
 
-        $this->mst_currency = $this->db->table('mst_currency');
+		$this->mst_company        = $this->db->table('mst_company');
 	}
 
 	/**
@@ -33,10 +32,10 @@ class CurrencyController extends Origin001
      */
     public function delete_data_by_id(){
 		$data       = $this->request->getJSON();
-
+ 
         //init data
         $token		= $this->getAuthHeader();
-        $id         = isset($data->id) ? $data->id : -1;
+        $id         = isset($data->company_code) ? $data->company_code : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
@@ -45,10 +44,10 @@ class CurrencyController extends Origin001
 			$insert_data['update_date']     = date("Y-m-d H:i:s");
             $insert_data['update_user']     = $result->user_id;
 
-            $this->mst_currency->where([
-				'currency_code'			=> $id,
+            $this->mst_company->where([
+				'company_code'			=> $id,
 			]);
-            $this->mst_currency->update($insert_data);
+            $this->mst_company->update($insert_data);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -71,17 +70,13 @@ class CurrencyController extends Origin001
 
 		//init data
 		$id         = isset($data->id) ? $data->id : -1;
-		
+
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
-			$query_str = "
-			SELECT *
-			FROM mst_currency
-			WHERE currency_code = :id:
-				AND active_flag = true
-			";
-
-			$itemn_data = $this->db->query($query_str,['id'=>$id])->getRow();
+			$itemn_data = $this->mst_company->getWhere([
+				'company_code' => $id,
+				'active_flag' => true
+			])->getRow();
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -119,8 +114,8 @@ class CurrencyController extends Origin001
 				//		$params["{$key}"] = "%{$val}%";				// bindParam
 				//    break;
 
-				case "currency_code":
-					$strCond .= " LOWER(currency_code) like '%".strtolower($val)."%' AND \n";	// placeholders
+				case "company_name":
+					$strCond .= " LOWER(company_name) like '%".strtolower($val)."%' AND \n";	// placeholders
 					break;
 				case "rowsPerpage":
 				case "page_index":
@@ -137,6 +132,21 @@ class CurrencyController extends Origin001
 
         return [$strCond,$params];
     }
+
+	public function get_calendar(){
+		$token		= $this->getAuthHeader();
+
+		$query_str = " SELECT * FROM mst_calendar where active_flag = true";
+
+		$itemn_data = $this->db->query($query_str)->getResult();
+
+		$dataDB['status']   = "success";
+		$dataDB['message']  = "";
+		$dataDB['data']     = $itemn_data;
+
+		return $this->respond($dataDB,200);
+	}
+
 
 	/**
 	 * get list data
@@ -160,22 +170,22 @@ class CurrencyController extends Origin001
 
 			$query_str = "
 			SELECT *
-			FROM mst_currency
+			FROM mst_company
 			WHERE ". $strCond." active_flag = true
-			ORDER BY currency_code
+			ORDER BY company_code
 			LIMIT {$limit} OFFSET {$offset}
 			";
 			//print_r($query_str);exit;
 			$query_count = "
-			SELECT count(currency_code) as my_count
-			FROM mst_currency
+			SELECT count(company_code) as my_count
+			FROM mst_company
 			WHERE ". $strCond." active_flag = true
 			";
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
-			
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
-			
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $itemn_data;
@@ -191,19 +201,26 @@ class CurrencyController extends Origin001
 	
 
 	/**
-	 * ีupdate / insert data to database
+	 * à¸µupdate / insert data to database
 	 */
 	public function update_data(){
-		$token			= $this->getAuthHeader();
-		$data           = $this->request->getJSON();
+		$token		= $this->getAuthHeader();
+		$data       = $this->request->getJSON();
 
 		//init data
-		$id  		        = isset($data->id)				? $data->id				: -1;
-		$currency_code      = isset($data->currency_code)		? $data->currency_code	: -1;
-		$currency_name		= isset($data->currency_name)		? $data->currency_name	: '';
-		$default_currency	= isset($data->default_currency)	? $data->default_currency	: false;
-		$remark         	= isset($data->remark)			? $data->remark			: '';
-
+		$id  		        = isset($data->id)			? $data->id			: -1;
+		$company_code		= isset($data->company_code)	? $data->company_code : '';
+        $company_name		= isset($data->company_name)	? $data->company_name : '';
+        $addr_1             = isset($data->addr_1)		? $data->addr_1       : '';
+        $addr_2             = isset($data->addr_2)		? $data->addr_2       : '';
+        $addr_3             = isset($data->addr_3)		? $data->addr_3       : '';
+        $zip                = isset($data->zip)           ? $data->zip          : '';
+        $telno              = isset($data->telno)         ? $data->telno        : '';
+        $faxno              = isset($data->faxno)         ? $data->faxno        : '';
+        $email              = isset($data->email)         ? $data->email        : '';
+		$cal_no             = isset($data->cal_no)        ? $data->cal_no       : null;
+		$remark         	= isset($data->remark)		? $data->remark       : '';
+		
 		//Validation Data
 		if ( $token == '') {
 			$dataDB['status']   = "error";
@@ -212,28 +229,22 @@ class CurrencyController extends Origin001
 			return $this->respond($dataDB,200);
 		}
 
-		if ( $currency_code == '') {
+		if ( $company_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????";
+			$dataDB['message']  = "???????????????????????????";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
 
-		if ( $currency_name == '') {
-			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????";
-			$dataDB['data']     = "";
-			return $this->respond($dataDB,200);
-		}
 
 		//get data from token
 		$result     = $this->_checkToken($token);
 
 		if($result->user_id > 0){
 			
-			if ($this->chk_currency_code($result->company_id,$currency_code,$id)){
+			if ($this->is_dupplicate_data($id, $company_code)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "???????????????????";
+				$dataDB['message']  = "รหัสบริษัทนี้ใช้งานแล้ว";
 				$dataDB['data']     = "";
 				return $this->respond($dataDB,200);
 
@@ -242,35 +253,33 @@ class CurrencyController extends Origin001
 			$insert_data = [];
 
 			//$insert_data['m_company_id']    = $result->company_id;
-			
+
 			//set data to array for add or update
-			$insert_data['currency_code']		= $currency_code;
-			$insert_data['currency_name']		= $currency_name;
-			$insert_data['default_currency']	= $default_currency;
-			$insert_data['active_flag']			= true;
-			$insert_data['remark']				= $remark;
+			$insert_data['company_code']	= $company_code;
+			$insert_data['company_name']	= $company_name;
+			$insert_data['addr_1']		= $addr_1;
+            $insert_data['addr_2']		= $addr_2;
+            $insert_data['addr_3']		= $addr_3;
+            $insert_data['zip']			= $zip;
+            $insert_data['telno']		= $telno;
+            $insert_data['faxno']		= $faxno;
+            $insert_data['email']		= $email;
+            $insert_data['cal_no']		= $cal_no;
+			$insert_data['active_flag']	= true;
+			$insert_data['remark']		= $remark;
 
 			$this->db->transStart();
 
-			if ($default_currency == true){
-				$update_data['update_date']    		= date("Y-m-d H:i:s");
-				$update_data['update_user']    		= $result->user_id;
-				$update_data['default_currency']    = false;
-				
-				$this->mst_currency->update($update_data);
-			}
 			if ($id == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-
-				$this->mst_currency->insert($insert_data);
+				$this->mst_company->insert($insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
-				
-				$this->mst_currency->where('currency_code',$id);
-				$this->mst_currency->update($insert_data);
 
+				$this->mst_company->where('company_code', $id);
+				$this->mst_company->update($insert_data);
 			}
 			$this->db->transComplete();
 
@@ -291,21 +300,23 @@ class CurrencyController extends Origin001
     * @param $m_company_id company id
 	* @param $currency_code currency code
     *
-    * @return boolean
+    * @return boolean true= dupplicate, false not dupplicate
     */
-	private function chk_currency_code($currency_code,$old_currency){
+	private function is_dupplicate_data($old,$new){
 		$is_check	= true;
-		
-		if ($currency_code == $old_currency) {
+
+		if ($old == $new) {
 			return false; // OK data
 		}
-
-		$currency_data	= $this->mst_currency->get_where([
-			'currency_code'	=> $currency_code,
+		
+		
+		$data	= $this->mst_company->getWhere([
+			'company_code'	=> $new,
+			'company_code !=' => $old,
 			'active_flag' => true
 		])->getRow();
 
-		if (isset($currency_data)){
+		if (isset($data)){
 
 		} else {
 			$is_check = false;

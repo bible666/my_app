@@ -23,10 +23,7 @@ class UserController extends Origin001
 		//--------------------------------------------------------------------
 		// E.g.:
         // $this->session = \Config\Services::session();
-        $method = $_SERVER['REQUEST_METHOD'];
-        if ($method == "OPTIONS") {
-            die();
-        }
+
         $this->mst_user_table = $this->db->table('mst_user');
         $this->prg_token = $this->db->table('prg_token');
 	}

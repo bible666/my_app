@@ -71,15 +71,16 @@ class Origin001 extends ResourceController
      * @return check_token_class
      */
     protected function _checkToken($token){
+
         $query_str = "
             SELECT s.*,t.id as token_code,t.create_date as token_update,t.active_flag
             FROM prg_token t INNER JOIN mst_user s ON t.user_id = s.user_id
-            WHERE t.token_code = ?
+            WHERE t.token_code = :token:
                 AND t.active_flag = 0
         ";
 
-        $staff_data = $this->db->query($query_str, [$token])->row();
-        //print_r($staff_data);
+        $staff_data = $this->db->query($query_str, ['token' =>$token])->getRow();
+ 
         $tokenData = new check_token_class();
 
         if (isset($staff_data)){

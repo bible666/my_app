@@ -84,14 +84,14 @@ from
 					end 
 				end 
 			end as end_date
-		from policy_lists pl 
+		from ms_policy_lists pl 
 		where agent_code = cast(:agent_code as text) 
 			and case when lower(policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
 	) ipm 
-	   left join hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
-	   left join hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
-	   left join hermes_req_credit_payment c on ipm.policy_no = c.policy_no and c.status_code = '6'
-	   left join biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
+	   left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
+	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
+	   left join dm_hermes_req_credit_payment c on ipm.policy_no = c.policy_no and c.status_code = '6'
+	   left join dm_biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date) 
 

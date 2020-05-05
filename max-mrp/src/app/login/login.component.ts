@@ -38,23 +38,23 @@ export class LoginComponent implements OnInit {
           this.user.set_token(data['data']['token']);
           this.user.set_company_id(data['data']['company_id']);
 
-          this.user.getMenu().subscribe(result=>{
-            if (result['status'] == 'success'){
+          // this.user.getMenu().subscribe(result=>{
+          //   if (result['status'] == 'success'){
               
-              this.user.Menu_Data = result['data'];
-              this.user.changeMenu(this.user.Menu_Data);
-            } else {
-              this.user.Menu_Data = [{
-                name: 'menu1',
-                URL: '',
-                image: '',
-                children: []
-              }]
-              console.log(result['message']);
-            }
-            this.router.navigateByUrl('/');
+          //     this.user.Menu_Data = result['data'];
+          //     this.user.changeMenu(this.user.Menu_Data);
+          //   } else {
+          //     this.user.Menu_Data = [{
+          //       name: 'menu1',
+          //       URL: '',
+          //       image: '',
+          //       children: []
+          //     }]
+          //     console.log(result['message']);
+          //   }
+             this.router.navigateByUrl('/');
           
-          })
+          // })
           
         }else{
           //login error

@@ -8,6 +8,7 @@ class UnitController extends Origin001
 	protected $format    = 'json';
     
 	protected $mst_unit;
+	protected $mst_item;
 
 	/**
 	 * Constructure class
@@ -25,6 +26,7 @@ class UnitController extends Origin001
         // $this->session = \Config\Services::session();
 
 		$this->mst_unit        = $this->db->table('mst_unit');
+		$this->mst_item        = $this->db->table('mst_item');
 		
 	}
 
@@ -37,6 +39,15 @@ class UnitController extends Origin001
         //init data
 		$token				= $this->getAuthHeader();
 		$unit_code         = isset($data->unit_code) ? $data->unit_code : -1;
+
+		//check unit have use on item
+		$item_data = $this->mst_item->getWhere(['unit_code'=>$unit_code,'active_flag' => true])->getRow();
+		if (isset($item_data)){
+			$dataDB['status']   = "error";
+            $dataDB['message']  = "unit code นี้มีการใช้แล้วในข้อมูลวัตถุดิบไม่สามารถลบได้";
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);

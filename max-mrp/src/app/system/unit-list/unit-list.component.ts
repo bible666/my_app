@@ -64,7 +64,7 @@ export class UnitListComponent implements OnInit {
   getData(){
     this.frmSearchData.page_index = this.CurrentPage;
     this.service.getListData(this.frmSearchData).subscribe(data => {
-      console.log(data);
+
       if (data['status'] == 'success'){
         this.CountData    = data['max_rows'];
         this.AllPage      = Math.ceil(this.CountData / this.inputForm.value.rowsPerpage);
@@ -99,9 +99,14 @@ export class UnitListComponent implements OnInit {
 			} else {
         this.service.deleteById(unit_code)
         .subscribe(data=>{
-          this.messageService.setSuccess('ทำการลบเสร็จแล้ว');
-          this.onSearch();
-
+          if (data['status']== 'success'){
+            this.messageService.setSuccess('ทำการลบเสร็จแล้ว');
+            this.onSearch();
+          } else {
+            this.messageService.setError(data['message']);
+            this.message = this.messageService.getMessage();
+          }
+          
         },
         error=>{
             this.messageService.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');

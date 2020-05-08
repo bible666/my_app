@@ -1,0 +1,124 @@
+
+ESB WebService Design Pattern
+Skip to end of metadata
+Added by สมชาย แจ่มจันทรา, last edited by สมชาย แจ่มจันทรา on Dec 18, 2015  (view change)Go to start of metadata
+TOC
+
+URI
+Namespace
+Appendix A.
+ 
+
+URI
+ 
+
+รูปแบบ   /{organization}/{entity}/{version:[v\d+.?\d?]}/payload:[compact,xml]/{type:[inquiry,bulk,delete,update,add]}/{subject}
+
+ 
+
+Field
+ความหมาย
+organization	องค์กร เช่น thaisamut (สำหรับ resource ที่เป็นของ Thaisamut), tbsp (สำหรับ resource ของ tbsp)
+entity	หมวดหมู่ เช่น
+policy (สำหรับ service ที่เกี่ยวกับ กรมธรรม์),
+amlo (สำหรับ service ที่เกี่ยวกับระบบ ปปง.),
+cheque (สำหรับ service ที่เกี่ยวกับ cheque),
+version	version ของ service (ดูรายละเอียดที่ Appendix_A.)
+payload	
+data type ของ payload,
+
+xml คือ XML ตาม schema (ที่อยู่ใน WSDL)
+
+compact คือ การส่งกลับข้อมูลในรูปแบบของ Link ของ Shared File System (DFGW) 
+
+type	
+ประเภทของ Service ได้แก่,
+
+inquiry คือ service ที่ดึงข้อมูลเป็นรายเดี่ยวหรือรายหน่วยย่อย เช่น ดึงข้อมูล Policy แค่ 1 กธ.
+
+bulk คือ service ที่ดึงข้อมูลเป็นปริมาณเยอะ เช่น ดึงข้อมูล Policy ของทั้งสาขา
+
+delete คือ service ที่เป็นการลบข้อมูล หรือการ mark ข้อมูลเพื่อให้ข้อมูลนั้นๆ หายไปหรือ inactive
+
+update คือ service ที่เป็นการเปลี่ยนแปลงข้อมูล
+
+add คือ service ที่เป็นการเพิ่มข้อมูลเท่านั้น ซึ่งเหมาะกับการใช้ในการส่ง transaction เข้าสู่ระบบ
+
+subject	หัวข้อ หรือชื่อ service นั้นๆ
+ 
+
+ตัวอย่าง
+
+/thaisamut/amlo/v1/xml/inquiry/person
+organization = thaisamut
+
+entity = amlo (ระบบ ปปง.)
+
+version = v1
+
+payload = xml (based on schema)
+
+type = inquiry (เพื่อดึงข้อมูลหรืออ่านอย่างเดียว)
+
+subject = person (บุคคล, ในที่นี้คือการตรวจสอบบุคคลบนระบบ AMLO)
+
+ 
+
+Namespace
+ 
+
+Package name in JAVA
+
+รูปแบบ
+
+thaisamut.osgi.targetbundles. 
+
+<modulename`without -bundle`> . 
+
+<subject> . 
+
+<version`replace dot with underscore`> . 
+
+<modulename`without -bundle`><subject><version`replace dot with underscore`>ESBService
+
+ 
+ตัวอย่าง
+URI :  /thaisamut/policy/v1/xml/inquiry/search
+
+ใช้ namespace : thaisamut.osgi.targetbundles.policyws.search.v1.PolicyWsSearchV1ESBService
+
+Field
+Value
+modulename	policyws
+subject	search
+version	v1
+<modulename><subject><version`replace dot with underscore`>ESBService	PolicyWs Search V1 ESBService
+ 
+
+ตัวอย่างที่ 2
+
+URI : /thaisamut/policy/v1.1/xml/inquiry/search
+
+ใช้ namespace : thaisamut.osgi.targetbundles.policyws.search.v1_1.PolicyWsSearchV1_1ESBService
+
+ 
+
+ 
+
+Appendix A.
+
+VERSION
+
+v\d+.?\d?
+
+--> v{major}.{minor}
+
+เช่น
+
+v1 = version 1
+
+v1.1 = ปรับปรุงจาก version 1 (minor change)
+
+v2 = version 2 (ไม่จำเป็นต้องมี เลข 0)
+
+ 

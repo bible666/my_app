@@ -1,29 +1,42 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-require('Origin001.php');
+namespace App\Controllers;
+
+use Config\App;
 
 class UnitController extends Origin001
 {
+	protected $format    = 'json';
+    
+	protected $mst_unit;
+
 	/**
 	 * Constructure class
 	 */
-	public function __construct()
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
 	{
-		parent::__construct();
-		$this->load->helper('date');
-		$this->load->database();
+
+		// Do Not Edit This Line
+		parent::initController($request, $response, $logger);
+
+		//--------------------------------------------------------------------
+		// Preload any models, libraries, etc, here.
+		//--------------------------------------------------------------------
+		// E.g.:
+        // $this->session = \Config\Services::session();
+
+		$this->mst_unit        = $this->db->table('mst_unit');
 		
 	}
 
 	/**
      * delete data by id
      */
-    public function delete_data_by_id_post(){
-		$data       = $this->post();
+    public function delete_data_by_id(){
+		$data       = $this->request->getJSON();
  
         //init data
 		$token				= $this->getAuthHeader();
-		$unit_code         = isset($data['unit_code']) ? $data['unit_code'] : -1;
+		$unit_code         = isset($data->unit_code) ? $data->unit_code : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
@@ -32,10 +45,7 @@ class UnitController extends Origin001
 			$insert_data['update_date']     = date("Y-m-d H:i:s");
             $insert_data['update_user']     = $result->user_id;
 
-            $this->db->where([
-				'unit_code'			=> $unit_code
-			]);
-            $this->db->update('mst_unit',$insert_data);
+            $this->mst_unit->update($insert_data,['unit_code' => $unit_code]);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -46,29 +56,29 @@ class UnitController extends Origin001
             $dataDB['message']  = "token not found";
             $dataDB['data']     = "";
         }
-        $this->response($dataDB,200);
+        return $this->respond($dataDB,200);
     }
 
 	/**
 	 * get data by id
 	 */
-	public function get_data_by_id_post(){
+	public function get_data_by_id(){
 		$token		= $this->getAuthHeader();
-		$data       = $this->post();
+		$data       = $this->request->getJSON();
 
 		//init data
-		$unit_code         = isset($data['unit_code']) ? $data['unit_code'] : -1;
+		$unit_code         = isset($data->unit_code) ? $data->unit_code : -1;
        
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
 			SELECT *
 			FROM mst_unit
-			WHERE unit_code = '{$unit_code}'
+			WHERE unit_code = :unit_code:
 				AND active_flag = true
 			";
 
-			$itemn_data = $this->db->query($query_str)->row();
+			$itemn_data = $this->db->query($query_str,['unit_code' => $unit_code])->getRow();
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -78,7 +88,7 @@ class UnitController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 
 
@@ -130,15 +140,15 @@ class UnitController extends Origin001
 	/**
 	 * get list data
 	 */
-	public function get_data_list_post(){
-		$data       = $this->post();
+	public function get_data_list(){
+		$data       = $this->request->getJSON();
 		$token		= $this->getAuthHeader();
 
 		//Validate Data
 
 
-		$limit		= intval($data['rowsPerpage']);
-		$offset		= ($data['page_index']-1) * $limit;
+		$limit		= intval($data->rowsPerpage);
+		$offset		= ($data->page_index-1) * $limit;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id >= 0){
@@ -162,9 +172,9 @@ class UnitController extends Origin001
 			ORDER BY unit_code
 			";
 			
-			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
-			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
+			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -176,47 +186,47 @@ class UnitController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 	
 
 	/**
 	 * à¸µupdate / insert data to database
 	 */
-	public function update_data_post(){
+	public function update_data(){
 		$token			= $this->getAuthHeader();
-		$data           = $this->post();
+		$data           = $this->request->getJSON();
 
 		//init data
-		$old_unit_code  		= isset($data['old_unit_code'])	? $data['old_unit_code']	: -1;
+		$old_unit_code  		= isset($data->old_unit_code)	? $data->old_unit_code	: -1;
 
 
 		
-		$unit_code		= isset($data['unit_code'])	? $data['unit_code'] : '';
-		$unit_name		= isset($data['unit_name'])	? $data['unit_name'] : '';
+		$unit_code		= isset($data->unit_code)	? $data->unit_code : '';
+		$unit_name		= isset($data->unit_name)	? $data->unit_name : '';
 	
-		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+		$remark         	= isset($data->remark)		? $data->remark       : '';
 
 		//Validation Data
 		if ( $token == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "token is empty";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 		if ( $unit_code == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "กรุณาระบุรหัสหน่วย";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 		if ( $unit_name == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "กรุณาระบุชื่อหน่วย";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 
@@ -229,10 +239,17 @@ class UnitController extends Origin001
 				$dataDB['status']   = "error";
 				$dataDB['message']  = "รหัสนี้ใช้งานแล้ว";
 				$dataDB['data']     = "";
-				$this->response($dataDB,200);
+				return $this->respond($dataDB,200);
 
 			}
 
+			//check have unactive in database
+			if ($old_unit_code == -1 ) {
+				$old_data = $this->mst_unit->getWhere(['unit_code' => $unit_code, 'active_flag' => false])->getRow();
+				if (isset($old_data)){
+					$old_unit_code = $old_data->unit_code;
+				}
+			}
 			$insert_data = [];
 
 			//$insert_data['m_company_id']    = $result->company_id;
@@ -244,19 +261,19 @@ class UnitController extends Origin001
 			$insert_data['active_flag']		= true;
 			
 
-			$this->db->trans_start();
+			$this->db->transStart();
 
 			if ($old_unit_code == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-				$this->db->insert('mst_unit', $insert_data);
+				$this->mst_unit->insert($insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->update('mst_unit',$insert_data,['unit_code' => $old_unit_code]);
+				$this->mst_unit->update($insert_data,['unit_code' => $old_unit_code]);
 			}
-			$this->db->trans_complete();
+			$this->db->transComplete();
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -266,7 +283,7 @@ class UnitController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 
 	/**
@@ -284,10 +301,11 @@ class UnitController extends Origin001
 			return false; // OK data
 		}
 
-		$data	= $this->db->get_where('mst_unit',[
+		$data	= $this->mst_unit->getWhere([
 			'unit_code'	=> $unit_code,
-			'unit_code !=' => $old_unit_code
-		])->row();
+			'unit_code !=' => $old_unit_code,
+			'active_flag' => true
+		])->getRow();
 
 		if (isset($data)){
 

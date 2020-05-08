@@ -1,29 +1,44 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-require('Origin001.php');
+namespace App\Controllers;
+
+use Config\App;
 
 class ItemController extends Origin001
 {
+	protected $format    = 'json';
+    
+	protected $mst_unit;
+	protected $mst_item;
+
 	/**
 	 * Constructure class
 	 */
-	public function __construct()
+    public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
 	{
-		parent::__construct();
-		$this->load->helper('date');
-		$this->load->database();
+
+		// Do Not Edit This Line
+		parent::initController($request, $response, $logger);
+
+		//--------------------------------------------------------------------
+		// Preload any models, libraries, etc, here.
+		//--------------------------------------------------------------------
+		// E.g.:
+        // $this->session = \Config\Services::session();
+
+		$this->mst_unit        = $this->db->table('mst_unit');
+		$this->mst_item        = $this->db->table('mst_item');
 		
 	}
 
 	/**
      * delete data by id
      */
-    public function delete_data_by_id_post(){
-		$data       = $this->post();
+    public function delete_data_by_id(){
+		$data       = $this->request->getJSON();
  
         //init data
 		$token				= $this->getAuthHeader();
-		$item_code          = isset($data['item_code']) ? $data['item_code'] : -1;
+		$item_code          = isset($data->item_code) ? $data->item_code : -1;
 
 		$result     = $this->_checkToken($token);
 		//print_r($result);
@@ -32,10 +47,7 @@ class ItemController extends Origin001
 			$insert_data['update_date']     = date("Y-m-d H:i:s");
             $insert_data['update_user']     = $result->user_id;
 
-            $this->db->where([
-				'item_code'			=> $item_code
-			]);
-            $this->db->update('mst_item',$insert_data);
+            $this->mst_item->update($insert_data,['item_code' => $item_code]);
             
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
@@ -46,29 +58,29 @@ class ItemController extends Origin001
             $dataDB['message']  = "token not found";
             $dataDB['data']     = "";
         }
-        $this->response($dataDB,200);
+        return $this->respond($dataDB,200);
     }
 
 	/**
 	 * get data by id
 	 */
-	public function get_data_by_id_post(){
+	public function get_data_by_id(){
 		$token		= $this->getAuthHeader();
-		$data       = $this->post();
+		$data       = $this->request->getJSON();
 
 		//init data
-		$item_code         = isset($data['item_code']) ? $data['item_code'] : -1;
+		$item_code         = isset($data->item_code) ? $data->item_code : -1;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id > 0){
 			$query_str = "
 			SELECT *
 			FROM mst_item
-			WHERE item_code = '{$item_code}'
+			WHERE item_code = :item_code:
 				AND active_flag = true
 			";
 
-			$itemn_data = $this->db->query($query_str)->row();
+			$itemn_data = $this->db->query($query_str,['item_code' => $item_code])->getRow();
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -78,7 +90,7 @@ class ItemController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 
 
@@ -130,15 +142,15 @@ class ItemController extends Origin001
 	/**
 	 * get list data
 	 */
-	public function get_data_list_post(){
-		$data       = $this->post();
+	public function get_data_list(){
+		$data       = $this->request->getJSON();
 		$token		= $this->getAuthHeader();
 
 		//Validate Data
 
 
-		$limit		= intval($data['rowsPerpage']);
-		$offset		= ($data['page_index']-1) * $limit;
+		$limit		= intval($data->rowsPerpage);
+		$offset		= ($data->page_index-1) * $limit;
 
 		$result     = $this->_checkToken($token);
 		if($result->user_id >= 0){
@@ -162,9 +174,9 @@ class ItemController extends Origin001
 			ORDER BY item_code
 			";
 			
-			$itemn_data = $this->db->query($query_str,[$result->company_id])->result();
+			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
-			$itemn_count = $this->db->query($query_count, [$result->company_id])->result();
+			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -176,55 +188,54 @@ class ItemController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 	
 
 	/**
 	 * ีupdate / insert data to database
 	 */
-	public function update_data_post(){
+	public function update_data(){
 		$token			= $this->getAuthHeader();
-		$data           = $this->post();
+		$data           = $this->request->getJSON();
 
 		//init data
-		$old_item_code  	= isset($data['old_item_code'])	? $data['old_item_code']	: -1;
+		$old_item_code  	= isset($data->old_item_code)	? $data->old_item_code	: -1;
 
-		$item_code		= isset($data['item_code'])	? $data['item_code'] : '';
-		$item_name		= isset($data['item_name'])	? $data['item_name'] : '';
-		$item_type		= isset($data['item_type'])	? $data['item_type'] : '';
+		$item_code		= isset($data->item_code)	? $data->item_code : '';
+		$item_name		= isset($data->item_name)	? $data->item_name : '';
+		$item_type		= isset($data->item_type)	? $data->item_type : '';
 
-		$lot_flag		= isset($data['lot_flag'])	? $data['lot_flag'] : -1;
-		$unit_code		= isset($data['unit_code'])	? $data['unit_code'] : '';
-		$production_lead_time		= isset($data['production_lead_time'])	? $data['production_lead_time'] : 0;
-		$request_decimal		= isset($data['request_decimal'])	? $data['request_decimal'] : 0;
+		$lot_flag		= isset($data->lot_flag)	? $data->lot_flag : -1;
+		$unit_code		= isset($data->unit_code)	? $data->unit_code : '';
+		$production_lead_time		= isset($data->production_lead_time)	? $data->production_lead_time : 0;
+		$request_decimal		= isset($data->request_decimal)	? $data->request_decimal : 0;
 
-		$mrp_flag		= isset($data['mrp_flag'])	? $data['mrp_flag'] : false;
-		$standard_location		= isset($data['standard_location'])	? $data['standard_location'] : '';
+		$mrp_flag		= isset($data->mrp_flag)	? $data->mrp_flag : false;
+		$standard_location		= isset($data->standard_location)	? $data->standard_location : '';
 		
-
-		$remark         	= isset($data['remark'])		? $data['remark']       : '';
+		$remark         	= isset($data->remark)		? $data->remark       : '';
 
 		//Validation Data
 		if ( $token == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "token is empty";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 		if ( $item_name == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "?????????????????????";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 		if ( $item_code == '') {
 			$dataDB['status']   = "error";
 			$dataDB['message']  = "?????????????????????";
 			$dataDB['data']     = "";
-			$this->response($dataDB,200);
+			return $this->respond($dataDB,200);
 		}
 
 
@@ -237,8 +248,7 @@ class ItemController extends Origin001
 				$dataDB['status']   = "error";
 				$dataDB['message']  = "??????????????????????????????";
 				$dataDB['data']     = "";
-				$this->response($dataDB,200);
-
+				return $this->respond($dataDB,200);
 			}
 
 			$insert_data = [];
@@ -260,19 +270,19 @@ class ItemController extends Origin001
 			$insert_data['active_flag']				= true;
 			
 
-			$this->db->trans_start();
+			$this->db->transStart();
 
 			if ($old_item_code == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-				$this->db->insert('mst_item', $insert_data);
+				$this->mst_item->insert( $insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->db->update('mst_item',$insert_data,['item_code' => $old_item_code]);
+				$this->mst_item->update($insert_data,['item_code' => $old_item_code]);
 			}
-			$this->db->trans_complete();
+			$this->db->transComplete();
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -282,7 +292,7 @@ class ItemController extends Origin001
 			$dataDB['message']  = "token not found";
 			$dataDB['data']     = "";
 		}
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 
 	/**
@@ -300,10 +310,10 @@ class ItemController extends Origin001
 			return false; // OK data
 		}
 
-		$data	= $this->db->get_where('mst_item',[
+		$data	= $this->mst_item->getWhere([
 			'item_code'	=> $item_code,
 			'item_code !=' => $old_item_code
-		])->row();
+		])->getRow();
 
 		if (isset($data)){
 
@@ -313,18 +323,18 @@ class ItemController extends Origin001
 		return $is_check;
 	}
 
-	public function get_unit_post(){
+	public function get_unit(){
 		$token		= $this->getAuthHeader();
 
 		$query_str = " SELECT * FROM mst_unit where active_flag = true order by unit_code asc";
 
-		$itemn_data = $this->db->query($query_str)->result();
+		$itemn_data = $this->db->query($query_str)->getResult();
 
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
 
-		$this->response($dataDB,200);
+		return $this->respond($dataDB,200);
 	}
 }
 

@@ -226,14 +226,14 @@ class ItemController extends Origin001
 
 		if ( $item_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????????????";
+			$dataDB['message']  = "กรุณาระบุชื่อวัตถุดิบ";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
 
 		if ( $item_code == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????????????";
+			$dataDB['message']  = "กรุณาระบุรหัสวัตถุดิบ";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
@@ -246,9 +246,16 @@ class ItemController extends Origin001
 
 			if ($this->is_dupplicate_data($old_item_code,$item_code)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "??????????????????????????????";
+				$dataDB['message']  = "รหัสวัตถุดิบนี้มีการใช้งานแล้ว";
 				$dataDB['data']     = "";
 				return $this->respond($dataDB,200);
+			}
+
+			if ($old_item_code == -1){
+				$old_data = $this->mst_item->getWhere(['item_code' => $item_code,'active_flag' => false])->getRow();
+				if (isset($old_data)){
+					$old_item_code = $old_data->item_code;
+				}
 			}
 
 			$insert_data = [];
@@ -312,7 +319,8 @@ class ItemController extends Origin001
 
 		$data	= $this->mst_item->getWhere([
 			'item_code'	=> $item_code,
-			'item_code !=' => $old_item_code
+			'item_code !=' => $old_item_code,
+			'active_flag' => true
 		])->getRow();
 
 		if (isset($data)){

@@ -82,7 +82,7 @@ export class cInput{
   fax_no                : string;
   e_mail                : string;
   contact               : string;
-  tel_delivery_timeno   : number;
+  delivery_time   : number;
   tax_id                : string;
   payment_tearm         : string;
   remark                : string;

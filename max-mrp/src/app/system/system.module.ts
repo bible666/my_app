@@ -9,11 +9,15 @@ import { UnitListComponent } from './unit-list/unit-list.component';
 import { UnitEditComponent } from './unit-edit/unit-edit.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemEditComponent } from './item-edit/item-edit.component';
+import { SupplierListComponent } from './supplier-list/supplier-list.component';
+import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
 
 
 @NgModule({
   declarations: [
-    UnitListComponent, UnitEditComponent, ItemListComponent, ItemEditComponent
+    UnitListComponent, UnitEditComponent, 
+    ItemListComponent, ItemEditComponent, 
+    SupplierListComponent, SupplierEditComponent
   ],
   imports: [
     CommonModule,

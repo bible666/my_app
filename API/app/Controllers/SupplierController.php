@@ -78,12 +78,12 @@ class SupplierController extends Origin001
 				AND active_flag = true
 			";
 
-			$supplier_data = $this->db->query($query_str,['supplier_code' => $supplier_code])->getRow();
+			$db_data = $this->db->query($query_str,['supplier_code' => $supplier_code])->getRow();
 
-			if (isset($supplier_data)){
+			if (isset($db_data)){
 				$dataDB['status']   = "success";
 				$dataDB['message']  = $query_str;
-				$dataDB['data']     = $itemn_data;
+				$dataDB['data']     = $db_data;
 			} else {
 				$dataDB['status']   = "error";
 				$dataDB['message']  = "data not found";
@@ -259,7 +259,7 @@ class SupplierController extends Origin001
 			}
 
 			if ($old_supplier_code == -1){
-				$old_data = $this->mst_item->getWhere(['supplier_code' => $supplier_code,'active_flag' => false])->getRow();
+				$old_data = $this->mst_supplier->getWhere(['supplier_code' => $supplier_code,'active_flag' => false])->getRow();
 				if (isset($old_data)){
 					$old_supplier_code = $old_data->supplier_code;
 				}
@@ -290,15 +290,15 @@ class SupplierController extends Origin001
 
 			$this->db->transStart();
 
-			if ($old_item_code == '-1' ){
+			if ($old_supplier_code == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
-				$this->mst_item->insert( $insert_data);
+				$this->mst_supplier->insert( $insert_data);
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
-				$this->mst_item->update($insert_data,['supplier_code' => $old_supplier_code]);
+				$this->mst_supplier->update($insert_data,['supplier_code' => $old_supplier_code]);
 			}
 			$this->db->transComplete();
 

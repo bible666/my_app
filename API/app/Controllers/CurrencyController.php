@@ -198,11 +198,11 @@ class CurrencyController extends Origin001
 		$data           = $this->request->getJSON();
 
 		//init data
-		$id  		        = isset($data->id)				? $data->id				: -1;
-		$currency_code      = isset($data->currency_code)		? $data->currency_code	: -1;
-		$currency_name		= isset($data->currency_name)		? $data->currency_name	: '';
-		$default_currency	= isset($data->default_currency)	? $data->default_currency	: false;
-		$remark         	= isset($data->remark)			? $data->remark			: '';
+		$id  		        = isset($data->id)					? $data->id						: -1;
+		$currency_code      = isset($data->currency_code)		? trim($data->currency_code)	: '';
+		$currency_name		= isset($data->currency_name)		? trim($data->currency_name)	: '';
+		$default_currency	= isset($data->default_currency)	? $data->default_currency		: false;
+		$remark         	= isset($data->remark)				? trim($data->remark)			: '';
 
 		//Validation Data
 		if ( $token == '') {

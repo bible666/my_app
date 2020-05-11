@@ -222,18 +222,18 @@ class LocationController extends Origin001
 		$data           = $this->request->getJSON();
 		
 		//init data
-		$old_location  		= isset($data->old_location)	? $data->old_location			: -1;
-		$old_factory  		= isset($data->old_factory)	? $data->old_factory			: -1;
+		$old_location  		= isset($data->old_location)	? trim($data->old_location)		: '';
+		$old_factory  		= isset($data->old_factory)		? trim($data->old_factory)		: '';
 
 		
-		$factory_code		= isset($data->factory_code)	? $data->factory_code : '';
-		$location_code		= isset($data->location_code)	? $data->location_code : '';
-		$location_name		= isset($data->location_name)	? $data->location_name : '';
+		$factory_code		= isset($data->factory_code)	? trim($data->factory_code)		: '';
+		$location_code		= isset($data->location_code)	? trim($data->location_code)	: '';
+		$location_name		= isset($data->location_name)	? trim($data->location_name)	: '';
 		
-        $mrp_flag             = isset($data->mrp_flag)		? $data->mrp_flag       : '';
-        $expire_flag             = isset($data->expire_flag)		? $data->expire_flag       : '';
+        $mrp_flag           = isset($data->mrp_flag)		? trim($data->mrp_flag)			: '';
+        $expire_flag        = isset($data->expire_flag)		? trim($data->expire_flag)		: '';
 	
-		$remark         	= isset($data->remark)		? $data->remark       : '';
+		$remark         	= isset($data->remark)			? trim($data->remark)			: '';
 
 		//Validation Data
 		if ( $token == '') {

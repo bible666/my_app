@@ -200,21 +200,21 @@ class ItemController extends Origin001
 		$data           = $this->request->getJSON();
 
 		//init data
-		$old_item_code  	= isset($data->old_item_code)	? $data->old_item_code	: -1;
+		$old_item_code  		= isset($data->old_item_code)			? trim($data->old_item_code)	: '';
 
-		$item_code		= isset($data->item_code)	? $data->item_code : '';
-		$item_name		= isset($data->item_name)	? $data->item_name : '';
-		$item_type		= isset($data->item_type)	? $data->item_type : '';
+		$item_code				= isset($data->item_code)				? trim($data->item_code) : '';
+		$item_name				= isset($data->item_name)				? trim($data->item_name) : '';
+		$item_type				= isset($data->item_type)				? trim($data->item_type) : '';
 
-		$lot_flag		= isset($data->lot_flag)	? $data->lot_flag : -1;
-		$unit_code		= isset($data->unit_code)	? $data->unit_code : '';
-		$production_lead_time		= isset($data->production_lead_time)	? $data->production_lead_time : 0;
-		$request_decimal		= isset($data->request_decimal)	? $data->request_decimal : 0;
+		$lot_flag				= isset($data->lot_flag)				? $data->lot_flag 					: -1;
+		$unit_code				= isset($data->unit_code)				? trim($data->unit_code) 			: '';
+		$production_lead_time	= isset($data->production_lead_time)	? trim($data->production_lead_time) : 0;
+		$request_decimal		= isset($data->request_decimal)			? $data->request_decimal 			: 0;
 
-		$mrp_flag		= isset($data->mrp_flag)	? $data->mrp_flag : false;
-		$standard_location		= isset($data->standard_location)	? $data->standard_location : '';
+		$mrp_flag				= isset($data->mrp_flag)				? $data->mrp_flag 					: false;
+		$standard_location		= isset($data->standard_location)		? trim($data->standard_location) 	: '';
 		
-		$remark         	= isset($data->remark)		? $data->remark       : '';
+		$remark         		= isset($data->remark)					? trim($data->remark)       		: '';
 
 		//Validation Data
 		if ( $token == '') {

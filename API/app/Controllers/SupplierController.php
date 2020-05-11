@@ -207,21 +207,21 @@ class SupplierController extends Origin001
 		//init data
 		$old_supplier_code  	= isset($data->old_supplier_code)	? $data->old_supplier_code	: -1;
 
-		$supplier_code		= isset($data->supplier_code)	? $data->supplier_code : '';
-		$supplier_name		= isset($data->supplier_name)	? $data->supplier_name : '';
-		$addr1			= isset($data->addr1)	? $data->addr1 : '';
-		$addr2			= isset($data->addr2)	? $data->addr2 : '';
-		$addr3			= isset($data->addr3)	? $data->addr3 : '';
-		$post_code		= isset($data->post_code)	? $data->post_code : '';
-		$tel_no			= isset($data->tel_no)	? $data->tel_no : '';
-		$fax_no			= isset($data->fax_no)	? $data->fax_no : '';
-		$e_mail			= isset($data->e_mail)	? $data->e_mail : '';
-		$contact		= isset($data->contact)	? $data->contact : '';
-		$delivery_time	= isset($data->delivery_time)	? $data->delivery_time : 0;
-		$tax_id			= isset($data->tax_id)	? $data->tax_id : '';
-		$payment_tearm	= isset($data->payment_tearm)	? $data->payment_tearm : '';
+		$supplier_code	= isset($data->supplier_code)	? trim($data->supplier_code)	: '';
+		$supplier_name	= isset($data->supplier_name)	? trim($data->supplier_name)	: '';
+		$addr1			= isset($data->addr1)			? trim($data->addr1)			: '';
+		$addr2			= isset($data->addr2)			? trim($data->addr2)			: '';
+		$addr3			= isset($data->addr3)			? trim($data->addr3)			: '';
+		$post_code		= isset($data->post_code)		? trim($data->post_code)		: '';
+		$tel_no			= isset($data->tel_no)			? trim($data->tel_no)			: '';
+		$fax_no			= isset($data->fax_no)			? trim($data->fax_no)			: '';
+		$e_mail			= isset($data->e_mail)			? trim($data->e_mail)			: '';
+		$contact		= isset($data->contact)			? trim($data->contact)			: '';
+		$delivery_time	= isset($data->delivery_time)	? $data->delivery_time			: 0;
+		$tax_id			= isset($data->tax_id)			? trim($data->tax_id)			: '';
+		$payment_tearm	= isset($data->payment_tearm)	? trim($data->payment_tearm)	: '';
 		
-		$remark         	= isset($data->remark)		? $data->remark       : '';
+		$remark         	= isset($data->remark)		? trim($data->remark)			: '';
 
 		//Validation Data
 		if ( $token == '') {

@@ -214,9 +214,9 @@ class CalendarController extends Origin001
         $data = $this->request->getJSON();
 
         $token		= $this->getAuthHeader();
-        $id         = isset($data->id)        ? $data->id       : '';
-        $cal_name   = isset($data->cal_no)    ? $data->cal_no   : '';
-        $remark     = isset($data->remark)    ? $data->remark   : '';
+        $id         = isset($data->id)        ? trim($data->id)       : '';
+        $cal_name   = isset($data->cal_no)    ? trim($data->cal_no)   : '';
+        $remark     = isset($data->remark)    ? trim($data->remark)   : '';
         $holidays   = isset($data->holidays)  ? $data->holidays : [];
 
         //validate data
@@ -274,7 +274,7 @@ class CalendarController extends Origin001
                 $ar_holidays['cal_date']        = $holiday->holiday_date;
 				$ar_holidays['holiday_flag']    = true;
 				$ar_holidays['active_flag']		= true;
-                $ar_holidays['remark']          = $holiday->holiday_name;
+                $ar_holidays['remark']          = trim($holiday->holiday_name);
                 $ar_holidays['create_date']        = date("Y-m-d H:i:s");
 				$ar_holidays['create_user']        = $result->user_id;
                 $this->mst_calendar_detail->insert( $ar_holidays);

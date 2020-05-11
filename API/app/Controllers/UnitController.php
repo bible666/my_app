@@ -209,14 +209,14 @@ class UnitController extends Origin001
 		$data           = $this->request->getJSON();
 
 		//init data
-		$old_unit_code  		= isset($data->old_unit_code)	? $data->old_unit_code	: -1;
+		$old_unit_code  = isset($data->old_unit_code)	? trim($data->old_unit_code)	: '';
 
 
 		
-		$unit_code		= isset($data->unit_code)	? $data->unit_code : '';
-		$unit_name		= isset($data->unit_name)	? $data->unit_name : '';
+		$unit_code		= isset($data->unit_code)	? trim($data->unit_code) : '';
+		$unit_name		= isset($data->unit_name)	? trim($data->unit_name) : '';
 	
-		$remark         	= isset($data->remark)		? $data->remark       : '';
+		$remark         = isset($data->remark)		? trim($data->remark)    : '';
 
 		//Validation Data
 		if ( $token == '') {

@@ -232,20 +232,20 @@ class FactoryController extends Origin001
 		$data           = $this->request->getJSON();
 
 		//init data
-		$old_company  		= isset($data->old_company)	? $data->old_company			: -1;
-		$old_factory  		= isset($data->old_factory)	? $data->old_factory			: -1;
+		$old_company  		= isset($data->old_company)		? trim($data->old_company)	: '';
+		$old_factory  		= isset($data->old_factory)		? trim($data->old_factory)	: '';
 
-		$factory_code		= isset($data->factory_code)	? $data->factory_code : '';
-		$company_code		= isset($data->company_code)	? $data->company_code : '';
-        $factory_name		= isset($data->factory_name)		? $data->factory_name : '';
-        $addr_1             = isset($data->addr_1)			? $data->addr_1       : '';
-        $addr_2             = isset($data->addr_2)			? $data->addr_2       : '';
-		$addr_3             = isset($data->addr_3)			? $data->addr_3       : '';
-		$telno              = isset($data->telno) 			? $data->telno        : '';
-        $faxno              = isset($data->faxno)			? $data->faxno        : '';
-		$email              = isset($data->email)			? $data->email        : '';
+		$factory_code		= isset($data->factory_code)	? trim($data->factory_code) : '';
+		$company_code		= isset($data->company_code)	? trim($data->company_code) : '';
+        $factory_name		= isset($data->factory_name)	? trim($data->factory_name) : '';
+        $addr_1             = isset($data->addr_1)			? trim($data->addr_1)       : '';
+        $addr_2             = isset($data->addr_2)			? trim($data->addr_2)       : '';
+		$addr_3             = isset($data->addr_3)			? trim($data->addr_3)       : '';
+		$telno              = isset($data->telno) 			? trim($data->telno)        : '';
+        $faxno              = isset($data->faxno)			? trim($data->faxno)        : '';
+		$email              = isset($data->email)			? trim($data->email)        : '';
 		$cal_no             = isset($data->cal_no)			? $data->cal_no       : null;
-		$remark         	= isset($data->remark)			? $data->remark       : '';
+		$remark         	= isset($data->remark)			? trim($data->remark)       : '';
 
         
         

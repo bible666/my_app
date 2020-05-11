@@ -255,18 +255,18 @@ class CompanyController extends Origin001
 			//$insert_data['m_company_id']    = $result->company_id;
 
 			//set data to array for add or update
-			$insert_data['company_code']	= $company_code;
-			$insert_data['company_name']	= $company_name;
-			$insert_data['addr_1']		= $addr_1;
-            $insert_data['addr_2']		= $addr_2;
-            $insert_data['addr_3']		= $addr_3;
-            $insert_data['zip']			= $zip;
-            $insert_data['telno']		= $telno;
-            $insert_data['faxno']		= $faxno;
-            $insert_data['email']		= $email;
+			$insert_data['company_code']	= trim($company_code);
+			$insert_data['company_name']	= trim($company_name);
+			$insert_data['addr_1']		= trim($addr_1);
+            $insert_data['addr_2']		= trim($addr_2);
+            $insert_data['addr_3']		= trim($addr_3);
+            $insert_data['zip']			= trim($zip);
+            $insert_data['telno']		= trim($telno);
+            $insert_data['faxno']		= trim($faxno);
+            $insert_data['email']		= trim($email);
             $insert_data['cal_no']		= $cal_no;
 			$insert_data['active_flag']	= true;
-			$insert_data['remark']		= $remark;
+			$insert_data['remark']		= trim($remark);
 
 			$this->db->transStart();
 

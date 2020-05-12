@@ -94,6 +94,7 @@ from (
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
 ) new_table
+where agent_code = '5311055'
 --case where payment_channel
 --other_channel in (:payment_channel)
 -- case where group type

@@ -37,6 +37,16 @@
             <label class="control-label">ชื่อวัตถุดิบ</label>
         </div>
         <div class="col-md-9 edit_area">
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input-class" formControlName="item_name">
+                <mat-error *ngIf="inputForm.controls['item_name'].hasError('required')">
+                    กรุณาใส่ข้อมูล
+                </mat-error>
+                <mat-error *ngIf="inputForm.controls['item_name'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 50 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
+
             <input type="text" formControlName="item_name"/>
             <div *ngIf="submitted && inputForm.controls['item_name'].hasError">
                 <span class="help" *ngIf="inputForm.controls['item_name'].hasError('required')">กรุณาใส่ข้อมูล</span>
@@ -54,6 +64,11 @@
                 <option *ngFor="let unit_data of unit_datas" value="{{unit_data.unit_code}}">{{unit_data.unit_name}}</option>
             </select>
             <span class="help"></span>
+
+            <br/>
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input-class" value = "นั้นกุนกูน">
+            </mat-form-field>
         </div>
     </div>
 

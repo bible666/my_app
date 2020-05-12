@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SharedCommonModule } from '../common/common.module'
 import { SharedTemplateModule } from '../template/template.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
 
 import { SystemRoutingModule } from './system-routing.module';
 import { UnitListComponent } from './unit-list/unit-list.component';
@@ -26,7 +28,9 @@ import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
     SharedCommonModule,
     SharedTemplateModule,
     FormsModule, ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatFormFieldModule, 
+    MatInputModule
   ]
 })
 export class SystemModule { }

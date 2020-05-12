@@ -454,7 +454,7 @@ select[name="gender"] {max-width:4.5em!important;}
 .column_area.required::before,
 .label_name.required::before,
 .required .label_name::before {
-    content:'*'; vertical-align: middle;
+    content:'ต้องระบุ'; vertical-align: middle;
     float: right;
     font-size: 10px; line-height: 13px;
     color: #fff;

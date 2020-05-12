@@ -91,21 +91,13 @@
 
     <div class="row input">
         <div class="col-md-3 label_name column_area f_16" id="lbl_login_id" for="login-id">
-            <label class="control-label">ใช้ในการคำนวน MRP</label>
+            <label class="control-label"></label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="checkbox" formControlName="mrp_flag"/>
-            <span class="help"></span>
-        </div>
-    </div>
 
-    <div class="row input">
-        <div class="col-md-3 label_name column_area f_16" id="lbl_login_id" for="login-id">
-            <label class="control-label">มีการใช้ Lot Control</label>
-        </div>
-        <div class="col-md-9 edit_area">
-            <input type="checkbox" formControlName="lot_flag"/>
-            <span class="help"></span>
+            <mat-checkbox formControlName="mrp_flag">ใช้ในการคำนวน MRP</mat-checkbox><br/>
+            <mat-checkbox formControlName="lot_flag">มีการใช้ Lot Control</mat-checkbox>
+
         </div>
     </div>
 

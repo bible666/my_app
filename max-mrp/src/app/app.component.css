@@ -1,0 +1,16 @@
+::ng-deep .mat-checkbox-frame {
+    background-color: transparent;
+    transition: border-color 90ms cubic-bezier(0,0,.2,.1);
+    border-width: 4px;
+    border-style: solid;
+    border-color: black;
+}
+
+::ng-deep .mat-checkbox-background{
+    background-color: transparent;
+    transition: border-color 90ms cubic-bezier(0,0,.2,.1);
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+}

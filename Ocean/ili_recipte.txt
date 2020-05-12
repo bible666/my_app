@@ -1,0 +1,137 @@
+Table Detail (if any)
+=====================
+ 
+  เก็บข้อมูลใบเสร็จสามัญ  มีเฉพาะข้อมูลใบเสร็จที่ผ่านการรับเบี้ยแล้ว
+ข้อมูลใน olis.olprecdt กับ olis.olprectr มีข้อมูลปี 1 งวด 1 ทั้งคู่ต่างกันที่
+ข้อมูลใน olis.olprectr ข้อมูลปี 1 งวด 1 มาจากการทำสลักหลังแต่ 
+ข้อมูลใน olis.olprecdt ข้อมูลปี 1 งวด 1 เดิม
+ 
+SQL for Create Table
+====================
+ 
+CREATE TABLE ili_receipt_ord
+( rc_no varchar(15),
+  policy_no varchar(15),
+  rc_year  numeric(2),
+  rc_term numeric(2),
+  rc_org  numeric(7),
+  rc_pay_date  timestamp,
+  pay_from  timestamp,
+  pay_to  timestamp,
+  pol_plan varchar(3),
+  pol_prem  numeric(16,4),
+  acc_prem  numeric(16,4),
+  hb_prem  numeric(16,4), 
+  hc_prem  numeric(16,4),
+  other_prem  numeric(16,4),
+  extra_prem  numeric(16,4),
+  total_prem  numeric(16,4),
+  payment_channel  varchar(3),
+  CONSTRAINT pk_ili_receipt_ord PRIMARY KEY (rc_no, policy_no)
+);
+
+Index
+===== 
+ 
+CREATE INDEX "idx-ili_receipt_ord-policy_no"
+  ON ili_receipt_ord (policy_no);
+Datasource ที่ใช้ (DWSTAGING)
+#
+Table
+ข้อมูล
+1	
+as400_olis_olprecdt
+ข้อมูลใบเสร็จชำระเบี้ยสามัญ
+2	
+as400_olis_olppolms
+ข้อมูล Policy Master สามัญ
+Job Execute ที่ใช้ (DWCONSOL)
+#
+Command
+1	
+transform:execute ILIReceiptOrdTransform
+SQL for select data to this table
+=================================
+
+
+ select distinct on (a."rc#", a."rcpol#") 
+a."rc#" as rc_no, a."rcpol#" as policy_no, "rcpyy#" as rc_year, "rcpyi#" as rc_term, "rcorg#" as rc_org, rcpydt as rc_pay_date, rcfrdt as pay_from, rctodt as pay_to,
+"popln@" as pol_plan, rcpopr as pol_prem, rd13pr as acc_prem, rd24pr as hb_prem, rdhcpr as hc_prem, rdotpr as other_prem, rcexpr as extra_prem, 
+rcpopr + rd13pr + rd24pr + rdhcpr + rdotpr + rcexpr as total_prem, "rcway@" as payment_channel
+from as400_olis_olprecdt a 
+left join 
+(select "popln@", "polic#" from as400_olis_olppolms) b
+on a."rcpol#" = b."polic#"
+TABLE	ili_receipt_ord
+DESCRIPTION	เก็บข้อมูลใบเสร็จสามัญ
+FIELD#	KEY	ATTRIBUTE_NAME	DATA_TYPE	LENGTH	COMMENTS____________	Function transform data	DATA_SOURCE	TABLE	COLUMN______________________________	LOOKUP TABLE	CONDITION______________________________	REMARKS
+1
+
+pk
+
+rc_no
+
+varchar
+
+15
+
+เลขที่ใบเสร็จ	 	
+as400
+
+as400_olis_olprecdt
+
+rc
+
+ 	 	 
+2
+
+pk
+
+policy_no
+
+varchar
+
+15
+
+เลขที่กรมธรรม์
+
+ 	
+as400
+
+as400_olis_olprecdt
+
+rcpol
+
+ 	 	
+ 
+
+3	 	rc_year	numeric	2	ชำระ ปีที่	 	as400	as400_olis_olprecdt	rcpyy	 	 	 
+4	 	rc_term	numeric	2	ชำระ งวดที่	 	as400	as400_olis_olprecdt	rcpyi	 	 	 
+5	 	rc_org	numeric	7	โค้ด หน่วยงาน	 	as400	as400_olis_olprecdt	rcorg	 	 	 
+6 	 	rc_pay_date	timestamp	 	วันที่ รับชำระ	
+numeric_to_date_BE_yymmdd_nearest  
+
+Check ถ้าเป็น 0 ให้แปลงเป็น null
+
+as400	as400_olis_olprecdt	rcpydt	 	 	 
+7 	 	pay_from	timestamp	 	ชำระ ตั้งแต่	
+numeric_to_date_BE_yymmdd_nearest  
+
+Check ถ้าเป็น 0 ให้แปลงเป็น null
+
+as400	as400_olis_olprecdt	rcfrdt	 	 	 
+8 	 	pay_to	timestamp	 	ชำระ ถึง	 Custom Logic
+1.) นำ วันคุ้มครองถึง (potodt) มาตรวจสอบว่า > วันคุ้มครองเริ่มต้น (pay_from) และมีการแปลง field วันคุ้มครองถึง ให้เป็น ค.ศ. (numeric_to_date_BE_yymmdd_forward_only) โดยเทียบกับ pay_from
+
+Check ถ้าเป็น 0 ให้แปลงเป็น null
+
+as400	as400_olis_olprecdt	rctodt	 	 	 
+9 	 	pol_plan	varchar	3	Plan code	 	as400	as400_olis_olppolms	popln	 	 	 
+10 	 	pol_prem	numeric	16,4	เบี้ยหลัก,	 	as400	as400_olis_olprecdt	rcpopr	 	 	 
+11 	 	acc_prem	numeric	16,4	เบี้ย acc	 	as400	as400_olis_olprecdt	rd13pr	 	 	 
+12 	 	hb_prem	numeric	16,4	เบี้ย hb1/2	 	as400	as400_olis_olprecdt	rd24pr	 	 	 
+13 	 	hc_prem	numeric	16,4	เบี้ย hc	 	as400	as400_olis_olprecdt	rdhcpr	 	 	 
+14 	 	other_prem	numeric	16,4	เบี้ยอื่นๆ	 	as400	as400_olis_olprecdt	rdotpr	 	 	 
+15 	 	extra_prem	numeric	16,4	เบี้ยเพิ่ม พิเศษ	 	as400	as400_olis_olprecdt	rcexpr	 	 	 
+16 	 	total_prem	numeric	16,4	เบี้ยรวม	 	as400	as400_olis_olprecdt	rcpopr, rd13pr, rd24pr, rdhcpr, rdotpr, rcexpr	 	rcpopr + rd13pr + rd24pr + rdhcpr + rdotpr + rcexpr	 
+17 	 	payment_channel	varchar	3	ชำระที่	 as400	as400_olis_olprecdt	rcway

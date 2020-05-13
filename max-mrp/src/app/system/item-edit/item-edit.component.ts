@@ -3,7 +3,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService, MessageClass } from '../../service/message.service';
 import { cInput, ItemService } from '../../service/item.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {Observable} from 'rxjs';
+import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
+import { async } from '@angular/core/testing';
 
+export interface User {
+  name: string;
+  value: string;
+}
+
+export interface Unit {
+  unit_code: string;
+  unit_name: string;
+}
 
 @Component({
   selector: 'app-item-edit',
@@ -15,7 +27,20 @@ export class ItemEditComponent implements OnInit {
   public message: MessageClass[] = [];
   submitted: boolean = false;
 
+  show_unit_name :string = 'DDD';
+
   unit_datas;
+
+  options: User[] = [
+    {name: 'Mary', value: 'Mary'},
+    {name: 'Shelley', value: 'l'},
+    {name: 'Igor', value : 'i'}
+  ];
+
+  isLoading = false;
+
+  filteredOptions: Observable<User[]>;
+  filteredUnit: Unit[] = [];
 
   //----------------------------------------------------------------
   // set local Valiable
@@ -46,9 +71,9 @@ export class ItemEditComponent implements OnInit {
     this.old_item_code    = this.param.snapshot.params.item_code;
 
 
-    this.Service.getUnit().subscribe(data=>{
-      this.unit_datas = data['data'];
-    });
+    // this.Service.getUnit().subscribe(data=>{
+    //   this.unit_datas = data['data'];
+    // });
 
     if (this.old_item_code != '-1') {
       //get data from database
@@ -77,11 +102,50 @@ export class ItemEditComponent implements OnInit {
         }
         
       },
-        error=>{
-          this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
-          this.message = this.ServiceMessage.getMessage();
-        });
-      }
+      error=>{
+        this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+        this.message = this.ServiceMessage.getMessage();
+      });
+    }
+    //test auto complete
+      this.inputForm.get("unit_code").valueChanges
+      .pipe(
+        debounceTime(300),
+        tap(() => this.isLoading = true),
+        switchMap(value => this.Service.getUnit(value)
+        .pipe(
+          
+          finalize(
+            () => this.isLoading = false)
+          )
+        )
+      )
+      .subscribe(
+          unit =>{
+            this.filteredUnit = unit['data'];
+            this.unit_datas = unit['data'];
+          }
+      );
+  }
+
+  selectUnit(unit_name:string){
+    this.show_unit_name = unit_name;
+  }
+
+  displayFn = value => {
+    // this.Service.getUnitฺByCode(unit_code)
+    // .subscribe(async data=>{
+    //   console.log(data['data'].unit_name);
+    //   return data['data'].unit_name;
+    // });
+    return this.show_unit_name;
+  }
+
+
+  clearUnitValue(){
+    this.inputForm.patchValue({
+      'unit_code'             : ''
+    });
   }
 
   onSubmit(){

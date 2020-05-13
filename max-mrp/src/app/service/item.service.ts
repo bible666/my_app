@@ -45,10 +45,22 @@ export class ItemService {
     return this.http.post(BASE_URL+'/update_data',strJSON,this.httpOptions);
   }
 
-  public getUnit(){
-    let strJSON:string  = '';
+  public getUnit(unit_name:string){
+    let inputData = new unitSearch();
+    inputData.unit_name = unit_name;
+
+    let strJSON:string  = JSON.stringify(inputData);
     return this.http.post(BASE_URL+'/get_unit',strJSON,this.httpOptions);
   }
+
+  public getUnitฺByCode(unit_code:string){
+    let inputData = new unitSearch();
+    inputData.unit_code = unit_code;
+
+    let strJSON:string  = JSON.stringify(inputData);
+    return this.http.post(BASE_URL+'/get_unit_by_code',strJSON,this.httpOptions);
+  }
+
 }
 
 
@@ -63,6 +75,11 @@ export class cSearch{
   public constructor(init?: Partial<cSearch>){
       Object.assign(this,init);
    }
+}
+
+export class unitSearch{
+  unit_name : string;
+  unit_code : string;
 }
 
 export class cData{

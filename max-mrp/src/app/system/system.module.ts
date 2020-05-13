@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { SystemRoutingModule } from './system-routing.module';
 import { UnitListComponent } from './unit-list/unit-list.component';
@@ -30,7 +32,9 @@ import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
     FormsModule, ReactiveFormsModule,
     MatCheckboxModule,
     MatFormFieldModule, 
-    MatInputModule
+    MatInputModule,
+    MatAutocompleteModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SystemModule { }

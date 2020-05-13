@@ -333,15 +333,50 @@ class ItemController extends Origin001
 
 	public function get_unit(){
 		$token		= $this->getAuthHeader();
+		$data       = $this->request->getJSON();
 
-		$query_str = " SELECT * FROM mst_unit where active_flag = true order by unit_code asc";
+		$query_str = " SELECT * FROM mst_unit where active_flag = true and unit_name like :unit_name: order by unit_code asc";
 
-		$itemn_data = $this->db->query($query_str)->getResult();
+		$itemn_data = $this->db->query($query_str,['unit_name'=>'%'.$data->unit_name.'%'])->getResult();
 
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
 
+		return $this->respond($dataDB,200);
+	}
+
+	public function get_unit_by_code(){
+		$token		= $this->getAuthHeader();
+		$data       = $this->request->getJSON();
+
+		if ( $token == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token is empty";
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+
+		//get data from token
+		$result     = $this->_checkToken($token);
+
+		if($result->user_id > 0){
+			$unit_data = $this->mst_unit->getWhere(['unit_code' => $data->unit_code,'active_flag' => true])->getRow();
+			if (isset($unit_data)){
+				$dataDB['status']   = "success";
+				$dataDB['message']  = "";
+				$dataDB['data']     = $unit_data;
+		
+			}else {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = "unit code not found";
+				$dataDB['data']     = "";
+			}
+		} else {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
 		return $this->respond($dataDB,200);
 	}
 }

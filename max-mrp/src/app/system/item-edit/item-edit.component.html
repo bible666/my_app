@@ -58,10 +58,20 @@
                 <option *ngFor="let unit_data of unit_datas" value="{{unit_data.unit_code}}">{{unit_data.unit_name}}</option>
             </select>
             <span class="help"></span>
-
+            <mat-spinner diameter="50"></mat-spinner>
             <br/>
+
+
             <mat-form-field floatLabel="never" appearance="outline">
-                <input matInput class="mat-input" value = "นั้นกุนกูน">
+                <input matInput class="mat-input" formControlName = "unit_code" (blur)="clearUnitValue()" [matAutocomplete]="unit_data" >
+                <mat-autocomplete #unit_data="matAutocomplete"  [displayWith]="displayFn">
+                    <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+                    <ng-container *ngIf="!isLoading">
+                        <mat-option *ngFor="let unit of filteredUnit " [value]="unit.unit_code" (onSelectionChange)="selectUnit(unit.unit_name)">
+                        {{unit.unit_name}}
+                        </mat-option>
+                    </ng-container>
+                  </mat-autocomplete>
             </mat-form-field>
         </div>
     </div>

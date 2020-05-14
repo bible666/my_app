@@ -24,11 +24,16 @@
             <label class="control-label">รหัสวัตถุดิบ</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="item_code"/>
-            <div *ngIf="submitted && inputForm.controls['item_code'].hasError">
-                <span class="help" *ngIf="inputForm.controls['item_code'].hasError('required')">กรุณาใส่ข้อมูล</span>
-                <span class="help" *ngIf="inputForm.controls['item_code'].hasError('maxlength')">ใส่ได้ไม่เกิน 10 ตัวอักษร</span>
-            </div>
+            <mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="item_code">
+                <mat-error *ngIf="inputForm.controls['item_code'].hasError('required')">
+                    กรุณาใส่ข้อมูล
+                </mat-error>
+                <mat-error *ngIf="inputForm.controls['item_code'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 10 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
+
         </div>
     </div>
 

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService, MessageClass } from '../../service/message.service';
 import { cInput, ItemService } from '../../service/item.service';
+import { LoadingService } from '../../service/loading.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Observable} from 'rxjs';
+import {Observable, concat, of} from 'rxjs';
 import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
-import { async } from '@angular/core/testing';
 
 export interface User {
   name: string;
@@ -63,19 +63,20 @@ export class ItemEditComponent implements OnInit {
   constructor(private param: ActivatedRoute,
     private Service: ItemService,
     private ServiceMessage: MessageService,
-    private router: Router) { }
+    private router: Router,
+    private loading: LoadingService) { }
 
   ngOnInit() {
     window.scroll(0,0);
-
+    
     this.old_item_code    = this.param.snapshot.params.item_code;
 
-
-    // this.Service.getUnit().subscribe(data=>{
-    //   this.unit_datas = data['data'];
-    // });
+    this.Service.getUnit('').subscribe(unit =>{
+      this.filteredUnit = unit['data'];
+    });
 
     if (this.old_item_code != '-1') {
+      
       //get data from database
       this.Service.getDataById(this.old_item_code)
       .subscribe(data=>{
@@ -96,6 +97,7 @@ export class ItemEditComponent implements OnInit {
             'mrp_flag'              : data['data'].mrp_flag == 1 ? true:false,
             'remark'                : data['data'].remark
           });
+          
         } else {
           this.ServiceMessage.setError(data['message']);
           this.message = this.ServiceMessage.getMessage();
@@ -108,44 +110,55 @@ export class ItemEditComponent implements OnInit {
       });
     }
     //test auto complete
-      this.inputForm.get("unit_code").valueChanges
+    this.inputForm.get("unit_code").valueChanges
+    .pipe(
+      debounceTime(300), //if keypress interval is less then call service
+      tap(() => {
+        //before service start
+        this.isLoading    = true;
+        this.filteredUnit = [];
+      }),
+      switchMap(value => this.Service.getUnit(value)
       .pipe(
-        debounceTime(300),
-        tap(() => this.isLoading = true),
-        switchMap(value => this.Service.getUnit(value)
-        .pipe(
-          
-          finalize(
-            () => this.isLoading = false)
-          )
+        finalize(() => {
+            //after service en
+            this.isLoading = false
+          })
         )
       )
-      .subscribe(
-          unit =>{
-            this.filteredUnit = unit['data'];
-            this.unit_datas = unit['data'];
-          }
-      );
-  }
-
-  selectUnit(unit_name:string){
-    this.show_unit_name = unit_name;
-  }
-
-  displayFn = value => {
-    // this.Service.getUnitฺByCode(unit_code)
-    // .subscribe(async data=>{
-    //   console.log(data['data'].unit_name);
-    //   return data['data'].unit_name;
-    // });
-    return this.show_unit_name;
-  }
-
-
-  clearUnitValue(){
-    this.inputForm.patchValue({
-      'unit_code'             : ''
+    )
+    .subscribe(unit =>{
+      this.filteredUnit = unit['data'];
     });
+  }
+
+  onBlurUnitCode(){
+    let unit_code:string = '';
+    let old_unit_code:string = this.inputForm.get("unit_code").value;
+    this.Service.getUnitฺCode(old_unit_code)
+    .subscribe(data=>{
+      if (data['status']== 'success'){
+        unit_code = data['data'];
+      } 
+      
+      if (old_unit_code != unit_code){
+        this.inputForm.patchValue({
+          'unit_code'             : unit_code
+        });
+      }
+    });
+  }
+
+
+  displayFn(value:string){
+    if (value && this.filteredUnit.length > 0 ) 
+    {
+      return this.filteredUnit.find(x => x.unit_code == value).unit_name;
+    } else {
+      return '';
+    }
+
+   
   }
 
   onSubmit(){

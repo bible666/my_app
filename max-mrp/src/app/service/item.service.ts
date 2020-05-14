@@ -53,12 +53,12 @@ export class ItemService {
     return this.http.post(BASE_URL+'/get_unit',strJSON,this.httpOptions);
   }
 
-  public getUnitฺByCode(unit_code:string){
+  public getUnitฺCode(unit_name:string){
     let inputData = new unitSearch();
-    inputData.unit_code = unit_code;
+    inputData.unit_name = unit_name;
 
     let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/get_unit_by_code',strJSON,this.httpOptions);
+    return this.http.post(BASE_URL+'/get_unit_code',strJSON,this.httpOptions);
   }
 
 }

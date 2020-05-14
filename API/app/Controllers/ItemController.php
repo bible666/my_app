@@ -379,6 +379,48 @@ class ItemController extends Origin001
 		}
 		return $this->respond($dataDB,200);
 	}
+
+	public function get_unit_code(){
+		$token		= $this->getAuthHeader();
+		$data       = $this->request->getJSON();
+
+		if ( $token == '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token is empty";
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+
+		//get data from token
+		$result     = $this->_checkToken($token);
+
+		if($result->user_id > 0){
+			//print_r($query_str);exit;
+			$query = "
+			SELECT *
+			FROM mst_unit
+			WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
+			";
+			
+			$data = $this->db->query($query,['unit_name' => $data->unit_name])->getRow();
+
+			$unit_code = "";
+
+			if (isset($data)){
+				$unit_code = $data->unit_code;
+			}
+			$dataDB['status']   = "success";
+			$dataDB['message']  = "";
+			$dataDB['data']     = $unit_code;
+		
+			
+		} else {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = "token not found";
+			$dataDB['data']     = "";
+		}
+		return $this->respond($dataDB,200);
+	}
 }
 
 ?>

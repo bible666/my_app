@@ -24,12 +24,17 @@
                             <tr>
                                 <th>รหัสวัตถุดิบ</th>
                                 <td>
-                                    <input type="text" formControlName="item_code"/>
+                                    <mat-form-field style="margin-bottom: -1.25em" floatLabel="never" appearance="outline">
+                                        <input matInput class="mat-input" formControlName="item_code">
+                                    </mat-form-field>
+                                    
                                 </td>
 
                                 <th>ชื่อวัตถุดิบ</th>
                                 <td>
-                                    <input type="text" formControlName="item_name"/>
+                                    <mat-form-field style="margin-bottom: -1.25em" floatLabel="never" appearance="outline">
+                                        <input matInput class="mat-input" formControlName="item_name">
+                                    </mat-form-field>
                                 </td>
                                 
                             </tr>
@@ -40,11 +45,10 @@
 
                     <!-- ↓↓ Search button area ----------------------↓↓ -->
                     <div class="col-sm-2">
-
-                        <button type="button" class="btn btn-search btn-sm w-100 p-3" (click)="onSearch()">ค้นหา</button>
-                        <button type="button" class="btn btn-clear btn-sm w-100" (click)="onClear()">ยกเลิก</button>
+                        <button mat-raised-button class="btn btn-search btn-sm w-100 p-3" (click)="onSearch()">ค้นหา</button>
+                        <button mat-raised-button class="btn btn-clear btn-sm w-100" (click)="onClear()">ยกเลิก</button>
                         <div class='sort-area'>
-                            <select class="form-control" formControlName="rowsPerpage">
+                            <select class="form-control" formControlName="rowsPerpage" class="input_select">
                                 <option value="20">20</option>
                                 <option value="50">50</option>
                                 <option value="100">100</option>

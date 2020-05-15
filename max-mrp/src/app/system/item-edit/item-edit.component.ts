@@ -4,7 +4,7 @@ import { MessageService, MessageClass } from '../../service/message.service';
 import { cInput, ItemService } from '../../service/item.service';
 import { LoadingService } from '../../service/loading.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Observable, concat, of} from 'rxjs';
+import { Observable } from 'rxjs';
 import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
 
 export interface User {
@@ -71,14 +71,23 @@ export class ItemEditComponent implements OnInit {
     
     this.old_item_code    = this.param.snapshot.params.item_code;
 
-    this.Service.getUnit('').subscribe(unit =>{
+    this.Service.getUnit('')
+    .pipe(
+      tap(()=>{this.loading.show();}),
+      finalize(()=>{this.loading.hide();})
+    )
+    .subscribe(unit =>{
       this.filteredUnit = unit['data'];
     });
 
     if (this.old_item_code != '-1') {
-      
       //get data from database
+      
       this.Service.getDataById(this.old_item_code)
+      .pipe(
+        tap(()=>{this.loading.show();}),
+        finalize(()=>{this.loading.hide();})
+      )
       .subscribe(data=>{
         
         if (data['status']== 'success'){
@@ -97,16 +106,17 @@ export class ItemEditComponent implements OnInit {
             'mrp_flag'              : data['data'].mrp_flag == 1 ? true:false,
             'remark'                : data['data'].remark
           });
-          
         } else {
           this.ServiceMessage.setError(data['message']);
           this.message = this.ServiceMessage.getMessage();
         }
+
         
       },
       error=>{
         this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
         this.message = this.ServiceMessage.getMessage();
+        
       });
     }
     //test auto complete
@@ -136,6 +146,10 @@ export class ItemEditComponent implements OnInit {
     let unit_code:string = '';
     let old_unit_code:string = this.inputForm.get("unit_code").value;
     this.Service.getUnitฺCode(old_unit_code)
+    .pipe(
+      tap(()=>{this.loading.show();}),
+      finalize(()=>{this.loading.hide();})
+    )
     .subscribe(data=>{
       if (data['status']== 'success'){
         unit_code = data['data'];
@@ -171,6 +185,10 @@ export class ItemEditComponent implements OnInit {
     input_data.old_item_code = this.old_item_code;
 
     this.Service.updateById(input_data)
+    .pipe(
+      tap(()=>{this.loading.show();}),
+      finalize(()=>{this.loading.hide();})
+    )
     .subscribe(data=>{
 
       if (data['status']== 'success'){

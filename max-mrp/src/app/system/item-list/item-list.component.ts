@@ -3,7 +3,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService, MessageClass } from '../../service/message.service';
 import { ItemService, cSearch, cData } from '../../service/item.service';
 import { MatDialog } from '@angular/material';
+import { LoadingService } from '../../service/loading.service';
 import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dialog.component'
+import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-list',
@@ -29,7 +31,8 @@ export class ItemListComponent implements OnInit {
   constructor(
     private service: ItemService,
     public dialog: MatDialog,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private loading: LoadingService
   ) {
     //set inital value when open form
     this.onInitValue();
@@ -63,7 +66,12 @@ export class ItemListComponent implements OnInit {
 
   getData(){
     this.frmSearchData.page_index = this.CurrentPage;
-    this.service.getListData(this.frmSearchData).subscribe(data => {
+    this.service.getListData(this.frmSearchData)
+    .pipe(
+      tap(()=>{this.loading.show();}),
+      finalize(()=>{this.loading.hide();})
+    )
+    .subscribe(data => {
       if (data['status'] == 'success'){
         this.CountData    = data['max_rows'];
         this.AllPage      = Math.ceil(this.CountData / this.inputForm.value.rowsPerpage);
@@ -97,6 +105,10 @@ export class ItemListComponent implements OnInit {
 				//alert('hiii');
 			} else {
         this.service.deleteById(item_code)
+        .pipe(
+          tap(()=>{this.loading.show();}),
+          finalize(()=>{this.loading.hide();})
+        )
         .subscribe(data=>{
           this.messageService.setSuccess('ทำการลบเสร็จแล้ว');
           this.onSearch();

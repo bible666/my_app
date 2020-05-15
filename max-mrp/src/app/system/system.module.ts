@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatButtonModule } from '@angular/material/button';
 
 import { SystemRoutingModule } from './system-routing.module';
 import { UnitListComponent } from './unit-list/unit-list.component';
@@ -34,7 +35,8 @@ import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
     MatFormFieldModule, 
     MatInputModule,
     MatAutocompleteModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule
   ]
 })
 export class SystemModule { }

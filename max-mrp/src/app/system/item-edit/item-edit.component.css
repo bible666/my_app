@@ -15,3 +15,12 @@
 ::ng-deep .mat-option:hover{
     color: white;
 }
+
+.input_select{
+    border-color: black;
+}
+
+.input_textarea{
+    border-color: black;
+    height: 100px;
+}

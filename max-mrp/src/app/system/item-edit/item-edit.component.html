@@ -80,7 +80,7 @@
             <label class="control-label">เวลาที่ใช้ในการผลิดหรือจัดส่ง</label>
         </div>
         <div class="col-md-9 edit_area">
-            <select formControlName = "production_lead_time">
+            <select formControlName = "production_lead_time" class="input_select">
                 <option value="0">0 วัน</option>
                 <option value="1">1 วัน</option>
                 <option value="2">2 วัน</option>
@@ -96,7 +96,7 @@
             <label class="control-label">จำนวนทศนิยมที่ใช้เก็บ</label>
         </div>
         <div class="col-md-9 edit_area">
-            <select formControlName = "request_decimal">
+            <select formControlName = "request_decimal" class="input_select">
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -125,8 +125,9 @@
             <label class="control-label">หมายเหตุ</label>
         </div>
         <div class="col-md-9 edit_area">
-            <textarea formControlName="remark" ></textarea>
+            <textarea formControlName="remark" class="input_textarea" ></textarea>
             <span class="help"></span>
+
         </div>
     </div>
     

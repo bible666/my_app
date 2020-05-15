@@ -227,7 +227,7 @@ textaria:active{cursor : pointer;}
 /*----------------------------
    textarea テキストエリア
 -----------------------------*/
-textarea{  padding:2px 6px; font-size:13px; line-height:16px; 
+textarea{  padding:10px 6px 2px 6px; line-height:16px; 
  -moz-border-radius:2px;
  -webkit-border-radius:2px;
  border-radius:2px;
@@ -237,6 +237,7 @@ textarea{  padding:2px 6px; font-size:13px; line-height:16px;
  overflow: auto;
  resize: vertical;
  width: 99%!important;
+ line-height: 23px;
 }
 textarea.form-control {width:100%!important; padding:5px!important;background-color: #fff;}
 textarea,.search .form-control {width:100%!important;}

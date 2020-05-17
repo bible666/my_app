@@ -10,7 +10,7 @@ class Migration_mst_user_data extends \CodeIgniter\Database\Migration {
             INSERT mst_user 
             (user_id, title, first_name, last_name, staff_cat, join_date, login_id, user_password, user_group_id, remark, active_flag, create_date, update_date, create_user, update_user) 
             VALUES 
-            (1, 1, 'Admi', 'Admi',4,'2011-01-01','admi', 'admi',1, '', 0,'2013-06-20 10:49:09','2013-06-20 10:49:09',1, 1),
+            (1, 1, 'Admi', 'Admi',4,'2011-01-01','admi', 'admi',1, '', true,'2013-06-20 10:49:09','2013-06-20 10:49:09',1, 1),
             (2, 3, 'Prathummayo', 'Kanjana',0,'2014-05-15','PL01', 'pl01',17, 'Domestic Purchasing', 0,'2014-05-15 15:00:25', '2014-12-19 11:22:12',1, 1),
             (3, 2, 'Boonyarat', '',0,'2014-05-15','King', '0831566566',1, '', 1,'2014-05-15 15:23:01', '2014-12-19 13:11:42',1, 1),
             (4, 1, 'Maruyama', '', 0,'2014-05-15','maruyama', 'met01',1, '', 1,'2014-05-15 15:47:45' , '2014-12-19 13:11:42',1, 1),

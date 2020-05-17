@@ -5,3 +5,5 @@ WEB/package-lock.json
 WEB/dist/*
 max-mrp/public/*
 max-mrp/node_modules/*
+API/writable/debugbar/*
+API/writable/logs/*

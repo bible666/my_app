@@ -402,13 +402,22 @@ class ItemController extends Origin001
 			WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
 			";
 			
+
 			$data = $this->db->query($query,['unit_name' => $data->unit_name])->getRow();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
+			
 			$unit_code = "";
 
 			if (isset($data)){
 				$unit_code = $data->unit_code;
-			}
+			} 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $unit_code;

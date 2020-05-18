@@ -33,7 +33,10 @@ class Migration_mst_user_group_data extends \CodeIgniter\Database\Migration {
 
     public function down()
     {
-        $this->dbforge->drop_table('mst_user_group');
+		$this->db->query("
+
+		DELETE FROM mst_user_group
+		");
     }
 }
 ?>

@@ -9,7 +9,7 @@ class Migration_prg_token extends \CodeIgniter\Database\Migration {
             CREATE TABLE prg_token(
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 user_id INT REFERENCES mst_user(user_id),
-                token_code varchar(200),
+                token_code varchar(200) NOT NULL,
                 active_flag INT,
 
                 create_date DATETIME NOT NULL,

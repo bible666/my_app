@@ -7,13 +7,13 @@ class Migration_mst_location extends \CodeIgniter\Database\Migration {
     {
         $this->db->query("
             CREATE TABLE mst_location(
-                factory_code varchar(10) REFERENCES mst_factory (factory_code),
-                location_code varchar(10),
-                location_name varchar(100),
-                mrp_flag int,
-                expire_flag int,
+                factory_code    varchar(10) REFERENCES mst_factory (factory_code),
+                location_code   varchar(10),
+                location_name   varchar(100) DEFAULT '',
+                mrp_flag        int,
+                expire_flag     int,
 
-                remark       varchar(200),
+                remark       varchar(200) DEFAULT '',
                 active_flag  int NOT NULL,
 
                 create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

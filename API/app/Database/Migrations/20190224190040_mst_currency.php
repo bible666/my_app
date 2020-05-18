@@ -8,7 +8,7 @@ class Migration_mst_currency extends \CodeIgniter\Database\Migration {
         $this->db->query("
             CREATE TABLE mst_currency(
                 currency_code varchar(10) PRIMARY KEY,
-                currency_name varchar(50) ,
+                currency_name varchar(50) DEFAULT '',
                 default_currency int,
                 remark varchar(200),
                 active_flag int,

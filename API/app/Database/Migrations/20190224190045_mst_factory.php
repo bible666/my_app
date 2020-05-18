@@ -7,17 +7,15 @@ class Migration_mst_factory extends \CodeIgniter\Database\Migration {
     {
         $this->db->query("
             CREATE TABLE mst_factory(
-                factory_code varchar(10) ,
-                company_code varchar(10) REFERENCES mst_company (company_code),
-                factory_name varchar(100),
-                addr_1       varchar(200),
-                addr_2       varchar(200),
-                addr_3       varchar(200),
-                telno        varchar(50),
-                faxno        varchar(50),
-                email        varchar(100),
-                cal_no       int,
-                remark       varchar(200),
+                factory_code    varchar(10) ,
+                company_code    varchar(10) REFERENCES mst_company (company_code),
+                factory_name    varchar(100) DEFAULT '',
+                address         text DEFAULT '',
+                telno           varchar(50) DEFAULT '',
+                faxno           varchar(50) DEFAULT '',
+                email           varchar(100) DEFAULT '',
+                cal_no          int,
+                remark          varchar(200) DEFAULT '',
                 active_flag  int NOT NULL,
 
                 create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

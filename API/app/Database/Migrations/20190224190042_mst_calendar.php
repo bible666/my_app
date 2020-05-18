@@ -9,7 +9,7 @@ class Migration_mst_calendar extends \CodeIgniter\Database\Migration {
             CREATE TABLE mst_calendar(
                 cal_no INT AUTO_INCREMENT PRIMARY KEY,
                 cal_name varchar(50) NOT NULL,
-                remark varchar(200),
+                remark varchar(200) DEFAULT '',
                 active_flag int NOT NULL,
 
                 create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,

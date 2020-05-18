@@ -48,7 +48,14 @@ class ItemController extends Origin001
             $insert_data['update_user']     = $result->user_id;
 
             $this->mst_item->update($insert_data,['item_code' => $item_code]);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -81,6 +88,14 @@ class ItemController extends Origin001
 			";
 
 			$itemn_data = $this->db->query($query_str,['item_code' => $item_code])->getRow();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -176,7 +191,21 @@ class ItemController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -283,11 +312,25 @@ class ItemController extends Origin001
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
 				$this->mst_item->insert( $insert_data);
+
+				if ( $this->db->error()['message'] !== '') {
+					$dataDB['status']   = "error";
+					$dataDB['message']  = $this->db->error()['message'];
+					$dataDB['data']     = "";
+					return $this->respond($dataDB,200);
+				}
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;
 
 				$this->mst_item->update($insert_data,['item_code' => $old_item_code]);
+
+				if ( $this->db->error()['message'] !== '') {
+					$dataDB['status']   = "error";
+					$dataDB['message']  = $this->db->error()['message'];
+					$dataDB['data']     = "";
+					return $this->respond($dataDB,200);
+				}
 			}
 			$this->db->transComplete();
 
@@ -339,6 +382,13 @@ class ItemController extends Origin001
 
 		$itemn_data = $this->db->query($query_str,['unit_name'=>'%'.$data->unit_name.'%'])->getResult();
 
+		if ( $this->db->error()['message'] !== '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = $this->db->error()['message'];
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
@@ -362,6 +412,14 @@ class ItemController extends Origin001
 
 		if($result->user_id > 0){
 			$unit_data = $this->mst_unit->getWhere(['unit_code' => $data->unit_code,'active_flag' => true])->getRow();
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			if (isset($unit_data)){
 				$dataDB['status']   = "success";
 				$dataDB['message']  = "";

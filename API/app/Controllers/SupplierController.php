@@ -46,7 +46,14 @@ class SupplierController extends Origin001
             $insert_data['update_user']     = $result->user_id;
 
             $this->mst_supplier->update($insert_data,['supplier_code' => $supplier_code]);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -79,6 +86,13 @@ class SupplierController extends Origin001
 			";
 
 			$db_data = $this->db->query($query_str,['supplier_code' => $supplier_code])->getRow();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			if (isset($db_data)){
 				$dataDB['status']   = "success";
@@ -181,7 +195,21 @@ class SupplierController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -209,9 +237,7 @@ class SupplierController extends Origin001
 
 		$supplier_code	= isset($data->supplier_code)	? trim($data->supplier_code)	: '';
 		$supplier_name	= isset($data->supplier_name)	? trim($data->supplier_name)	: '';
-		$addr1			= isset($data->addr1)			? trim($data->addr1)			: '';
-		$addr2			= isset($data->addr2)			? trim($data->addr2)			: '';
-		$addr3			= isset($data->addr3)			? trim($data->addr3)			: '';
+		$address		= isset($data->address)			? trim($data->address)			: '';
 		$post_code		= isset($data->post_code)		? trim($data->post_code)		: '';
 		$tel_no			= isset($data->tel_no)			? trim($data->tel_no)			: '';
 		$fax_no			= isset($data->fax_no)			? trim($data->fax_no)			: '';
@@ -272,9 +298,7 @@ class SupplierController extends Origin001
 			//set data to array for add or update
 			$insert_data['supplier_code']		= $supplier_code;
 			$insert_data['supplier_name']		= $supplier_name;
-			$insert_data['addr1']				= $addr1;
-			$insert_data['addr2']				= $addr2;
-			$insert_data['addr3']				= $addr3;
+			$insert_data['address']				= $address;
 			$insert_data['post_code']			= $post_code;
 			$insert_data['tel_no']				= $tel_no;
 			$insert_data['fax_no']				= $fax_no;
@@ -300,6 +324,14 @@ class SupplierController extends Origin001
 
 				$this->mst_supplier->update($insert_data,['supplier_code' => $old_supplier_code]);
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

@@ -53,7 +53,14 @@ class LocationController extends Origin001
 				'location_code'			=> $location_cd
 			];
             $this->mst_location->update($insert_data,$where);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -88,6 +95,14 @@ class LocationController extends Origin001
 			";
 
 			$itemn_data = $this->db->query($query_str,['factory_cd'=>$factory_cd,'location_cd'=>$location_cd])->getRow();
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -153,6 +168,13 @@ class LocationController extends Origin001
 
 		$itemn_data = $this->db->query($query_str)->getResult();
 
+		if ( $this->db->error()['message'] !== '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = $this->db->error()['message'];
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
@@ -197,7 +219,21 @@ class LocationController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -297,6 +333,14 @@ class LocationController extends Origin001
 
 				$this->mst_location->update($insert_data,['factory_code' => $old_location, 'location_code' => $old_factory]);
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

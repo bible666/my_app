@@ -90,6 +90,14 @@ class UnitController extends Origin001
 			";
 
 			$itemn_data = $this->db->query($query_str,['unit_code' => $unit_code])->getRow();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -185,7 +193,21 @@ class UnitController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -211,8 +233,6 @@ class UnitController extends Origin001
 		//init data
 		$old_unit_code  = isset($data->old_unit_code)	? trim($data->old_unit_code)	: '';
 
-
-		
 		$unit_code		= isset($data->unit_code)	? trim($data->unit_code) : '';
 		$unit_name		= isset($data->unit_name)	? trim($data->unit_name) : '';
 	
@@ -239,7 +259,6 @@ class UnitController extends Origin001
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
-
 
 		//get data from token
 		$result     = $this->_checkToken($token);
@@ -284,6 +303,14 @@ class UnitController extends Origin001
 
 				$this->mst_unit->update($insert_data,['unit_code' => $old_unit_code]);
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

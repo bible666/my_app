@@ -84,10 +84,24 @@ class CalendarController extends Origin001
 				'active_flag' => true
 			])->getRow();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_data_details = $this->mst_calendar_detail->getWhere([
 				'cal_no' => $id,
 				'active_flag' => true
 			])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$itemn_data->holidays = [];
 			foreach ($itemn_data_details as $itemn_data_detail){
@@ -145,7 +159,21 @@ class CalendarController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -181,7 +209,14 @@ class CalendarController extends Origin001
 				'cal_no'			=> $id
 			]);
             $this->mst_calendar->update($insert_data);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -264,10 +299,24 @@ class CalendarController extends Origin001
 
 				$this->mst_calendar->where('cal_no', $id);
 				$this->mst_calendar->update($insert_data);
-            }
+			}
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 			
 			$this->mst_calendar_detail->delete(['cal_no' => $id]);
 			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             foreach($holidays as $holiday){
                 $ar_holidays                    = [];
                 $ar_holidays['cal_no']          = $id;
@@ -277,7 +326,14 @@ class CalendarController extends Origin001
                 $ar_holidays['remark']          = trim($holiday->holiday_name);
                 $ar_holidays['create_date']        = date("Y-m-d H:i:s");
 				$ar_holidays['create_user']        = $result->user_id;
-                $this->mst_calendar_detail->insert( $ar_holidays);
+				$this->mst_calendar_detail->insert( $ar_holidays);
+				
+				if ( $this->db->error()['message'] !== '') {
+					$dataDB['status']   = "error";
+					$dataDB['message']  = $this->db->error()['message'];
+					$dataDB['data']     = "";
+					return $this->respond($dataDB,200);
+				}
             }
 			
             $this->db->transComplete();

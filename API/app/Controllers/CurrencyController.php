@@ -49,7 +49,14 @@ class CurrencyController extends Origin001
 				'currency_code'			=> $id,
 			]);
             $this->mst_currency->update($insert_data);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -82,6 +89,13 @@ class CurrencyController extends Origin001
 			";
 
 			$itemn_data = $this->db->query($query_str,['id'=>$id])->getRow();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -174,8 +188,21 @@ class CurrencyController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
 			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
 			$dataDB['data']     = $itemn_data;
@@ -214,14 +241,14 @@ class CurrencyController extends Origin001
 
 		if ( $currency_code == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????";
+			$dataDB['message']  = "กรุณาใส่ข้อมูลรหัส";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
 
 		if ( $currency_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "?????????????";
+			$dataDB['message']  = "กรุณาใส่ข้อมูลชื่อ";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
@@ -233,7 +260,7 @@ class CurrencyController extends Origin001
 			
 			if ($this->chk_currency_code($result->company_id,$currency_code,$id)){
 				$dataDB['status']   = "error";
-				$dataDB['message']  = "???????????????????";
+				$dataDB['message']  = "รหัสนี้มีการใช้งานแล้ว";
 				$dataDB['data']     = "";
 				return $this->respond($dataDB,200);
 
@@ -258,6 +285,13 @@ class CurrencyController extends Origin001
 				$update_data['default_currency']    = false;
 				
 				$this->mst_currency->update($update_data);
+
+				if ( $this->db->error()['message'] !== '') {
+					$dataDB['status']   = "error";
+					$dataDB['message']  = $this->db->error()['message'];
+					$dataDB['data']     = "";
+					return $this->respond($dataDB,200);
+				}
 			}
 			if ($id == '-1' ){
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
@@ -270,8 +304,15 @@ class CurrencyController extends Origin001
 				
 				$this->mst_currency->where('currency_code',$id);
 				$this->mst_currency->update($insert_data);
-
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

@@ -48,7 +48,14 @@ class CompanyController extends Origin001
 				'company_code'			=> $id,
 			]);
             $this->mst_company->update($insert_data);
-            
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -77,6 +84,13 @@ class CompanyController extends Origin001
 				'company_code' => $id,
 				'active_flag' => true
 			])->getRow();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -140,6 +154,13 @@ class CompanyController extends Origin001
 
 		$itemn_data = $this->db->query($query_str)->getResult();
 
+		if ( $this->db->error()['message'] !== '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = $this->db->error()['message'];
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+		
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
@@ -184,7 +205,21 @@ class CompanyController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -211,9 +246,7 @@ class CompanyController extends Origin001
 		$id  		        = isset($data->id)			? $data->id			: -1;
 		$company_code		= isset($data->company_code)	? $data->company_code : '';
         $company_name		= isset($data->company_name)	? $data->company_name : '';
-        $addr_1             = isset($data->addr_1)		? $data->addr_1       : '';
-        $addr_2             = isset($data->addr_2)		? $data->addr_2       : '';
-        $addr_3             = isset($data->addr_3)		? $data->addr_3       : '';
+        $address            = isset($data->address)		? $data->address       : '';
         $zip                = isset($data->zip)           ? $data->zip          : '';
         $telno              = isset($data->telno)         ? $data->telno        : '';
         $faxno              = isset($data->faxno)         ? $data->faxno        : '';
@@ -231,7 +264,7 @@ class CompanyController extends Origin001
 
 		if ( $company_name == '') {
 			$dataDB['status']   = "error";
-			$dataDB['message']  = "???????????????????????????";
+			$dataDB['message']  = "ชื่อต้องไม่เป็นค่าว่าง";
 			$dataDB['data']     = "";
 			return $this->respond($dataDB,200);
 		}
@@ -257,9 +290,7 @@ class CompanyController extends Origin001
 			//set data to array for add or update
 			$insert_data['company_code']	= trim($company_code);
 			$insert_data['company_name']	= trim($company_name);
-			$insert_data['addr_1']		= trim($addr_1);
-            $insert_data['addr_2']		= trim($addr_2);
-            $insert_data['addr_3']		= trim($addr_3);
+			$insert_data['address']		= trim($address);
             $insert_data['zip']			= trim($zip);
             $insert_data['telno']		= trim($telno);
             $insert_data['faxno']		= trim($faxno);
@@ -281,6 +312,14 @@ class CompanyController extends Origin001
 				$this->mst_company->where('company_code', $id);
 				$this->mst_company->update($insert_data);
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

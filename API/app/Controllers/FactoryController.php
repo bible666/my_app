@@ -53,7 +53,15 @@ class FactoryController extends Origin001
 				'factory_code'			=> $factory_cd
 			];
             $this->mst_factory->update($insert_data,$where);
-            
+			
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
             $dataDB['status']   = "success";
             $dataDB['message']  = "";
             $dataDB['data']     = $data;
@@ -88,6 +96,14 @@ class FactoryController extends Origin001
 			";
 
 			$itemn_data = $this->db->query($query_str,['company_cd' => $company_cd,'factory_cd'=>$factory_cd])->getRow();
+			
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$dataDB['status']   = "success";
 			$dataDB['message']  = $query_str;
 			$dataDB['data']     = $itemn_data;
@@ -150,6 +166,13 @@ class FactoryController extends Origin001
 
 		$itemn_data = $this->db->query($query_str)->getResult();
 
+		if ( $this->db->error()['message'] !== '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = $this->db->error()['message'];
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
+
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
 		$dataDB['data']     = $itemn_data;
@@ -163,6 +186,13 @@ class FactoryController extends Origin001
 		$query_str = " SELECT * FROM mst_company where active_flag = true";
 
 		$itemn_data = $this->db->query($query_str)->getResult();
+
+		if ( $this->db->error()['message'] !== '') {
+			$dataDB['status']   = "error";
+			$dataDB['message']  = $this->db->error()['message'];
+			$dataDB['data']     = "";
+			return $this->respond($dataDB,200);
+		}
 
 		$dataDB['status']   = "success";
 		$dataDB['message']  = "";
@@ -208,7 +238,21 @@ class FactoryController extends Origin001
 			
 			$itemn_data = $this->db->query($query_str,[$result->company_id])->getResult();
 
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+
 			$itemn_count = $this->db->query($query_count, [$result->company_id])->getResult();
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
 
 			$dataDB['status']   = "success";
 			$dataDB['message']  = "";
@@ -246,10 +290,6 @@ class FactoryController extends Origin001
 		$email              = isset($data->email)			? trim($data->email)        : '';
 		$cal_no             = isset($data->cal_no)			? $data->cal_no       : null;
 		$remark         	= isset($data->remark)			? trim($data->remark)       : '';
-
-        
-        
-		
 
 		//Validation Data
 		if ( $token == '') {
@@ -311,6 +351,14 @@ class FactoryController extends Origin001
 
 				$this->mst_factory->update($insert_data,['company_code' => $old_company, 'factory_code' => $old_factory]);
 			}
+
+			if ( $this->db->error()['message'] !== '') {
+				$dataDB['status']   = "error";
+				$dataDB['message']  = $this->db->error()['message'];
+				$dataDB['data']     = "";
+				return $this->respond($dataDB,200);
+			}
+			
 			$this->db->transComplete();
 
 			$dataDB['status']   = "success";

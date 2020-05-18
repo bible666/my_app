@@ -16,7 +16,7 @@ class Migration_mst_user extends \CodeIgniter\Database\Migration {
                 employee_id VARCHAR(50) ,
                 login_id	VARCHAR(100) NOT NULL,
                 user_password VARCHAR(200) NOT NULL,
-                user_group_id int not null,
+                user_group_id int not null REFERENCES mst_user_group (user_group_id),
                 remark varchar(200) ,
                 active_flag int,
 

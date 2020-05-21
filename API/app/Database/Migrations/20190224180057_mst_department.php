@@ -1,17 +1,16 @@
 <?php
 namespace App\Database\Migrations;
 
-class Migration_mst_user_group extends \CodeIgniter\Database\Migration {
+class Migration_mst_department extends \CodeIgniter\Database\Migration {
 
     public function up()
     {
         $this->db->query("
-            CREATE TABLE mst_user_group(
-				user_group_id INT AUTO_INCREMENT PRIMARY KEY,
-                user_group_name varchar(100) not null,
-                remark varchar(200) ,
-				active_flag int,
-				department_code varchar(50) REFERENCES mst_department(department_code),
+            CREATE TABLE mst_department(
+				department_code varchar(50) PRIMARY KEY,
+                department_name varchar(100) not null,
+                remark varchar(200) not null DEFAULT '',
+				active_flag int not null,
 
                 create_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
                 update_date DATETIME ,

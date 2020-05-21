@@ -1,7 +1,7 @@
 <?php
 namespace App\Database\Migrations;
 
-class Migration_mst_user_data extends \CodeIgniter\Database\Migration {
+class Migration_mst_menu_type_data extends \CodeIgniter\Database\Migration {
 
     public function up()
     {

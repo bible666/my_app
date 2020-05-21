@@ -47,13 +47,13 @@ from (
 		cast((ipm.next_paid_date2 + INTERVAL '60 day')  as date) as end_datein_due,
 		cast((ipm.next_paid_date2 + INTERVAL '61 day') as date) as start_date_pass_due,
 		cast((ipm.next_paid_date2 + INTERVAL '150 day') as date) as end_date_pass_due,
-		case when oth.is_premium_card is null then 
+		case when oth.policy_no is null then 
 				case when d.policy_no is null then
 					case when c.policy_no is null then 
 						case when biz.policy_no is null then
-							'B'
-						else
 							'N'
+						else
+							'B'
 						end
 					else 
 						'C'
@@ -94,7 +94,8 @@ from (
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
 ) new_table
-where agent_code = '5311055'
+where other_channel = 'N'
+--where agent_code = '5311055'
 --case where payment_channel
 --other_channel in (:payment_channel)
 -- case where group type

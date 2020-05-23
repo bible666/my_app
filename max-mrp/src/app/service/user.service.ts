@@ -72,6 +72,14 @@ export class UserService {
     return sessionStorage.getItem('token');
   }
 
+  public set_menu_data(p_menu_data){
+    sessionStorage.setItem('menu_data', JSON.stringify(p_menu_data));
+  }
+
+  public get_menu_data(){
+    return JSON.parse(sessionStorage.getItem('menu_data'));
+  }
+
   public set_company_id(p_company_id){
     sessionStorage.setItem('company_id', p_company_id);
   }

@@ -204,13 +204,22 @@ class UserController extends Origin001
                 $this->mst_user_table->where('user_id',$row->user_id);
                 $this->mst_user_table->update($data);
 
+                //Get Menu Data
+                $sql = "
+                SELECT sm.*,mmp.permission_flag 
+                FROM mst_menu_permission mmp inner join sys_menu sm on mmp.menu_id  =  sm.menu_id 
+                WHERE mmp.user_group_id = :user_group_id:";
 
+                $menu_data  = $this->db->query($sql, ['user_group_id'=>$row->user_group_id])->getResult();
+                
 
                 $result['token']        = $token;
 
                 $dataDB['status']   = "success";
                 $dataDB['message']  = "";
-                $dataDB['data'] = $result;
+                $dataDB['data']     = $result;
+                $dataDB['menuData'] = $menu_data;
+
             } else {
 
                 $user_update = [

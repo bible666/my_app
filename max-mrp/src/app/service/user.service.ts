@@ -76,8 +76,16 @@ export class UserService {
     sessionStorage.setItem('menu_data', JSON.stringify(p_menu_data));
   }
 
-  public get_menu_data(){
-    return JSON.parse(sessionStorage.getItem('menu_data'));
+  public get_menu_data(p_menu_id){
+    let ret_data: Array<any> = [];
+    let menu_datas = JSON.parse(sessionStorage.getItem('menu_data'));
+    menu_datas.forEach(data => {
+      if (data.parent_menu_id == p_menu_id){
+        ret_data.push(data);
+      }
+      
+    });
+    return ret_data;
   }
 
   public set_company_id(p_company_id){

@@ -17,7 +17,23 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.menu_datas = this.user.get_menu_data(-1);
+	let menu_datas = JSON.parse(sessionStorage.getItem('menu_data'));
+
+	this.menu_datas = this.getMenuData('-1',menu_datas);
+	console.log(this.menu_datas);
+  }
+
+  private getMenuData(menuId:string,menu_datas) {
+	let ret_menu: Array<any> = [];
+    menu_datas.forEach(data => {
+      if (data.parent_menu_id == menuId){
+		let child_menu;
+		child_menu = this.getMenuData(data.menu_id,menu_datas);
+		data.child_menu = child_menu;
+		ret_menu.push(data);
+	  }
+    });
+	return ret_menu;
   }
 
   onLogout() {
@@ -29,7 +45,7 @@ export class HeaderComponent implements OnInit {
     this.user.menu_datas = this.user.get_menu_data(menu_id);
     //this.menu_datas = this.user.menu_datas;
     //this.menu_datas = this.user.get_menu_data(menu_id);
-    this.router.navigate(['/main-menu/-1']);
+    //this.router.navigate(['/main-menu/-1']);
   }
 
 }

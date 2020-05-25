@@ -26,6 +26,7 @@ const httpOptions = {
 export class UserService {
 
   Menu_Data: MenuNode[];
+  public menu_datas;
 
   private MenuDataSource = new BehaviorSubject(this.Menu_Data);
   currentMenuDataSource = this.MenuDataSource.asObservable();

@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light main_menu_color scrolling-navbar">
     
         <!-- サイトタイトル -->
-        <a (click)="onMainMenuClick()" class="navbar-brand ml-1  ">ระบบ MAX</a>
+        <a (click)="onMainMenuClick(-1)" class="navbar-brand ml-1  ">ระบบ MAX</a>
 
         <!-- Collapse -->
         <button class="navbar-toggler mr-2 collapsed" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -19,7 +19,11 @@
 
                 <!-- ■TOP top:業務,所属,総務,産医 -->
                 <li class="nav-item ">
-                    <a (click)="onMainMenuClick()" class="nav-link waves-effectnav-item active">TOP menu</a>
+                    <a (click)="onMainMenuClick(-1)" class="nav-link waves-effectnav-item active">TOP menu</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a href="/hyogo_healthcare/medchk" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">1111</a>
                 </li>
     
                 <!-- ■定期健康診断 medchk:業務,所属,産医 -->

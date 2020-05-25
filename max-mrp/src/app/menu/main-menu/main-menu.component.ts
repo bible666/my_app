@@ -17,9 +17,9 @@ export class MainMenuComponent implements OnInit {
   constructor(
     private router: Router,
     private param: ActivatedRoute,
-    private user: UserService
+    public user: UserService
   ) { 
-    console.log('con');
+    //Constructor code
   }
 
   ngOnInit() {
@@ -29,14 +29,14 @@ export class MainMenuComponent implements OnInit {
       this.menu_id    = this.param.snapshot.params.menu_id;
     }
 
-    this.menu_datas = this.user.get_menu_data(this.menu_id);
-    
+    this.user.menu_datas = this.user.get_menu_data(this.menu_id);
+    //this.menu_datas = this.user.menu_datas;
 
   }
 
   onMenuChange(menu_id){
-    this.menu_datas = this.user.get_menu_data(menu_id);
-    console.log(this.menu_datas);
+    this.user.menu_datas = this.user.get_menu_data(menu_id);
+    //this.menu_datas = this.user.menu_datas;
   }
 
   onTemplateClick(){

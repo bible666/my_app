@@ -1,1 +1,0 @@
- $this->Html->link(__('View'), ['action' => 'view', $user->id], ['id' => '1111'])) ?>&nbsp;&nbsp;

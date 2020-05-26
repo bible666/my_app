@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: '' ,                          component: MainMenuComponent ,canActivate:[AuthGuard]},
   { path: 'login',                      component:LoginComponent},
   { path: 'logout',                     component:LogoutComponent},
-  { path: 'main-menu/:menu_id',         component:MainMenuComponent,canActivate:[AuthGuard]},
+  { path: 'main-menu/:menu_id',         component:MainMenuComponent,canActivate:[AuthGuard],runGuardsAndResolvers: 'always'},
   { path: 'master-menu',                component:MasterMenuComponent,canActivate:[AuthGuard]},
   { path: 'basic-master-menu',          component:BasicMasterComponent,canActivate:[AuthGuard]},
   { path: 'transaction-master-menu',    component:TransactionMasterComponent,canActivate:[AuthGuard]},
@@ -56,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

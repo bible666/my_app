@@ -1,0 +1,36 @@
+APUI09_01_Get_New_Case_Policy_Summary
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Mar 06, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูลเกี่ยวกับ จำนวนกรมธรรม์, เบี้ยนับผลงานปีแรก, คอมมิชชั่นปีแรก ตามแต่ละประเภทกรมธรรม์ ของ Agent รายนั้นๆ ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูลเกี่ยวกับ จำนวนกรมธรรม์, เบี้ยนับผลงานปีแรก, คอมมิชชั่นปีแรก ตามแต่ละประเภทกรมธรรม์ ของ Agent รายนั้นๆ ในฐานข้อมูล ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า period, branch_code, agent code เข้ามา
+ 
+
+Process Description
+ให้ get policy_type, cnt_policy_no, premium_first, commission_first จาก Query นี้
+Icon
+select	policy_type, count(policy_no) as cnt_policy_no, sum(premium) as premium, sum(commission_first) as commission_first
+from	agpt_newcase_report a
+where	period = v_period -- '2561/01'
+	and	branch_code = v_branch_code -- '4800'
+	and	agent_code_7 = v_agent_code -- '3707132'
+group by	policy_type
+order by	policy_type desc;
+     
+
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 4 fields คือ 
+- policy_type
+- cnt_policy_no
+- premium
+- commission_first

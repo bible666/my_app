@@ -1,0 +1,84 @@
+APUI12_01_Get_Pers_Inactive_Policy
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Jun 01, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูลเกี่ยวกับ %Persistency ของแต่ละตำแหน่งของ Agent รายนั้นๆ จากรายงานขาดผล ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูลเกี่ยวกับ %Persistency ของแต่ละตำแหน่งของ Agent รายนั้นๆ ในฐานข้อมูลที่ได้จากรายงานขาดผล ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า period, branch_code, agent code เข้ามา
+ 
+
+Process Description
+ให้ get position, policy_target, premium_target, policy_can_be, premium_can_be, persistency, max(pay_persistency) จาก Query นี้
+Icon
+with lookup_data as 
+(	select	key_group, cast(key as numeric) as key, cast(value as numeric) as value
+	from	agpt_lookup_data 	
+	where	key_group = 'ov'
+	and	period_from <= v_period_number and period_to >= v_period_number -- '256018'					
+)
+select	cast('หนน.' as varchar) as position_group, a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, 
+		a.persistency, max(b.value) as pay_persistency
+from		agpt_inactive_policy_summary a
+left outer join	lookup_data b
+on		(b.key_group = 'ov'
+		and b.key <= a.persistency)
+where	a.period = v_period  -- '2560/18'
+	and	a.branch_code = v_branch_code -- '3208'
+	and	a.agent_code_7 = v_agent_code -- '5711431'
+	and	a.position like 'หัวหน้าหน่วย%'
+group by	a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, a.persistency
+union all
+select	cast('ผช.ผจน.' as varchar) as position_group, a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, 
+		a.persistency, max(b.value) as pay_persistency
+from		agpt_inactive_policy_summary a
+left outer join	lookup_data b
+on		(b.key_group = 'ov'
+		and b.key <= a.persistency)
+where	a.period = v_period
+	and	a.branch_code = v_branch_code
+	and	a.agent_code_7 = v_agent_code
+	and	a.position like 'ผู้ช่วยผู้จัดการหน่วย%'
+group by	a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, a.persistency	
+union all
+select	cast('ผจน.' as varchar) as position_group, a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, 
+		a.persistency, max(b.value) as pay_persistency
+from		agpt_inactive_policy_summary a
+left outer join	lookup_data b
+on		(b.key_group = 'ov'
+		and b.key <= a.persistency)
+where	a.period = v_period
+	and	a.branch_code = v_branch_code
+	and	a.agent_code_7 = v_agent_code
+	and	(a.position like 'ผู้จัดการหน่วย%' and a.position not like 'ผู้จัดการหน่วยอาวุโส%')
+group by	a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, a.persistency	
+union all
+select	cast('ผจภ.สข.' as varchar) as position_group, a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, 
+		a.persistency, max(b.value) as pay_persistency
+from		agpt_inactive_policy_summary a
+left outer join	lookup_data b
+on		(b.key_group = 'ov'
+		and b.key <= a.persistency)
+where	a.period = v_period
+	and	a.branch_code = v_branch_code
+	and	a.agent_code_7 = v_agent_code
+	and	(a.position like 'ผู้จัดการภาคขาย%' or a.position like 'ผู้จัดการหน่วยอาวุโส%')
+group by	a.position, a.policy_target, a.premium_target, a.policy_can_be, a.premium_can_be, a.persistency;
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 8 fields คือ 
+- position_group
+- position
+- policy_target
+- premium_target
+- policy_can_be
+- premium_can_be
+- persistency
+- pay_persistency

@@ -1,0 +1,34 @@
+APUI12_07_Get_Position_Level_of_Headmn
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Mar 07, 2018Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูล position_level ตาม agent code, branch_code และ period ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูล position_level ในฐานข้อมูล ตาม agent code, branch_code และ period ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า agent code, branch_code และ period เข้ามา
+ 
+
+Process Description
+ให้ get position_group, position, position_level จาก Query นี้
+Icon
+select	cast('ผจภ.สข.' as varchar) as position_group, position, position_level
+from	agpt_agent_income
+where	period = v_period -- '2560/18'
+	and	branch_code = v_branch_code -- '3208'
+	and	agent_code_7 = v_agent_code -- '5711431'
+	and	headmn_code_7 = agent_code_7;
+     
+
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 3 fields คือ 
+- position_group
+- position
+- position_level

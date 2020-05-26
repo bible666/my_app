@@ -1,0 +1,137 @@
+APUI04_04_Get_Persistency
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Jun 04, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูล Persistency ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูล Persistency ในฐานข้อมูล ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า agent code, branch_code, period และ position_group เข้ามา
+ 
+
+Process Description
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผจภ.สข." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 2.)
+Icon
+select	headmn_code_7 as agent_code_7, headmn_name as agent_name, 
+		headmn_premium_target as premium_target, headmn_premium_can_be as premium_can_be, headmn_persistency as persistency,
+		'ผจภ.สข.' :: varchar as position_group, 
+		'ผจภ.สข.' :: varchar as position
+from		agpt_persistency_summary
+where	period = v_period
+	and	branch_code = v_branch_code
+	and	headmn_code_7 = v_agent_code
+group by	headmn_code_7, headmn_name, headmn_premium_target, headmn_premium_can_be, headmn_persistency;
+     
+
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 3.) 
+Icon
+select	manager_code_7 as agent_code_7, manager_name as agent_name, 
+		manager_premium_target as premium_target, manager_premium_can_be as premium_can_be, manager_persistency as persistency,
+		'ผจก.หน่วย' :: varchar as position_group, 
+		'ผู้จัดการหน่วย' :: varchar as position
+from		agpt_persistency_summary
+where	period = v_period
+	and	branch_code = v_branch_code
+	and	manager_code_7 = v_agent_code
+group by	manager_code_7, manager_name, manager_premium_target, manager_premium_can_be, manager_persistency;
+     
+
+[Phase 2 - add] ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผช.ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 4.)
+Icon
+select	asst_manager_code_7 as agent_code_7, asst_manager_name as agent_name, 
+		asst_manager_premium_target as premium_target, asst_manager_premium_can_be as premium_can_be, asst_manager_persistency as persistency,
+		'ผช.ผจก.หน่วย' :: varchar as position_group, 
+		'ผู้ช่วยผู้จัดการหน่วย' :: varchar as position
+from		agpt_persistency_summary
+where	period = v_period
+	and	branch_code = v_branch_code
+	and	asst_manager_code_7 = v_agent_code
+group by	asst_manager_code_7, asst_manager_name, asst_manager_premium_target, asst_manager_premium_can_be, asst_manager_persistency;
+     
+
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "หนน." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 5.)
+Icon
+select	supervisor_code_7 as agent_code_7, supervisor_name as agent_name, 
+		supervisor_premium_target as premium_target, supervisor_premium_can_be as premium_can_be, supervisor_persistency as persistency,
+		'หนน.' :: varchar as position_group, 
+		'หัวหน้าหน่วย' :: varchar as position
+from		agpt_persistency_summary
+where	period = v_period
+	and	branch_code = v_branch_code
+	and	supervisor_code_7 = v_agent_code
+group by	supervisor_code_7, supervisor_name, supervisor_premium_target, supervisor_premium_can_be, supervisor_persistency;
+          
+
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group in ("ตท.", "ตท.กง.") อย่างใดอย่างหนึ่ง ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 6.)
+Icon
+select	case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_code_7
+			else agent_code_7
+		end as agent_code_7, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_name
+			else agent_name
+		end as agent_name, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_premium_target
+			else agent_premium_target
+		end as premium_target, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_premium_can_be
+			else agent_premium_can_be
+		end as premium_can_be, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_persistency
+			else agent_persistency
+		end as persistency,
+		'ตท.' :: varchar as position_group, 
+		'ตัวแทนประกันชีวิต' :: varchar as position
+from		agpt_persistency_summary
+where	period = v_period --'2561/07'
+	and	branch_code = v_branch_code --'3406'
+	and	(agent_code_7 = v_agent_code or supervisor_code_7 = v_agent_code) -- '3508111'
+group by	case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_code_7
+			else agent_code_7
+		end, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_name
+			else agent_name
+		end, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_premium_target
+			else agent_premium_target
+		end, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_premium_can_be
+			else agent_premium_can_be
+		end, 
+		case
+			when (agent_code_7 = '' or agent_code_7 is null) then supervisor_persistency
+			else agent_persistency
+		end;
+     
+
+ [SQL Not Used : Old Version]
+     
+
+ถ้าได้ค่าเป็น null ให้ return ค่าเป็น
+- premium_target = 0.00
+- premium_can_be = 0.00
+- persistency = 0.00
+ 
+
+Post-conditions
+ทำการ return ข้อมูล Persistency ทั้งหมด 5 fields คือ 
+- agent_code_7
+- agent_name
+- premium_target
+- premium_can_be
+- persistency

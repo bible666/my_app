@@ -1,0 +1,44 @@
+APUI09_02_Get_New_Case_Policy_Detail
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Mar 13, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูลเกี่ยวกับ รายละเอียดกรมธรรม์ ต่าง ๆ ตามแต่ละประเภทกรมธรรม์ ของ Agent รายนั้นๆ ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูลเกี่ยวกับ รายละเอียดกรมธรรม์ ต่าง ๆ ตามแต่ละประเภทกรมธรรม์ ของ Agent รายนั้นๆ ในฐานข้อมูล ตาม period, branch_code, agent code  ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า period, branch_code, agent code, policy_type เข้ามา
+ 
+
+Process Description
+ให้ get รายละเอียดกรมธรรม์ ต่าง ๆ ตามแต่ละประเภทกรมธรรม์ จาก Query นี้
+Icon
+select	policy_type, policy_no, plan_code, plan_name, premium, payment_mode, commission_first, sum_assured, 
+	effective_date_from, effective_date_to, last_pay_period_date, la_name_surname
+from	agpt_newcase_report a
+where	period = v_period -- '2561/01'
+	and	branch_code = v_branch_code -- '4800'
+	and	agent_code_7 = v_agent_code -- '3707132'
+	and	policy_type = v_policy_type -- 'สามัญ';
+     
+
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 12 fields คือ 
+- policy_type
+- policy_no
+- plan_code
+- plan_name
+- premium
+- payment_mode
+- commission_first
+- sum_assured
+- effective_date_from
+- effective_date_to
+- last_pay_period_date
+- la_name_surname

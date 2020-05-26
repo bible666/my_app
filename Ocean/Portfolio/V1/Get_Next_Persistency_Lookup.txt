@@ -1,0 +1,37 @@
+APUI12_02_Get_Next_Persistency_Lookup
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Apr 10, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูลเกี่ยวกับ %Persistency ในระดับถัดไป ตาม %Persistency และ period ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูลเกี่ยวกับ %Persistency ในระดับถัดไป ในฐานข้อมูล Lookup ตาม %Persistency และ period ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า persistency, period เข้ามา
+ 
+
+Process Description
+ให้ get key_group, next_persistency, next_pay_persistency จาก Query นี้
+Icon
+with lookup_data as 
+(	select	key_group, cast(key as numeric) as key, cast(value as numeric) as value
+	from	agpt_lookup_data	
+	where	key_group = 'ov'
+	and	period_from <= v_period_number and period_to >= v_period_number -- '256018' 					
+)
+select		key_group, min(key) as next_persistency, min(value) as next_pay_persistency
+from		lookup_data 	
+where		key_group = 'ov'
+	and	key >= v_persistency -- 64.33
+group by	key_group;
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 3 fields คือ 
+- key_group
+- next_persistency
+- next_pay_persistency

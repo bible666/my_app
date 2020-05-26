@@ -1,0 +1,28 @@
+APUI00_02-1_Get_Start_End_Period
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Feb 16, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึง  ช่วงวันเดือนปีเริ่มต้นงวด - วันเดือนปีสิ้นสุดงวด จาก period ที่ได้จาก drop down list และนำมาแสดงบนหน้าจอ
+ 
+
+Process Overview
+รับค่า year และ id (เช่น 2560 และ 14) ของ period จาก drop down list ที่ได้รับมาจาก Process : APUI00_02_Get_List_Period แล้วดึง  ช่วงวันเดือนปีเริ่มต้นงวด - วันเดือนปีสิ้นสุดงวด จากฐานข้อมูล เพื่อนำมาแสดงบนหน้าจอ (ใต้ drop down list)
+ 
+
+Preconditions
+รับค่า year และ id (เช่น 2560 และ 14) ของ period จาก drop down list เข้ามา
+ 
+
+Process Description
+ให้นำ year และ id ที่ได้ ไปดึง ช่วงวันเดือนปีเริ่มต้นงวด - วันเดือนปีสิ้นสุดงวด ดังนี้
+Icon
+select	start_date, end_date
+from	agpt_period
+where	period = v_year||'/'||v_id; -- v_year และ v_id เช่น '2560' และ '14' เป็นต้น
+Post-conditions
+ทำการ return ข้อมูล ช่วงวันเดือนปีเริ่มต้นงวด - วันเดือนปีสิ้นสุดงวด ทั้งหมด 2 fields คือ 
+- start_date
+- end_date

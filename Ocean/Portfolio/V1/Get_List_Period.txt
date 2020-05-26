@@ -1,0 +1,47 @@
+APUI00_02_Get_List_Period
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Feb 16, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึง  List of Period จากฐานข้อมูล เพื่อนำไปแสดงใน drop down list
+ 
+
+Process Overview
+ดึง  List of Period จากฐานข้อมูล แล้วแยกเป็น 2 ค่า คือ ปี กับ งวด เพื่อนำไปแสดงใน drop down list โดย default ปี กับ งวด = period ที่ได้รับมาจาก Process : APUI00_01_Get_Current_Period หรือ รับค่า period มาจากการ click มาจาก link อื่น แล้วส่งค่า period มาให้
+ 
+
+Preconditions
+รับค่า Period เข้ามา
+ 
+
+Process Description
+ให้ get List of Period จาก Query นี้
+Icon
+select		substr(period,1,4) as year,
+		substr(period,6,2) as id
+from		agpt_agent_income
+where	agent_code_7 = v_agent_code
+	and	branch_code = v_branch_code
+group by	substr(period,1,4), substr(period,6,2)
+order by	year desc, id;
+     
+
+ 
+
+ให้นำค่าของ period ที่รับเข้ามา เช่น  2560/14 เป็นต้น จากนั้น
+- ให้ตัด 4 digits หน้า เทียบกับค่าใน drop down list ของ ปี   แล้ว default ค่านี้
+- ให้ตัด 2 digits หลัง เทียบกับค่าใน drop down list ของ งวด แล้ว default ค่านี้
+ 
+
+จากนั้น ให้นำ period ที่ได้ ไปดึง ช่วงวันเดือนปีเริ่มต้นงวด - วันเดือนปีสิ้นสุดงวด ดังนี้
+Icon
+select	start_date, end_date
+from	agpt_period
+where	period = v_period; -- v_period เช่น '2560/14'
+Post-conditions
+ทำการ return ข้อมูล List of Period ทั้งหมด 2 fields คือ 
+- year
+- id
+Default ค่าของ ปี และ งวด ใน drop down list ได้ถูกต้อง   เช่น  ปี = 2560 และ งวด = 14   เป็นต้น

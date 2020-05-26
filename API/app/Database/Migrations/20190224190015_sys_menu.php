@@ -11,6 +11,7 @@ class Migration_sys_menu extends \CodeIgniter\Database\Migration {
 				parent_menu_id    INT REFERENCES sys_menu(menu_id),
 				menu_type_flag    varchar(1) NOT NULL REFERENCES sys_menu_type(menu_type),
 				menu_name         text,
+				menu_short_name   text,
 				screen_url        text,
 				menu_position     INT
             );

@@ -42,10 +42,10 @@ export class HeaderComponent implements OnInit {
   }
 
   onMainMenuClick(menu_id){
-    this.user.menu_datas = this.user.get_menu_data(menu_id);
+    //this.user.menu_datas = this.user.get_menu_data(menu_id);
     //this.menu_datas = this.user.menu_datas;
     //this.menu_datas = this.user.get_menu_data(menu_id);
-    //this.router.navigate(['/main-menu/-1']);
+    this.router.navigate(['/main-menu/'+menu_id]);
   }
 
 }

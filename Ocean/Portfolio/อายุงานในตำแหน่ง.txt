@@ -1,0 +1,16 @@
+อายุงานในตำแหน่ง
+input 
+1. agent_code
+
+output
+1. จำนวนงวดที่อยู่ในตำแหน่ง
+
+Detail
+
+
+	select max(appointed_date)
+	from sales_team_structure
+	where sales_code = '6350294'
+
+โดย sales_code คือ รหัสตัวแทน 7 หลัก
+position คือ รหัสตำแหน่ง เป็นตัวเลข

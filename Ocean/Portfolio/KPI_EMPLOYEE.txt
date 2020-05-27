@@ -1,0 +1,21 @@
+KPI_EMPLOYEE
+Skip to end of metadata
+Added by อัญชิสา วิโรจน์เวชภัณฑ์, last edited by ทัศนวัฒน์ เพ็ญพักตร์ on Oct 11, 2016  (view change)Go to start of metadata
+TABLE	KPI_EMPLOYEE
+DESCRIPTION	ข้อมูลพนักงานภาคบริหาร
+Field#	Description	Type	Size	Null(Y/N)	Key	Validation/Extra/Value
+1	id	running number	int4	8	N	PK	 
+2	period	งวดผลงาน	varchar	10	N	 	 
+3	reference_code	รหัสพนักงาน	varchar	255	N	 	 
+4	sales_code	รหัส 7 หลัก	varchar	255	N	 	 
+5	zone_code	รหัส ภูมิภาค	int4	19	N	 	 
+6	full_name	ชื่อ-นามสกุล	varchar	500	Y	 	 
+7	position	ตำแหน่ง	varchar	4	Y	 	 
+8	appointment_date	วันที่แต่งตั้ง	timestamptz	 	Y	 	 
+9	email	อีเมลล์	varchar	255	Y	 	 
+10	tel_number	เบอร์โทร	varchar	50	Y	 	 
+11	created_by	ผู้สร้างข้อมูล	user login name	 	Y	 	 
+12	created_date	วันสร้างข้อมูล	timestamptz	 	Y	 	
+ 
+
+ 	 	 	 

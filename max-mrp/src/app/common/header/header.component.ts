@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
 	let menu_datas = JSON.parse(sessionStorage.getItem('menu_data'));
 
 	this.menu_datas = this.getMenuData('-1',menu_datas);
-	console.log(this.menu_datas);
+
   }
 
   private getMenuData(menuId:string,menu_datas) {
@@ -41,11 +41,22 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  onMainMenuClick(menu_id){
+  onTopClick(){
+	this.router.navigate(['/main-menu/-1']);
+  }
+
+  onMainMenuClick(menu_data){
     //this.user.menu_datas = this.user.get_menu_data(menu_id);
     //this.menu_datas = this.user.menu_datas;
-    //this.menu_datas = this.user.get_menu_data(menu_id);
-    this.router.navigate(['/main-menu/'+menu_id]);
+	//this.menu_datas = this.user.get_menu_data(menu_id);
+	
+	//menu_data.menu_id,menu_data.menu_type_flag
+	if (menu_data.menu_type_flag == 'M'){
+		this.router.navigate(['/main-menu/'+menu_data.menu_id]);
+	} else {
+		this.router.navigate([menu_data.screen_url]);
+	}
+	
   }
 
 }

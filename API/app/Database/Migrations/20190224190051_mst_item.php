@@ -9,7 +9,7 @@ class Migration_mst_item extends \CodeIgniter\Database\Migration {
             CREATE TABLE mst_item(
                 item_code               varchar(50) PRIMARY KEY,
                 item_name               varchar(200) NOT NULL,
-                item_type               varchar(1) NOT NULL,
+                item_type               varchar(1) NOT NULL DEFAULT '',
                 lot_flag                int,
                 unit_code               varchar(10) REFERENCES mst_unit( unit_code),
                 standard_location       varchar(10) DEFAULT '',

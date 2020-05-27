@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg navbar-light main_menu_color scrolling-navbar">
     
 		<!-- サイトタイトル -->
-        <a (click)="onMainMenuClick(-1)" class="navbar-brand ml-1  ">ระบบ MAX</a>
+        <a (click)="onTopClick()" class="navbar-brand ml-1  ">ระบบ MAX</a>
 
         <!-- Collapse -->
         <button class="navbar-toggler mr-2 collapsed" aria-expanded="false" aria-controls="navbarSupportedContent" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -19,24 +19,17 @@
 
                 <!-- ■TOP top:業務,所属,総務,産医 -->
                 <li class="nav-item ">
-                    <a (click)="onMainMenuClick(-1)" class="nav-link waves-effectnav-item active">TOP menu</a>
+                    <a (click)="onTopClick()" class="nav-link waves-effectnav-item active">TOP menu</a>
                 </li>
 
                 <li class="nav-item dropdown" *ngFor="let menu_data of menu_datas">
-					<a (click)="onMainMenuClick(menu_data.menu_id)" *ngIf="menu_data.menu_type_flag =='M'" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">
+					<a (click)="onMainMenuClick(menu_data)" class="nav-link waves-effect dropdown-toggle nav-item active" data-togger="dropdown">
 						{{menu_data.menu_short_name}}
 					</a>
-					<a (click)="onMainMenuClick(menu_data.menu_id)" *ngIf="menu_data.menu_type_flag =='S'" class="nav-link waves-effect dropdown-toggle nav-item active" >
-						{{menu_data.menu_name}}
-					</a>
+
 					<ul class="dropdown-menu">
 						<li *ngFor="let sub_menu_data of menu_data.child_menu">
-							<a href="/hyogo_healthcare/medchk">{{sub_menu_data.menu_name}}</a>
-							<ul class="dropdown-menu">
-								<li *ngFor="let sub_menu_data2 of sub_menu_data.child_menu">
-									<a href="/hyogo_healthcare/medchk">{{sub_menu_data2.menu_name}}</a>
-								</li>
-							</ul>
+							<a (click)="onMainMenuClick(sub_menu_data)">{{sub_menu_data.menu_name}}</a>
 						</li>
 						
 					</ul>

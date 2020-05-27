@@ -15,7 +15,9 @@ class Migration_mst_unit_data extends \CodeIgniter\Database\Migration {
             ('l','ลิตร',true,now(),1),
             ('m','เมตร',true,now(),1),
             ('mm','มิลลิเมตร',true,now(),1),
-            ('pcs','ชิ้น',true,now(),1),
+			('pcs','ชิ้น',true,now(),1),
+			('box','กล่อง',true,now(),1),
+			('book','เล่ม',true,now(),1),
             ('m²','ตารางเมตร',true,now(),1);
             
         ");

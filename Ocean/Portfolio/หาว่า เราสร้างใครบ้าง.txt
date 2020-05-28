@@ -4,6 +4,17 @@ detail :
 input เป็น agent code 7 หลัก และ งวดที่ต้องการหา
 output เป็น จำนวนตัวแทนที่สร้างใหม่
 
+หัวหน้าหน่อย ไปหา ใน sales team structure ตาม sales code และ period จะได้ id
+
+เอา id กลับไปหาใน table sales team structure ด้วย recruiter จะได้ลูกทีมที่สร้าง
+
+$id = select id from sales_team_structure where sales_code = '4444444' and period = '2563/01'
+
+$array_data = select * from sales_team_structure where recruiter = $id
+
+select a.position , count(a.position)
+from sales_team_structure a 
+where a.recruiter = $id
 
 
 ใน wiki ใส่อันนี้นะ
@@ -17,22 +28,17 @@ Preconditions
 Process Description
 
 input
-agent_code : รหัสตัวแทน 7 หลัก
-period     : งวดที่ทำการค้นหา
+agent_code    : รหัสตัวแทน 7 หลัก
+select_period : งวดที่ทำการค้นหา
 
 output
 agent_count : จำนวน ตัวแทนที่สร้างใหม่
 
 Detail
 
-หัวหน้าหน่อย ไปหา ใน sales team structure ตาม sales code และ period จะได้ id
+select  count(distinct ad.sales_code) as agent_count
+from sales_team_structure ma inner join sales_team_structure  ad on ma.id = ad.recruiter 
+where ma.sales_code = :agent_code and ma."period" = :select_period
 
-เอา id กลับไปหาใน table sales team structure ด้วย recruiter จะได้ลูกทีมที่สร้าง
 
-$id = select id from sales_team_structure where sales_code = '4444444' and period = '2563/01'
-
-$array_data = select * from sales_team_structure where recruiter = $id
-
-select a.position , count(a.position)
-from sales_team_structure a 
-where a.recruiter = $id
+return agent_count

@@ -292,7 +292,7 @@ class CalendarController extends Origin001
 				$insert_data['create_date']        = date("Y-m-d H:i:s");
 				$insert_data['create_user']        = $result->user_id;
                 $this->mst_calendar->insert( $insert_data);
-                $id = $this->db->insert_id();
+                $id = $this->db->insertID();
 			}else{
 				$insert_data['update_date']    = date("Y-m-d H:i:s");
 				$insert_data['update_user']    = $result->user_id;

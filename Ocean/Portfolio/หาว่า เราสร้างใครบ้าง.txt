@@ -1,4 +1,29 @@
 หาว่า เราสร้างใครบ้าง
+title : ทำเอกสาร service สำหรับ portpolio ในการ หาว่า aget และ งวด ที่กำหนดมี ตัวแทนที่สร้างใหม่ กี่คน
+detail : 
+input เป็น agent code 7 หลัก และ งวดที่ต้องการหา
+output เป็น จำนวนตัวแทนที่สร้างใหม่
+
+
+
+ใน wiki ใส่อันนี้นะ
+Objectives
+เพื่อหาจำนวน ตัวที่ที่สร้างใหม่ตาม รหัสตัวแทน 7 หลัก และ งวด
+
+Process Overview
+
+Preconditions
+
+Process Description
+
+input
+agent_code : รหัสตัวแทน 7 หลัก
+period     : งวดที่ทำการค้นหา
+
+output
+agent_count : จำนวน ตัวแทนที่สร้างใหม่
+
+Detail
 
 หัวหน้าหน่อย ไปหา ใน sales team structure ตาม sales code และ period จะได้ id
 

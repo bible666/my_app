@@ -23,15 +23,13 @@ export class SupplierEditComponent implements OnInit {
   inputForm = new FormGroup({
     'supplier_code'   : new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
     'supplier_name'   : new FormControl('', [ Validators.required, Validators.maxLength(200) ]),
-    'addr1'           : new FormControl('', [ Validators.maxLength(200) ]),
-    'addr2'           : new FormControl('', [ Validators.maxLength(200) ]),
-    'addr3'           : new FormControl('', [ Validators.maxLength(200) ]),
+    'address'         : new FormControl('', [ Validators.maxLength(200) ]),
     'post_code'       : new FormControl('', [ Validators.maxLength(10) ]),
     'tel_no'          : new FormControl('', [ Validators.maxLength(50) ]),
     'fax_no'          : new FormControl('', [ Validators.maxLength(50) ]),
     'e_mail'          : new FormControl('', [ Validators.maxLength(100) ]),
     'contact'         : new FormControl('', [ Validators.maxLength(100) ]),
-    'delivery_time'   : new FormControl('', [ Validators.maxLength(3) ]),
+    'delivery_time'   : new FormControl('', [ Validators.maxLength(3) , Validators.max(999)]),
     'tax_id'          : new FormControl('', [ Validators.maxLength(20) ]),
     'payment_tearm'   : new FormControl('', [ Validators.maxLength(200) ]),
     'remark'          : new FormControl('', [ Validators.maxLength(200) ])
@@ -62,9 +60,7 @@ export class SupplierEditComponent implements OnInit {
           this.inputForm.patchValue({
             'supplier_code'   : data['data'].supplier_code,
             'supplier_name'   : data['data'].supplier_name,
-            'addr1'           : data['data'].addr1,
-            'addr2'           : data['data'].addr2,
-            'addr3'           : data['data'].addr3,
+            'address'         : data['data'].address,
             'post_code'       : data['data'].post_code,
             'tel_no'          : data['data'].tel_no,
             'fax_no'          : data['data'].fax_no,
@@ -115,6 +111,15 @@ export class SupplierEditComponent implements OnInit {
       this.ServiceMessage.setError('บันทึกผิดพลาด');
       this.message = this.ServiceMessage.getMessage();
     });
+  }
+
+  keyPress(event: KeyboardEvent) {
+    const pattern = /[0-9]/;
+    
+    if (!pattern.test(event.key)) {    
+        // invalid character, prevent input
+        event.preventDefault();
+    }
   }
 
 }

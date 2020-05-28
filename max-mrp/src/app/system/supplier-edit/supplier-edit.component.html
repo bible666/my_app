@@ -24,11 +24,15 @@
             <label class="control-label">รหัสผู้ผลิต</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="supplier_code"/>
-            <div *ngIf="submitted && inputForm.controls['supplier_code'].hasError">
-                <span class="help" *ngIf="inputForm.controls['supplier_code'].hasError('required')">กรุณาใส่ข้อมูล</span>
-                <span class="help" *ngIf="inputForm.controls['supplier_code'].hasError('maxlength')">ใส่ได้ไม่เกิน 50 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="supplier_code">
+                <mat-error *ngIf="inputForm.controls['supplier_code'].hasError('required')">
+                    กรุณาใส่ข้อมูล
+                </mat-error>
+                <mat-error *ngIf="inputForm.controls['supplier_code'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 50 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -37,11 +41,15 @@
             <label class="control-label">ชื่อผู้ผลิต</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="supplier_name"/>
-            <div *ngIf="submitted && inputForm.controls['supplier_name'].hasError">
-                <span class="help" *ngIf="inputForm.controls['supplier_name'].hasError('required')">กรุณาใส่ข้อมูล</span>
-                <span class="help" *ngIf="inputForm.controls['supplier_name'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="supplier_name">
+                <mat-error *ngIf="inputForm.controls['supplier_name'].hasError('required')">
+                    กรุณาใส่ข้อมูล
+                </mat-error>
+                <mat-error *ngIf="inputForm.controls['supplier_name'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 200 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -50,18 +58,11 @@
             <label class="control-label">ที่อยู่</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="addr1"/>
-            <div *ngIf="submitted && inputForm.controls['addr1'].hasError">
-                <span class="help" *ngIf="inputForm.controls['addr1'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
+			<textarea formControlName="address" class="input_textarea" ></textarea>
+			<div *ngIf="submitted && inputForm.controls['address'].hasError">
+                <span class="help" *ngIf="inputForm.controls['address'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
             </div>
-            <input type="text" formControlName="addr2"/>
-            <div *ngIf="submitted && inputForm.controls['addr2'].hasError">
-                <span class="help" *ngIf="inputForm.controls['addr2'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
-            </div>
-            <input type="text" formControlName="addr3"/>
-            <div *ngIf="submitted && inputForm.controls['addr3'].hasError">
-                <span class="help" *ngIf="inputForm.controls['addr3'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
-            </div>
+            
         </div>
     </div>
 
@@ -70,10 +71,12 @@
             <label class="control-label">รหัสไปรษณีย์</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="post_code"/>
-            <div *ngIf="submitted && inputForm.controls['post_code'].hasError">
-                <span class="help" *ngIf="inputForm.controls['post_code'].hasError('maxlength')">ใส่ได้ไม่เกิน 10 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="post_code">
+                <mat-error *ngIf="inputForm.controls['post_code'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 10 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -82,10 +85,13 @@
             <label class="control-label">เบอร์โทร</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="tel_no"/>
-            <div *ngIf="submitted && inputForm.controls['tel_no'].hasError">
-                <span class="help" *ngIf="inputForm.controls['tel_no'].hasError('maxlength')">ใส่ได้ไม่เกิน 50 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="tel_no">
+                <mat-error *ngIf="inputForm.controls['tel_no'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 50 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
+            
         </div>
     </div>
 
@@ -94,10 +100,13 @@
             <label class="control-label">FAX</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="tel_no"/>
-            <div *ngIf="submitted && inputForm.controls['fax_no'].hasError">
-                <span class="help" *ngIf="inputForm.controls['fax_no'].hasError('maxlength')">ใส่ได้ไม่เกิน 50 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="fax_no">
+                <mat-error *ngIf="inputForm.controls['fax_no'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 50 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
+
         </div>
     </div>
 
@@ -106,10 +115,12 @@
             <label class="control-label">E-Mail</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="e_mail"/>
-            <div *ngIf="submitted && inputForm.controls['e_mail'].hasError">
-                <span class="help" *ngIf="inputForm.controls['e_mail'].hasError('maxlength')">ใส่ได้ไม่เกิน 100 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="e_mail">
+                <mat-error *ngIf="inputForm.controls['e_mail'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 100 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -118,10 +129,13 @@
             <label class="control-label">ชื่อคนติดต่อ</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="contact"/>
-            <div *ngIf="submitted && inputForm.controls['contact'].hasError">
-                <span class="help" *ngIf="inputForm.controls['contact'].hasError('maxlength')">ใส่ได้ไม่เกิน 100 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="contact">
+                <mat-error *ngIf="inputForm.controls['contact'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 100 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
+           
         </div>
     </div>
 
@@ -130,10 +144,15 @@
             <label class="control-label">ระยะเวลาขนส่ง</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="number" formControlName="delivery_time"/>
-            <div *ngIf="submitted && inputForm.controls['delivery_time'].hasError">
-                <span class="help" *ngIf="inputForm.controls['delivery_time'].hasError('maxlength')">ใส่ได้ไม่เกิน 3 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="delivery_time" (keypress)="keyPress($event)">
+                <mat-error *ngIf="inputForm.controls['delivery_time'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 3 ตัวอักษร
+				</mat-error>
+				<mat-error *ngIf="inputForm.controls['delivery_time'].hasError('max')">
+                    ห้ามใส่ค่าเกิน 999
+                </mat-error>
+			</mat-form-field>
         </div>
     </div>
 

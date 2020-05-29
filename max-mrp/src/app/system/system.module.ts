@@ -17,13 +17,16 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ItemEditComponent } from './item-edit/item-edit.component';
 import { SupplierListComponent } from './supplier-list/supplier-list.component';
 import { SupplierEditComponent } from './supplier-edit/supplier-edit.component';
+import { CustomerListComponent } from './customer/list/list.component';
+import { CustomerEditComponent } from './customer/edit/edit.component';
 
 
 @NgModule({
   declarations: [
     UnitListComponent, UnitEditComponent, 
     ItemListComponent, ItemEditComponent, 
-    SupplierListComponent, SupplierEditComponent
+	SupplierListComponent, SupplierEditComponent, 
+	CustomerListComponent, CustomerEditComponent
   ],
   imports: [
     CommonModule,

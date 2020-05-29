@@ -27,9 +27,9 @@ export class SupplierEditComponent implements OnInit {
     'post_code'       : new FormControl('', [ Validators.maxLength(10) ]),
     'tel_no'          : new FormControl('', [ Validators.maxLength(50) ]),
     'fax_no'          : new FormControl('', [ Validators.maxLength(50) ]),
-    'e_mail'          : new FormControl('', [ Validators.maxLength(100) ]),
+    'e_mail'          : new FormControl('', [ Validators.maxLength(100),Validators.email ]),
     'contact'         : new FormControl('', [ Validators.maxLength(100) ]),
-    'delivery_time'   : new FormControl('', [ Validators.maxLength(3) , Validators.max(999)]),
+    'delivery_time'   : new FormControl('', [ Validators.max(999)]),
     'tax_id'          : new FormControl('', [ Validators.maxLength(20) ]),
     'payment_tearm'   : new FormControl('', [ Validators.maxLength(200) ]),
     'remark'          : new FormControl('', [ Validators.maxLength(200) ])

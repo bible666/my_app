@@ -119,6 +119,9 @@
                 <input matInput class="mat-input" formControlName="e_mail">
                 <mat-error *ngIf="inputForm.controls['e_mail'].hasError('maxlength')">
                     ใส่ได้ไม่เกิน 100 ตัวอักษร
+				</mat-error>
+				<mat-error *ngIf="inputForm.controls['e_mail'].hasError('email')">
+                    ใส่ Email ไม่ถูกต้อง
                 </mat-error>
             </mat-form-field>
         </div>
@@ -146,13 +149,11 @@
         <div class="col-md-9 edit_area">
 			<mat-form-field floatLabel="never" appearance="outline">
                 <input matInput class="mat-input" formControlName="delivery_time" (keypress)="keyPress($event)">
-                <mat-error *ngIf="inputForm.controls['delivery_time'].hasError('maxlength')">
-                    ใส่ได้ไม่เกิน 3 ตัวอักษร
-				</mat-error>
 				<mat-error *ngIf="inputForm.controls['delivery_time'].hasError('max')">
                     ห้ามใส่ค่าเกิน 999
                 </mat-error>
 			</mat-form-field>
+			วัน
         </div>
     </div>
 
@@ -161,10 +162,12 @@
             <label class="control-label">เลขที่ภาษี</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="tax_id"/>
-            <div *ngIf="submitted && inputForm.controls['tax_id'].hasError">
-                <span class="help" *ngIf="inputForm.controls['tax_id'].hasError('maxlength')">ใส่ได้ไม่เกิน 20 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="tax_id">
+                <mat-error *ngIf="inputForm.controls['tax_id'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 20 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -173,10 +176,12 @@
             <label class="control-label">รายละเอียดการจ่ายเงิน</label>
         </div>
         <div class="col-md-9 edit_area">
-            <input type="text" formControlName="payment_tearm"/>
-            <div *ngIf="submitted && inputForm.controls['payment_tearm'].hasError">
-                <span class="help" *ngIf="inputForm.controls['payment_tearm'].hasError('maxlength')">ใส่ได้ไม่เกิน 200 ตัวอักษร</span>
-            </div>
+			<mat-form-field floatLabel="never" appearance="outline">
+                <input matInput class="mat-input" formControlName="payment_tearm">
+                <mat-error *ngIf="inputForm.controls['payment_tearm'].hasError('maxlength')">
+                    ใส่ได้ไม่เกิน 200 ตัวอักษร
+                </mat-error>
+            </mat-form-field>
         </div>
     </div>
 
@@ -185,7 +190,7 @@
             <label class="control-label">หมายเหตุ</label>
         </div>
         <div class="col-md-9 edit_area">
-            <textarea formControlName="remark" ></textarea>
+			<textarea formControlName="remark" class="input_textarea" ></textarea>
             <span class="help"></span>
         </div>
     </div>

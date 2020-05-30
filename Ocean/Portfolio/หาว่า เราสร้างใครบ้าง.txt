@@ -36,9 +36,15 @@ agent_count : จำนวน ตัวแทนที่สร้างให�
 
 Detail
 
-select  count(distinct ad.sales_code) as agent_count
-from sales_team_structure ma inner join sales_team_structure  ad on ma.id = ad.recruiter 
-where ma.sales_code = :agent_code and ma."period" = :select_period
+select count(agent_code_7) as agent_count
+from 
+(
+	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
+	from agpt_agent_income dai
+	where recruiter_code_7  <> '' 
+	group by agent_code_7 ,recruiter_code_7 
+) my_data
+where recruiter_code_7 = :agent_code and min_period = :period
 
 
 return agent_count

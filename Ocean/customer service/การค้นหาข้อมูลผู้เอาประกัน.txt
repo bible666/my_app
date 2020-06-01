@@ -1,0 +1,154 @@
+การค้นหาข้อมูลผู้เอาประกัน
+Skip to end of metadata
+Added by (เก่า)ดวงพร แซ่จู, last edited by Supapitt Simparach on Nov 14, 2016  (view change)Go to start of metadata
+[ Overview ] [ Protocol ] [ Operation ] [ Input ] [ Output ] [ Exception ] [ Example Input & Output ]
+ 
+
+Overview
+ใช้สำหรับค้นหาข้อมูลส่วนตัวของผู้เอาประกัน 
+
+Protocol
+Icon
+<SOAP,HESSIAN,REST>
+
+Operation
+refer : ESB WebService Design Pattern
+
+Icon
+TYPE : <inquiry,bulk,delete,update,add>
+
+<ชื่อ operation>
+
+Input
+<แสดงข้อมูล Parameter ที่ระบบนี้จะต้องส่งไปยัง external service>
+
+ค้นหาที่ Table: public.ili_policy_master
+
+ 
+
+Name
+Type
+Description
+Example
+Validation
+id_no	string	เลขบัตรประชาชน	'1111111111119'	 
+Output
+<แสดงข้อมูลที่ได้รับจาก external service นี้>
+
+ 
+
+Name
+Type
+Description
+Example
+title_desc	string	คำนำหน้า	
+"นาย"
+
+first_name	string	ชื่อผู้เอาประกัน	
+"สมชาย"
+
+last_name	string	นามสกุลผู้เอาประกัน	
+"กล้าหาญ"
+
+id_no	string	หมายเลขบัตรประชาชน/หมายเลขหนังสือเดินทาง	
+"1111111111119"
+
+gender_code	string	เพศ	
+"M"
+
+นำข้อมูลมาแปลง ดังนี้
+
+M = ชาย
+
+F = หญิง
+
+birthdate	date	วัน/เดือน/ปีเกิด	
+01/01/1980
+
+age_at_comm_date	numeric	อายุ	"36"
+origin_desc	string	เชื้อชาติ	"ไทย"
+nationality_desc	string	สัญชาติ	"ไทย"
+religion_desc	string	ศาสนา	"พุทธ"
+marital_status_desc	string	สถานภาพ	"โสด"
+education_desc	string	ระดับการศึกษา	"ปริญญาตรี"
+occupation_desc	string	อาชีพ	"รับจ้างทั่วไป"
+monthly_income	numeric	รายได้/เดือน	"40000"
+policy_type	string	ประเภทกรมธรรม์	
+"I"
+
+แบ่งตามประเภทกรมธรรม์ดังนี้
+
+สามัญ (O)
+อุตสาหกรรม (I หรือ G)
+อุบัติเหตุส่วนบุคคล (P)
+policy_status	string	สถานะ	
+"0"
+
+แบ่งตามประเภทกรมธรรม์ดังนี้
+
+สามัญ สถานะกรมธรรม์ประกอบด้วย
+I = มีผลบังคับ
+
+F = ชำระครบ
+
+O = ค้างชำระ(Outstanding)
+
+W = ยกเว้นชำระ
+
+E = ขยายเวลา
+
+L = ขาดผลบังคับ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+
+M = ครบสัญญา >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+R = ปิดบัญชี >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+P = ปิดบัญชีอัตโนมัติ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+C = ปฏิเสธ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+Z = ยกเลิก >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+S = เวนคืน >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+A = เวนคืนอัตโนมัติ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+T = ขาดผลครบ 5 ปี >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+ 
+
+อุตสาหกรรม สถานะกรมธรรม์ประกอบด้วย
+0 = มีผลบังคับ
+
+1 =มีผลบังคับ (ขาดชำระ 1 เดือน) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+2 =มีผลบังคับ (ขาดชำระ 2 เดือน) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+3 =ค้างชำระ(Outstanding 3 เดือน) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+4 = ค้างชำระ(Outstanding 4 เดือน) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+5 = ค้างชำระ(Outstanding 5 เดือน) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+7 = ขาดผลบังคับ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+
+8 = ชำระครบ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+6 = ปิดบัญชี(มีมูลค่า) >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+M = ครบกำหนดสัญญา >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+S = เวนคืน >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+A = เวนคืนอัตโนมัติ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+ 
+
+อุบัติเหตุส่วนบุคคล สถานะกรมธรรม์ประกอบด้วย
+I = มีผลบังคับ
+
+L = ขาดผลบังคับ >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+
+M = ครบสัญญา >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.maturity_date + 5 ปี
+
+B = บอกล้าง >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+C = ยกเลิกสัญญา >> ดูต่อที่ current date น้อยกว่าหรือเท่ากับ ili_policy_master.lapse_date + 5 ปี
+commencement_date	timestamp	วันเริ่มสัญญา	
+01/01/2550
+
+Exception
+<อธิบายว่า มี exception อะไรที่ต้องจัดการหรือระวังบ้าง>
+
+Example Input & Output
+<ตัวอย่างที่ 1 เช่น การส่งข้อมูลแบบปกติ>
+<ตัวอย่าง data เช่น รูปแบบของ SOAP message>
+<ตัวอย่าง response data เช่น รูปแบบของ SOAP message>

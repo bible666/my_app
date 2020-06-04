@@ -18,7 +18,8 @@ class Migration_mst_unit_data extends \CodeIgniter\Database\Migration {
 			('pcs','ชิ้น',true,now(),1),
 			('box','กล่อง',true,now(),1),
 			('book','เล่ม',true,now(),1),
-            ('m²','ตารางเมตร',true,now(),1);
+			('m²','ตารางเมตร',true,now(),1),
+			('car','คัน',true,now(),1);
             
         ");
 

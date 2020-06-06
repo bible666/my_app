@@ -22,7 +22,7 @@ TYPE : <inquiry,bulk,delete,update,add>
 Input
 <แสดงข้อมูล Parameter ที่ระบบนี้จะต้องส่งไปยัง external service>
 
-ค้นหาที่ Table: public.ms_favorite
+เพิ่มข้อมูลที่ Table: public.ms_favorite
 
  
 

@@ -1,0 +1,392 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://v2.ws.cisapp.thaisamut/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CisCustomerV2WebServiceService" targetNamespace="http://v2.ws.cisapp.thaisamut/">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://v2.ws.cisapp.thaisamut/" targetNamespace="http://v2.ws.cisapp.thaisamut/" version="1.0">
+<xs:element name="CisCustomerWebServiceException" type="tns:CisCustomerWebServiceException"/>
+<xs:element name="checkDuplicateTelephone" type="tns:checkDuplicateTelephone"/>
+<xs:element name="checkDuplicateTelephoneResponse" type="tns:checkDuplicateTelephoneResponse"/>
+<xs:element name="getAllActiveCustomerByPolicyAndCustomerRole" type="tns:getAllActiveCustomerByPolicyAndCustomerRole"/>
+<xs:element name="getAllActiveCustomerByPolicyAndCustomerRoleResponse" type="tns:getAllActiveCustomerByPolicyAndCustomerRoleResponse"/>
+<xs:element name="getCustomerBy5Key" type="tns:getCustomerBy5Key"/>
+<xs:element name="getCustomerBy5KeyResponse" type="tns:getCustomerBy5KeyResponse"/>
+<xs:element name="getCustomerByCardNoAndName" type="tns:getCustomerByCardNoAndName"/>
+<xs:element name="getCustomerByCardNoAndNameResponse" type="tns:getCustomerByCardNoAndNameResponse"/>
+<xs:element name="getCustomerByCustomerId" type="tns:getCustomerByCustomerId"/>
+<xs:element name="getCustomerByCustomerIdResponse" type="tns:getCustomerByCustomerIdResponse"/>
+<xs:complexType name="getCustomerBy5Key">
+<xs:sequence>
+<xs:element minOccurs="0" name="cardNo" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="surname" type="xs:string"/>
+<xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="sexCode" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomerBy5KeyResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:cisCustomerDetails"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisCustomerDetails">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="addressInfo" nillable="true" type="tns:cisCustomerAddress"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="contactInfo" nillable="true" type="tns:cisCustomerContactInfo"/>
+<xs:element minOccurs="0" name="cusBirthdate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="cusCardExpireDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="cusCardNo" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCardType" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCardTypeName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCoreIncome" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusCoreIncomeCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusCoreIncomeName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCoreOccupationClass" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCoreOccupationCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusCoreOccupationName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCustomerRole" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCustomerRoleDesc" type="xs:string"/>
+<xs:element minOccurs="0" name="cusMaritalCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusMaritalName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusNameEn" type="xs:string"/>
+<xs:element minOccurs="0" name="cusNationalityCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusNationalityName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusOriginCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusOriginName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusPartTimeIncome" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusPartTimeIncomeCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusPartTimeIncomeName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusPartTimeOccupationClass" type="xs:string"/>
+<xs:element minOccurs="0" name="cusPartTimeOccupationCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusPartTimeOccupationName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusReligionCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusReligionName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSex" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSexCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSurname" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSurnameEn" type="xs:string"/>
+<xs:element minOccurs="0" name="cusTitle" type="xs:string"/>
+<xs:element minOccurs="0" name="cusTitleCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusTitleCodeEn" type="xs:string"/>
+<xs:element minOccurs="0" name="cusTitleEn" type="xs:string"/>
+<xs:element minOccurs="0" name="cusUpdateDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="customerInfo" nillable="true" type="tns:cisCustomer"/>
+<xs:element minOccurs="0" name="fiveKeyDuplicate" type="xs:boolean"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="policyInfo" nillable="true" type="tns:cisPolicyLink"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisCustomerAddress">
+<xs:sequence>
+<xs:element minOccurs="0" name="address" type="xs:string"/>
+<xs:element minOccurs="0" name="addressType" type="xs:string"/>
+<xs:element minOccurs="0" name="addressTypeName" type="xs:string"/>
+<xs:element minOccurs="0" name="alley" type="xs:string"/>
+<xs:element minOccurs="0" name="building" type="xs:string"/>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+<xs:element minOccurs="0" name="district" type="xs:string"/>
+<xs:element minOccurs="0" name="districtCode" type="xs:string"/>
+<xs:element minOccurs="0" name="houseNo" type="xs:string"/>
+<xs:element minOccurs="0" name="postCode" type="xs:string"/>
+<xs:element minOccurs="0" name="province" type="xs:string"/>
+<xs:element minOccurs="0" name="provinceCode" type="xs:string"/>
+<xs:element minOccurs="0" name="road" type="xs:string"/>
+<xs:element minOccurs="0" name="subdistrict" type="xs:string"/>
+<xs:element minOccurs="0" name="subdistrictCode" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="village" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisCustomerContactInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="contactFlag" type="xs:string"/>
+<xs:element minOccurs="0" name="contactNote" type="xs:string"/>
+<xs:element minOccurs="0" name="contactRemark" type="xs:string"/>
+<xs:element minOccurs="0" name="contactType" type="xs:string"/>
+<xs:element minOccurs="0" name="contactTypeName" type="xs:string"/>
+<xs:element minOccurs="0" name="contactValue" type="xs:string"/>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+<xs:element minOccurs="0" name="nationalPhoneCode" type="xs:string"/>
+<xs:element minOccurs="0" name="updateBy" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisCustomer">
+<xs:sequence>
+<xs:element minOccurs="0" name="cusBirthdate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="cusCardNo" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCardType" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCardTypeName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSex" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSexCode" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSurname" type="xs:string"/>
+<xs:element minOccurs="0" name="cusTitle" type="xs:string"/>
+<xs:element minOccurs="0" name="cusTitleCode" type="xs:decimal"/>
+<xs:element minOccurs="0" name="cusUpdateDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisPolicyLink">
+<xs:sequence>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRole" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRoleDesc" type="xs:string"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="policyAddress" nillable="true" type="tns:cisPolicyAddress"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="policyBankAccount" nillable="true" type="tns:cisPolicyBankAccount"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="policyContactInfo" nillable="true" type="tns:cisPolicyContactInfo"/>
+<xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+<xs:element minOccurs="0" name="policyStatus" type="xs:string"/>
+<xs:element minOccurs="0" name="policyType" type="xs:string"/>
+<xs:element minOccurs="0" name="policyTypeDesc" type="xs:string"/>
+<xs:element minOccurs="0" name="policyTypeName" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisPolicyAddress">
+<xs:sequence>
+<xs:element minOccurs="0" name="address" type="xs:string"/>
+<xs:element minOccurs="0" name="addressType" type="xs:string"/>
+<xs:element minOccurs="0" name="alley" type="xs:string"/>
+<xs:element minOccurs="0" name="building" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRole" type="xs:string"/>
+<xs:element minOccurs="0" name="district" type="xs:string"/>
+<xs:element minOccurs="0" name="districtCode" type="xs:string"/>
+<xs:element minOccurs="0" name="houseNo" type="xs:string"/>
+<xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+<xs:element minOccurs="0" name="postCode" type="xs:string"/>
+<xs:element minOccurs="0" name="province" type="xs:string"/>
+<xs:element minOccurs="0" name="provinceCode" type="xs:string"/>
+<xs:element minOccurs="0" name="road" type="xs:string"/>
+<xs:element minOccurs="0" name="subdistrict" type="xs:string"/>
+<xs:element minOccurs="0" name="subdistrictCode" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="village" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisPolicyBankAccount">
+<xs:sequence>
+<xs:element minOccurs="0" name="accountBankId" type="xs:decimal"/>
+<xs:element minOccurs="0" name="accountBankName" type="xs:string"/>
+<xs:element minOccurs="0" name="accountBranch" type="xs:string"/>
+<xs:element minOccurs="0" name="accountName" type="xs:string"/>
+<xs:element minOccurs="0" name="accountNo" type="xs:string"/>
+<xs:element minOccurs="0" name="accountSurname" type="xs:string"/>
+<xs:element minOccurs="0" name="accountTitle" type="xs:decimal"/>
+<xs:element minOccurs="0" name="accountTitleName" type="xs:string"/>
+<xs:element minOccurs="0" name="accountType" type="xs:string"/>
+<xs:element minOccurs="0" name="accountTypeName" type="xs:string"/>
+<xs:element minOccurs="0" name="botBankCode" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRole" type="xs:string"/>
+<xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+<xs:element minOccurs="0" name="relationship" type="xs:string"/>
+<xs:element minOccurs="0" name="relationshipName" type="xs:string"/>
+<xs:element minOccurs="0" name="remark" type="xs:string"/>
+<xs:element minOccurs="0" name="transactionType" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisPolicyContactInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="contactFlag" type="xs:string"/>
+<xs:element minOccurs="0" name="contactNote" type="xs:string"/>
+<xs:element minOccurs="0" name="contactRemark" type="xs:string"/>
+<xs:element minOccurs="0" name="contactType" type="xs:string"/>
+<xs:element minOccurs="0" name="contactTypeDesc" type="xs:string"/>
+<xs:element minOccurs="0" name="contactValue" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRole" type="xs:string"/>
+<xs:element minOccurs="0" name="nationalPhoneCode" type="xs:string"/>
+<xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+<xs:element minOccurs="0" name="updateBy" type="xs:string"/>
+<xs:element minOccurs="0" name="updateDate" type="xs:dateTime"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CisCustomerWebServiceException">
+<xs:sequence>
+<xs:element minOccurs="0" name="message" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomerByCardNoAndName">
+<xs:sequence>
+<xs:element minOccurs="0" name="cardNo" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="surname" type="xs:string"/>
+<xs:element minOccurs="0" name="birthDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="sex" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomerByCardNoAndNameResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:cisCustomer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkDuplicateTelephone">
+<xs:sequence>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+<xs:element minOccurs="0" name="contactValue" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="checkDuplicateTelephoneResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:cisCustomerTelephone"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="cisCustomerTelephone">
+<xs:sequence>
+<xs:element minOccurs="0" name="cusCardNo" type="xs:string"/>
+<xs:element minOccurs="0" name="cusCustomerId" type="xs:string"/>
+<xs:element minOccurs="0" name="cusName" type="xs:string"/>
+<xs:element minOccurs="0" name="cusSurname" type="xs:string"/>
+<xs:element minOccurs="0" name="duplicateFlag" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomerByCustomerId">
+<xs:sequence>
+<xs:element minOccurs="0" name="customerId" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCustomerByCustomerIdResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:cisCustomerDetails"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAllActiveCustomerByPolicyAndCustomerRole">
+<xs:sequence>
+<xs:element minOccurs="0" name="policyNo" type="xs:string"/>
+<xs:element minOccurs="0" name="customerRole" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getAllActiveCustomerByPolicyAndCustomerRoleResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="tns:cisCustomerDetails"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="getCustomerByCardNoAndNameResponse">
+<wsdl:part element="tns:getCustomerByCardNoAndNameResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCustomerByCustomerId">
+<wsdl:part element="tns:getCustomerByCustomerId" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkDuplicateTelephoneResponse">
+<wsdl:part element="tns:checkDuplicateTelephoneResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCustomerBy5KeyResponse">
+<wsdl:part element="tns:getCustomerBy5KeyResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCustomerByCustomerIdResponse">
+<wsdl:part element="tns:getCustomerByCustomerIdResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCustomerBy5Key">
+<wsdl:part element="tns:getCustomerBy5Key" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getAllActiveCustomerByPolicyAndCustomerRoleResponse">
+<wsdl:part element="tns:getAllActiveCustomerByPolicyAndCustomerRoleResponse" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getCustomerByCardNoAndName">
+<wsdl:part element="tns:getCustomerByCardNoAndName" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="getAllActiveCustomerByPolicyAndCustomerRole">
+<wsdl:part element="tns:getAllActiveCustomerByPolicyAndCustomerRole" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="checkDuplicateTelephone">
+<wsdl:part element="tns:checkDuplicateTelephone" name="parameters"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="CisCustomerWebServiceException_Exception">
+<wsdl:part element="tns:CisCustomerWebServiceException" name="CisCustomerWebServiceException_Exception"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="CisCustomerV2WebService">
+<wsdl:operation name="getCustomerBy5Key">
+<wsdl:input message="tns:getCustomerBy5Key" name="getCustomerBy5Key"> </wsdl:input>
+<wsdl:output message="tns:getCustomerBy5KeyResponse" name="getCustomerBy5KeyResponse"> </wsdl:output>
+<wsdl:fault message="tns:CisCustomerWebServiceException_Exception" name="CisCustomerWebServiceException_Exception"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerByCardNoAndName">
+<wsdl:input message="tns:getCustomerByCardNoAndName" name="getCustomerByCardNoAndName"> </wsdl:input>
+<wsdl:output message="tns:getCustomerByCardNoAndNameResponse" name="getCustomerByCardNoAndNameResponse"> </wsdl:output>
+<wsdl:fault message="tns:CisCustomerWebServiceException_Exception" name="CisCustomerWebServiceException_Exception"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="checkDuplicateTelephone">
+<wsdl:input message="tns:checkDuplicateTelephone" name="checkDuplicateTelephone"> </wsdl:input>
+<wsdl:output message="tns:checkDuplicateTelephoneResponse" name="checkDuplicateTelephoneResponse"> </wsdl:output>
+<wsdl:fault message="tns:CisCustomerWebServiceException_Exception" name="CisCustomerWebServiceException_Exception"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerByCustomerId">
+<wsdl:input message="tns:getCustomerByCustomerId" name="getCustomerByCustomerId"> </wsdl:input>
+<wsdl:output message="tns:getCustomerByCustomerIdResponse" name="getCustomerByCustomerIdResponse"> </wsdl:output>
+<wsdl:fault message="tns:CisCustomerWebServiceException_Exception" name="CisCustomerWebServiceException_Exception"> </wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getAllActiveCustomerByPolicyAndCustomerRole">
+<wsdl:input message="tns:getAllActiveCustomerByPolicyAndCustomerRole" name="getAllActiveCustomerByPolicyAndCustomerRole"> </wsdl:input>
+<wsdl:output message="tns:getAllActiveCustomerByPolicyAndCustomerRoleResponse" name="getAllActiveCustomerByPolicyAndCustomerRoleResponse"> </wsdl:output>
+<wsdl:fault message="tns:CisCustomerWebServiceException_Exception" name="CisCustomerWebServiceException_Exception"> </wsdl:fault>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="CisCustomerV2WebServiceServiceSoapBinding" type="tns:CisCustomerV2WebService">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getCustomerBy5Key">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getCustomerBy5Key">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCustomerBy5KeyResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="CisCustomerWebServiceException_Exception">
+<soap:fault name="CisCustomerWebServiceException_Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerByCardNoAndName">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getCustomerByCardNoAndName">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCustomerByCardNoAndNameResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="CisCustomerWebServiceException_Exception">
+<soap:fault name="CisCustomerWebServiceException_Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="checkDuplicateTelephone">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="checkDuplicateTelephone">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="checkDuplicateTelephoneResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="CisCustomerWebServiceException_Exception">
+<soap:fault name="CisCustomerWebServiceException_Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerByCustomerId">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getCustomerByCustomerId">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCustomerByCustomerIdResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="CisCustomerWebServiceException_Exception">
+<soap:fault name="CisCustomerWebServiceException_Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getAllActiveCustomerByPolicyAndCustomerRole">
+<soap:operation soapAction="" style="document"/>
+<wsdl:input name="getAllActiveCustomerByPolicyAndCustomerRole">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getAllActiveCustomerByPolicyAndCustomerRoleResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="CisCustomerWebServiceException_Exception">
+<soap:fault name="CisCustomerWebServiceException_Exception" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="CisCustomerV2WebServiceService">
+<wsdl:port binding="tns:CisCustomerV2WebServiceServiceSoapBinding" name="CisCustomerV2WebServicePort">
+<soap:address location="http://11.100.6.43:8181/cxf/thaisamut/cis/v2/xml/inquiry/customer"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

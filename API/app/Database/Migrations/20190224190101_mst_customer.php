@@ -34,7 +34,7 @@ class Migration_mst_customer extends \CodeIgniter\Database\Migration {
 
     public function down()
     {
-        $this->dbforge->drop_table('mst_supplier');
+        $this->dbforge->drop_table('mst_customer');
     }
 }
 ?>

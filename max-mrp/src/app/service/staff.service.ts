@@ -10,21 +10,21 @@ export class StaffService {
   private BASE_URL  : string = environment.api_url+ '/staffController';
   private myHeaders: HttpHeaders =  new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': sessionStorage.getItem('token')
+    'Authorization': localStorage.getItem('token')
   });
   constructor(
     private http:HttpClient
   ) { }
 
   public getListData(search_data: cSearch){
-    search_data.token	= sessionStorage.getItem('token');
+    search_data.token	= localStorage.getItem('token');
 
     let strJSON:string = JSON.stringify(search_data);
     return this.http.post(this.BASE_URL+'/get_data_list',strJSON);
   }
 
   public getListData2(search_data: cSearch){
-    search_data.token	= sessionStorage.getItem('token');
+    search_data.token	= localStorage.getItem('token');
     
     let strJSON:string = JSON.stringify(search_data);
     let myParam : HttpParams = new HttpParams();

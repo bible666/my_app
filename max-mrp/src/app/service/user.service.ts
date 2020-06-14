@@ -46,12 +46,12 @@ export class UserService {
 
   public getMenu(){
     let httpData : cGetMenu = new cGetMenu();
-    httpData.token	= sessionStorage.getItem('token');
+    httpData.token	= localStorage.getItem('token');
     return this.http.post(BASE_URL+'/UserController/getMenu',JSON.stringify(httpData));
   }
 
   public clear_cache(){
-    sessionStorage.clear();
+    localStorage.clear();
   }
 
   public login(pData){
@@ -62,25 +62,25 @@ export class UserService {
   }
 
   public logout(){
-    sessionStorage.clear();
+    localStorage.clear();
   }
 
   public set_token(p_token){
-    sessionStorage.setItem('token', p_token);
+    localStorage.setItem('token', p_token);
   }
 
   public get_token(){
-    return sessionStorage.getItem('token');
+    return localStorage.getItem('token');
   }
 
   public set_menu_data(p_menu_data){
-    sessionStorage.setItem('menu_data', JSON.stringify(p_menu_data));
+    localStorage.setItem('menu_data', JSON.stringify(p_menu_data));
   }
 
   public get_menu_data(p_menu_id){
     let ret_data: Array<any> = [];
-    if (sessionStorage.getItem('menu_data')){
-      let menu_datas = JSON.parse(sessionStorage.getItem('menu_data'));
+    if (localStorage.getItem('menu_data')){
+      let menu_datas = JSON.parse(localStorage.getItem('menu_data'));
       menu_datas.forEach(data => {
         if (data.parent_menu_id === p_menu_id){
           ret_data.push(data);
@@ -93,11 +93,11 @@ export class UserService {
   }
 
   public set_company_id(p_company_id){
-    sessionStorage.setItem('company_id', p_company_id);
+    localStorage.setItem('company_id', p_company_id);
   }
 
   public get_company_id(){
-    return sessionStorage.getItem('company_id');
+    return localStorage.getItem('company_id');
   }
 }
 

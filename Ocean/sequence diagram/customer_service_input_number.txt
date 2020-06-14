@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant u as user
+    participant c as cis
+    participant t as agent_team
+    participant p as msa_policy
+    Note over u,p: case user input number
+    loop user input number
+    u->>u: user input key word
+
+    u->>+c: get customer sample data
+    c-->>-u: receive customer sample data
+    u->>+t: get nick name from customer sample data
+    t-->>-u: receive customer sample data nick name
+
+    end
+    u->>u: user selecct customer
+    u->>+c: get customer data by customer id
+    c-->>-u: receive customer id
+    u->>+p: get customer policy
+    p-->>-u: receive customer policy

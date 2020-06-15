@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-	let menu_datas = JSON.parse(sessionStorage.getItem('menu_data'));
+	let menu_datas = JSON.parse(localStorage.getItem('menu_data'));
 
 	this.menu_datas = this.getMenuData('-1',menu_datas);
 

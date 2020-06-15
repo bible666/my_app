@@ -12,7 +12,7 @@ export class CompanyService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type'  : 'application/json',
-      'Authorization' : sessionStorage.getItem('token')
+      'Authorization' : localStorage.getItem('token')
     })
   };
 

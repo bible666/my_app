@@ -91,7 +91,7 @@ export class TemplateListComponent implements OnInit {
 			} else {
 				//console.log(result);
 				//start delete data
-				//sessionStorage.setItem( this.localNameInput + '.delete_id',result);
+				//localStorage.setItem( this.localNameInput + '.delete_id',result);
 				// this.unitS.deleteById().subscribe(data =>{
 				// 	if (data['status'] == 'success'){
 				// 		this.snackBar.openFromComponent(MyMessageComponent,{

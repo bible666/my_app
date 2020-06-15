@@ -18,3 +18,5 @@ sequenceDiagram
     c-->>-u: receive customer id
     u->>+p: get customer policy
     p-->>-u: receive customer policy
+    u->>+p: get policy detail
+    p-->>-u: receive policy detail

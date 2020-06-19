@@ -1,4 +1,4 @@
-select *
+select new_table.*,m.description_agent_portal as policy_status_desc
 from (
 	select ipm.* , 
 		case when 
@@ -63,7 +63,8 @@ from (
 				end
 			else
 					'O'
-		end as other_channel
+		end as other_channel,
+		COALESCE(apl.policy_no,'N','Y') as apl_flag
 	from (
 		select *,
 			pay_to as next_paid_date2,
@@ -91,18 +92,12 @@ from (
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
 	   left join dm_hermes_req_credit_payment c on ipm.policy_no = c.policy_no and c.status_code = '6'
 	   left join dm_biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
+	   left join (
+	        select distinct "LHPOL#" as policy_no 
+	        from dm_as400_olis_olploahd
+	        where "LHSTS@" = 'A'
+	   ) as apl on ipm.policy_no = apl.policy_no
+	   
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
-) new_table
---where other_channel = 'N'
---where agent_code = '5311055'
---case where payment_channel
---other_channel in (:payment_channel)
--- case where group type
---group_type in (:group_type)
-
---limit offset
---limit :limit  offset :offset
-
--- sort column
---order by :sort
+) new_table left join ms_policy_type_mapping m on new_table.policy_type = m.policy_type and new_table.policy_status = m.policy_status  and new_table.apl_flag = m.apl_flag 

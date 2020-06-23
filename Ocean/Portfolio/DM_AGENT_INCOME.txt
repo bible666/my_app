@@ -1,4 +1,4 @@
-AGPT_AGENT_INCOME
+dm_AGENT_INCOME
 Skip to end of metadata
 Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Jan 17, 2019  (view change)Go to start of metadata
 TOC
@@ -9,7 +9,7 @@ TOC
 Convention
 <N/A ยังไม่ได้กำหนดน่ะเวลานี้>
 
-Table AGPT_AGENT_INCOME type Transaction
+Table dm_AGENT_INCOME type Transaction
 เก็บข้อมูลจาก file agent_income.csv จากระบบ Income และเป็นข้อมูลเดียวกับออก Report ในระบบ Income คือ รายงานผลงานรายได้_(รายสาขา-รายตัวแทน)_ทุกสาขา_0160_1460.xlsx (เพียงแต่เปลี่ยนการเก็บข้อมูลจากเดิมทีจะมีข้อมูลตั้งแต่งวดแรกถึงงวดที่สาขาบันทึกมา ก็จะเก็บเฉพาะงวดที่สาขาบันทึกมาเท่านั้น)
 
 No

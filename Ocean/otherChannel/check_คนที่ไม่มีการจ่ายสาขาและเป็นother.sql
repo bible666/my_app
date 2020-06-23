@@ -1,6 +1,6 @@
-select new_table.*, m.description_agent_portal 
+select agent_code,count(agent_code)
 from (
-	select ipm.* ,
+	select ipm.* , 
 		case when 
 			current_date >= cast((ipm.next_paid_date2 + INTERVAL '-30 day') as date) and 
 			current_date <= cast((ipm.next_paid_date2 + INTERVAL '-1 day') as date)
@@ -84,8 +84,7 @@ from (
 				end 
 			end as end_date
 		from ms_policy_lists pl 
-		where agent_code = cast(:agent_code as text) 
-			and case when lower(policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
+		where case when lower(policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
 	) ipm 
 	   left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
@@ -93,16 +92,6 @@ from (
 	   left join dm_biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
-) new_table left join ms_policy_type_mapping m on new_table.policy_type = m.policy_type  and new_table.policy_status = m.policy_status and new_table.apl_flag = m.apl_flag 
---where other_channel = 'N'
---where agent_code = '5311055'
---case where payment_channel
---other_channel in (:payment_channel)
--- case where group type
---group_type in (:group_type)
-
---limit offset
---limit :limit  offset :offset
-
--- sort column
---order by :sort
+) new_table
+where group_type <> 0 and other_channel <> 'N' and lower(ipm.policy_type ) = 'o'-- and payment_channel not in ('1','2')
+group by agen

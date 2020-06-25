@@ -40,7 +40,7 @@ select count(agent_code_7) as agent_count
 from 
 (
 	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
-	from agpt_agent_income dai
+	from dm_agent_income dai
 	where recruiter_code_7  <> '' 
 	group by agent_code_7 ,recruiter_code_7 
 ) my_data

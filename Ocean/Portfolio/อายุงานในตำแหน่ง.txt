@@ -8,9 +8,9 @@ output
 Detail
 
 
-	select max(appointed_date)
-	from sales_team_structure
-	where sales_code = '6350294'
+	select MAX(position_date_current)
+	from dm_agent_income
+	where agent_code_7 = '1234567'
 
 โดย sales_code คือ รหัสตัวแทน 7 หลัก
 position คือ รหัสตำแหน่ง เป็นตัวเลข

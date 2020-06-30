@@ -8,9 +8,18 @@ output
 Detail
 
 
-	select MAX(position_date_current)
-	from dm_agent_income
-	where agent_code_7 = '1234567'
+--DB : geras
+select position_age
+from agpt_agent_income as aai
+where agent_code_7 = :agent_code_7 --'5861400' 
+and "period"  = (select max("period") from agpt_agent_income  aai1 where aai1.agent_code_7 = :agent_code_7); --'5861400')
+
+
+
+select MAX(position_date_current)
+ from agpt_agent_income
+ where agent_code_7 = '3807537'
+
 
 โดย sales_code คือ รหัสตัวแทน 7 หลัก
 position คือ รหัสตำแหน่ง เป็นตัวเลข

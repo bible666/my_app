@@ -41,7 +41,7 @@ class Migration_prg_stock_data extends \CodeIgniter\Database\Migration {
     public function down()
     {
         $this->db->query("
-            delete prg_stock_data;
+            delete prg_stock;
         ");
     }
 }

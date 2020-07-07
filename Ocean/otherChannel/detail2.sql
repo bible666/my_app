@@ -94,5 +94,5 @@ from (
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
 ) new_table
-where
-group_type in ('10') and policy_type = 'I'
+--where
+--group_type in ('10') and policy_type = 'I'

@@ -65,7 +65,7 @@ select '4700373' as agent_code, 'OceanPadTest8' as username
 )
 
 select pay_to,premium_amount,tot_rider_premium_amount ,
-	       payment_mode ,policy_status ,
+	       payment_mode ,apl_flag ,policy_status ,
 	       policy_no,product_name,rider_flag,title_desc,first_name,last_name,mobile1,customer_province_name,
 	       payment_channel,payment_term 
 	       , commencement_date,maturity_date,ng.desc1 as noti_group ,endData.agent_code,ch.username
@@ -111,7 +111,7 @@ select ipm.*,case when
 		end as group_type
 from (
 	select pay_to,premium_amount,tot_rider_premium_amount ,
-	       payment_mode ,ptm.description_agent_portal as policy_status ,
+	       payment_mode,mpl.apl_flag ,ptm.description_agent_portal as policy_status ,
 	       policy_no,mpl.policy_type,product_name,rider_flag,title_desc,first_name,last_name,mobile1,customer_province_name,
 	       pm.desc1 as payment_channel,mpl.payment_term ,mpl.agent_code 
 	       , commencement_date,maturity_date,
@@ -132,7 +132,8 @@ from (
 					end 
 				end as end_date
 	from ms_policy_lists mpl left join payment_map pm on mpl.payment_channel  = pm.code
-	     left join ms_policy_type_mapping ptm on lower(mpl.policy_type ) = lower(ptm.policy_type) and lower(mpl.policy_status ) = lower(ptm.policy_status) and lower(mpl.apl_flag) = lower(mpl.apl_flag)
+	     left join ms_policy_type_mapping ptm on lower(mpl.policy_type ) = lower(ptm.policy_type) and lower(mpl.policy_status ) = lower(ptm.policy_status) and lower(mpl.apl_flag) = lower(ptm.apl_flag)
+	where case when lower(mpl.policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
  ) ipm
  left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'

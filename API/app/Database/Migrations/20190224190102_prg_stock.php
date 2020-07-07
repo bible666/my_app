@@ -11,7 +11,7 @@ class Migration_prg_stock extends \CodeIgniter\Database\Migration {
 				location_code      varchar(10) NOT NULL REFERENCES mst_location (location_code),
 				item_code          varchar(50) NOT NULL REFERENCES mst_item (item_code),
 				lot_no             varchar(200),
-				first_receive_date DATETIME,
+				first_receive_date DATE,
 				quantity           decimal(18,5),
 				unit_price         decimal(18,5),
 				remark             varchar(200),

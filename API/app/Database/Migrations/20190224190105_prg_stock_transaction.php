@@ -8,7 +8,8 @@ class Migration_prg_stock_transaction extends \CodeIgniter\Database\Migration {
         $this->db->query("
             CREATE TABLE prg_stock_transaction(
                 id                 BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                doc_type           varchar(100) NOT NULL,
+                doc_type           varchar(100) NOT NULL DEFAULT '',
+                doc_no             varchar(100) NOT NULL DEFAULT '',
 				factory_code       varchar(10) NOT NULL REFERENCES mst_factory (factory_code),
 				location_code      varchar(10) NOT NULL REFERENCES mst_location (location_code),
 				item_code          varchar(50) NOT NULL REFERENCES mst_item (item_code),

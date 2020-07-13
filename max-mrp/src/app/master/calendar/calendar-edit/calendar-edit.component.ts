@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators, FormArray } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
 import { cInput, CarlendarService } from '../../../service/carlendar.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { CalendarDialogComponent } from '../../../common/calendar-dialog/calendar-dialog.component';
 
 

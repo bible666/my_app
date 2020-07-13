@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MessageService, MessageClass } from '../../../service/message.service';
 import { CustomerService, cSearch, cData } from '../../../service/customer.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../../common/confirm-dialog/confirm-dialog.component'
 import { LoadingService } from '../../../service/loading.service';
 import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';

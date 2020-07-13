@@ -5,7 +5,7 @@ import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 import { StaffService, cSearch } from '../../service/staff.service';
 import { Observable, forkJoin } from 'rxjs';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dialog.component'
 
 @Component({

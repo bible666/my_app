@@ -1,0 +1,15 @@
+HEAD_AGENT("หนน.","หัวหน้าหน่วย","recruiter_code_7","ule"),
+
+select	aa.agent_code_7 as agentCode7, aa.agent_name as agentName,  
+	  aa.position_group as positionGroup, aa.position as position,   
+	  aa.premium_portfolio as fyp, aa.commission_first as fyc,  
+	  coalesce(aa.agent_persistency,0) as persistency,  0 as member  from		(  
+	  select	a.agent_code_7, a.agent_name, a.position_group, a.position,    
+	  a.premium_portfolio, a.commission_first,  b.agent_persistency  from		(  
+	  select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7,   
+	  a.premium_portfolio, a.commission_first,  a.position_group, a.position  
+	  from		agpt_agent_income a  where	a.period = :period  
+	  and	a.branch_code = :branchCode  and	a.recruiter_code_7 = :agentCode  
+	  and	(a.position_group = 'ตท.' or a.position_group = 'ตท.กง.')											  
+	  ) a		  left outer join	agpt_persistency_summary b  on		a.period = b.period  
+	  and	a.branch_code = b.branch_code  and	a.agent_code_7 = b.agent_code_7  ) aa

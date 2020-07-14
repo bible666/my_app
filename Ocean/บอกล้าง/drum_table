@@ -1,0 +1,92 @@
+step 1
+1. table ต้นทางอยู่ที่ as400
+    - PA : uwrlib.uwncsfq0 เป็น ยกเลิก ของ PA
+    - สามัญ : olis.olpdecln เป็น free look สามัญ มี วันที่บอกล้าง
+    - ปช : acclib.polcytr0 เป็น บอกล้าง ของ อุตสาหกรรม
+table ใน dwconsol
+    - ili_rider_master
+
+
+
+olis.olpdecln where stscde <> 1 ของ เป็น free look สามัญ มี วันที่บอกล้าง
+
+
+rider => มีใน dwconsol- OLIS.OLPDECLN => -hv,^] freelook/บอกล้าง  
+สามัญ   => มีใน AS400  
+- ACCLIB.POLCYTR0  => freelook/บอกล้าง  อุต   => มีใน AS400    
+- UWRLIB.UWNCSFQ0  => freelook/บอกล้าง  PA   => มีใน AS400
+
+
+olis.olpdecln สามัญ
+POLIC# = policy number
+ฺBOOKNM = วันที่บอกล้าง
+
+
+จาก straging
+PA : as400_uwrlib_uwncsfq0
+ปช : as400_acclib_polcytr0
+สามัญ : ยังไม่มีการนำเข้ามา
+
+
+--ของ ปช.
+select PTTYP -- payment type ดูเฉพาะที่เป็น 4 บอกล้าง
+,PTDIED -- วันที่ free look
+,PTPYDT -- วันที่จ่ายเงิน
+from polcytr0
+
+２次検査対象外、２次検査対象
+
+
+Issue 1
+Title : Create new Table as400_olis_olpdecln บน dwstaging
+Detail :
+ตารางเก็บข้อมูล free look บอกล้าง ของ กธ. ประเภท สามัญ
+SQL for create table
+====================================
+CREATE TABLE public.as400_olis_olpdecln (
+ "POLIC#" CHAR(7) DEFAULT ' ' NOT NULL,
+ DCLNDT NUMERIC(6,0) DEFAULT 0 NOT NULL,
+ BOOKNM CHAR(12) DEFAULT ' ' NOT NULL,
+ RTNAMT DECIMAL(14,2) DEFAULT 0 NOT NULL,
+ RTNDAT NUMERIC(6,0) DEFAULT 0 NOT NULL,
+ STSCDE CHAR(1) DEFAULT ' ' NOT NULL,
+ USERID CHAR(6) DEFAULT ' ' NOT NULL
+);
+
+Index
+============
+CREATE INDEX as400_olis_olpdecln ON as400_olis_olpdecln ("POLIC#",DCLNDT);
+
+Over view
+
+Table : as400_olis_olpdecln
+Description: เก็บข้อมูล free look บอกล้าง ของ กธ. สามัญ
+
+Field Key Attribute	Data Type	size    decimal     comments
+POLIC#	CHAR(7)	 	เลขที่ กรมธรรม์
+DCLNDT	NUMERIC(6,0)	 	วันที่ บอกล้าง
+BOOKNM	CHAR(12)	 	เลขที่ หนังสือ
+RTNAMT	DECIMAL(14,2)	 	เงินคืน
+RTNDAT	NUMERIC(6,0)	 	วันที่ จ่ายคืน
+STSCDE	CHAR(1)	 	สถานภาพ ที่บันทึก
+USERID	CHAR(6)	 	USER ID
+
+
+Issue 2
+Title : drum data from as400 table olis.olpdecln to Table as400_olis_olpdecln บน dwstaging
+Detail :
+ทำการ drum ข้อมูลจาก table olis.olpdecln บน as400 to table as400_olis_olpdecln บน dwstaging
+
+Over view
+
+Table : as400_olis_olpdecln
+Description: เก็บข้อมูล free look บอกล้าง ของ กธ. สามัญ
+
+Field Key Attribute	Data Type	size    decimal     comments
+POLIC#	CHAR(7)	 	เลขที่ กรมธรรม์
+DCLNDT	NUMERIC(6,0)	 	วันที่ บอกล้าง
+BOOKNM	CHAR(12)	 	เลขที่ หนังสือ
+RTNAMT	DECIMAL(14,2)	 	เงินคืน
+RTNDAT	NUMERIC(6,0)	 	วันที่ จ่ายคืน
+STSCDE	CHAR(1)	 	สถานภาพ ที่บันทึก
+USERID	CHAR(6)	 	USER ID

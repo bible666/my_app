@@ -1,0 +1,222 @@
+{\rtf1\fbidis\ansi\ansicpg874\deff0\nouicompat\deflang1054{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset222 CordiaUPC;}{\f2\fnil\fcharset222 Calibri;}}
+{\*\generator Riched20 10.0.18362}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang9\par
+Table Detail (if any)\par
+=====================\par
+ \par
+Table "biz_payment_customer" \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f2\fs22  \f1\fs28\'a1\'b8\f0\fs22\lang1033 . \f1\fs28\lang1054\'b7\'d5\'e8\'cb\'d1\'a1\'ba\'d1\'ad\'aa\'d5\'b8\'b9\'d2\'a4\'d2\'c3\'bc\'e8\'d2\'b9\f2\fs22  \f0\lang1033 biz_payment \f1\fs28\lang1054\'a2\'cd\'a7\f2\fs22  \f0\lang1033 KTB\par
+\par
+\par
+SQL for Create Table\par
+====================\par
+ \par
+CREATE TABLE public.biz_payment_customer (\par
+\tab id numeric(14) NOT NULL,\par
+\tab branch_code varchar(5) NOT NULL,\par
+\tab deduct_date numeric(4) NOT NULL,\par
+\tab bank_account varchar(10) NOT NULL,\par
+\tab bank_account_name varchar(255) NOT NULL,\par
+\tab policy_type varchar(10) NOT NULL,\par
+\tab policy_no varchar(25) NOT NULL,\par
+\tab bizpayment_channel varchar(1) NOT NULL,\tab\par
+\tab gen_giro varchar(1) NULL DEFAULT 'N'::character varying,\par
+\tab mode_payment numeric(4) NULL DEFAULT 1,\par
+\tab bank_date timestamp without time zone NULL,\par
+\tab upload_date timestamp without time zone NULL,\par
+\tab status_pay varchar(1) NULL,\par
+\tab gen_date timestamp without time zone NULL,\par
+\tab send_r_biz_payment numeric(4) NULL DEFAULT 1,\par
+\tab status_group numeric(4) NULL,\par
+\tab transaction_date timestamp without time zone NULL,\par
+\tab CONSTRAINT biz_payment_customer_pkey PRIMARY KEY (id)\par
+);\par
+\par
+\par
+Index\par
+=====\par
+ \par
+CREATE UNIQUE INDEX idx_biz_payment_customer_policy_no ON biz_payment_customer USING btree (policy_no);\par
+\par
+\par
+Datasource \f1\fs28\lang1054\'b7\'d5\'e8\'e3\'aa\'e9\f2\fs22  \f0\lang1033 (DWSTAGING)\par
+#\par
+Table\par
+\f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\par
+1\tab\par
+biz_payment_customer\par
+\par
+Job Execute \f1\fs28\lang1054\'b7\'d5\'e8\'e3\'aa\'e9\f2\fs22  \f0\lang1033 (DWCONSOL)\par
+#\par
+Command\par
+1\tab\par
+transform:execute BizPaymentCustomerTransform\par
+\par
+\par
+SQL for select data to this table\par
+=================================\par
+ \par
+select\par
+\tab id,branch_code,deduct_date,bank_account,bank_account_name,policy_type,policy_no,\par
+\tab bizpayment_channel,gen_giro,mode_payment,bank_date,upload_date,status_pay,gen_date,send_r_biz_payment,status_group,now() as transaction_date\par
+from\par
+\tab biz_payment_customer;\par
+\par
+\par
+TABLE\tab\par
+BIZ_PAYMENT_CUSTOMER\par
+\par
+DESCRIPTION\tab  \f1\fs28\lang1054\'e0\'a1\'e7\'ba\f2\fs22  \f1\fs28\'c3\'d2\'c2\'c5\'d0\'e0\'cd\'d5\'c2\'b4\f2\fs22  \f1\fs28\'a1\'b8\f0\fs22\lang1033 . \f1\fs28\lang1054\'b7\'d5\'e8\'ca\'c1\'d1\'a4\'c3\'cb\'d1\'a1\'ba\'d1\'ad\'aa\'d5\'b8\'b9\'d2\'a4\'d2\'c3\'e1\'ba\'ba\f2\fs22  \f0\lang1033 Biz_payment \f1\fs28\lang1054\'bc\'e8\'d2\'b9\'b8\'b9\'d2\'a4\'d2\'c3\f2\fs22  \f0\lang1033 KTB\par
+NO\tab KEY\tab Column\tab\par
+Data Type\par
+\par
+Description\tab Remark\tab Constraints\tab DATA_SOURCE\tab TABLE\tab COLUMN\par
+1\tab P\tab\par
+id\par
+\par
+numeric NOT NULL\tab running id \f1\fs28\lang1054\'a2\'cd\'a7\f2\fs22  \f0\lang1033 biz_payment\tab\par
+PRIMARY KEY\tab public\tab\par
+biz_payment_customer\par
+id\par
+2\tab\par
+branch_code\tab varchar(5) NOT NULL\tab\f1\fs28\lang1054\'c3\'cb\'d1\'ca\'ca\'d2\'a2\'d2\f0\fs22\lang1033\tab\par
+\par
+\par
+\par
+public\tab\par
+biz_payment_customer\par
+branch_code\par
+3\tab\par
+deduct_date\tab numeric NOT NULL\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\'cb\'d1\'a1\'ba\'d1\'ad\'aa\'d5\f0\fs22\lang1033\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\'a2\'cd\'a7\'e0\'b4\'d7\'cd\'b9\f2\fs22  \f1\fs28\'a4\'d7\'cd\f2\fs22  \f0\lang1033 1-31\tab\par
+public\tab\par
+biz_payment_customer\par
+deduct_date\par
+4\tab\par
+bank_account\tab varchar(10) NOT NULL\tab\f1\fs28\lang1054\'e0\'c5\'a2\'ba\'d1\'ad\'aa\'d5\'b8\'b9\'d2\'a4\'d2\'c3\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+bank_account\par
+5\tab\par
+bank_account_name\tab varchar(255) NOT NULL\tab\f1\fs28\lang1054\'aa\'d7\'e8\'cd\'ba\'d1\'ad\'aa\'d5\'b8\'b9\'d2\'a4\'d2\'c3\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+bank_account_name\par
+6\par
+\par
+\par
+policy_type\tab\par
+varchar(10)  NOT NULL\par
+\f1\fs28\lang1054\'bb\'c3\'d0\'e0\'c0\'b7\f2\fs22  \f1\fs28\'a1\'b8\f0\fs22\lang1033 .\tab O = \f1\fs28\lang1054\'ca\'d2\'c1\'d1\'ad\f0\fs22\lang1033\par
+G = \f1\fs28\lang1054\'a2\'be\f0\fs22\lang1033\par
+I = \f1\fs28\lang1054\'bb\'aa\f0\fs22\lang1033\par
+P = PA\tab\par
+public\tab\par
+biz_payment_customer\par
+policy_type\par
+7\tab\par
+policy_no\tab\par
+varchar(25) NOT NULL\par
+\f1\fs28\lang1054\'e0\'c5\'a2\'b7\'d5\'e8\f2\fs22  \f1\fs28\'a1\'b8\f0\fs22\lang1033 .\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+policy_no\par
+8\tab\par
+bizpayment_channel\tab\par
+varchar(1) NOT NULL\par
+\f1\fs28\lang1054\'cb\'d1\'a1\'bc\'e8\'d2\'b9\f2\fs22  \f0\lang1033 biz payment \f1\fs28\lang1054\'cb\'c3\'d7\'cd\'e4\'c1\'e8\f2\fs22  \f0\lang1033 Y=\f1\fs28\lang1054\'cb\'d1\'a1\f0\fs22\lang1033 , N=\f1\fs28\lang1054\'e4\'c1\'e8\'cb\'d1\'a1\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+bizpayment_channel\par
+9\tab\par
+create_date\tab timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\f2\fs22  \f0\lang1033 Create \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+create_date\par
+10\tab\par
+created_by\par
+varchar(30)\par
+username \f1\fs28\lang1054\'bc\'d9\'e9\'ca\'c3\'e9\'d2\'a7\'c3\'d2\'c2\'a1\'d2\'c3\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+created_by\par
+11\tab\par
+updated_date\tab timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\f2\fs22  \f0\lang1033 update \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+updated_date\par
+12\tab\par
+updated_by\tab  varchar(30)\tab username \f1\fs28\lang1054\'bc\'d9\'e9\f2\fs22  \f0\lang1033 update \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+updated_by\par
+13\tab\par
+gen_giro\tab  varchar(1) NULL DEFAULT 'N'\tab Gen giro file \f1\fs28\lang1054\'cb\'c3\'d7\'cd\'c2\'d1\'a7\f2\fs22  \f0\lang1033 Y=Gen, N=\f1\fs28\lang1054\'c2\'d1\'a7\'e4\'c1\'e8\f2\fs22  \f0\lang1033 Gen (Default value = N)\tab\f1\fs28\lang1054\'cb\'c5\'d1\'a7\'a1\'b4\'ca\'c3\'e9\'d2\'a7\f2\fs22  \f0\lang1033 giro file \f1\fs28\lang1054\'a1\'c5\'d1\'ba\'c1\'d2\f2\fs22  \f0\lang1033 update \f1\fs28\lang1054\'e0\'bb\'e7\'b9\f2\fs22  \f0\lang1033 Y \f1\fs28\lang1054\'e1\'c5\'d0\'cb\'c5\'d1\'a7\'a8\'d2\'a1\f2\fs22  \f0\lang1033 upload file \f1\fs28\lang1054\'a8\'d2\'a1\f2\fs22  \f0\lang1033 bank \f1\fs28\lang1054\'a1\'c5\'d1\'ba\'c1\'d2\f2\fs22  \f0\lang1033 update \f1\fs28\lang1054\'e0\'bb\'e7\'b9\f2\fs22  \f0\lang1033 N\tab\par
+public\tab\par
+biz_payment_customer\par
+gen_giro\par
+14\tab\par
+mode_payment\tab  numeric\tab mode \f1\fs28\lang1054\'a1\'d2\'c3\'aa\'d3\'c3\'d0\'b7\'d5\'e8\'c5\'a7\'b7\'d0\'e0\'ba\'d5\'c2\'b9\'e4\'c7\'e9\f0\fs22\lang1033\tab\par
+1 = \f1\fs28\lang1054\'e1\'ba\'ba\f2\fs22  \f0\lang1033 1 \f1\fs28\lang1054\'e0\'b4\'d7\'cd\'b9\f0\fs22\lang1033\par
+\par
+3 = \f1\fs28\lang1054\'e1\'ba\'ba\f2\fs22  \f0\lang1033 3 \f1\fs28\lang1054\'e0\'b4\'d7\'cd\'b9\f0\fs22\lang1033\par
+\par
+6 = \f1\fs28\lang1054\'e1\'ba\'ba\f2\fs22  \f0\lang1033 6 \f1\fs28\lang1054\'e0\'b4\'d7\'cd\'b9\f0\fs22\lang1033\par
+\par
+12 = \f1\fs28\lang1054\'e1\'ba\'ba\'c3\'d2\'c2\'bb\'d5\f0\fs22\lang1033\par
+\par
+\par
+public\tab\par
+biz_payment_customer\par
+mode_payment\par
+15\tab\par
+bank_date\tab  timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\'b8\'b9\'d2\'a4\'d2\'c3\f2\fs22  \f0\lang1033 process \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+bank_date\par
+16\tab\par
+upload_date\tab  timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\f2\fs22  \f0\lang1033 upload \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'e3\'cb\'e9\'b8\'b9\'d2\'a4\'d2\'c3\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+upload_date\par
+17\tab\par
+status_pay\tab  varchar(1)\tab\f1\fs28\lang1054\'ca\'b6\'d2\'b9\'d0\'a1\'d2\'c3\'aa\'d3\'c3\'d0\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+status_pay\par
+18\tab\par
+gen_date\tab  timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\f2\fs22  \f0\lang1033 gen \f1\fs28\lang1054\'a2\'e9\'cd\'c1\'d9\'c5\'ca\'e8\'a7\'e4\'bb\'cb\'d1\'a1\'ba\'d1\'ad\'aa\'d5\'b8\'b9\'d2\'a4\'d2\'c3\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+gen_date\par
+19\tab\par
+send_r_biz_payment\tab  numeric\tab\f1\fs28\lang1054\'bb\'c3\'d0\'e0\'c0\'b7\'a1\'d2\'c3\'cb\'d1\'a1\'ba\'d1\'ad\'aa\'d5\f0\fs22\lang1033\tab 0 = \f1\fs28\lang1054\'cb\'d1\'a1\'b5\'c3\'a7\'a7\'c7\'b4\f2\fs22  \f0\lang1033 , 1 = \f1\fs28\lang1054\'cb\'d1\'a1\'c5\'e8\'c7\'a7\'cb\'b9\'e9\'d2\f0\fs22\lang1033\tab\par
+public\tab\par
+biz_payment_customer\par
+send_r_biz_payment\par
+20\tab\par
+status_group\tab  numeric\tab\f1\fs28\lang1054\'ca\'b6\'d2\'b9\'d0\'a1\'d2\'c3\'e1\'ba\'e8\'a7\'a1\'c5\'d8\'e8\'c1\'c5\'d9\'a1\'a4\'e9\'d2\'b7\'d5\'e8\'a8\'d0\'cb\'d1\'a1\'e0\'a7\'d4\'b9\'c7\'d1\'b9\'e0\'b4\'d5\'c2\'c7\'a1\'d1\'b9\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+status_group\par
+21\tab\par
+transaction_date\tab  timestamp\tab\f1\fs28\lang1054\'c7\'d1\'b9\'b7\'d5\'e8\'ca\'c3\'e9\'d2\'a7\'a2\'e9\'cd\'c1\'d9\'c5\f0\fs22\lang1033\tab\par
+\par
+public\tab\par
+biz_payment_customer\par
+now()\par
+\par
+\lang9\par
+}
+ 

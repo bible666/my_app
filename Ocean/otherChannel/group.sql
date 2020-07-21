@@ -90,6 +90,13 @@ from (
 			from ms_policy_lists pl 
 			where agent_code = cast(:agent_code as text) 
 				and case when lower(policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
+				and (
+				( lower(policy_type ) = 'o' and lower(policy_status) in ('i','l','o','p'))
+				or
+				( lower(policy_type ) in ('i','g') and lower(policy_status) in ('0','1','2','3','4','5','6','7'))
+				or
+				( lower(policy_type ) = 'p' and lower(policy_status) in ('i','l'))
+			)
 		) ipm 
 		left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
 		left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'

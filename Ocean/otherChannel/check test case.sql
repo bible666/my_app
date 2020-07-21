@@ -1,6 +1,6 @@
-select policy_type,pay_to,premium_amount,premium_ordinary,tot_rider_premium_amount,payment_mode,first_name,last_name,phone1,policy_no,product_name,customer_province_name
+select new_table.*, m.description_agent_portal 
 from (
-	select ipm.* , 
+	select ipm.* ,
 		case when 
 			current_date >= cast((ipm.next_paid_date2 + INTERVAL '-30 day') as date) and 
 			current_date <= cast((ipm.next_paid_date2 + INTERVAL '-1 day') as date)
@@ -47,13 +47,13 @@ from (
 		cast((ipm.next_paid_date2 + INTERVAL '60 day')  as date) as end_datein_due,
 		cast((ipm.next_paid_date2 + INTERVAL '61 day') as date) as start_date_pass_due,
 		cast((ipm.next_paid_date2 + INTERVAL '150 day') as date) as end_date_pass_due,
-		case when oth.is_premium_card is null then 
+		case when oth.policy_no is null then 
 				case when d.policy_no is null then
 					case when c.policy_no is null then 
 						case when biz.policy_no is null then
-							'B'
-						else
 							'N'
+						else
+							'B'
 						end
 					else 
 						'C'
@@ -86,6 +86,13 @@ from (
 		from ms_policy_lists pl 
 		where agent_code = cast(:agent_code as text) 
 			and case when lower(policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
+			--and (
+			--	( lower(policy_type ) = 'o' and lower(policy_status) in ('i','l','o','p'))
+			--	or
+			--	( lower(policy_type ) in ('i','g') and lower(policy_status) in ('0','1','2','3','4','5','6','7'))
+			--	or
+			--	( lower(policy_type ) = 'p' and lower(policy_status) in ('i','l'))
+			--)
 	) ipm 
 	   left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
@@ -93,6 +100,16 @@ from (
 	   left join dm_biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
 	where current_date >= cast(ipm.start_date as date) and
 	 	  current_date <= cast(ipm.end_date as date)
-) new_table
---where
---group_type in ('10') and policy_type = 'I'
+) new_table left join ms_policy_type_mapping m on new_table.policy_type = m.policy_type  and new_table.policy_status = m.policy_status and new_table.apl_flag = m.apl_flag 
+--where other_channel = 'N'
+--where agent_code = '5311055'
+--case where payment_channel
+--other_channel in (:payment_channel)
+-- case where group type
+--group_type in (:group_type)
+
+--limit offset
+--limit :limit  offset :offset
+
+-- sort column
+--order by :sort

@@ -166,33 +166,79 @@ class Origin001 extends ResourceController
      */
     public function Create_PDF($data){
         
-        ob_start();
+        // ob_start();
         
-        $filename = "order.pdf";
+        // $filename = "order.pdf";
 
-        $namePDF = $data['Booking_No_PDF'];
-        $html = $this->load->view('PDF',$data,true);
-        // echo($html);
-         ob_end_clean();
+        // $namePDF = $data['Booking_No_PDF'];
+        // $html = $this->load->view('PDF',$data,true);
+        // // echo($html);
+        //  ob_end_clean();
 
-        $this->load->library('M_pdf');
+        // $this->load->library('M_pdf');
 
-        $a = new M_pdf();
+        // $a = new M_pdf();
             
-        $a->pdf->WriteHTML($html);
-        // $a->pdf->Output();
+        // $a->pdf->WriteHTML($html);
+        // // $a->pdf->Output();
         
-        if($a->pdf->Output("./PDFBooking/".$namePDF,"F")){
+        // if($a->pdf->Output("./PDFBooking/".$namePDF,"F")){
 
-        } else if($data['donotSendmail']<=0){
-            // print_r("1");
-            return true;
-            // $messagex= $this->sendMail($data['reservation_id'],$data['user_id']);
-            // print_r("2");
-        }
+        // } else if($data['donotSendmail']<=0){
+        //     // print_r("1");
+        //     return true;
+        //     // $messagex= $this->sendMail($data['reservation_id'],$data['user_id']);
+        //     // print_r("2");
+		// }
+		
         return false;
-    }
+	}
+	
+	
+	function transaction_save(stock_transaction_type $doc_type,string $doc_no,
+			string $factory_code,string $location_code,string $item_code,string $lot_no,
+			$first_receive_date,$quantity,$unit_price){
+		
+		$prg_stock_transaction    = $this->db->table('prg_stock_transaction');
+		$prg_stock                = $this->db->table('prg_stock');
 
+		$insert_data['doc_type']			= $doc_type;
+		$insert_data['doc_no']				= $doc_no;
+		$insert_data['factory_code']		= $factory_code;
+		$insert_data['location_code']		= $location_code;
+		$insert_data['item_code']			= $item_code;
+		$insert_data['lot_no']				= $lot_no;
+		$insert_data['first_receive_date']	= $first_receive_date;
+		$insert_data['quantity']			= $quantity;
+		$insert_data['unit_price']			= $unit_price;
+		$insert_data['remark']				= '';
+
+		//insert transaction
+		$prg_stock_transaction->insert( $insert_data);
+
+		//get old data from stock
+		$old_data = $prg_stock->getWhere(['factory_code' => $factory_code,'location_code' => $location_code,'item_code' => $item_code, 'lot_no' => $lot_no, 'first_receive_date' => $first_receive_date])->getRow();
+		if (isset($old_data)){
+			//have data will update
+			$update_data['quantity']			= $old_data->quantity + $quantity;
+			$prg_stock->update($update_data,['factory_code' => $factory_code,'location_code' => $location_code,'item_code' => $item_code, 'lot_no' => $lot_no, 'first_receive_date' => $first_receive_date]);
+		} else {
+			//not data will insert
+			$prg_stock->insert( $insert_data);
+		}
+
+
+		$AR_stock	= [];
+		$AR_stock['factory_code'] = 'A0001';
+		$AR_stock['factory_code'] = 'A0001';
+	}
+
+}
+
+class stock_transaction_type {
+	const ISSUE    = 'issue';
+	const RECEIVE  = 'receive';
+	const TRANSFER = 'transfer';
 }
 
 class db_class{

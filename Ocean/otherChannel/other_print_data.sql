@@ -45,7 +45,8 @@ union all
 select 'M' as code,'ชำระเบี้ยกรณีเวณคืนกรมธรรม' as desc1
 union all
 select 'N' as code,'บัตรเครดิต online' as desc1
-), noti_gorup as
+)
+, noti_gorup as
 (
 select '10' as code,'ก่อนถึงวันรับชำระ' as desc1
 union all
@@ -54,13 +55,16 @@ union all
 select '22' as code,'ถึงวันรับชำระ(31-60 วัน)' as desc1
 union all
 select '30' as code,'เกินกำหนดวันรับชำระ' as desc1
-), agent_check as
+)
+, agent_check as
 (
-select '3808659' as agent_code, 'OceanPadTest3' as username
-union all
+-- select '3808659' as agent_code, 'OceanPadTest3' as username
+-- union all
+-- select '3807537' as agent_code, 'OceanPadTest1' as username
+-- union all
 select '4004757' as agent_code, 'OceanPadTest25' as username
 union all
-select '4700373' as agent_code, 'OceanPadTest8' as username
+select '5001921' as agent_code, 'OceanPadTest99' as username
 
 )
 
@@ -133,7 +137,15 @@ from (
 				end as end_date
 	from ms_policy_lists mpl left join payment_map pm on mpl.payment_channel  = pm.code
 	     left join ms_policy_type_mapping ptm on lower(mpl.policy_type ) = lower(ptm.policy_type) and lower(mpl.policy_status ) = lower(ptm.policy_status) and lower(mpl.apl_flag) = lower(ptm.apl_flag)
+		 inner join agent_check ch2 on mpl.agent_code = ch2.agent_code
 	where case when lower(mpl.policy_type ) = 'o' then lower(rc_status) in ('b','c') else true end 
+			and (
+				( lower(mpl.policy_type ) = 'o' and lower(mpl.policy_status) in ('i','l','o','p'))
+				or
+				( lower(mpl.policy_type ) in ('i','g') and lower(mpl.policy_status) in ('0','1','2','3','4','5','6','7'))
+				or
+				( lower(mpl.policy_type ) = 'p' and lower(mpl.policy_status) in ('i','l'))
+			)
  ) ipm
  left join dm_hermes_other_channel_payment oth on ipm.policy_no = oth.policy_no
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'

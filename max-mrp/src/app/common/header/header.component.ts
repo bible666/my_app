@@ -17,23 +17,22 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-	let menu_datas = JSON.parse(localStorage.getItem('menu_data'));
-
-	this.menu_datas = this.getMenuData('-1',menu_datas);
+    let menu_datas = JSON.parse(localStorage.getItem('menu_data'));
+    this.menu_datas = this.getMenuData('-1',menu_datas);
 
   }
 
   private getMenuData(menuId:string,menu_datas) {
-	let ret_menu: Array<any> = [];
-    menu_datas.forEach(data => {
-      if (data.parent_menu_id == menuId){
-		let child_menu;
-		child_menu = this.getMenuData(data.menu_id,menu_datas);
-		data.child_menu = child_menu;
-		ret_menu.push(data);
-	  }
-    });
-	return ret_menu;
+    let ret_menu: Array<any> = [];
+      menu_datas.forEach(data => {
+        if (data.parent_menu_id == menuId){
+      let child_menu;
+      child_menu = this.getMenuData(data.menu_id,menu_datas);
+      data.child_menu = child_menu;
+      ret_menu.push(data);
+      }
+      });
+    return ret_menu;
   }
 
   onLogout() {

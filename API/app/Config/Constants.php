@@ -78,3 +78,4 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
 
 defined('MAX_LOGIN_COUNT')      || define('MAX_LOGIN_COUNT', 5); 
 defined('MAX_LOCK_LOGIN_TIME_MINIUS')      || define('MAX_LOCK_LOGIN_TIME_MINIUS', 30); 
+

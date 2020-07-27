@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use Config\App;
+use App\Controllers\stock_transaction_type;
 
 class TransferItemController extends Origin001
 {
@@ -39,38 +40,43 @@ class TransferItemController extends Origin001
      */
     public function delete_data_by_id()
     {
-        $data = $this->request->getJSON();
+        //print_r(stock_transaction_type::TRANSFER);exit;
 
-        //init data
-        $token         = $this->getAuthHeader();
-        $customer_code = isset( $data->customer_code ) ? $data->customer_code : -1;
+        //test transfer data
+        $this->transaction_save(stock_transaction_type::TRANSFER,"test","T0001_F1","IT","IT0001","","2020-01-01",-2,200);
+        $this->transaction_save(stock_transaction_type::TRANSFER,"test","T0001_F1","QA","IT0001","","2020-01-01",2,200);
+        // $data = $this->request->getJSON();
 
-        $result = $this->_checkToken( $token );
-        //print_r($result);
-        if ( $result->user_id > 0 ) {
-            $insert_data['active_flag'] = false;
-            $insert_data['update_date'] = date( "Y-m-d H:i:s" );
-            $insert_data['update_user'] = $result->user_id;
+        // //init data
+        // $token         = $this->getAuthHeader();
+        // $customer_code = isset( $data->customer_code ) ? $data->customer_code : -1;
 
-            $this->mst_customer->update( $insert_data, ['customer_code' => $customer_code] );
+        // $result = $this->_checkToken( $token );
+        // //print_r($result);
+        // if ( $result->user_id > 0 ) {
+        //     $insert_data['active_flag'] = false;
+        //     $insert_data['update_date'] = date( "Y-m-d H:i:s" );
+        //     $insert_data['update_user'] = $result->user_id;
 
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
+        //     $this->mst_customer->update( $insert_data, ['customer_code' => $customer_code] );
 
-                return $this->respond( $dataDB, 200 );
-            }
+        //     if ( $this->db->error()['message'] !== '' ) {
+        //         $dataDB['status']  = "error";
+        //         $dataDB['message'] = $this->db->error()['message'];
+        //         $dataDB['data']    = "";
 
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $data;
+        //         return $this->respond( $dataDB, 200 );
+        //     }
 
-        } else {
+        //     $dataDB['status']  = "success";
+        //     $dataDB['message'] = "";
+        //     $dataDB['data']    = $data;
+
+        // } else {
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
-        }
+        // }
 
         return $this->respond( $dataDB, 200 );
     }

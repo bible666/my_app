@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
+
 class Origin001 extends ResourceController
 {
     protected $db;
@@ -197,7 +198,7 @@ class Origin001 extends ResourceController
         return false;
     }
 
-    public function transaction_save( stock_transaction_type $doc_type, string $doc_no,
+    public function transaction_save( $doc_type, string $doc_no,
         string $factory_code, string $location_code, string $item_code, string $lot_no,
         $first_receive_date, $quantity, $unit_price ) {
 
@@ -229,9 +230,7 @@ class Origin001 extends ResourceController
             $prg_stock->insert( $insert_data );
         }
 
-        $AR_stock                 = [];
-        $AR_stock['factory_code'] = 'A0001';
-        $AR_stock['factory_code'] = 'A0001';
+        return true;
     }
 
 }

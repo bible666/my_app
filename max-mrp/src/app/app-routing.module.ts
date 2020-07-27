@@ -23,6 +23,7 @@ import { LocationListComponent } from './master/location/location-list/location-
 import { LocationEditComponent } from './master/location/location-edit/location-edit.component';
 import { PurchaseModule } from './purchase/purchase.module';
 import { SystemModule } from './system/system.module';
+import { StockModule } from './stock/stock.module';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'system',
     loadChildren: () => SystemModule
+  },
+  {
+    path:'stock',
+    loadChildren: () => StockModule
   },
   { path: '' ,                          component: MainMenuComponent ,canActivate:[AuthGuard]},
   { path: 'login',                      component:LoginComponent},

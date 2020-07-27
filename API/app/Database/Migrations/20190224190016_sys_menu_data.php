@@ -37,7 +37,7 @@ class Migration_sys_menu_data extends \CodeIgniter\Database\Migration {
 		(24,'S','Line','Line','/',1),
 		(24,'S','Line Calendar','Line Calendar','/',1),
 		(24,'S','Item Capacity','Item Capacity','/',1),
-		(5,'S','Location Transfer Entry','Location Transfer','/',1),
+		(5,'S','Location Transfer Entry','Location Transfer','/stock/transfer',1),
 		(5,'S','Order Transfer','Order Transfer','/',2),
 		(5,'S','Transfer Search','Transfer Search','/',3),
 		(5,'S','Stock Search','Stock Search','/',4),

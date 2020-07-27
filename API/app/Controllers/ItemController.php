@@ -126,10 +126,10 @@ class ItemController extends Origin001
         $result = $this->_checkToken( $token );
         if ( $result->user_id > 0 ) {
             $query_str = "
-            SELECT ps.*,i.item_name
+            select ps.*,i.item_name
             from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
-            where ps.factory_code =:factory_code and ps.location_code = :location_code
-				AND i.active_flag = true and ps.quantity > 0
+            where ps.factory_code =:factory_code: and ps.location_code = :location_code:
+                and i.active_flag = true and ps.quantity > 0
 			";
 
             $itemn_data = $this->db->query( $query_str, ['factory_code' => $factory_code, 'location_code' => $location_code] )->getResult();
@@ -143,7 +143,7 @@ class ItemController extends Origin001
             }
 
             $dataDB['status']  = "success";
-            $dataDB['message'] = $query_str;
+            $dataDB['message'] = '';
             $dataDB['data']    = $itemn_data;
 
         } else {

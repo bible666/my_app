@@ -6,7 +6,7 @@ import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dial
 import { LoadingService } from '../../service/loading.service';
 import { ItemQtyComponent } from '../../common/item-qty/item-qty.component';
 
-//import { cInput, CustomerService } from '../../../service/customer.service';
+import { TransferService } from '../../service/transfer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -26,6 +26,7 @@ export class TransferComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private messageService: MessageService,
+    private service: TransferService,
     private loading: LoadingService
   ) { }
 
@@ -37,7 +38,7 @@ export class TransferComponent implements OnInit {
     const dialogRef = this.dialog.open(ItemQtyComponent,{
 			width: '500px',
 			height: '300px',
-			data: {description: 'คุณต้องการลบรายการนี้หรือเปล่ารหัส '}
+			data: {factory_code: 'T0001_F1 ',location_code:'IT'}
 		})
 		
 		dialogRef.afterClosed().subscribe(result=>{

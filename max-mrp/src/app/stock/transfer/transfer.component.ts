@@ -44,7 +44,6 @@ export class TransferComponent implements OnInit {
       
       if (data['status']== 'success'){
         this.ar_location = data['data'];
-        console.log(this.ar_location);
       } 
     },
     error=>{
@@ -55,17 +54,18 @@ export class TransferComponent implements OnInit {
   }
 
   onAdd() {
+
     const dialogRef = this.dialog.open(ItemQtyComponent,{
-			width: '500px',
-			height: '300px',
-			data: {location_code:'IT'}
-		})
-		
-		dialogRef.afterClosed().subscribe(result=>{
-			if (!result){
-				//cancel delete data
-				//alert('hiii');
-			} else {
+      width: '500px',
+      height: '300px',
+      data: {location_code:this.inputForm.value['location_from']}
+    })
+    
+    dialogRef.afterClosed().subscribe(result=>{
+      if (!result){
+        //cancel delete data
+        //alert('hiii');
+      } else {
         //let holiday = new FormGroup({
         //  'holiday_date'        : new FormControl(result.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
         //  'holiday_name'        : new FormControl(result.holiday_text, [ Validators.required, Validators.maxLength(50) ]),
@@ -73,9 +73,11 @@ export class TransferComponent implements OnInit {
         //});
 
         //this.holidayForms.push(holiday);
-				
-			}
+        
+      }
     });
+    
+    
   }
 
 }

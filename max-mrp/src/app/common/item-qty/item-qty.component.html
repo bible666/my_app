@@ -1,13 +1,10 @@
 <h1 mat-dialog-title>ข้อมูล เพิ่ม/แก้ไข</h1>
 <div mat-dialog-content>
-<!-- <form class="example-form" [formGroup]="inputForm"  >
-    <div class="row input required">
-        <div class="col-md-3">
-            วัตถุดิบ
-        </div>
-    </div>
+<form [formGroup]="inputForm"  >
+    <input type="text" formControlName="item_code"/>
     
-</form> -->
+
+</form>
 {{inputForm.value|json}}
 </div>
 <div mat-dialog-actions>

@@ -114,6 +114,51 @@ class ItemController extends Origin001
         return $this->respond( $dataDB, 200 );
     }
 
+    public function get_lot_no_by_location_item(){
+        $token = $this->getAuthHeader();
+        $data  = $this->request->getJSON();
+
+        //init data
+        $location_code  = isset( $data->location_code ) ? $data->location_code : '';
+        $item_code      = isset( $data->item_code ) ? $data->item_code : '';
+
+        $result = $this->_checkToken( $token );
+        if ( $result->user_id > 0 ) {
+            $query_str = "
+            select distinct ps.lot_no
+            from prg_stock ps
+            where ps.location_code = :location_code: and ps.item_code = :item_code:
+                and ps.quantity > 0
+            ";
+
+            $itemn_data = $this->db->query( 
+                $query_str, 
+                [
+                    'location_code' => $location_code, 
+                    'item_code'     => $item_code
+                ] )->getResult();
+
+            if ( $this->db->error()['message'] !== '' ) {
+                $dataDB['status']  = "error";
+                $dataDB['message'] = $this->db->error()['message'];
+                $dataDB['data']    = "";
+
+                return $this->respond( $dataDB, 200 );
+            }
+
+            $dataDB['status']  = "success";
+            $dataDB['message'] = '';
+            $dataDB['data']    = $itemn_data;
+
+        } else {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = "token not found";
+            $dataDB['data']    = "";
+        }
+
+        return $this->respond( $dataDB, 200 );
+    }
+
     public function get_all_item_by_location()
     {
         $token = $this->getAuthHeader();

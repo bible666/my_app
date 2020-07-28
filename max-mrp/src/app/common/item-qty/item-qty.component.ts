@@ -35,8 +35,9 @@ export class ItemQtyComponent implements OnInit {
 
     isLoading = false;
 
-    // filteredOptions:  Observable<cItem[]>;
+    location_code:    string = '';
     filteredItem:     cItem[] = [];
+    AR_lot_no:        any[] = [];
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
@@ -69,7 +70,7 @@ export class ItemQtyComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.location_code = this.data.location_code;
         this.Service.getItemList(this.data.location_code,'')
         .pipe(
           tap(()         =>{this.loading.show();}),
@@ -125,6 +126,23 @@ export class ItemQtyComponent implements OnInit {
     }
 
     onBlurItemCode(){
+        let item_code: string = this.inputForm.get("item_code").value;
+        if ( item_code == '' ) 
+        {
+            this.AR_lot_no = [];
+        } else {
+            this.Service.getLotNo(this.location_code,item_code)
+            .pipe(
+                tap(()=>{this.loading.show();}),
+                finalize(()=>{this.loading.hide();})
+            )
+            .subscribe(data=>{
+                if (data['status']== 'success'){
+                    this.AR_lot_no = data['data'];
+                    console.log(this.AR_lot_no);
+                } 
+            });
+        }
   //   let item_code:      string = '';
   //   let old_item_code:  string = this.inputForm.get("item_code").value;
   //   // this.Service.getItemList(old_item_code)

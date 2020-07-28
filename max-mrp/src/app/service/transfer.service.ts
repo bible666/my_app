@@ -34,9 +34,21 @@ export class TransferService {
     return this.http.post(LOCATION_URL+'/get_location_for_department','',this.httpOptions);
   }
 
+  public getLotNo(location_code:string,item_code:string){
+    let inputData = new cGetLotNo();
+    inputData.location_code          = location_code;
+    inputData.item_code              = item_code;
+    return this.http.post(BASE_URL+'/get_lot_no_by_location_item',inputData,this.httpOptions);
+  }
+
 }
 
 export class cGetDataList{
   location_code:   string;
   item_name:       string;
+}
+
+export class cGetLotNo{
+    location_code:  string;
+    item_code:      string;
 }

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +20,8 @@ import { ItemQtyComponent } from './item-qty/item-qty.component';
     CommonModule ,
     MatAutocompleteModule,
     FormsModule, ReactiveFormsModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     HeaderComponent,

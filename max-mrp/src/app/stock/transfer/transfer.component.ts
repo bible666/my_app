@@ -58,7 +58,7 @@ export class TransferComponent implements OnInit {
     const dialogRef = this.dialog.open(ItemQtyComponent,{
       width: '500px',
       height: '300px',
-      data: {location_code:this.inputForm.value['location_from']}
+      data: {location_code:this.inputForm.value['location_from']},
     })
     
     dialogRef.afterClosed().subscribe(result=>{

@@ -30,100 +30,98 @@ export interface cItem {
 })
 export class ItemQtyComponent implements OnInit {
 
-  isLoading = false;
+    isLoading = false;
 
-  // filteredOptions:  Observable<cItem[]>;
-  // filteredItem:     cItem[] = [];
+    // filteredOptions:  Observable<cItem[]>;
+    filteredItem:     cItem[] = [];
 
-  inputForm = new FormGroup({
-    'item_code'            : new FormControl('kkkkk', [ Validators.required ]),
-    // 'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
-    // 'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
-    // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
-  });
+    inputForm = new FormGroup({
+        'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
+        // 'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
+        // 'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
+        // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
+    });
 
-  constructor(
-    public dialogRef: MatDialogRef<ItemQtyComponent>,
-    // private Service: TransferService,
-    // private loading: LoadingService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData)
-  {
+    constructor(
+        public dialogRef: MatDialogRef<ItemQtyComponent>,
+        // private Service: TransferService,
+        // private loading: LoadingService,
+        @Inject(MAT_DIALOG_DATA) public data: DialogData)
+    {
 
-  }
-
-  onSave(){
-    if (this.inputForm.valid){
-      // let holiday: Date = new Date(this.inputForm.controls['holiday_date'].value);
-      // this.inputForm.patchValue({
-
-      //   'show_date'    : holiday.getDate() + '/' + (holiday.getMonth()+1) + '/' + holiday.getFullYear()
-
-      // });
-
-      // this.dialogRef.close(this.inputForm.value);
     }
-    
-  }
 
-  ngOnInit() {
+    onSave(){
+        if (this.inputForm.valid){
+        // let holiday: Date = new Date(this.inputForm.controls['holiday_date'].value);
+        // this.inputForm.patchValue({
 
-    // this.Service.getItemList(this.data.location_code,'')
-    // .pipe(
-    //   tap(()         =>{this.loading.show();}),
-    //   finalize(()    =>{this.loading.hide();})
-    // )
-    // .subscribe(data=>{
-    //   if (data['status']== 'success'){
-    //     this.filteredItem   = data['data'];
-    //   } 
-    // },
-    // error=>{
-    //   //this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
-    //   //this.message = this.ServiceMessage.getMessage();
-    //   //console.log(error.message);
-    // });
+        //   'show_date'    : holiday.getDate() + '/' + (holiday.getMonth()+1) + '/' + holiday.getFullYear()
 
-    // //test auto complete
-    // this.inputForm.get("item_code").valueChanges
-    // .pipe(
-    //   debounceTime(300), //if keypress interval is less then call service
-    //   tap(() => {
-    //     //before service start
-    //     this.isLoading    = true;
-    //     this.filteredItem = [];
-    //   }),
-    //   switchMap(value => this.Service.getItemList(this.data.location_code,value)
-    //   .pipe(
-    //     finalize(() => {
-    //         //after service end
-    //         this.isLoading = false
-    //       })
-    //     )
-    //   )
-    // )
-    // .subscribe(unit =>{
-    //   console.log('hi');
-    //   this.filteredItem = unit['data'];
-    // });
-  }
+        // });
 
-  onNoClick(): void {
-    console.log(this.inputForm.value);
-    //this.dialogRef.close();
-  }
+        // this.dialogRef.close(this.inputForm.value);
+        }
+        
+    }
 
-  // displayFn(value:string){
-  //   if (value && this.filteredItem.length > 0 ) 
-  //   {
-  //     return this.filteredItem.find(x => x.item_code == value).item_name;
-  //   } else {
-  //     return '';
-  //   }
+    ngOnInit() {
 
-   
-  // }
+        // this.Service.getItemList(this.data.location_code,'')
+        // .pipe(
+        //   tap(()         =>{this.loading.show();}),
+        //   finalize(()    =>{this.loading.hide();})
+        // )
+        // .subscribe(data=>{
+        //   if (data['status']== 'success'){
+        //     this.filteredItem   = data['data'];
+        //   } 
+        // },
+        // error=>{
+        //   //this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+        //   //this.message = this.ServiceMessage.getMessage();
+        //   //console.log(error.message);
+        // });
 
-  // onBlurItemCode(){
+        // //test auto complete
+        // this.inputForm.get("item_code").valueChanges
+        // .pipe(
+        //   debounceTime(300), //if keypress interval is less then call service
+        //   tap(() => {
+        //     //before service start
+        //     this.isLoading    = true;
+        //     this.filteredItem = [];
+        //   }),
+        //   switchMap(value => this.Service.getItemList(this.data.location_code,value)
+        //   .pipe(
+        //     finalize(() => {
+        //         //after service end
+        //         this.isLoading = false
+        //       })
+        //     )
+        //   )
+        // )
+        // .subscribe(unit =>{
+        //   console.log('hi');
+        //   this.filteredItem = unit['data'];
+        // });
+    }
+
+    onNoClick(): void {
+        console.log(this.inputForm.value);
+        //this.dialogRef.close();
+    }
+
+    displayFn(value:string){
+        // if (value && this.filteredItem.length > 0 ) 
+        // {
+        // return this.filteredItem.find(x => x.item_code == value).item_name;
+        // } else {
+        // return '';
+        // }
+    }
+
+    onBlurItemCode(){
   //   let item_code:      string = '';
   //   let old_item_code:  string = this.inputForm.get("item_code").value;
   //   // this.Service.getItemList(old_item_code)
@@ -142,6 +140,6 @@ export class ItemQtyComponent implements OnInit {
   //   //     });
   //   //   }
   //   // });
-  // }
+    }
 }
 

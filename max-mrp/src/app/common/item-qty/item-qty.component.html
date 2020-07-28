@@ -1,8 +1,29 @@
 <h1 mat-dialog-title>ข้อมูล เพิ่ม/แก้ไข</h1>
 <div mat-dialog-content>
 <form [formGroup]="inputForm"  >
-    <input type="text" formControlName="item_code"/>
+    <div class="row input">
+        <div class="col-md-3 ">
+            <label class="control-label">วัตถุดิบ</label>
+        </div>
+        <div class="col-md-9">
+
+                <input matInput placeholder="กรุณาเลือก" (blur)="onBlurItemCode()" class="mat-input" formControlName = "item_code"  [matAutocomplete]="item_data" >
+                <mat-autocomplete #item_data="matAutocomplete"  [displayWith]="displayFn.bind(this)">
+                    <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+                    <ng-container *ngIf="!isLoading">
+                        <mat-option *ngFor="let item of filteredItem " [value]="item.item_code" >
+                        {{item.item_name}}
+                        </mat-option>
+                    </ng-container>
+                </mat-autocomplete>
+      
+        </div>
+    </div>
     
+
+        
+            
+    Lot No
 
 </form>
 {{inputForm.value|json}}

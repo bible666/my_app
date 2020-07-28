@@ -400,4 +400,46 @@ class LocationController extends Origin001
 
         return $is_check;
     }
+
+    public function get_location_for_department()
+    {
+        $data  = $this->request->getJSON();
+        $token = $this->getAuthHeader();
+
+        //Validate Data
+
+        $result = $this->_checkToken( $token );
+        if ( $result->user_id >= 0 ) {
+
+            $query_str = "
+            select mu.user_id ,mu.user_group_id ,mug.department_code ,mdl.factory_code ,mdl.location_code,ml.location_name 
+            from mst_user mu inner join mst_user_group mug on mu.user_group_id = mug.user_group_id
+                inner join mst_department_location mdl on mug.department_code = mdl.department_code
+                inner join mst_location ml on mdl.location_code = ml.location_code 
+            where mu.user_id = :user_id: and mu.active_flag  = TRUE
+            ";
+
+            $db_data = $this->db->query( $query_str, ['user_id'=>$result->user_id] )->getResult();
+
+            if ( $this->db->error()['message'] !== '' ) {
+                $dataDB['status']  = "error";
+                $dataDB['message'] = $this->db->error()['message'];
+                $dataDB['data']    = "";
+
+                return $this->respond( $dataDB, 200 );
+            }
+
+            $dataDB['status']   = "success";
+            $dataDB['message']  = "";
+            $dataDB['data']     = $db_data;
+
+        } else {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = "token not found";
+            $dataDB['data']    = "";
+        }
+
+        return $this->respond( $dataDB, 200 );
+    }
+
 }

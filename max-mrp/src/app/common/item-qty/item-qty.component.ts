@@ -52,8 +52,6 @@ export class ItemQtyComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data.factory_code);
-    console.log(this.data.location_code);
 
     this.Service.getItemList(this.data.factory_code,this.data.location_code)
     .pipe(

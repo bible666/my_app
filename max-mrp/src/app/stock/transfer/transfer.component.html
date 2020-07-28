@@ -26,11 +26,8 @@
                             <th>จาก</th>
                             <td>
                                 <select formControlName = "location_from" class="input_select">
-                                    <option value="0">0 วัน</option>
-                                    <option value="1">1 วัน</option>
-                                    <option value="2">2 วัน</option>
-                                    <option value="3">3 วัน</option>
-                                    <option value="4">4 วัน</option>
+                                    <option value="">กรุณาเลือก</option>
+                                    <option *ngFor="let location of ar_location" value={{location.location_code}}>{{location.location_name}}</option>
                                 </select>
                                 <span class="help"></span>
                             </td>
@@ -38,11 +35,8 @@
                             <th>ถึง</th>
                             <td>
                                 <select formControlName = "location_to" class="input_select">
-                                    <option value="0">0 วัน</option>
-                                    <option value="1">1 วัน</option>
-                                    <option value="2">2 วัน</option>
-                                    <option value="3">3 วัน</option>
-                                    <option value="4">4 วัน</option>
+                                    <option value="">กรุณาเลือก</option>
+                                    <option *ngFor="let location of ar_location" value={{location.location_code}}>{{location.location_name}}</option>
                                 </select>
                                 <span class="help"></span>
                             </td>

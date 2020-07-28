@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../../common/confirm-dialog/confirm-dialog.component'
 import { LoadingService } from '../../service/loading.service';
 import { ItemQtyComponent } from '../../common/item-qty/item-qty.component';
+import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
 
 import { TransferService } from '../../service/transfer.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,7 +17,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class TransferComponent implements OnInit {
 
-  public message: MessageClass[] = [];
+  public message:       MessageClass[]  = [];
+  public ar_location:   any[]           = [];
+  
 
   inputForm = new FormGroup({
     'location_from'     : new FormControl(''),
@@ -32,6 +35,23 @@ export class TransferComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0,0);
+    this.service.getLocation()
+    .pipe(
+      tap(()         =>{this.loading.show();}),
+      finalize(()    =>{this.loading.hide();})
+    )
+    .subscribe(data=>{
+      
+      if (data['status']== 'success'){
+        this.ar_location = data['data'];
+        console.log(this.ar_location);
+      } 
+    },
+    error=>{
+      //this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+      //this.message = this.ServiceMessage.getMessage();
+      console.log(error.message);
+    });
   }
 
   onAdd() {
@@ -58,4 +78,12 @@ export class TransferComponent implements OnInit {
     });
   }
 
+}
+
+export class cLocation{
+  public user_id:           number;
+  public user_group_id:     number;
+  public department_code:   string;
+  public factory_code:      string;
+  public location_code:     string;
 }

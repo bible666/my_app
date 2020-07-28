@@ -41,7 +41,7 @@ export class ItemQtyComponent implements OnInit {
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
-        // 'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
+        'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
         // 'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
         // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
     });
@@ -124,10 +124,11 @@ export class ItemQtyComponent implements OnInit {
             return '';
         }
     }
+    
 
     onBlurItemCode(){
         let item_code: string = this.inputForm.get("item_code").value;
-        if ( item_code == '' ) 
+        if ( !item_code ) 
         {
             this.AR_lot_no = [];
         } else {

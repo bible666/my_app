@@ -1,6 +1,8 @@
 .mat-input{
-    height:24px !important;
+    height:28px !important;
 }
+
+
 
 .is-loading ::ng-deep .mat-option-text {
     display: flex;

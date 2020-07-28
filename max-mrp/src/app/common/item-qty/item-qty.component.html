@@ -6,16 +6,15 @@
             <label class="control-label">วัตถุดิบ</label>
         </div>
         <div class="col-md-9">
-
-                <input matInput placeholder="กรุณาเลือก" (blur)="onBlurItemCode()" class="mat-input" formControlName = "item_code"  [matAutocomplete]="item_data" >
-                <mat-autocomplete #item_data="matAutocomplete"  [displayWith]="displayFn.bind(this)">
-                    <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
-                    <ng-container *ngIf="!isLoading">
-                        <mat-option *ngFor="let item of filteredItem " [value]="item.item_code" >
-                        {{item.item_name}}
-                        </mat-option>
-                    </ng-container>
-                </mat-autocomplete>
+            <input matInput placeholder="กรุณาเลือก" (blur)="onBlurItemCode()" class="mat-input" formControlName = "item_code"  [matAutocomplete]="item_data" >
+            <mat-autocomplete #item_data="matAutocomplete"  [displayWith]="displayFn.bind(this)">
+                <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+                <ng-container *ngIf="!isLoading">
+                    <mat-option *ngFor="let item of filteredItem " [value]="item.item_code" >
+                    {{item.item_name}}
+                    </mat-option>
+                </ng-container>
+            </mat-autocomplete>
       
         </div>
     </div>

@@ -58,7 +58,7 @@ export class TransferComponent implements OnInit {
     const dialogRef = this.dialog.open(ItemQtyComponent,{
 			width: '500px',
 			height: '300px',
-			data: {factory_code: 'T0001_F1 ',location_code:'IT'}
+			data: {location_code:'IT'}
 		})
 		
 		dialogRef.afterClosed().subscribe(result=>{

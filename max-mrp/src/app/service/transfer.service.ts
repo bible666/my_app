@@ -21,9 +21,8 @@ export class TransferService {
     private http:HttpClient
   ) { }
 
-  public getItemList(factory_code:string,location_code:string){
+  public getItemList(location_code:string){
     let inputData = new cGetDataList();
-    inputData.factory_code           = factory_code;
     inputData.location_code          = location_code;
 
     let strJSON:string  = JSON.stringify(inputData);
@@ -37,6 +36,5 @@ export class TransferService {
 }
 
 export class cGetDataList{
-  factory_code:    string;
   location_code:   string;
 }

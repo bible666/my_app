@@ -6,7 +6,6 @@ import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
 import { LoadingService } from '../../service/loading.service';
 
 export interface DialogData {
-  factory_code:       string;
   location_code:      string;
   item_code:          string;
   lot_no:             string;
@@ -53,7 +52,7 @@ export class ItemQtyComponent implements OnInit {
 
   ngOnInit() {
 
-    this.Service.getItemList(this.data.factory_code,this.data.location_code)
+    this.Service.getItemList(this.data.location_code)
     .pipe(
       tap(()         =>{this.loading.show();}),
       finalize(()    =>{this.loading.hide();})

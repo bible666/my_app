@@ -106,7 +106,6 @@ export class ItemQtyComponent implements OnInit {
           )
         )
         .subscribe(unit =>{
-          console.log('hi');
           this.filteredItem = unit['data'];
         });
     }
@@ -127,7 +126,33 @@ export class ItemQtyComponent implements OnInit {
     
 
     onBlurItemCode(){
+        //check item code is exist or not
+        let new_item_code:      string = '';
+        let old_item_code:  string = this.inputForm.get("item_code").value;
+        // this.Service.getItemList(old_item_code)
+        // .pipe(
+        //   tap(()=>{this.loading.show();}),
+        //   finalize(()=>{this.loading.hide();})
+        // )
+        // .subscribe(data=>{
+        //   if (data['status']== 'success'){
+        //     item_code = data['data'];
+        //   } 
+          
+        //   if (old_item_code != item_code){
+        //     this.inputForm.patchValue({
+        //       'item_code'             : item_code
+        //     });
+        //   }
+    //   // });
+
+        // get lot no from db.
         let item_code: string = this.inputForm.get("item_code").value;
+        //clear select lot no
+        this.inputForm.patchValue({
+          'lot_no'    : ''
+        });
+
         if ( !item_code ) 
         {
             this.AR_lot_no = [];
@@ -144,24 +169,7 @@ export class ItemQtyComponent implements OnInit {
                 } 
             });
         }
-  //   let item_code:      string = '';
-  //   let old_item_code:  string = this.inputForm.get("item_code").value;
-  //   // this.Service.getItemList(old_item_code)
-  //   // .pipe(
-  //   //   tap(()=>{this.loading.show();}),
-  //   //   finalize(()=>{this.loading.hide();})
-  //   // )
-  //   // .subscribe(data=>{
-  //   //   if (data['status']== 'success'){
-  //   //     item_code = data['data'];
-  //   //   } 
-      
-  //   //   if (old_item_code != item_code){
-  //   //     this.inputForm.patchValue({
-  //   //       'item_code'             : item_code
-  //   //     });
-  //   //   }
-  //   // });
+        
     }
 }
 

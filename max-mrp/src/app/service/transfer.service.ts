@@ -21,15 +21,6 @@ export class TransferService {
     private http:HttpClient
   ) { }
 
-  public getItemList(location_code:string,item_name:string){
-    let inputData = new cGetDataList();
-    inputData.location_code          = location_code;
-    inputData.item_name              = item_name;
-
-    let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/get_all_item_by_location',strJSON,this.httpOptions);
-  }
-
   public getLocation(){
     return this.http.post(LOCATION_URL+'/get_location_for_department','',this.httpOptions);
   }
@@ -41,11 +32,6 @@ export class TransferService {
     return this.http.post(BASE_URL+'/get_lot_no_by_location_item',inputData,this.httpOptions);
   }
 
-}
-
-export class cGetDataList{
-  location_code:   string;
-  item_name:       string;
 }
 
 export class cGetLotNo{

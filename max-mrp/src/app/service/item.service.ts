@@ -61,6 +61,20 @@ export class ItemService {
     return this.http.post(BASE_URL+'/get_unit_code',strJSON,this.httpOptions);
   }
 
+    public getItemListByLocation(location_code:string,item_name:string){
+        let inputData = new cGetDataList();
+        inputData.location_code          = location_code;
+        inputData.item_name              = item_name;
+
+        let strJSON:string  = JSON.stringify(inputData);
+        return this.http.post(BASE_URL+'/get_all_item_by_location',strJSON,this.httpOptions);
+    }
+
+}
+
+export class cGetDataList{
+    location_code:   string;
+    item_name:       string;
 }
 
 

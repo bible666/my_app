@@ -1,16 +1,9 @@
-// import { Component, OnInit ,Inject } from '@angular/core';
-// import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-// import { FormControl, FormGroup, Validators } from '@angular/forms';
-// 
-// 
-// 
-// import { Observable } from 'rxjs';
-
 import { Component, OnInit ,Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoadingService } from '../../service/loading.service';
 import { TransferService } from '../../service/transfer.service';
+import { ItemService } from '../../service/item.service';
 import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
 
 export interface DialogData {
@@ -35,9 +28,9 @@ export class ItemQtyComponent implements OnInit {
 
     isLoading = false;
 
-    location_code:    string = '';
+    location_code:    string  = '';
     filteredItem:     cItem[] = [];
-    AR_lot_no:        any[] = [];
+    AR_lot_no:        any[]   = [];
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
@@ -50,6 +43,7 @@ export class ItemQtyComponent implements OnInit {
         public dialogRef: MatDialogRef<ItemQtyComponent>,
         private Service: TransferService,
         private loading: LoadingService,
+        private service_item : ItemService,
         @Inject(MAT_DIALOG_DATA) public data: DialogData)
     {
 
@@ -71,7 +65,7 @@ export class ItemQtyComponent implements OnInit {
 
     ngOnInit() {
         this.location_code = this.data.location_code;
-        this.Service.getItemList(this.data.location_code,'')
+        this.service_item.getItemListByLocation(this.data.location_code,'')
         .pipe(
           tap(()         =>{this.loading.show();}),
           finalize(()    =>{this.loading.hide();})
@@ -96,7 +90,7 @@ export class ItemQtyComponent implements OnInit {
             this.isLoading    = true;
             this.filteredItem = [];
           }),
-          switchMap(value => this.Service.getItemList(this.data.location_code,value)
+          switchMap(value => this.service_item.getItemListByLocation(this.data.location_code,value)
           .pipe(
             finalize(() => {
                 //after service end
@@ -128,48 +122,49 @@ export class ItemQtyComponent implements OnInit {
     onBlurItemCode(){
         //check item code is exist or not
         let new_item_code:      string = '';
-        let old_item_code:  string = this.inputForm.get("item_code").value;
-        // this.Service.getItemList(old_item_code)
-        // .pipe(
-        //   tap(()=>{this.loading.show();}),
-        //   finalize(()=>{this.loading.hide();})
-        // )
-        // .subscribe(data=>{
-        //   if (data['status']== 'success'){
-        //     item_code = data['data'];
-        //   } 
+        let old_item_code:      string = this.inputForm.get("item_code").value;
+        this.service_item.getItemListByLocation(this.data.location_code,old_item_code)
+        .pipe(
+            tap(()=>{this.loading.show();}),
+            finalize(()=>{this.loading.hide();})
+        )
+        .subscribe(data=>{
+            if (data['status']== 'success'){
+                
+                if ( data['data'].length >= 1 ) {
+                    new_item_code = data['data'][0]['item_code']
+                }
+            }
           
-        //   if (old_item_code != item_code){
-        //     this.inputForm.patchValue({
-        //       'item_code'             : item_code
-        //     });
-        //   }
-    //   // });
+            if (old_item_code != new_item_code){
+                this.inputForm.patchValue({
+                'item_code'             : new_item_code
+                });
+            }
 
-        // get lot no from db.
-        let item_code: string = this.inputForm.get("item_code").value;
-        //clear select lot no
-        this.inputForm.patchValue({
-          'lot_no'    : ''
+            // get lot no from db.
+            let item_code: string = this.inputForm.get("item_code").value;
+            //clear select lot no
+            this.inputForm.patchValue({
+                'lot_no'    : ''
+            });
+
+            if ( !item_code ) {
+                this.AR_lot_no = [];
+            } else {
+                this.Service.getLotNo(this.location_code,item_code)
+                .pipe(
+                    tap(()=>{this.loading.show();}),
+                    finalize(()=>{this.loading.hide();})
+                )
+                .subscribe(data=>{
+                    if (data['status']== 'success'){
+                        this.AR_lot_no = data['data'];
+                    } 
+                });
+            }
         });
 
-        if ( !item_code ) 
-        {
-            this.AR_lot_no = [];
-        } else {
-            this.Service.getLotNo(this.location_code,item_code)
-            .pipe(
-                tap(()=>{this.loading.show();}),
-                finalize(()=>{this.loading.hide();})
-            )
-            .subscribe(data=>{
-                if (data['status']== 'success'){
-                    this.AR_lot_no = data['data'];
-                    console.log(this.AR_lot_no);
-                } 
-            });
-        }
-        
     }
 }
 

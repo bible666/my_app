@@ -1,28 +1,28 @@
-import { Component, OnInit ,Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoadingService } from '../../service/loading.service';
-import { TransferService } from '../../service/transfer.service';
-import { ItemService } from '../../service/item.service';
-import {switchMap,debounceTime, tap, finalize,map} from 'rxjs/operators';
+import { Component, OnInit ,Inject }                from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA}             from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators }       from '@angular/forms';
+import { LoadingService }                           from '../../service/loading.service';
+import { TransferService }                          from '../../service/transfer.service';
+import { ItemService }                              from '../../service/item.service';
+import {switchMap,debounceTime, tap, finalize,map}  from 'rxjs/operators';
 
 export interface DialogData {
-  location_code:      string;
-  item_code:          string;
-  lot_no:             string;
-  first_receive_date: Date;
-  quantity:           number;
+    location_code:      string;
+    item_code:          string;
+    lot_no:             string;
+    first_receive_date: Date;
+    quantity:           number;
 }
 
 export interface cItem {
-  item_code: string;
-  item_name: string;
+    item_code: string;
+    item_name: string;
 }
 
 @Component({
-  selector: 'app-item-qty',
-  templateUrl: './item-qty.component.html',
-  styleUrls: ['./item-qty.component.css']
+    selector: 'app-item-qty',
+    templateUrl: './item-qty.component.html',
+    styleUrls: ['./item-qty.component.css']
 })
 export class ItemQtyComponent implements OnInit {
 
@@ -31,11 +31,12 @@ export class ItemQtyComponent implements OnInit {
     location_code:    string  = '';
     filteredItem:     cItem[] = [];
     AR_lot_no:        any[]   = [];
+    AR_receive_date:  any[]   = [];
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
         'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
-        // 'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
+        'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
         // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
     });
 
@@ -123,6 +124,7 @@ export class ItemQtyComponent implements OnInit {
         //check item code is exist or not
         let new_item_code:      string = '';
         let old_item_code:      string = this.inputForm.get("item_code").value;
+        
         this.service_item.getItemListByLocation(this.data.location_code,old_item_code)
         .pipe(
             tap(()=>{this.loading.show();}),
@@ -135,10 +137,10 @@ export class ItemQtyComponent implements OnInit {
                     new_item_code = data['data'][0]['item_code']
                 }
             }
-          
+            
             if (old_item_code != new_item_code){
                 this.inputForm.patchValue({
-                'item_code'             : new_item_code
+                    'item_code'     : new_item_code
                 });
             }
 
@@ -154,8 +156,8 @@ export class ItemQtyComponent implements OnInit {
             } else {
                 this.Service.getLotNo(this.location_code,item_code)
                 .pipe(
-                    tap(()=>{this.loading.show();}),
-                    finalize(()=>{this.loading.hide();})
+                    tap(()      =>{this.loading.show();}),
+                    finalize(() =>{this.loading.hide();})
                 )
                 .subscribe(data=>{
                     if (data['status']== 'success'){
@@ -165,6 +167,31 @@ export class ItemQtyComponent implements OnInit {
             }
         });
 
+    }
+
+    onLotNoChange(){
+      let item_code:      string = this.inputForm.get("item_code").value;
+      let lot_no:         string = this.inputForm.get("lot_no").value;
+
+      //clear receive date
+      this.AR_receive_date = [];
+      this.inputForm.patchValue({
+        'first_receive_date'    : ''
+      });
+      
+      this.service_item.getReceiveDate( this.data.location_code , item_code , lot_no )
+        .pipe(
+            tap(()=>{this.loading.show();}),
+            finalize(()=>{this.loading.hide();})
+        )
+        .subscribe(data=>{
+
+            if (data['status']== 'success'){
+                this.AR_receive_date = data['data'];
+                console.log(this.AR_receive_date);
+            }
+
+        });
     }
 }
 

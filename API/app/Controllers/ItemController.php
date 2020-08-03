@@ -114,13 +114,14 @@ class ItemController extends Origin001
         return $this->respond( $dataDB, 200 );
     }
 
-    public function get_lot_no_by_location_item(){
+    public function get_lot_no_by_location_item()
+    {
         $token = $this->getAuthHeader();
         $data  = $this->request->getJSON();
 
         //init data
-        $location_code  = isset( $data->location_code ) ? $data->location_code : '';
-        $item_code      = isset( $data->item_code ) ? $data->item_code : '';
+        $location_code = isset( $data->location_code ) ? $data->location_code : '';
+        $item_code     = isset( $data->item_code ) ? $data->item_code : '';
 
         $result = $this->_checkToken( $token );
         if ( $result->user_id > 0 ) {
@@ -131,12 +132,58 @@ class ItemController extends Origin001
                 and ps.quantity > 0
             ";
 
-            $itemn_data = $this->db->query( 
-                $query_str, 
+            $itemn_data = $this->db->query(
+                $query_str,
                 [
-                    'location_code' => $location_code, 
-                    'item_code'     => $item_code
+                    'location_code' => $location_code,
+                    'item_code'     => $item_code,
                 ] )->getResult();
+
+            if ( $this->db->error()['message'] !== '' ) {
+                $dataDB['status']  = "error";
+                $dataDB['message'] = $this->db->error()['message'];
+                $dataDB['data']    = "";
+
+                return $this->respond( $dataDB, 200 );
+            }
+
+            $dataDB['status']  = "success";
+            $dataDB['message'] = '';
+            $dataDB['data']    = $itemn_data;
+
+        } else {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = "token not found";
+            $dataDB['data']    = "";
+        }
+
+        return $this->respond( $dataDB, 200 );
+    }
+
+    public function get_all_receive_date_by_location_item_lot()
+    {
+        $token = $this->getAuthHeader();
+        $data  = $this->request->getJSON();
+
+        //init data
+        $location_code = isset( $data->location_code ) ? $data->location_code : '';
+        $item_code     = isset( $data->item_code ) ? $data->item_code : '';
+        $lot_no        = isset( $data->lot_no ) ? $data->lot_no : '';
+
+        $result = $this->_checkToken( $token );
+        if ( $result->user_id > 0 ) {
+            $query_str = "
+            select distinct ps.first_receive_date
+            from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
+            where ps.location_code = :location_code: and ps.item_code = :item_code: and ps.lot_no = :lot_no:
+                and i.active_flag = true and ps.quantity > 0
+            ";
+
+            $itemn_data = $this->db->query( $query_str, [
+                'location_code' => $location_code, 
+                'item_code'     => $item_code,
+                'lot_no'        => $lot_no
+            ] )->getResult();
 
             if ( $this->db->error()['message'] !== '' ) {
                 $dataDB['status']  = "error";
@@ -165,19 +212,19 @@ class ItemController extends Origin001
         $data  = $this->request->getJSON();
 
         //init data
-        $location_code  = isset( $data->location_code ) ? $data->location_code : '';
-        $item_name      = isset( $data->item_name ) ? $data->item_name : '';
+        $location_code = isset( $data->location_code ) ? $data->location_code : '';
+        $item_name     = isset( $data->item_name ) ? $data->item_name : '';
 
         $result = $this->_checkToken( $token );
         if ( $result->user_id > 0 ) {
             $query_str = "
             select distinct i.item_code, i.item_name
             from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
-            where ps.location_code = :location_code: and i.item_name like :item_name:
+            where ps.location_code = :location_code: and (i.item_name like :item_name: or i.item_code like :item_name: )
                 and i.active_flag = true and ps.quantity > 0
             ";
 
-            $itemn_data = $this->db->query( $query_str, ['location_code' => $location_code, 'item_name' => '%'.$item_name.'%'] )->getResult();
+            $itemn_data = $this->db->query( $query_str, ['location_code' => $location_code, 'item_name' => '%' . $item_name . '%'] )->getResult();
 
             if ( $this->db->error()['message'] !== '' ) {
                 $dataDB['status']  = "error";

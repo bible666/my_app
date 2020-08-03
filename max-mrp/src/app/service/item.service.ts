@@ -53,13 +53,13 @@ export class ItemService {
     return this.http.post(BASE_URL+'/get_unit',strJSON,this.httpOptions);
   }
 
-  public getUnitฺCode(unit_name:string){
-    let inputData = new unitSearch();
-    inputData.unit_name = unit_name;
+    public getUnitCode(unit_name:string){
+        let inputData = new unitSearch();
+        inputData.unit_name = unit_name;
 
-    let strJSON:string  = JSON.stringify(inputData);
-    return this.http.post(BASE_URL+'/get_unit_code',strJSON,this.httpOptions);
-  }
+        let strJSON:string  = JSON.stringify(inputData);
+        return this.http.post(BASE_URL+'/get_unit_code',strJSON,this.httpOptions);
+    }
 
     public getItemListByLocation(location_code:string,item_name:string){
         let inputData = new cGetDataList();
@@ -70,6 +70,16 @@ export class ItemService {
         return this.http.post(BASE_URL+'/get_all_item_by_location',strJSON,this.httpOptions);
     }
 
+    public getReceiveDate ( location_code: string , item_code: string , lot_no: string){
+        let inputData = new cGetReceiveDate();
+        inputData.location_code          = location_code;
+        inputData.item_code              = item_code;
+        inputData.lot_no                 = lot_no;
+
+        let strJSON:string  = JSON.stringify(inputData);
+        return this.http.post(BASE_URL+'/get_all_receive_date_by_location_item_lot',strJSON,this.httpOptions);
+    }
+
 }
 
 export class cGetDataList{
@@ -77,47 +87,53 @@ export class cGetDataList{
     item_name:       string;
 }
 
+export class cGetReceiveDate{
+    location_code:   string;
+    item_code:       string;
+    lot_no:          string;
+}
+
 
 export class cSearch{
-  page_index  :number;
-  rowsPerpage   :number;
+    page_index  :number;
+    rowsPerpage   :number;
 
-  //manual search condition
-  item_code  : string;
-  item_name  : string;
+    //manual search condition
+    item_code  : string;
+    item_name  : string;
 
-  public constructor(init?: Partial<cSearch>){
-      Object.assign(this,init);
-   }
+    public constructor(init?: Partial<cSearch>){
+        Object.assign(this,init);
+    }
 }
 
 export class unitSearch{
-  unit_name : string;
-  unit_code : string;
+    unit_name : string;
+    unit_code : string;
 }
 
 export class cData{
-  item_code     : string;
-  item_name     : string;
-  mrp_flag      : boolean;
-  remark        : string;
+    item_code     : string;
+    item_name     : string;
+    mrp_flag      : boolean;
+    remark        : string;
 }
 
 export class cInput{
-  token                : string;
-  old_item_code        : string;
+    token                : string;
+    old_item_code        : string;
 
-  item_code            : string;
-  item_name            : string;
-  item_type            : string;
-  lot_flag             : boolean;
-  production_lead_time : number;
-  request_decimal      : number;
-  mrp_flag             : boolean;
-  standard_location    : boolean;
-  remark               : string;
+    item_code            : string;
+    item_name            : string;
+    item_type            : string;
+    lot_flag             : boolean;
+    production_lead_time : number;
+    request_decimal      : number;
+    mrp_flag             : boolean;
+    standard_location    : boolean;
+    remark               : string;
 
-  public constructor(init?: Partial<cInput>){
-    Object.assign(this,init);
-  }
+    public constructor(init?: Partial<cInput>){
+        Object.assign(this,init);
+    }
 }

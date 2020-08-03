@@ -145,7 +145,7 @@ export class ItemEditComponent implements OnInit {
   onBlurUnitCode(){
     let unit_code:string = '';
     let old_unit_code:string = this.inputForm.get("unit_code").value;
-    this.Service.getUnitฺCode(old_unit_code)
+    this.Service.getUnitCode(old_unit_code)
     .pipe(
       tap(()=>{this.loading.show();}),
       finalize(()=>{this.loading.hide();})

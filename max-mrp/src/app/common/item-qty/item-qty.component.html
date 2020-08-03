@@ -23,7 +23,7 @@
             <label class="control-label">Lot No</label>
         </div>
         <div class="col-md-9">
-            <select formControlName = "lot_no" class="input_select">
+            <select formControlName = "lot_no" class="input_select" (change)="onLotNoChange()">
                 <option value="">กรุณาเลือก</option>
                 <option *ngFor="let lot of AR_lot_no" value={{lot.lot_no}}>{{lot.lot_no}}</option>
             </select>

@@ -1,0 +1,83 @@
+ -- HEAD_MANAGER("ผจภ.สข.","ผจภ.สข.","headmn_code_7","hmn")
+select manager_name as agentName, manager_code_7 as agentCode7, premium_portfolio as premiumPortfolio, position_group as positionGroup,position   
+                          from  (   
+                          select manager_name, manager_code_7, premium_portfolio,    
+                            position_group,    
+                            position   
+                          from  (   
+                             select manager_code_7, manager_name, position_group, position, flag, premium_portfolio,   
+                               ROW_NUMBER () OVER (ORDER BY premium_portfolio desc, manager_code_7) as row_number   
+                             from  (   
+                                select manager_code_7, manager_name,     
+                                  cast('ผจก.หน่วย' as varchar) as position_group,    
+                                  cast('ผู้จัดการหน่วย' as varchar) as position,   
+                                  case when (manager_name like 'เขต%' or manager_name like 'ชำระเอง%' or manager_name is null) then 0   
+                                   else 1   
+                                  end flag,   
+                                  sum(premium_portfolio) as premium_portfolio   
+                                from  agpt_agent_income   
+                                where period = :period   
+                                 and branch_code = :branchCode   
+                                 and headmn_code_7 = :agentCode   
+                                 and (manager_code_7 is not null and manager_code_7 <> '')   
+                                group by manager_code_7, manager_name,   
+                                  case when (manager_name like 'เขต%' or manager_name like 'ชำระเอง%' or manager_name is null) then 0   
+                                   else 1   
+                                  end   
+                                union all   
+                                select asst_manager_code_7 as manager_code_7, asst_manager_name as manager_name,     
+                                  cast('ผช.ผจก.หน่วย' as varchar) as position_group,    
+                                  cast('ผู้ช่วยผู้จัดการหน่วย' as varchar) as position,   
+                                  1 as flag,   
+                                  sum(premium_portfolio) as premium_portfolio   
+                                from  agpt_agent_income   
+                                where period = :period   
+                                 and branch_code = :branchCode   
+                                 and headmn_code_7 = :agentCode   
+                                 and ((manager_code_7 is null or manager_code_7 = '') and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))   
+                                group by asst_manager_code_7, asst_manager_name   
+                               ) aa     
+                            ) bb   
+                          where bb.row_number <= 5    
+                          union all   
+                          select cast('คนอื่นๆ รวมกัน' as varchar) as manager_name,   
+                            null as manager_code_7,   
+                            sum(premium_portfolio) as premium_portfolio,    
+                            null as position_group, null as position   
+                          from  (   
+                             select manager_code_7, manager_name, position_group, position, flag, premium_portfolio,   
+                               ROW_NUMBER () OVER (ORDER BY premium_portfolio desc, manager_code_7) as row_number   
+                             from  (   
+                                select manager_code_7, manager_name,     
+                                  cast('ผจก.หน่วย' as varchar) as position_group,    
+                                  cast('ผู้จัดการหน่วย' as varchar) as position,   
+                                  case when (manager_name like 'เขต%' or manager_name like 'ชำระเอง%' or manager_name is null) then 0   
+                                   else 1   
+                                  end flag,   
+                                  sum(premium_portfolio) as premium_portfolio   
+                                from  agpt_agent_income   
+                                where period = :period   
+                                 and branch_code = :branchCode   
+                                 and headmn_code_7 = :agentCode   
+                                 and (manager_code_7 is not null and manager_code_7 <> '')   
+                                group by manager_code_7, manager_name,   
+                                  case when (manager_name like 'เขต%' or manager_name like 'ชำระเอง%' or manager_name is null) then 0   
+                                   else 1   
+                                  end   
+                                union all   
+                                select asst_manager_code_7 as manager_code_7, asst_manager_name as manager_name,     
+                                  cast('ผช.ผจก.หน่วย' as varchar) as position_group,    
+                                  cast('ผู้ช่วยผู้จัดการหน่วย' as varchar) as position,   
+                                  1 as flag,   
+                                  sum(premium_portfolio) as premium_portfolio   
+                                from  agpt_agent_income   
+                                where period = :period   
+                                 and branch_code = :branchCode   
+                                 and headmn_code_7 = :agentCode   
+                                 and ((manager_code_7 is null or manager_code_7 = '') and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))   
+                                group by asst_manager_code_7, asst_manager_name   
+                               ) aa     
+                            ) bb   
+                          where bb.row_number > 5   
+                          ) cc   
+                          where cc.premium_portfolio is not null

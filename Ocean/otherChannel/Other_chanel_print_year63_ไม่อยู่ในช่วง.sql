@@ -64,7 +64,7 @@ select '30' as code,'เกินกำหนดวันรับชำระ' 
 -- union all
 select '-------' as agent_code, 'OceanPadTest25' as username
 union all
-select '5001921' as agent_code, 'OceanPadTest8' as username
+select '4700373' as agent_code, 'OceanPadTest8' as username
 
 )
 
@@ -151,9 +151,11 @@ from (
 	   left join dm_hermes_req_bank_payment d on ipm.policy_no = d.policy_no and d.status_code = '6'
 	   left join dm_hermes_req_credit_payment c on ipm.policy_no = c.policy_no and c.status_code = '6'
 	   left join dm_biz_payment_customer biz on ipm.policy_no = biz.policy_no and biz.bizpayment_channel = 'Y'
-	where current_date >= cast(ipm.start_date as date) and
-	 	  current_date <= cast(ipm.end_date as date)
-) endData inner join noti_gorup ng on endData.group_type = ng.code
+	where EXTRACT( year FROM pay_to) = 2020
+		  
+
+) endData left join noti_gorup ng on endData.group_type = ng.code
 inner join agent_check ch on endData.agent_code = ch.agent_code
+where group_type = '0'
 order by endData.agent_code
 limit 10000000

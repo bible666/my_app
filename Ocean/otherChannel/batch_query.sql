@@ -1,4 +1,7 @@
-select new_table.*, m.description_agent_portal 
+select new_table.*, m.description_agent_portal , 
+     case when other_channel = 'D' then 'debit' 
+	       when other_channel = 'C' then 'credit' 
+		   when other_channel = 'B' then 'biz' else payment_channel end as payment_channel_new
 from (
 	select ipm.* ,
 		case when 

@@ -1,0 +1,29 @@
+SELECT DISTINCT
+CUS.customer_id,
+CUS.card_no,
+CUS.card_type,
+CUS.card_expire_date,
+CUS.title,
+CUS.name,
+CUS.surname,
+CUS.birth_date,
+CUS.sex,
+CUS.religion,
+CUS.religion_name,
+CUS.nationality_code,
+CUS.nationality_name,
+CUS.marital_code,
+CUS.marital_status_name,
+CUS.updated_date,
+<if(policyNo)> POL.policy_no, <endif>
+CUS.mobile
+FROM ili_customer_data_analytics CUS
+INNER JOIN ili_policy_link_data_analytics LIN on CUS.customer_id = LIN.customer_id
+INNER JOIN ili_policy_master POL on LIN.policy_no = POL.policy_no
+and POL.agent_code = :agentCode
+WHERE 1 <> 1
+<if(firstName)> OR CUS.name like :firstName
+<if(lastName)> OR CUS.surname like :lastName <endif> <endif>
+<if(mobile)> OR CUS.mobile like :mobile <endif>
+<if(policyNo)> OR POL.policy_no = :policyNo <endif>
+LIMIT :limit

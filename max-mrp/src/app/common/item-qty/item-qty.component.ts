@@ -1,6 +1,6 @@
 import { Component, OnInit ,Inject }                from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA}             from '@angular/material/dialog';
-import { FormControl, FormGroup, Validators }       from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, ValidationErrors }       from '@angular/forms';
 import { LoadingService }                           from '../../service/loading.service';
 import { TransferService }                          from '../../service/transfer.service';
 import { ItemService }                              from '../../service/item.service';
@@ -40,8 +40,10 @@ export class ItemQtyComponent implements OnInit {
         'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
         'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
         'quantity'             : new FormControl(0, [ ]),
-        // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
-    });
+    }, {
+        validators: [this.checkInput()],
+        updateOn: 'blur',
+    } );
 
     constructor(
         public dialogRef: MatDialogRef<ItemQtyComponent>,
@@ -51,6 +53,20 @@ export class ItemQtyComponent implements OnInit {
         @Inject(MAT_DIALOG_DATA) public data: DialogData)
     {
 
+    }
+
+    public checkInput(): ValidatorFn {
+        return (formGroup: FormGroup) => {
+
+            const qty: number = +formGroup.get("quantity").value;
+            console.log(qty);
+            if ( qty == 10 ){
+                console.log(qty);
+                return { checkInput: true };
+            }
+            
+            return null;
+        };
     }
 
     onSave(){
@@ -85,26 +101,22 @@ export class ItemQtyComponent implements OnInit {
           //console.log(error.message);
         });
 
-        //test auto complete
-        this.inputForm.get("item_code").valueChanges
+    }
+
+    onItemKeyUp(itemEvent:any){
+        let itemName: string = itemEvent.target.value;
+        console.log('input item');
+        this.service_item.getItemListByLocation(this.data.location_code,itemName)
         .pipe(
-          debounceTime(300), //if keypress interval is less then call service
-          tap(() => {
-            //before service start
-            this.isLoading    = true;
-            this.filteredItem = [];
-          }),
-          switchMap(value => this.service_item.getItemListByLocation(this.data.location_code,value)
-          .pipe(
-            finalize(() => {
-                //after service end
-                this.isLoading = false
-              })
-            )
-          )
+            tap(()=>{
+                this.loading.show();
+            }),
+            finalize(()=>{
+                this.loading.hide();
+            })
         )
-        .subscribe(unit =>{
-          this.filteredItem = unit['data'];
+        .subscribe(unit => {
+            this.filteredItem = unit['data'];
         });
     }
 
@@ -125,6 +137,14 @@ export class ItemQtyComponent implements OnInit {
 
     //Function when move out Auto Complete
     onBlurItemCode(){
+
+        //Clear Old lot, qty and receive date
+        this.inputForm.patchValue({
+            'first_receive_date'    : '',
+            'lot_no'                : '',
+            'quantity'              : 0,
+        });
+        this.oldQty                    = 0;
         //check item code is exist or not
         let new_item_code:      string = '';
         let old_item_code:      string = this.inputForm.get("item_code").value;
@@ -140,7 +160,7 @@ export class ItemQtyComponent implements OnInit {
                     new_item_code = data['data'][0]['item_code']
                 }
             }
-            
+
             if (old_item_code != new_item_code){
                 this.inputForm.patchValue({
                     'item_code'     : new_item_code
@@ -172,9 +192,9 @@ export class ItemQtyComponent implements OnInit {
 
     }
 
-    onLotNoChange(){
-      let item_code:      string = this.inputForm.get("item_code").value;
-      let lot_no:         string = this.inputForm.get("lot_no").value;
+    onLotNoChange(event:any){
+        let item_code:      string = this.inputForm.get("item_code").value;
+        let lot_no:         string = event.target.value;
 
       //clear receive date
       this.AR_receive_date = [];

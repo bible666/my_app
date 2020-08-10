@@ -173,8 +173,9 @@ class ItemController extends Origin001
         $result = $this->_checkToken( $token );
         if ( $result->user_id > 0 ) {
             $query_str = "
-            select distinct ps.first_receive_date
+            select distinct ps.first_receive_date,ps.quantity,u.unit_name
             from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
+                inner join mst_unit u on i.unit_code = u.unit_code
             where ps.location_code = :location_code: and ps.item_code = :item_code: and ps.lot_no = :lot_no:
                 and i.active_flag = true and ps.quantity > 0
             ";

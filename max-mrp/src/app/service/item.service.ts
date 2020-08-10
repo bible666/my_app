@@ -4,6 +4,12 @@ import { environment } from '../../environments/environment';
 
 const BASE_URL = environment.api_url+'/ItemController';
 
+interface cLotNo {
+  first_receive_date: string;
+  quantity:           number;
+  unit_name:          string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -77,7 +83,7 @@ export class ItemService {
         inputData.lot_no                 = lot_no;
 
         let strJSON:string  = JSON.stringify(inputData);
-        return this.http.post(BASE_URL+'/get_all_receive_date_by_location_item_lot',strJSON,this.httpOptions);
+        return this.http.post<cLotNo>(BASE_URL+'/get_all_receive_date_by_location_item_lot',strJSON,this.httpOptions);
     }
 
 }

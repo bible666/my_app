@@ -31,12 +31,40 @@
         </div>
     </div>
 
-        
-            
-    
+    <div class="row input">
+        <div class="col-md-3 ">
+            <label class="control-label">วันที่รับของ</label>
+        </div>
+        <div class="col-md-9">
+            <select formControlName = "first_receive_date" class="input_select" (change)="onReceiveDateChange($event)">
+                <option value="">กรุณาเลือก</option>
+                <option *ngFor="let receiveDate of AR_receive_date" value={{receiveDate.first_receive_date}}>{{receiveDate.first_receive_date}}[{{convertStringToNumber(receiveDate.quantity)}} {{receiveDate.unit_name}}]</option>
+            </select>
+            <span class="help"></span>
+        </div>
+    </div>
+
+    <div class="row input">
+        <div class="col-md-3 ">
+            <label class="control-label">จำนวน</label>
+        </div>
+        <div class="col-md-9">
+            {{oldQty}}
+        </div>
+    </div>
+
+    <div class="row input">
+        <div class="col-md-3 ">
+            <label class="control-label">เบิก</label>
+        </div>
+        <div class="col-md-9">
+            <input matInput placeholder="กรุณาใส่จำนวน" class="mat-input" formControlName = "quantity" >
+        </div>
+    </div>
+
 
 </form>
-{{inputForm.value|json}}
+
 </div>
 <div mat-dialog-actions>
 <button mat-button (click)="onNoClick()">ยกเลิก</button>

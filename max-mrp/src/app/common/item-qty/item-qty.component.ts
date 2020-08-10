@@ -19,6 +19,7 @@ export interface cItem {
     item_name: string;
 }
 
+
 @Component({
     selector: 'app-item-qty',
     templateUrl: './item-qty.component.html',
@@ -32,11 +33,13 @@ export class ItemQtyComponent implements OnInit {
     filteredItem:     cItem[] = [];
     AR_lot_no:        any[]   = [];
     AR_receive_date:  any[]   = [];
+    oldQty: number = 0;
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
         'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
         'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
+        'quantity'             : new FormControl(0, [ ]),
         // 'quantity'             : new FormControl(this.data.quantity, [ Validators.required ]),
     });
 
@@ -106,10 +109,11 @@ export class ItemQtyComponent implements OnInit {
     }
 
     onNoClick(): void {
-        console.log(this.inputForm.value);
+        //console.log(this.inputForm.value);
         //this.dialogRef.close();
     }
 
+    //Function for Auto complete
     displayFn(value:string){
         if (value && this.filteredItem.length > 0 ) 
         {
@@ -118,8 +122,8 @@ export class ItemQtyComponent implements OnInit {
             return '';
         }
     }
-    
 
+    //Function when move out Auto Complete
     onBlurItemCode(){
         //check item code is exist or not
         let new_item_code:      string = '';
@@ -132,7 +136,6 @@ export class ItemQtyComponent implements OnInit {
         )
         .subscribe(data=>{
             if (data['status']== 'success'){
-                
                 if ( data['data'].length >= 1 ) {
                     new_item_code = data['data'][0]['item_code']
                 }
@@ -193,5 +196,19 @@ export class ItemQtyComponent implements OnInit {
 
         });
     }
-}
 
+    convertStringToNumber(myString:string){
+        return +myString;
+    }
+
+    onReceiveDateChange(event){
+        let selectQty:number = 0;
+        this.AR_receive_date.forEach(function (value) {
+            if ( value['first_receive_date'] == event.target.value ) {
+                console.log(value['quantity']);
+                selectQty = +value['quantity'];
+            }
+        });
+        this.oldQty = selectQty;
+    }
+}

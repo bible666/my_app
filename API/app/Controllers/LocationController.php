@@ -409,6 +409,7 @@ class LocationController extends Origin001
         //Validate Data
 
         $result = $this->_checkToken( $token );
+
         if ( $result->user_id >= 0 ) {
 
             $query_str = "

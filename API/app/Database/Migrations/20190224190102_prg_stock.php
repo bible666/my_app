@@ -24,7 +24,8 @@ class Migration_prg_stock extends \CodeIgniter\Database\Migration {
                     factory_code ASC,
 					location_code ASC,
 					item_code ASC,
-					lot_no ASC
+                    lot_no ASC,
+                    first_receive_date ASC
                 )
                 
             );

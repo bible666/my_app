@@ -35,7 +35,8 @@ class ItemController extends Origin001
      */
     public function delete_data_by_id()
     {
-        $data = $this->request->getJSON();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $token     = $this->getAuthHeader();
@@ -55,7 +56,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']  = "success";
@@ -66,9 +67,10 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     /**
@@ -76,9 +78,9 @@ class ItemController extends Origin001
      */
     public function get_data_by_id()
     {
-        $token          = $this->getAuthHeader();
-        $data           = $this->request->getJSON();
-        $http_code      = 200;
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $item_code = isset( $data->item_code ) ? $data->item_code : -1;
@@ -88,7 +90,7 @@ class ItemController extends Origin001
             $query_str = "
             SELECT mst_item.*,mst_unit.unit_name
             FROM mst_item
-                INNER JOIN mst_unit on mst_item.unit_code = mst_unit.unit_code 
+                INNER JOIN mst_unit on mst_item.unit_code = mst_unit.unit_code
             WHERE item_code = :item_code:
                 AND mst_item.active_flag = true
             ";
@@ -111,7 +113,7 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
-            $http_code         = 401;
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
         return $this->respond( $dataDB, $http_code );
@@ -119,8 +121,9 @@ class ItemController extends Origin001
 
     public function get_lot_no_by_location_item()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $location_code = isset( $data->location_code ) ? $data->location_code : '';
@@ -147,7 +150,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']  = "success";
@@ -158,15 +161,17 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     public function get_all_receive_date_by_location_item_lot()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $location_code = isset( $data->location_code ) ? $data->location_code : '';
@@ -194,7 +199,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']  = "success";
@@ -205,15 +210,17 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     public function get_all_item_by_location()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $location_code = isset( $data->location_code ) ? $data->location_code : '';
@@ -235,7 +242,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']  = "success";
@@ -246,9 +253,10 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     private function _getCond( $s )
@@ -303,8 +311,9 @@ class ItemController extends Origin001
      */
     public function get_data_list()
     {
-        $data  = $this->request->getJSON();
-        $token = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $http_code = 200;
 
         //Validate Data
 
@@ -339,7 +348,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $itemn_count = $this->db->query( $query_count, [$result->company_id] )->getResult();
@@ -349,7 +358,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']   = "success";
@@ -361,9 +370,10 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     /**
@@ -371,8 +381,9 @@ class ItemController extends Origin001
      */
     public function update_data()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         //init data
         $old_item_code = isset( $data->old_item_code ) ? trim( $data->old_item_code ) : '';
@@ -397,7 +408,7 @@ class ItemController extends Origin001
             $dataDB['message'] = "token is empty";
             $dataDB['data']    = "";
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, $http_code );
         }
 
         if ( $item_name == '' ) {
@@ -405,7 +416,7 @@ class ItemController extends Origin001
             $dataDB['message'] = "กรุณาระบุชื่อวัตถุดิบ";
             $dataDB['data']    = "";
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, $http_code );
         }
 
         if ( $item_code == '' ) {
@@ -413,7 +424,7 @@ class ItemController extends Origin001
             $dataDB['message'] = "กรุณาระบุรหัสวัตถุดิบ";
             $dataDB['data']    = "";
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, $http_code );
         }
 
         //get data from token
@@ -426,7 +437,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = "รหัสวัตถุดิบนี้มีการใช้งานแล้ว";
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             if ( $old_item_code == -1 ) {
@@ -466,7 +477,7 @@ class ItemController extends Origin001
                     $dataDB['message'] = $this->db->error()['message'];
                     $dataDB['data']    = "";
 
-                    return $this->respond( $dataDB, 200 );
+                    return $this->respond( $dataDB, $http_code );
                 }
             } else {
                 $insert_data['update_date'] = date( "Y-m-d H:i:s" );
@@ -479,7 +490,7 @@ class ItemController extends Origin001
                     $dataDB['message'] = $this->db->error()['message'];
                     $dataDB['data']    = "";
 
-                    return $this->respond( $dataDB, 200 );
+                    return $this->respond( $dataDB, $http_code );
                 }
             }
             $this->db->transComplete();
@@ -491,9 +502,10 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     /**
@@ -529,8 +541,9 @@ class ItemController extends Origin001
 
     public function get_unit()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         $query_str = " SELECT * FROM mst_unit where active_flag = true and unit_name like :unit_name: order by unit_code asc";
 
@@ -541,27 +554,29 @@ class ItemController extends Origin001
             $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, $http_code );
         }
 
         $dataDB['status']  = "success";
         $dataDB['message'] = "";
         $dataDB['data']    = $itemn_data;
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     public function get_unit_by_code()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         if ( $token == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "token is empty";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, $http_code );
         }
 
         //get data from token
@@ -575,7 +590,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             if ( isset( $unit_data ) ) {
@@ -592,22 +607,24 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     public function get_unit_code()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token     = $this->getAuthHeader();
+        $data      = $this->request->getJSON();
+        $http_code = 200;
 
         if ( $token == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "token is empty";
             $dataDB['data']    = "";
 
-            return $this->respond( $dataDB, 200 );
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
 
         //get data from token
@@ -628,7 +645,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $unit_code = "";
@@ -644,8 +661,9 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = TOKEN_NOT_FOUND;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 }

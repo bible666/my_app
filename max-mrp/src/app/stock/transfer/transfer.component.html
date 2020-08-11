@@ -57,16 +57,23 @@
                 <div class="col-sm-10">
                     <table class="w-100" border="0" cellspacing="0" cellpadding="0">
                         <tr>
-                            <th>รหัสลูกค้า</th>
-                            <td>
-                                
-                            </td>
+                            <th>รหัสวัตถุดิบ</th>
+                            <th>ชื่อวัตถุดิบ</th>
+                            <th>Lot No</th>
+                            <th>วันที่รับของ</th>
+                            <th>จำนวน</th>
+                            <th>หน่วย</th>
+                            <th></th>
+                        </tr>
 
-                            <th>ชื่อลูกค้า</th>
-                            <td>
-                                
-                            </td>
-                            
+                        <tr *ngFor="let gridData of ar_grid_data">
+                            <td>{{gridData.item_code}}</td>
+                            <td>{{gridData.item_name}}</td>
+                            <td>{{gridData.lot_no}}</td>
+                            <td>{{gridData.receive_date}}</td>
+                            <td>{{gridData.quantity}}</td>
+                            <td>{{gridData.unit_name}}</td>
+                            <td></td>
                         </tr>
                         
                     </table>

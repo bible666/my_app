@@ -17,10 +17,10 @@ limit 200;
 select recruiter_code_7,count(recruiter_code_7)
 from 
 (
-	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
-	from agpt_agent_income dai
-	where recruiter_code_7  <> '' 
-	group by agent_code_7 ,recruiter_code_7 
+    select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
+    from agpt_agent_income dai
+    where recruiter_code_7  <> '' 
+    group by agent_code_7 ,recruiter_code_7 
 ) my_data
 where min_period >= '2562/01' and min_period <= '2562/18'
 group by recruiter_code_7
@@ -31,10 +31,10 @@ limit 200;
 select recruiter_code_7,count(recruiter_code_7)
 from 
 (
-	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
-	from agpt_agent_income dai
-	where recruiter_code_7  <> '' 
-	group by agent_code_7 ,recruiter_code_7 
+    select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
+    from agpt_agent_income dai
+    where recruiter_code_7  <> '' 
+    group by agent_code_7 ,recruiter_code_7 
 ) my_data
 where min_period >= '2561/01' and min_period <= '2562/18'
 group by recruiter_code_7

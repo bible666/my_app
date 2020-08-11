@@ -40,9 +40,9 @@ export class ItemService {
   }
 
   public getDataById(item_code:string){
-    let inputData = new cInput();
-    inputData.item_code           = item_code;
-    let strJSON:string  = JSON.stringify(inputData);
+    let inputData         = new cInput();
+    inputData.item_code   = item_code;
+    let strJSON:string    = JSON.stringify(inputData);
     return this.http.post(BASE_URL+'/get_data_by_id',strJSON,this.httpOptions);
   }
 

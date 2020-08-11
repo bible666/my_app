@@ -4,8 +4,8 @@ Subject: public.ili_policy_plan_ord - IT Enterprise Architecture - Ocean Life In
 Date: Tue, 21 Jul 2020 10:22:14 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--yIQehb2UdRTU7uHWytKYlvwmmqYdjxRf0F3BeIklsF----"
+    type="text/html";
+    boundary="----MultipartBoundary--yIQehb2UdRTU7uHWytKYlvwmmqYdjxRf0F3BeIklsF----"
 
 
 ------MultipartBoundary--yIQehb2UdRTU7uHWytKYlvwmmqYdjxRf0F3BeIklsF----
@@ -278,17 +278,17 @@ en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.5/5.3.1/_">
             <meta name=3D"ajs-existing-draft-id" content=3D"0">
             <meta name=3D"ajs-can-attach-files" content=3D"true">
                =20
-            		    <meta name=3D"ajs-max-thumb-width" content=3D"300">
-		    <meta name=3D"ajs-can-send-email" content=3D"true">
-		    <meta name=3D"ajs-is-dev-mode" content=3D"false">
-		    <meta name=3D"ajs-draft-save-interval" content=3D"30000">
-		    <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
-		    <meta name=3D"ajs-is-admin" content=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
+                        <meta name=3D"ajs-max-thumb-width" content=3D"300">
+            <meta name=3D"ajs-can-send-email" content=3D"true">
+            <meta name=3D"ajs-is-dev-mode" content=3D"false">
+            <meta name=3D"ajs-draft-save-interval" content=3D"30000">
+            <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
+            <meta name=3D"ajs-is-admin" content=3D"false">
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
 nt=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
 =3D"false">
-		    <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
+            <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
 =09
     </head>
 
@@ -4272,42 +4272,42 @@ Table "ili_policy_plan_ord" =E0=B9=80=E0=B8=81=E0=B9=87=E0=B8=9A=E0=B8=82=
 <pre>SQL for Create Table
 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 CREATE TABLE public.ili_policy_plan_ord(
-		  plan_code VARCHAR(3) DEFAULT '' NOT NULL,
-		  plan_name1 VARCHAR(30) DEFAULT '' NOT NULL,
-		  plan_name2 VARCHAR(25) DEFAULT '' NOT NULL,
-		  plan_short_name VARCHAR(6) DEFAULT '' NOT NULL,
-		  policy_type VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_term NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
-		  payment_term NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		  plan_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		  payment_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_min_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		  plan_max_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		  plan_dividend VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_refund VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_increment VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_step1 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step2 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step3 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step4 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step5 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_name3 VARCHAR(100) DEFAULT '' NOT NULL,
-		  plan_type VARCHAR(10) DEFAULT '' NOT NULL,
-		  plan_package VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_channel NUMERIC(7,0) DEFAULT 0 NOT NULL,=20
-		  plan_loan_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_step6 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step7 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step8 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step9 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  plan_step10 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
-		  number_of_freelook_days NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
-		  interest_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
-		  first_year_perf_count VARCHAR(1) DEFAULT '' NOT NULL,
-		  first_year_perf_count_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
-		  divisor_number_of_year NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
-		  plan_apl_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		  plan_sur_flag VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_code VARCHAR(3) DEFAULT '' NOT NULL,
+          plan_name1 VARCHAR(30) DEFAULT '' NOT NULL,
+          plan_name2 VARCHAR(25) DEFAULT '' NOT NULL,
+          plan_short_name VARCHAR(6) DEFAULT '' NOT NULL,
+          policy_type VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_term NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
+          payment_term NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+          plan_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
+          payment_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_min_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+          plan_max_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+          plan_dividend VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_refund VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_increment VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_step1 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step2 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step3 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step4 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step5 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_name3 VARCHAR(100) DEFAULT '' NOT NULL,
+          plan_type VARCHAR(10) DEFAULT '' NOT NULL,
+          plan_package VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_channel NUMERIC(7,0) DEFAULT 0 NOT NULL,=20
+          plan_loan_flag VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_step6 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step7 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step8 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step9 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          plan_step10 NUMERIC(14,2) DEFAULT 0 NOT NULL,=20
+          number_of_freelook_days NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
+          interest_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
+          first_year_perf_count VARCHAR(1) DEFAULT '' NOT NULL,
+          first_year_perf_count_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
+          divisor_number_of_year NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
+          plan_apl_flag VARCHAR(1) DEFAULT '' NOT NULL,
+          plan_sur_flag VARCHAR(1) DEFAULT '' NOT NULL,
           CONSTRAINT ili_policy_plan_ord_pk PRIMARY KEY(plan_code)
 );
 
@@ -4884,8 +4884,8 @@ icy_plan_ord"
 this</span></div><div id=3D"labels-section" class=3D"pageSection group">
     <div class=3D"labels-section-content content-column" entityid=3D"773816=
 722" entitytype=3D"page">
-	<div class=3D"labels-content">
-	=09
+    <div class=3D"labels-content">
+    =09
     <ul class=3D"label-list label-list-right  has-pen">
             <li class=3D"no-labels-message">
             No labels

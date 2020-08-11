@@ -18,20 +18,20 @@ URI
 
 Field
 ความหมาย
-organization	องค์กร เช่น thaisamut (สำหรับ resource ที่เป็นของ Thaisamut), tbsp (สำหรับ resource ของ tbsp)
-entity	หมวดหมู่ เช่น
+organization    องค์กร เช่น thaisamut (สำหรับ resource ที่เป็นของ Thaisamut), tbsp (สำหรับ resource ของ tbsp)
+entity    หมวดหมู่ เช่น
 policy (สำหรับ service ที่เกี่ยวกับ กรมธรรม์),
 amlo (สำหรับ service ที่เกี่ยวกับระบบ ปปง.),
 cheque (สำหรับ service ที่เกี่ยวกับ cheque),
-version	version ของ service (ดูรายละเอียดที่ Appendix_A.)
-payload	
+version    version ของ service (ดูรายละเอียดที่ Appendix_A.)
+payload    
 data type ของ payload,
 
 xml คือ XML ตาม schema (ที่อยู่ใน WSDL)
 
 compact คือ การส่งกลับข้อมูลในรูปแบบของ Link ของ Shared File System (DFGW) 
 
-type	
+type    
 ประเภทของ Service ได้แก่,
 
 inquiry คือ service ที่ดึงข้อมูลเป็นรายเดี่ยวหรือรายหน่วยย่อย เช่น ดึงข้อมูล Policy แค่ 1 กธ.
@@ -44,7 +44,7 @@ update คือ service ที่เป็นการเปลี่ยนแ�
 
 add คือ service ที่เป็นการเพิ่มข้อมูลเท่านั้น ซึ่งเหมาะกับการใช้ในการส่ง transaction เข้าสู่ระบบ
 
-subject	หัวข้อ หรือชื่อ service นั้นๆ
+subject    หัวข้อ หรือชื่อ service นั้นๆ
  
 
 ตัวอย่าง
@@ -89,10 +89,10 @@ URI :  /thaisamut/policy/v1/xml/inquiry/search
 
 Field
 Value
-modulename	policyws
-subject	search
-version	v1
-<modulename><subject><version`replace dot with underscore`>ESBService	PolicyWs Search V1 ESBService
+modulename    policyws
+subject    search
+version    v1
+<modulename><subject><version`replace dot with underscore`>ESBService    PolicyWs Search V1 ESBService
  
 
 ตัวอย่างที่ 2

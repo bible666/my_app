@@ -8,58 +8,58 @@ Overview
 
  
 
-Field name	Description	E-Application	NBS : 301431
+Field name    Description    E-Application    NBS : 301431
 เคส pay_status_end = S , U
 *เคสขออนุมัติ ขั้นตอนส่งเข้า AS400
-update	
+update    
 NBS : 301431
 เคส pay_status_end = N
 *เคสปกติ ไม่ต้องอนุมัติ
 insert
  
-APPLI#	เลขใบคำขอ	tx_request_case.request_no	new_case_ops.request_no	
+APPLI#    เลขใบคำขอ    tx_request_case.request_no    new_case_ops.request_no    
 new_case_ops.request_no
  
-APPOL#	เลขที่ กธ.	tx_request_case.request_policy_no	new_case_ops.policy_no	
+APPOL#    เลขที่ กธ.    tx_request_case.request_policy_no    new_case_ops.policy_no    
 new_case_ops.policy_no
  
-APRETD	
+APRETD    
 วันที่ออกใบเสร็จ ชั่วคราว
-tx_request_case.request_temp_reciept_date	 	
+tx_request_case.request_temp_reciept_date         
 select pay_date from new_case_temp_receipt where receipt_temp_id = new_case_ops.receipt_temp_id
 * ข้อมูลใบรับเงินชั่วคราว มีได้มากกว่า 1 rows
  
-APETIT	คำนำEN ผู้ขอ	tx_insure_request.insure_title_en_name	new_case_ops.insure_title_eng	
+APETIT    คำนำEN ผู้ขอ    tx_insure_request.insure_title_en_name    new_case_ops.insure_title_eng    
 new_case_ops.insure_title_eng
  
-APENAM	ชื่อEN ผู้ขอ	tx_insure_request.insure_first_en_name	new_case_ops.insure_name_eng	
+APENAM    ชื่อEN ผู้ขอ    tx_insure_request.insure_first_en_name    new_case_ops.insure_name_eng    
 new_case_ops.insure_name_eng
  
-APELNM	สกุลEN ผู้ขอ	tx_insure_request.insure_last_en_name	new_case_ops.insure_sname_eng	
+APELNM    สกุลEN ผู้ขอ    tx_insure_request.insure_last_en_name    new_case_ops.insure_sname_eng    
 new_case_ops.insure_sname_eng
  
-APOTIT	คำนำเดิม ผู้ขอ	tx_insure_request.insure_title_old_name	new_case_ops.insure_title_old	
+APOTIT    คำนำเดิม ผู้ขอ    tx_insure_request.insure_title_old_name    new_case_ops.insure_title_old    
 new_case_ops.insure_title_old
  
-APONAM	ชื่อเดิม ผู้ขอ	tx_insure_request.insure_first_old_name	new_case_ops.insure_name_old	
+APONAM    ชื่อเดิม ผู้ขอ    tx_insure_request.insure_first_old_name    new_case_ops.insure_name_old    
 new_case_ops.insure_name_old
  
-APOLNM	สกุลเดิม ผู้ขอ	tx_insure_request.insure_last_old_name	new_case_ops.insure_sname_old	
+APOLNM    สกุลเดิม ผู้ขอ    tx_insure_request.insure_last_old_name    new_case_ops.insure_sname_old    
 new_case_ops.insure_sname_old
  
-APMSTS	สถานภาพ	tx_insure_request.insure_marital_status	new_case_ops.insure_marital_status	
+APMSTS    สถานภาพ    tx_insure_request.insure_marital_status    new_case_ops.insure_marital_status    
 new_case_ops.insure_marital_status
  
-APMTIT	คำนำ คู่สมรส	tx_insure_request.insure_spouse_title_name	new_case_ops.insure_spouse_title	
+APMTIT    คำนำ คู่สมรส    tx_insure_request.insure_spouse_title_name    new_case_ops.insure_spouse_title    
 new_case_ops.insure_spouse_title
  
-APMNAM	ชื่อ คู่สมรส	tx_insure_request.insure_spouse_first_name	new_case_ops.insure_spouse_name	
+APMNAM    ชื่อ คู่สมรส    tx_insure_request.insure_spouse_first_name    new_case_ops.insure_spouse_name    
 new_case_ops.insure_spouse_name
  
-APMLNM	สกุล คู่สมรส	tx_insure_request.insure_spouse_last_name	new_case_ops.insure_spouse_sname	
+APMLNM    สกุล คู่สมรส    tx_insure_request.insure_spouse_last_name    new_case_ops.insure_spouse_sname    
 new_case_ops.insure_spouse_sname
  
-APIDEP	
+APIDEP    
 วันหมดอายุ บัตร ปชช.
 tx_insure_request.insure_card_expire	 	
 - ถ้า new_case_ops.insure_card_type = 1

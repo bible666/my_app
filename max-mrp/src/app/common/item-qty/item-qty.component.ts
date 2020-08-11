@@ -29,17 +29,21 @@ export class ItemQtyComponent implements OnInit {
 
     isLoading = false;
 
-    location_code:    string  = '';
+    location_code   : string    = '';
+    oldQty          : number    = 0;
+
     filteredItem:     cItem[] = [];
     AR_lot_no:        any[]   = [];
     AR_receive_date:  any[]   = [];
-    oldQty: number = 0;
+
 
     inputForm = new FormGroup({
         'item_code'            : new FormControl(this.data.item_code, [ Validators.required ]),
+        'item_name'            : new FormControl(''),
         'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
         'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
         'quantity'             : new FormControl(0, [ ]),
+        'unit_name'            : new FormControl(''),
     }, {
         validators: [this.checkInput()],
         updateOn: 'blur',
@@ -59,9 +63,8 @@ export class ItemQtyComponent implements OnInit {
         return (formGroup: FormGroup) => {
 
             const qty: number = +formGroup.get("quantity").value;
-            console.log(qty);
-            if ( qty == 10 ){
-                console.log(qty);
+
+            if ( qty > this.oldQty ){
                 return { checkInput: true };
             }
             
@@ -71,41 +74,52 @@ export class ItemQtyComponent implements OnInit {
 
     onSave(){
         if (this.inputForm.valid){
-        // let holiday: Date = new Date(this.inputForm.controls['holiday_date'].value);
-        // this.inputForm.patchValue({
+            //get Item_data
+            this.service_item.getDataById(this.inputForm.get("item_code").value)
+            .pipe(
+                tap(()=>{
+                    this.loading.show();
+                }),
+                finalize(()=>{
+                    this.loading.hide();
+                })
+            )
+            .subscribe(data=>{
+                if (data['status']== 'success'){
+                    this.inputForm.patchValue({
+                        'item_name'   : data['data']['item_name'],
+                        'unit_name'   : data['data']['unit_name'],
+                      });
+                }
+                this.dialogRef.close(this.inputForm.value);
+            });
 
-        //   'show_date'    : holiday.getDate() + '/' + (holiday.getMonth()+1) + '/' + holiday.getFullYear()
-
-        // });
-
-        // this.dialogRef.close(this.inputForm.value);
         }
-        
+
     }
 
     ngOnInit() {
         this.location_code = this.data.location_code;
         this.service_item.getItemListByLocation(this.data.location_code,'')
         .pipe(
-          tap(()         =>{this.loading.show();}),
-          finalize(()    =>{this.loading.hide();})
+            tap(()         =>{this.loading.show();}),
+            finalize(()    =>{this.loading.hide();})
         )
         .subscribe(data=>{
-          if (data['status']== 'success'){
-            this.filteredItem   = data['data'];
-          } 
+            if (data['status']== 'success'){
+                this.filteredItem   = data['data'];
+            } 
         },
         error=>{
-          //this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
-          //this.message = this.ServiceMessage.getMessage();
-          //console.log(error.message);
+            //this.ServiceMessage.setError('เกิดข้อผิดพลาดไม่สามารถดึงข้อมูลได้');
+            //this.message = this.ServiceMessage.getMessage();
+            console.log(error.message);
         });
 
     }
 
     onItemKeyUp(itemEvent:any){
         let itemName: string = itemEvent.target.value;
-        console.log('input item');
         this.service_item.getItemListByLocation(this.data.location_code,itemName)
         .pipe(
             tap(()=>{
@@ -121,8 +135,7 @@ export class ItemQtyComponent implements OnInit {
     }
 
     onNoClick(): void {
-        //console.log(this.inputForm.value);
-        //this.dialogRef.close();
+        this.dialogRef.close();
     }
 
     //Function for Auto complete
@@ -146,18 +159,22 @@ export class ItemQtyComponent implements OnInit {
         });
         this.oldQty                    = 0;
         //check item code is exist or not
-        let new_item_code:      string = '';
-        let old_item_code:      string = this.inputForm.get("item_code").value;
-        
+        let new_item_code       : string    = '';
+        let old_item_code       : string    = this.inputForm.get("item_code").value;
+
         this.service_item.getItemListByLocation(this.data.location_code,old_item_code)
         .pipe(
-            tap(()=>{this.loading.show();}),
-            finalize(()=>{this.loading.hide();})
+            tap(()=>{
+                this.loading.show();
+            }),
+            finalize(()=>{
+                this.loading.hide();
+            })
         )
         .subscribe(data=>{
             if (data['status']== 'success'){
                 if ( data['data'].length >= 1 ) {
-                    new_item_code = data['data'][0]['item_code']
+                    new_item_code = data['data'][0]['item_code'];
                 }
             }
 
@@ -196,25 +213,28 @@ export class ItemQtyComponent implements OnInit {
         let item_code:      string = this.inputForm.get("item_code").value;
         let lot_no:         string = event.target.value;
 
-      //clear receive date
-      this.AR_receive_date = [];
-      this.inputForm.patchValue({
-        'first_receive_date'    : ''
-      });
-      
-      this.service_item.getReceiveDate( this.data.location_code , item_code , lot_no )
-        .pipe(
-            tap(()=>{this.loading.show();}),
-            finalize(()=>{this.loading.hide();})
-        )
-        .subscribe(data=>{
-
-            if (data['status']== 'success'){
-                this.AR_receive_date = data['data'];
-                console.log(this.AR_receive_date);
-            }
-
+        //clear receive date
+        this.AR_receive_date = [];
+        this.inputForm.patchValue({
+            'first_receive_date'    : ''
         });
+      
+        this.service_item.getReceiveDate( this.data.location_code , item_code , lot_no )
+            .pipe(
+                tap(()=>{
+                    this.loading.show();
+                }),
+                finalize(()=>{
+                    this.loading.hide();
+                })
+            )
+            .subscribe(data=>{
+
+                if (data['status']== 'success'){
+                    this.AR_receive_date = data['data'];
+                }
+
+            });
     }
 
     convertStringToNumber(myString:string){
@@ -225,7 +245,6 @@ export class ItemQtyComponent implements OnInit {
         let selectQty:number = 0;
         this.AR_receive_date.forEach(function (value) {
             if ( value['first_receive_date'] == event.target.value ) {
-                console.log(value['quantity']);
                 selectQty = +value['quantity'];
             }
         });

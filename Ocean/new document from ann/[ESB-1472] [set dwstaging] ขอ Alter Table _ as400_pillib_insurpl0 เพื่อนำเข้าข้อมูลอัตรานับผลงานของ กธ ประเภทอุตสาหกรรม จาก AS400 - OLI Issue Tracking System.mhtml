@@ -14,8 +14,8 @@ Subject: =?utf-8?Q?[ESB-1472]=20[set=20dwstaging]=20=E0=B8=82=E0=B8=AD=20Alter=2
 Date: Tue, 21 Jul 2020 10:25:00 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--7HmFXo5zIK4Gml0SnlHOULfiNAYLOYysMyDUoi4wIH----"
+    type="text/html";
+    boundary="----MultipartBoundary--7HmFXo5zIK4Gml0SnlHOULfiNAYLOYysMyDUoi4wIH----"
 
 
 ------MultipartBoundary--7HmFXo5zIK4Gml0SnlHOULfiNAYLOYysMyDUoi4wIH----
@@ -679,7 +679,7 @@ pes:multiselect" title=3D"Click to edit">
 
     <div class=3D"shorten" id=3D"customfield_10801-field" style=3D"height: =
 auto;">
-        							<span>SIT</span>			            </div>
+                                    <span>SIT</span>                        </div>
 
                             <span class=3D"overlay-icon icon icon-edit-sml"=
 ></span></div>
@@ -1205,29 +1205,29 @@ ef=3D"http://jira.thaisamut.co.th/secure/ContactAdministrators!default.jspa=
     </div>
 
 <form id=3D"jira_request_timing_info" class=3D"dont-default-focus">
-	<fieldset class=3D"parameters hidden">
-	=09
-	=09
-	=09
-	=09
-	=09
-	=09
-	</fieldset>
+    <fieldset class=3D"parameters hidden">
+    =09
+    =09
+    =09
+    =09
+    =09
+    =09
+    </fieldset>
 </form>
 <!--
-	                 REQUEST ID : 1044x3780725x1
-	          REQUEST TIMESTAMP : [21/Jul/2020:17:24:54 +0700]
-	               REQUEST TIME : 0.4010
-	                 ASESSIONID : 1jpazz4
-	        CONCURRENT REQUESTS : 1
+                     REQUEST ID : 1044x3780725x1
+              REQUEST TIMESTAMP : [21/Jul/2020:17:24:54 +0700]
+                   REQUEST TIME : 0.4010
+                     ASESSIONID : 1jpazz4
+            CONCURRENT REQUESTS : 1
 
-	                      db.reads : name=3Ddb.reads; inv=3D19; ms=3D19; cpu=
+                          db.reads : name=3Ddb.reads; inv=3D19; ms=3D19; cpu=
 =3D0; rss=3D0;
-	                      db.conns : name=3Ddb.conns; inv=3D23; ms=3D29; cpu=
+                          db.conns : name=3Ddb.conns; inv=3D23; ms=3D29; cpu=
 =3D0; rss=3D0;
-	                     db.writes : name=3Ddb.writes; inv=3D2; ms=3D3; cpu=3D=
+                         db.writes : name=3Ddb.writes; inv=3D2; ms=3D3; cpu=3D=
 0; rss=3D0;
-	             issue.index.reads : name=3Dissue.index.reads; inv=3D1; ms=3D2=
+                 issue.index.reads : name=3Dissue.index.reads; inv=3D1; ms=3D2=
 8; cpu=3D0; rss=3D0;
 -->
 

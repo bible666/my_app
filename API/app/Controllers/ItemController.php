@@ -85,11 +85,12 @@ class ItemController extends Origin001
         $result = $this->_checkToken( $token );
         if ( $result->user_id > 0 ) {
             $query_str = "
-			SELECT *
-			FROM mst_item
-			WHERE item_code = :item_code:
-				AND active_flag = true
-			";
+            SELECT mst_item.*,mst_unit.unit_name
+            FROM mst_item
+                INNER JOIN mst_unit on mst_item.unit_code = mst_unit.unit_code 
+            WHERE item_code = :item_code:
+                AND mst_item.active_flag = true
+            ";
 
             $itemn_data = $this->db->query( $query_str, ['item_code' => $item_code] )->getRow();
 
@@ -181,9 +182,9 @@ class ItemController extends Origin001
             ";
 
             $itemn_data = $this->db->query( $query_str, [
-                'location_code' => $location_code, 
+                'location_code' => $location_code,
                 'item_code'     => $item_code,
-                'lot_no'        => $lot_no
+                'lot_no'        => $lot_no,
             ] )->getResult();
 
             if ( $this->db->error()['message'] !== '' ) {
@@ -315,19 +316,19 @@ class ItemController extends Origin001
             list( $strCond, $params ) = $this->_getCond( $data );
 
             $query_str = "
-			SELECT *
-			FROM mst_item
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY item_code
-			LIMIT {$limit} OFFSET {$offset}
-			";
+            SELECT *
+            FROM mst_item
+            WHERE " . $strCond . " active_flag = true
+            ORDER BY item_code
+            LIMIT {$limit} OFFSET {$offset}
+            ";
             //print_r($query_str);exit;
             $query_count = "
-			SELECT count(item_code) as my_count
-			FROM mst_item
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY item_code
-			";
+            SELECT count(item_code) as my_count
+            FROM mst_item
+            WHERE " . $strCond . " active_flag = true
+            ORDER BY item_code
+            ";
 
             $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
 
@@ -613,10 +614,10 @@ class ItemController extends Origin001
         if ( $result->user_id > 0 ) {
             //print_r($query_str);exit;
             $query = "
-			SELECT *
-			FROM mst_unit
-			WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
-			";
+            SELECT *
+            FROM mst_unit
+            WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
+            ";
 
             $data = $this->db->query( $query, ['unit_name' => $data->unit_name] )->getRow();
 

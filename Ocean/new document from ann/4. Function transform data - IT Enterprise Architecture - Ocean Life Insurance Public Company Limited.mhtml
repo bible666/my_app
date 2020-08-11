@@ -4,8 +4,8 @@ Subject: 4. Function transform data - IT Enterprise Architecture - Ocean Life In
 Date: Tue, 21 Jul 2020 03:52:31 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--MGtnpEVQUsLzCILJfLzU2tY0yCG1PbEOuq5xc0mKhZ----"
+    type="text/html";
+    boundary="----MultipartBoundary--MGtnpEVQUsLzCILJfLzU2tY0yCG1PbEOuq5xc0mKhZ----"
 
 
 ------MultipartBoundary--MGtnpEVQUsLzCILJfLzU2tY0yCG1PbEOuq5xc0mKhZ----
@@ -278,17 +278,17 @@ en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.5/5.3.1/_">
             <meta name=3D"ajs-existing-draft-id" content=3D"0">
             <meta name=3D"ajs-can-attach-files" content=3D"true">
                =20
-            		    <meta name=3D"ajs-max-thumb-width" content=3D"300">
-		    <meta name=3D"ajs-can-send-email" content=3D"true">
-		    <meta name=3D"ajs-is-dev-mode" content=3D"false">
-		    <meta name=3D"ajs-draft-save-interval" content=3D"30000">
-		    <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
-		    <meta name=3D"ajs-is-admin" content=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
+                        <meta name=3D"ajs-max-thumb-width" content=3D"300">
+            <meta name=3D"ajs-can-send-email" content=3D"true">
+            <meta name=3D"ajs-is-dev-mode" content=3D"false">
+            <meta name=3D"ajs-draft-save-interval" content=3D"30000">
+            <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
+            <meta name=3D"ajs-is-admin" content=3D"false">
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
 nt=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
 =3D"false">
-		    <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
+            <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
 =09
     </head>
 
@@ -1613,8 +1613,8 @@ ansform+data"
 this</span></div><div id=3D"labels-section" class=3D"pageSection group">
     <div class=3D"labels-section-content content-column" entityid=3D"373063=
 887" entitytype=3D"page">
-	<div class=3D"labels-content">
-	=09
+    <div class=3D"labels-content">
+    =09
     <ul class=3D"label-list label-list-right  has-pen">
             <li class=3D"no-labels-message">
             No labels

@@ -26,12 +26,12 @@ Description
 Example
 Mandatory
 Validation
-agentCode7Digit	Integer	รหัสตัวแทน 7 หลัก	 	Y	 
-startPayTo	Date	เริ่มวันที่ชำระถึง	 	 	 
-endPayTo	Date	สิ้นสุดวันที่ชำระถึง	 	 	 
-policyStatus	String	สถานะกรมธรรม์
+agentCode7Digit    Integer    รหัสตัวแทน 7 หลัก         Y     
+startPayTo    Date    เริ่มวันที่ชำระถึง               
+endPayTo    Date    สิ้นสุดวันที่ชำระถึง               
+policyStatus    String    สถานะกรมธรรม์
 
- 	 	 
+           
 policyType
 PolicyType
 O = สามัญ 
@@ -40,8 +40,8 @@ G = ขพ
 
 P = PA
 
- 	 	 
-fieldOrder	OrderBy	
+           
+fieldOrder    OrderBy    
 Enum OrderBy:
 POLICY_TYPE,
 PAT_TO,
@@ -53,16 +53,16 @@ PROVINCE,
 BASE_SUM_ASSURED,
 RIDER_FLAG,
 
- 	 	 
-sort	Sort	
+           
+sort    Sort    
 enum Sort:
 
 ASC,
 DESC
 
- 	 	 
-offset	Integer	ลำดับข้อมูลแรกที่ต้องการดึงข้อมูล จากการทำ paging	 	 	 
-limit	Integer	ปริมาณข้อมูลที่ต้องการดึงข้อมูลต่อ 1 page	 	 	 
+           
+offset    Integer    ลำดับข้อมูลแรกที่ต้องการดึงข้อมูล จากการทำ paging               
+limit    Integer    ปริมาณข้อมูลที่ต้องการดึงข้อมูลต่อ 1 page               
 Process
 ดึงข้อมูลกรมธรรม์สามัญ
 
@@ -186,9 +186,9 @@ where a.policy_no in (?)
 Output
 <แสดงข้อมูลที่จะได้รับจาก service นี้>
 
- 	Name	Type	Description	Example
-ArrayList	 	 	EMPTY เมื่อไม่มีข้อมูล	 
- 	
+     Name    Type    Description    Example
+ArrayList              EMPTY เมื่อไม่มีข้อมูล     
+     
 policyType
 PolicyType
 ประเภทกรมธรรม์
@@ -199,39 +199,39 @@ G = ขพ
 P = PA
 
  
- 	
+     
 policyNo
-String	 เลขที่กรมธรรม์	 
- 	
+String     เลขที่กรมธรรม์     
+     
 policyStatus
-String	สถานะกรมธรรม์	 
- 	policyYear	BigDecimal	ปีกรมธรรม์	 
- 	payTo	Date	วันที่ชำระถึง	 
- 	
+String    สถานะกรมธรรม์     
+     policyYear    BigDecimal    ปีกรมธรรม์     
+     payTo    Date    วันที่ชำระถึง     
+     
 planCode
-String	รหัสแบบประกัน	 
- 	
+String    รหัสแบบประกัน     
+     
 planName
-String	ชื่อแบบประกัน	 
- 	
+String    ชื่อแบบประกัน     
+     
 sumAssured
-BigDecimal	ทุนประกันหลัก	 
- 	
+BigDecimal    ทุนประกันหลัก     
+     
 premiumAmount
-BigDecimal	เบี้ยประกันหลัก	 
- 	
+BigDecimal    เบี้ยประกันหลัก     
+     
 extraPremium
-BigDecimal	เบี้ยพิเศษหลัก	 
- 	
+BigDecimal    เบี้ยพิเศษหลัก     
+     
 coverageTerm
-Integer	ระยะเวลาประกัน	 
- 	
+Integer    ระยะเวลาประกัน     
+     
 paymentTerm
-Integer	ระยะเวลาชำระเบี้ย	 
- 	commencementDate	Date	วันที่เริ่มสัญญา	 
- 	maturityDate	Date	วันที่สิ้นสุดสัญญา	 
- 	paymentMode	Integer	โหมดการชำระ	 
- 	paymentChannel	Channel	
+Integer    ระยะเวลาชำระเบี้ย     
+     commencementDate    Date    วันที่เริ่มสัญญา     
+     maturityDate    Date    วันที่สิ้นสุดสัญญา     
+     paymentMode    Integer    โหมดการชำระ     
+     paymentChannel    Channel    
 ช่องทางที่ลูกค้าเลือกชำระเงิน
 
 UNKNOWN("","ไม่รู้จักสถานะนี้"),
@@ -248,19 +248,19 @@ AUTO_CREDIT("9", "หักบัตรเครดิต"),
 BIZ_PAYMENT("A", "Biz Payment")
 
  
- 	paymentChannelCode	String	รหัสช่องทางที่ลูกค้าเลือกชำระเงิน	 
- 	paymentChannelDesc	String	คำอธิบายช่องทางที่ลูกค้าเลือกชำระเงิน	 
- 	insureTitle	String	คำนำหน้า	 
- 	insureName	String	ชื่อ	 
- 	insureSurname	String	สกุล	 
- 	insureAgeAsOf	String	อายุลูกค้า ณ ตอนทำกรมธรรม์	 
- 	insureMobileNo	String	เบอร์มือถือ ลูกค้า	 
- 	insureProvinceName	String	จังหวัด ตามที่อยู่ที่ติดต่อ ของลูกค้า	 
- 	agentCode	String	หรัสตัวแทน 7 หลัก	 
- 	riderFlag	Boolean	TRUE,FaLSE	 
+     paymentChannelCode    String    รหัสช่องทางที่ลูกค้าเลือกชำระเงิน     
+     paymentChannelDesc    String    คำอธิบายช่องทางที่ลูกค้าเลือกชำระเงิน     
+     insureTitle    String    คำนำหน้า     
+     insureName    String    ชื่อ     
+     insureSurname    String    สกุล     
+     insureAgeAsOf    String    อายุลูกค้า ณ ตอนทำกรมธรรม์     
+     insureMobileNo    String    เบอร์มือถือ ลูกค้า     
+     insureProvinceName    String    จังหวัด ตามที่อยู่ที่ติดต่อ ของลูกค้า     
+     agentCode    String    หรัสตัวแทน 7 หลัก     
+     riderFlag    Boolean    TRUE,FaLSE     
 ข้อมูล Rider
-ArrayList	 	 	EMPTY เมื่อไม่มีค่า	 
- 	
+ArrayList              EMPTY เมื่อไม่มีค่า     
+     
 policyType
 PolicyType
 ประเภทกรมธรรม์
@@ -271,20 +271,20 @@ G = ขพ
 P = PA
 
  
- 	
+     
 policyNo
-String	 เลขที่กรมธรรม์	 
- 	riderCode	String	รหัสสัญญาเพิ่มเติม	 
- 	riderName	String	ชื่อสัญญาเพิ่มเติม	 
- 	
+String     เลขที่กรมธรรม์     
+     riderCode    String    รหัสสัญญาเพิ่มเติม     
+     riderName    String    ชื่อสัญญาเพิ่มเติม     
+     
 sumAssured
-BigDecimal	ทุนประกันหลัก	 
- 	
+BigDecimal    ทุนประกันหลัก     
+     
 premiumAmount
-BigDecimal	เบี้ยประกันหลัก	 
- 	
+BigDecimal    เบี้ยประกันหลัก     
+     
 extraPremium
-BigDecimal	เบี้ยพิเศษหลัก	 
+BigDecimal    เบี้ยพิเศษหลัก     
 Exception
 <อธิบายว่า มี exception อะไรที่ต้องจัดการหรือระวังบ้าง>
 

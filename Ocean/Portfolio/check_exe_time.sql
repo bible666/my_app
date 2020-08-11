@@ -16,10 +16,10 @@ EXPLAIN ANALYSE
 select count(agent_code_7) as agent_count
 from 
 (
-	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
-	from agpt_agent_income dai
-	where recruiter_code_7  <> '' 
-	group by agent_code_7 ,recruiter_code_7 
+    select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
+    from agpt_agent_income dai
+    where recruiter_code_7  <> '' 
+    group by agent_code_7 ,recruiter_code_7 
 ) my_data
 where recruiter_code_7 = '4801934' and min_period = '2562/01'
 
@@ -29,10 +29,10 @@ EXPLAIN ANALYSE
 select count(agent_code_7) as agent_count
 from 
 (
-	select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
-	from agpt_agent_income dai
-	where recruiter_code_7  <> '' 
-	group by agent_code_7 ,recruiter_code_7 
+    select agent_code_7 ,recruiter_code_7 ,min("period") as min_period
+    from agpt_agent_income dai
+    where recruiter_code_7  <> '' 
+    group by agent_code_7 ,recruiter_code_7 
 ) my_data
 where recruiter_code_7 = '4801934' and min_period = '2561/01'
 

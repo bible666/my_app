@@ -1,27 +1,27 @@
 KPI_EMPLOYEE_HISTORY
 Skip to end of metadata
 Added by อัญชิสา วิโรจน์เวชภัณฑ์, last edited by อัญชิสา วิโรจน์เวชภัณฑ์ on Apr 26, 2016  (view change)Go to start of metadata
-TABLE	KPI_EMPLOYEE_HISTORY
-DESCRIPTION	การเคลื่อนไหวของบุคคลากรภาคบริหาร
-Field#	Description	Type	Size	Null(Y/N)	Key	Validation/Extra/Value
-1	id	running number	int4	8	 	PK	 
-2	reference_code	รหัสพนักงาน	varchar	255	N	 	 
-3	sales_code	รหัส 7 หลัก	varchar	255	Y	 	 
-4	zone_code	รหัส ภูมิภาค	int4	19	 	 	 
-5	full_name	ชื่อ-นามสกุล	varchar	500	Y	 	 
-6	position	ตำแหน่ง	varchar	4	Y	 	 
-7	appointment_date	วันที่แต่งตั้ง	timestamptz	 	Y	 	 
-8	email	อีเมลล์	varchar	255	Y	 	 
-9	tel_number	เบอร์โทร	varchar	50	Y	 	 
-10	created_by	ผู้สร้างข้อมูล	user login name	 	Y	 	 
-11	created_date	วันสร้างข้อมูล	timestamptz	 	Y	 	
+TABLE    KPI_EMPLOYEE_HISTORY
+DESCRIPTION    การเคลื่อนไหวของบุคคลากรภาคบริหาร
+Field#    Description    Type    Size    Null(Y/N)    Key    Validation/Extra/Value
+1    id    running number    int4    8         PK     
+2    reference_code    รหัสพนักงาน    varchar    255    N          
+3    sales_code    รหัส 7 หลัก    varchar    255    Y          
+4    zone_code    รหัส ภูมิภาค    int4    19               
+5    full_name    ชื่อ-นามสกุล    varchar    500    Y          
+6    position    ตำแหน่ง    varchar    4    Y          
+7    appointment_date    วันที่แต่งตั้ง    timestamptz         Y          
+8    email    อีเมลล์    varchar    255    Y          
+9    tel_number    เบอร์โทร    varchar    50    Y          
+10    created_by    ผู้สร้างข้อมูล    user login name         Y          
+11    created_date    วันสร้างข้อมูล    timestamptz         Y         
  
 
-12	updated_by	ผู้แก้ไขข้อมูล	user login name	 	Y	 	 
-13	updated_date	วันแก้ไขข้อมูล	timestamptz	 	Y	 	 
-14	status	สถานะ	varchar	1	Y	 	
+12    updated_by    ผู้แก้ไขข้อมูล    user login name         Y          
+13    updated_date    วันแก้ไขข้อมูล    timestamptz         Y          
+14    status    สถานะ    varchar    1    Y         
 I = Inactive
 
 A = Active
 
-15	kpi_employee_id	id ของ KPI_EMPLOYEE	int4	8	 	 	 
+15    kpi_employee_id    id ของ KPI_EMPLOYEE    int4    8               

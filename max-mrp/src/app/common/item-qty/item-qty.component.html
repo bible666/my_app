@@ -61,7 +61,7 @@
 
             <input matInput class="mat-input" formControlName="quantity">
             <mat-error *ngIf="inputForm.hasError('checkInput')">
-                ใส่ได้ไม่เกิน 200 ตัวอักษร
+                ใส่จำนวนเกิน
             </mat-error>
 
         </div>
@@ -69,7 +69,7 @@
 
 
 </form>
-{{inputForm.value | json}}
+
 </div>
 <div mat-dialog-actions>
 <button mat-button (click)="onNoClick()">ยกเลิก</button>

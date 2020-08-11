@@ -21,7 +21,7 @@ sequenceDiagram
     u->>u: user selecct customer
     u->>+c: get customer data by customer id
     c-->>-u: receive customer id
-	u->>+c: get policy data
+    u->>+c: get policy data
     c-->>-u: receive policy data
     u->>+p: get policy detail
     p-->>-u: receive policy detail

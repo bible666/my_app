@@ -4,8 +4,8 @@ Subject: public.ili_policy_plan_ind - IT Enterprise Architecture - Ocean Life In
 Date: Tue, 21 Jul 2020 10:19:18 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--v1GoiN9N9x5DRKDanBjlbJJkGnRa0zqf9wBXGpd5ty----"
+    type="text/html";
+    boundary="----MultipartBoundary--v1GoiN9N9x5DRKDanBjlbJJkGnRa0zqf9wBXGpd5ty----"
 
 
 ------MultipartBoundary--v1GoiN9N9x5DRKDanBjlbJJkGnRa0zqf9wBXGpd5ty----
@@ -278,17 +278,17 @@ en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.5/5.3.1/_">
             <meta name=3D"ajs-existing-draft-id" content=3D"0">
             <meta name=3D"ajs-can-attach-files" content=3D"true">
                =20
-            		    <meta name=3D"ajs-max-thumb-width" content=3D"300">
-		    <meta name=3D"ajs-can-send-email" content=3D"true">
-		    <meta name=3D"ajs-is-dev-mode" content=3D"false">
-		    <meta name=3D"ajs-draft-save-interval" content=3D"30000">
-		    <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
-		    <meta name=3D"ajs-is-admin" content=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
+                        <meta name=3D"ajs-max-thumb-width" content=3D"300">
+            <meta name=3D"ajs-can-send-email" content=3D"true">
+            <meta name=3D"ajs-is-dev-mode" content=3D"false">
+            <meta name=3D"ajs-draft-save-interval" content=3D"30000">
+            <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
+            <meta name=3D"ajs-is-admin" content=3D"false">
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
 nt=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
 =3D"false">
-		    <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
+            <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
 =09
     </head>
 
@@ -4273,30 +4273,30 @@ Table "ili_policy_plan_ind" =E0=B9=80=E0=B8=81=E0=B9=87=E0=B8=9A=E0=B8=82=
 <pre>SQL for Create Table
 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 CREATE TABLE public.ili_policy_plan_ind(
-		plan_code NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
-		plan_name VARCHAR(60) DEFAULT '' NOT NULL,
-		plan_short_name VARCHAR(10) DEFAULT '' NOT NULL,
-		policy_type VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_type VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_term NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
-		payment_term NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		plan_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		payment_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_min_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		plan_max_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
-		plan_min_premium NUMERIC(5,0) DEFAULT 0 NOT NULL,=20
-		plan_max_premium NUMERIC(5,0) DEFAULT 0 NOT NULL,=20
-		plan_dividend VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_refund VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_increment VARCHAR(1) DEFAULT '' NOT NULL,
-		plan_begin_datetime timestamp without time zone,=20
-		plan_end_datetime timestamp without time zone,=20
-		premium_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
-		loan_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
-		outstanding_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
-		first_year_perf_count VARCHAR(1) DEFAULT '' NOT NULL,
-		first_year_perf_count_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
-		plan_channel NUMERIC(7,0) DEFAULT 0 NOT NULL,
+        plan_code NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
+        plan_name VARCHAR(60) DEFAULT '' NOT NULL,
+        plan_short_name VARCHAR(10) DEFAULT '' NOT NULL,
+        policy_type VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_type VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_term NUMERIC(3,0) DEFAULT 0 NOT NULL,=20
+        payment_term NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+        plan_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
+        payment_term_flag VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_min_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+        plan_max_age NUMERIC(2,0) DEFAULT 0 NOT NULL,=20
+        plan_min_premium NUMERIC(5,0) DEFAULT 0 NOT NULL,=20
+        plan_max_premium NUMERIC(5,0) DEFAULT 0 NOT NULL,=20
+        plan_dividend VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_refund VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_increment VARCHAR(1) DEFAULT '' NOT NULL,
+        plan_begin_datetime timestamp without time zone,=20
+        plan_end_datetime timestamp without time zone,=20
+        premium_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
+        loan_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
+        outstanding_interest_rate NUMERIC(4,2) DEFAULT 0 NOT NULL,=20
+        first_year_perf_count VARCHAR(1) DEFAULT '' NOT NULL,
+        first_year_perf_count_rate NUMERIC(5,2) DEFAULT 0 NOT NULL,=20
+        plan_channel NUMERIC(7,0) DEFAULT 0 NOT NULL,
         CONSTRAINT ili_policy_plan_ind_pk PRIMARY KEY (plan_code)
 );
 
@@ -4350,30 +4350,30 @@ for select data to this table
 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 
 select=20
-	PLPLAN,
-	PLNAME,
-	PLABNM,
-	PLTYP1,
-	PLTYP2,
-	PLCVTM,
-	PLPMTM,
-	"PLCVT@",
-	"PLPMT@",
-	PLMNAG,
-	PLMXAG,
-	PLMNPR,
-	PLMXPR,
-	"PLDVD@",
-	"PLRFN@",
-	"PLCOV@",
-	PLBGDT,
-	PLENDT,
-	PLINRT,
-	PLINLN,
-	PLINT,
-	PLIC1S,
-	PLIC1R,
-	PLCHNL
+    PLPLAN,
+    PLNAME,
+    PLABNM,
+    PLTYP1,
+    PLTYP2,
+    PLCVTM,
+    PLPMTM,
+    "PLCVT@",
+    "PLPMT@",
+    PLMNAG,
+    PLMXAG,
+    PLMNPR,
+    PLMXPR,
+    "PLDVD@",
+    "PLRFN@",
+    "PLCOV@",
+    PLBGDT,
+    PLENDT,
+    PLINRT,
+    PLINLN,
+    PLINT,
+    PLIC1S,
+    PLIC1R,
+    PLCHNL
 from as400_pillib_insurpl0;=09
 </pre>
 </div></div><div class=3D"table-wrap"><table class=3D"confluenceTable"><tbo=
@@ -4704,8 +4704,8 @@ icy_plan_ind"
 this</span></div><div id=3D"labels-section" class=3D"pageSection group">
     <div class=3D"labels-section-content content-column" entityid=3D"773816=
 891" entitytype=3D"page">
-	<div class=3D"labels-content">
-	=09
+    <div class=3D"labels-content">
+    =09
     <ul class=3D"label-list label-list-right  has-pen">
             <li class=3D"no-labels-message">
             No labels

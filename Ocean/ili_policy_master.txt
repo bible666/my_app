@@ -1,10 +1,10 @@
 ดึงข้อมูลจาก data warehouse => public.ili_policy_master
 
-TABLE	ili_policy_master
-DESCRIPTION	เก็บข้อมูล Policy Master ของทุกประเภท (สามัญ, ปช., ขพ., PA)
-FIELD#	KEY	ATTRIBUTE_NAME	DATA_TYPE	LENGTH	COMMENTS	Function transform data	DATA_SOURCE	TABLE________________________	COLUMN____________	LOOKUP TABLE	CONDITION.............................................................................................	REMARKS____________________
-1	pk	policy_no	varchar	15	เลขที่กรมธรรม์ประกันภัย	
-as.400	
+TABLE    ili_policy_master
+DESCRIPTION    เก็บข้อมูล Policy Master ของทุกประเภท (สามัญ, ปช., ขพ., PA)
+FIELD#    KEY    ATTRIBUTE_NAME    DATA_TYPE    LENGTH    COMMENTS    Function transform data    DATA_SOURCE    TABLE________________________    COLUMN____________    LOOKUP TABLE    CONDITION.............................................................................................    REMARKS____________________
+1    pk    policy_no    varchar    15    เลขที่กรมธรรม์ประกันภัย    
+as.400    
 สามัญ : olis_olppolms
 
 ปช :ilislib_polcymb0,
@@ -37,13 +37,13 @@ PA : polno
 
 
 
-2	
-policy_type	varchar	1	
+2    
+policy_type    varchar    1    
 ประเภทกรมธรรม์
 
 
 
-Defalt ตาม Table ของ as400	
+Defalt ตาม Table ของ as400    
 สามัญ : Defalt 'O'
 
 ปช : Defalt 'I'
@@ -55,8 +55,8 @@ PA : Defalt 'P'
 
 
 
-3	
-policy_year	numeric	3	
+3    
+policy_year    numeric    3    
 
 
 สามัญ : olis_olppolms
@@ -78,9 +78,9 @@ PA : polpyy
 
 
 
-4	
-policy_status	varchar	1	สถานะกรมธรรม์	
-as400	
+4    
+policy_status    varchar    1    สถานะกรมธรรม์    
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) :ilislib_polcymx0
@@ -100,9 +100,9 @@ PA : polsts
 
 
 
-5	
-commencement_date	timestamp without time zone	
-วันเริ่มสัญญาประกันภัยของสัญญาหลัก	
+5    
+commencement_date    timestamp without time zone    
+วันเริ่มสัญญาประกันภัยของสัญญาหลัก    
 Custom Logic
 
 กรณี policy_type = 'O' :
@@ -116,7 +116,7 @@ numeric_to_date_BE_yymmdd_backward_only
 
 
 
-as400	
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -135,8 +135,8 @@ PA : polcdt
 
 
 
-6	
-maturity_date	timestamp without time zone	
+6    
+maturity_date    timestamp without time zone    
 วันครบกำหนดสัญญาประกันภัยของสัญญาหลัก
 
 Custom Logic
@@ -162,7 +162,7 @@ Custom Logic
 
 1.) แปลง field วันครบสัญญา ให้เป็น ค.ศ. (numeric_to_date_BE_yyyymmdd)
 
-as400	
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -182,9 +182,9 @@ PA : polmdt
 
 
 
-7	
-lapse_date	timestamp without time zone	
-วันที่กรมธรรม์ขาดผล มีเฉพาะ สามัญ กับ PA	
+7    
+lapse_date    timestamp without time zone    
+วันที่กรมธรรม์ขาดผล มีเฉพาะ สามัญ กับ PA    
 Custom Logic
 
 สามัญ policy_type = 'O'
@@ -204,7 +204,7 @@ lapse_date > commencement_date
 
 lapse_date <= maturity_date
 
-as400	
+as400    
 สามัญ : olis_olppolms
 
 PA : ppalib_tbpolicy
@@ -216,9 +216,9 @@ PA : poledt
 
 
 
-8	
-next_paid_date	timestamp without time zone	
-วันที่ชำระเบี้ยครั้งต่อไป	
+8    
+next_paid_date    timestamp without time zone    
+วันที่ชำระเบี้ยครั้งต่อไป    
 Custom Logic
 
 กรณี policy_type in ('O') : สามัญ
@@ -288,9 +288,9 @@ Fully_paid_date
 
 
 
-9	
-fully_paid_date	timestamp without time zone	
-วันครบกำหนดชำระเบี้ย	
+9    
+fully_paid_date    timestamp without time zone    
+วันครบกำหนดชำระเบี้ย    
 Custom Logic
 
 
@@ -302,7 +302,7 @@ Custom Logic
 
 policy_type <> 'O': numeric_to_date_BE_yyyymmdd
 
-as400	
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -321,9 +321,9 @@ PA : polmdt
 
 
 
-10	
-pay_from	timestamp without time zone	
-วันคุ้มครองเริ่มต้น	
+10    
+pay_from    timestamp without time zone    
+วันคุ้มครองเริ่มต้น    
 Custom Logic
 
 กรณี policy_type = 'O' : 
@@ -337,7 +337,7 @@ numeric_to_date_BE_yyyymmdd_backward_only
 
 กรณี policy_type = 'P' : จะได้ค่า null
 
-as400	
+as400    
 สามัญ : olis_olppolms
 
 ปช. : ilislib_receipdt
@@ -353,9 +353,9 @@ as400
 
 
 
-11	
-pay_to	timestamp without time zone	
-วันคุ้มครองถึง	
+11    
+pay_to    timestamp without time zone    
+วันคุ้มครองถึง    
 Custom Logic
 
 1.) นำ วันคุ้มครองถึง (potodt) มาตรวจสอบว่า > วันคุ้มครองเริ่มต้น (ili_policy_master.pay_from) และมีการแปลง field วันคุ้มครองถึง ให้เป็น ค.ศ. (numeric_to_date_BE_yymmdd)
@@ -368,7 +368,7 @@ numeric_to_date_BE_yyyymmdd
 
 กรณี policy_type = 'P' : จะได้ค่า null
 
-as400	
+as400    
 สามัญ : olis_olppolms
 
 ปช. : ilislib_receipdt
@@ -384,9 +384,9 @@ as400
 
 
 
-12	
-product_code	varchar	10	รหัสแบบประกัน	
-as400	
+12    
+product_code    varchar    10    รหัสแบบประกัน    
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -405,15 +405,15 @@ PA : polpln
 
 
 
-13	
-sum_assured	numeric	16,4	ทุนประกัน	
-as400	สามัญ : olis_olppolms
+13    
+sum_assured    numeric    16,4    ทุนประกัน    
+as400    สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
 ขพ :govlib_gplcymb0
 ขพ.(inactive) :
 govlib_gplcymx0
-PA : ppalib_tbpolicy	
+PA : ppalib_tbpolicy    
 สามัญ : posmas
 ปช : mbsins
 ปช.(inactive) : mxsins
@@ -424,15 +424,15 @@ PA : polsin
 
 
 
-14	
-premium_amount	numeric	16,4	เบี้ยประกัน	
-as400	สามัญ : olis_olppolms
+14    
+premium_amount    numeric    16,4    เบี้ยประกัน    
+as400    สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
 ขพ :govlib_gplcymb0
 ขพ.(inactive) :
 govlib_gplcymx0
-PA : ppalib_tbpolicy, ppalib_paridms0	
+PA : ppalib_tbpolicy, ppalib_paridms0    
 สามัญ : poprem
 ปช : mbprem
 ปช.(inactive) : mxprem
@@ -456,9 +456,9 @@ pol.polpm4+r.polrdp)
 
 ดังนั้น ถ้านำ field นี้ไปใช้ display บนหน้าจอใช้ได้ แต่ถ้าจะนำไปชำระเบี้ย จะใช้ไม่ได้ เพราะอุตสาหกรรม ถ้าจ่ายราย 6 เดือน หรือ รายปี จะมีส่วนลดอีก จะต้องดึงยอดเบี้ยจริง ๆ จาก "ใบแจ้งเตือนการชำระเบี้ย"
 
-15	
-extra_premium	numeric	16,4	เบี้ยประกันเพิ่ม	
-as400	
+15    
+extra_premium    numeric    16,4    เบี้ยประกันเพิ่ม    
+as400    
 สามัญ : olis_olppolms
 
 PA : ppalib_paridms0
@@ -470,9 +470,9 @@ PA : polrde
 
 
 
-16	
-payment_mode	numeric	2	โหมดการชำระ	
-as400	
+16    
+payment_mode    numeric    2    โหมดการชำระ    
+as400    
 สามัญ : olis_olppolms
 ปช : ilislib_receipdt
 ขพ : as400_govlib_receipdt
@@ -487,9 +487,9 @@ PA :
 
 
 
-17	
-payment_term	numeric	2	ระยะเวลาชำระเบี้ยประกันภัย	
-as400	
+17    
+payment_term    numeric    2    ระยะเวลาชำระเบี้ยประกันภัย    
+as400    
 สามัญ : olis_olppolms
 
 ปช : ilislib_receipdt
@@ -507,8 +507,8 @@ PA : recmod
 
 
 
-18	
-payment_channel	varchar	10	ช่องทางการชำระ	
+18    
+payment_channel    varchar    10    ช่องทางการชำระ    
 
 สามัญ : olis_olprecdt
 
@@ -548,9 +548,9 @@ G=True Money
 H=Tesco Lotus
 I=Big C
 
-19	
-agent_code	varchar	7	โค้ดตัวแทน 7 หลัก	
-as400	
+19    
+agent_code    varchar    7    โค้ดตัวแทน 7 หลัก    
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -564,35 +564,35 @@ PA : ppalib_tbpolicy
 ปช.(inactive) : mxagt
 ขพ : mbagt
 ขพ.(inactive) : mxagt
-PA : polagt	
+PA : polagt    
 
 
-20	
-id_no	varchar	30	เลขที่บัตร	
-DC	service_customer	id_no	
-
-
-
-21	
-first_name	varchar	50	ชื่อ	
-DC	service_customer	fname	
+20    
+id_no    varchar    30    เลขที่บัตร    
+DC    service_customer    id_no    
 
 
 
-22	
-last_name	varchar	50	นามสกุล	
-DC	service_customer	lname	
+21    
+first_name    varchar    50    ชื่อ    
+DC    service_customer    fname    
 
 
 
-23	
-birthdate	timestamp without time zone	
-วันเกิด	
+22    
+last_name    varchar    50    นามสกุล    
+DC    service_customer    lname    
+
+
+
+23    
+birthdate    timestamp without time zone    
+วันเกิด    
 Custom Logic
 
 แปลงจาก varchar 8 digits ที่ format "yyyymmdd" (พ.ศ.) เป็น timestamp
 
-DC	
+DC    
 service_customer
 
 birthdate
@@ -600,13 +600,13 @@ birthdate
 
 
 
-24	
-gender_code	varchar	1	เพศ	
-DC	service_customer	sex	
+24    
+gender_code    varchar    1    เพศ    
+DC    service_customer    sex    
 
 
-25	
-card_type	varchar	1	
+25    
+card_type    varchar    1    
 ประเภทบัตร
 
 1-บัตรประชาชน
@@ -615,25 +615,25 @@ card_type	varchar	1
 4-อื่นๆ
 
 
-DC	service_customer	card_type	
+DC    service_customer    card_type    
 
 
 
 
-26	
-title_code	varchar	3	รหัสคำนำหน้า(Code)	
-DC	service_customer	title_code	
+26    
+title_code    varchar    3    รหัสคำนำหน้า(Code)    
+DC    service_customer    title_code    
 
 
-27	
-title_desc	varchar	100	รหัสคำนำหน้า(ชื่อ)	
-DC	service_customer	title	
+27    
+title_desc    varchar    100    รหัสคำนำหน้า(ชื่อ)    
+DC    service_customer    title    
 
 
 
-28	
-marital_status	varchar	1	สถานภาพสมรส(Code)	
-as400	
+28    
+marital_status    varchar    1    สถานภาพสมรส(Code)    
+as400    
 สามัญ : as400_olis_olpcusm2
 
 ปช : ilislib_custmmc0
@@ -649,15 +649,15 @@ as400
 
 
 
-29	
-marital_status_desc	varchar	30	สถานภาพสมรส(ชื่อ)	
-as400	as400_oasys_oapprsts	prnnam	
+29    
+marital_status_desc    varchar    30    สถานภาพสมรส(ชื่อ)    
+as400    as400_oasys_oapprsts    prnnam    
 
 
 
-30	
-origin	varchar	1	รหัสเชื้อชาติ(Code)	
-as400	
+30    
+origin    varchar    1    รหัสเชื้อชาติ(Code)    
+as400    
 null
 
 
@@ -667,9 +667,9 @@ null
 
 
 
-31	
-origin_desc	varchar	30	รหัสเชื้อชาติ(ชื่อ)	
-as400	
+31    
+origin_desc    varchar    30    รหัสเชื้อชาติ(ชื่อ)    
+as400    
 ปช : ilslib.polcyap0
 
 ปช : apot2
@@ -678,14 +678,14 @@ as400
 
 
 
-32	
-nationality	varchar	20	รหัสสัญชาติ(Code)	
-as400	สามัญ : olis_olpappdt	สามัญ : apnati	
+32    
+nationality    varchar    20    รหัสสัญชาติ(Code)    
+as400    สามัญ : olis_olpappdt    สามัญ : apnati    
 
 
-33	
-nationality_desc	varchar	30	รหัสสัญชาติ(ชื่อ)	
-as400	
+33    
+nationality_desc    varchar    30    รหัสสัญชาติ(ชื่อ)    
+as400    
 สามัญ : as400_oasys_oaprentn
 
 ปช : ilslib.polcyap0
@@ -702,14 +702,14 @@ PA : cusnat
 
 
 
-34	
-religion	varchar	1	รหัสศาสนา(Code)	
-as400	สามัญ : olis_olpappdt	สามัญ : apreli	
+34    
+religion    varchar    1    รหัสศาสนา(Code)    
+as400    สามัญ : olis_olpappdt    สามัญ : apreli    
 
 
-35	
-religion_desc	varchar	30	รหัสศาสนา(ชื่อ)	
-as400	
+35    
+religion_desc    varchar    30    รหัสศาสนา(ชื่อ)    
+as400    
 สามัญ : as400_oasys_oaprelig
 
 ปช : ilslib.polcyap0
@@ -722,26 +722,26 @@ as400
 
 
 
-36	
-education	varchar	1	รหัสการศึกษา(Code)	
-as400	ไม่มี	ไม่มี	
+36    
+education    varchar    1    รหัสการศึกษา(Code)    
+as400    ไม่มี    ไม่มี    
 
 
-37	
-education_desc	varchar	30	รหัสการศึกษา(ชื่อ)	
-as400	as400_oasys_oapeduct	edulvl
+37    
+education_desc    varchar    30    รหัสการศึกษา(ชื่อ)    
+as400    as400_oasys_oapeduct    edulvl
 
 
 
 
-38	
-occupation_code	varchar	4	รหัสอาชีพ(Code)	
-as400	สามัญ : olis_olppolms	สามัญ : cuocp	
+38    
+occupation_code    varchar    4    รหัสอาชีพ(Code)    
+as400    สามัญ : olis_olppolms    สามัญ : cuocp    
 
 
-39	
-occupation_desc	varchar	100	รหัสอาชีพ(ชื่อ)	
-as400	
+39    
+occupation_desc    varchar    100    รหัสอาชีพ(ชื่อ)    
+as400    
 สามัญ : as400_oasys_oapoccup
 
 PA : ppalib_tbpolicy
@@ -754,92 +754,92 @@ PA : polocp || polocd
 
 
 
-40	
-phone1	varchar	20	เบอร์โทรศัพท์ 1	
-DC	service_customer	phone1	
+40    
+phone1    varchar    20    เบอร์โทรศัพท์ 1    
+DC    service_customer    phone1    
 
 
-41	
-ext1	varchar	6	เบอร์ต่อ 1	
+41    
+ext1    varchar    6    เบอร์ต่อ 1    
 
-service_customer	ext1	
-
-
-42	
-phone2	varchar	20	เบอร์โทรศัพท์ 2	
-DC	service_customer	phone2	
+service_customer    ext1    
 
 
-
-43	
-ext2	varchar	6	เบอร์ต่อ 2	
-DC	service_customer	ext2	
+42    
+phone2    varchar    20    เบอร์โทรศัพท์ 2    
+DC    service_customer    phone2    
 
 
 
-44	
-mobile1	varchar	20	เบอร์มือถือ 1(LA)	
-DC	service_customer	mobile1	
+43    
+ext2    varchar    6    เบอร์ต่อ 2    
+DC    service_customer    ext2    
 
 
 
-45	
-mobile2	varchar	20	เบอร์มือถือ 2(LA)	
-DC	service_customer	mobile2	
+44    
+mobile1    varchar    20    เบอร์มือถือ 1(LA)    
+DC    service_customer    mobile1    
 
 
 
-46	
-age_at_comm_date	numeric	3	อายุ ณ ตอนทำกรมธรรม์	
-DC	service_customer	age	
+45    
+mobile2    varchar    20    เบอร์มือถือ 2(LA)    
+DC    service_customer    mobile2    
 
 
 
-47	
-annual_income1	numeric	14,4	
-
-DC	service_customer	annual_income1	
-
-
-
-48	
-annual_income2	numeric	14,4	
-
-DC	service_customer	annual_income2	
+46    
+age_at_comm_date    numeric    3    อายุ ณ ตอนทำกรมธรรม์    
+DC    service_customer    age    
 
 
 
-49	
-laser_code	varchar	20	รหัสหลังบัตรประชาชน	
--	-	null	
+47    
+annual_income1    numeric    14,4    
+
+DC    service_customer    annual_income1    
 
 
 
-50	
-dopa_check_digit	varchar	20	การตรวจสอบ digit ของบัตรประชาชน โดยกรมการปกครอง	
--	-	null	
+48    
+annual_income2    numeric    14,4    
+
+DC    service_customer    annual_income2    
 
 
 
-51	
-monthly_income	numeric	14,4	รายได้ต่อเดือนของลูกค้า	
+49    
+laser_code    varchar    20    รหัสหลังบัตรประชาชน    
+-    -    null    
 
 
-as400	สามัญ : olis_olpapptr	
+
+50    
+dopa_check_digit    varchar    20    การตรวจสอบ digit ของบัตรประชาชน โดยกรมการปกครอง    
+-    -    null    
+
+
+
+51    
+monthly_income    numeric    14,4    รายได้ต่อเดือนของลูกค้า    
+
+
+as400    สามัญ : olis_olpapptr    
 สามัญ : apinco, apotic
 
 
 
 
-52	
-email	varchar	100	Email	
-as400	olis_olpappdt	apemai	
+52    
+email    varchar    100    Email    
+as400    olis_olpappdt    apemai    
 
 
 
-53	
-cust_code	varchar	10	โค้ด ลูกค้า	
-as400	
+53    
+cust_code    varchar    10    โค้ด ลูกค้า    
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -863,9 +863,9 @@ PA : polcid
 
 
 
-54	
-branch_no	varchar	4	สาขา 4 หลัก	
-as400	
+54    
+branch_no    varchar    4    สาขา 4 หลัก    
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0
@@ -900,10 +900,10 @@ end branch_no
 PA : lpad(polbrn :: varchar,4,'0') as branch_no
 
 
-55	
-policy_org	numeric	7	
+55    
+policy_org    numeric    7    
 
-as400	
+as400    
 สามัญ : olis_olppolms
 ปช :ilislib_polcymb0 
 ปช.(inactive) : ilislib_polcymx0

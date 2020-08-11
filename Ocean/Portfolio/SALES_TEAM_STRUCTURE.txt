@@ -1,18 +1,18 @@
 SALES_TEAM_STRUCTURE
 Skip to end of metadata
 Added by วรัชญา สุขล้อม, last edited by ปาริฉัตร ปั้นหยา on Apr 23, 2020  (view change)Go to start of metadata
-TABLE	SALES_TEAM_STRUCTURE
-DESCRIPTION	ข้อมูลโครงสร้างตัวแทน
- 	 	 	 	 	 	 	Combine Phase 2
-Field#	Description	Type	Size	Null(Y/N)	Key	Validation/Extra/Value	AS/400	
+TABLE    SALES_TEAM_STRUCTURE
+DESCRIPTION    ข้อมูลโครงสร้างตัวแทน
+                                   Combine Phase 2
+Field#    Description    Type    Size    Null(Y/N)    Key    Validation/Extra/Value    AS/400    
 Web Service:
 
 WS_AGT_03 ค้นหาข้อมูลโครงสร้างตัวแทนที่ Active ด้วยรหัสสาขา
 
 WS_AGT_04 ค้นหาข้อมูลโครงสร้างตัวแทนที่ Inactive ด้วยรหัสสาขา
 
-1	id	running number	int8	19	N	PK	 	 	 
-2	appointed_date	วันที่แต่งตั้ง	timestamptz	35	Y	 	
+1    id    running number    int8    19    N    PK               
+2    appointed_date    วันที่แต่งตั้ง    timestamptz    35    Y         
 agentid:
 
 ถ้าเป็นหัวหน้าหน่วย: a8, ถ้าเป็นตัวแทน: ww1
@@ -21,19 +21,19 @@ manage: mb
 
 headmn: h04
 
-lips.pspagtst.STRADT	 structureAppointDate
-3	branch_code	สาขา	varchar	4	Y	 	
+lips.pspagtst.STRADT     structureAppointDate
+3    branch_code    สาขา    varchar    4    Y         
 agentid: abranch
 
 manage: mbranch
 
 headmn: hbranch
 
-lips.pspagtms.BRNNO	 branchCode
-4	recruiter	
+lips.pspagtms.BRNNO     branchCode
+4    recruiter    
 ผู้แต่งตั้ง
 
-int8	19	Y	 	
+int8    19    Y         
 AgentID: a7
 
 และไปหา id ของ ตาราง sale_structure ที่มี กreference_code = a7 และต่อด้วย :00 (หัวหน้าหน่วย) และเอา id ที่หาได้มาใส่ใน field recruiter
@@ -73,7 +73,7 @@ agentCode = sales_team_structure .sales_code
 เอา sales_team_structure.id ที่หาได้มาใส่ใน field recruiter
  
 
-5	reference_code	 	varchar	255	Y	 	
+5    reference_code         varchar    255    Y         
 agentid: a1+"-"+a2
 
 manage: ma1
@@ -107,7 +107,7 @@ headmn: h01
 
 
 
-6	report_to	สังกัด	int8	19	Y	 	
+6    report_to    สังกัด    int8    19    Y         
 AgentID: เอา 2 หลัก ของ a1 มาเทียบกับ รหัสผู้จัดการ ma1
 
 Manage: mab
@@ -144,7 +144,7 @@ agentCode = sales_team_structure .sales_code
  positionCode = position (แต่ต้องนำ positionCode ไปหา position_id ที่ตาราง POSITION_MAPPING )
 เอา sales_team_structure.id ที่หาได้มาใส่ใน field report_to
 กรณีที่เป็นตำแหน่ง ตัวแทนและ ผู้ช่วยผู้จัดการหน่วย ให้หา structureBelong ของ report_to อีกที
-7	sales_code	รหัส สนญ.	varchar	255	Y	 	
+7    sales_code    รหัส สนญ.    varchar    255    Y         
 agentid:
 
 ถ้า a19 มีค่า ใช้ : a19 ,
@@ -155,8 +155,8 @@ manage: ma7
 
 headmn: h08
 
-lips.pspagtms.AGENT7	agentCode
-8	position	ตำแหน่ง	int4	10	Y	 	
+lips.pspagtms.AGENT7    agentCode
+8    position    ตำแหน่ง    int4    10    Y         
 agentid: a7a
 
 manage: ma
@@ -187,20 +187,20 @@ position_mapping.position_code
 
 จะได้ position_mapping.position_id
 
-9	period	งวดผลงาน	varchar	10	Y	 	
+9    period    งวดผลงาน    varchar    10    Y         
 คำนวนภายในระบบ
 
 วันที่สั่งประมวลผล เทียบกับ TABLE PERIOD
 
- 	 
-10	
+      
+10    
 isactive
 
 สถานะตัวแทน
 
 false = ลาออก, true = ไม่ลาออก
 
-boolean	1	Y	 	
+boolean    1    Y         
 agentid:a64
 
 manage:ma33
@@ -210,12 +210,12 @@ headmn:h24
 lips.pspagtst.STRPAT
 
 positionActive
-11	
+11    
 change_income_period
 
 งวดผลงานที่เปลี่ยนระบบรายได้
 
- 	 	Y	 	
+          Y         
 manage =wws1
 agentid = wws1
 
@@ -227,18 +227,18 @@ default=Null
 
 default=Null
 
-12	
+12    
 system
 
-ระบบ	 	 	Y	 	
+ระบบ              Y         
 headMn = wws (Mark * ระบบ2)
 
 manage = wws ( N=ระบบใหม่งวด1558เป็นต้นไป,O=ระบบเก่าก่อนงวด1558)
 
 agentid = wws2 (Mark * ระบบ2)
 
-default = N	default = N
-13	authority_id	ผู้มอบอำนาจ	int8	19	Y	 	
+default = N    default = N
+13    authority_id    ผู้มอบอำนาจ    int8    19    Y         
 agentid: a71
 
 lips.pspagtst.STRAID
@@ -253,19 +253,19 @@ structureAuthorityId
 agentCode = sales_team_structure .sales_code
  positionCode = position (แต่ต้องนำ positionCode ไปหา position_id ที่ตาราง POSITION_MAPPING )
 เอา sales_team_structure.id ที่หาได้มาใส่ใน field authority_id
-14	full_name	ชื่อ-นามสกุล	varchar	255	Y	 	
+14    full_name    ชื่อ-นามสกุล    varchar    255    Y         
 agentid: a5
 
 manage: ma2
 
 headmn: h02
 
-lips.pspagtms.AGTNAM + lips.pspagtms.AGTSNM	name+surname
-15	appoint_day	วันที่กลับเข้าดำรงตำแหน่งตัวแทน	timestamptz	35	ํY	 	
+lips.pspagtms.AGTNAM + lips.pspagtms.AGTSNM    name+surname
+15    appoint_day    วันที่กลับเข้าดำรงตำแหน่งตัวแทน    timestamptz    35    ํY         
 agentid: appoint_day
 
-lips.pspagtms.AGTRTN	returnDate
-16	fa	เป็นตัวแทน FA	varchar	2	Y	 	
+lips.pspagtms.AGTRTN    returnDate
+16    fa    เป็นตัวแทน FA    varchar    2    Y         
 01 = ตัวแทน FA
 
 
@@ -285,7 +285,7 @@ lips.pspagtms.AGTRTN	returnDate
 
 กรณีอื่นๆ มีค่าเป็น Null
 
-17	paid_income	จ่ายรายได้ในระบบ Income	varchar	1	Y	 	
+17    paid_income    จ่ายรายได้ในระบบ Income    varchar    1    Y         
 เป็นค่าว่างหรือ Y คือจ่ายรายได้ในระบบ Income Online
 
 
@@ -330,7 +330,7 @@ tst.posgrp = 'OFFICEADMIN' ให้บันทึกค่าเป็น N
 
 
 
-18	report_to_manager	สังกัดผู้จัดการหน่วย	int8	19	Y	 	
+18    report_to_manager    สังกัดผู้จัดการหน่วย    int8    19    Y         
 กรณีเป็นผู้ช่วยผู้จัดการหน่วย
 
 หาผู้จัดการหน่วยที่สังกัด โดยหาจาก รหัสผู้แต่งตั้ง manage.mc
@@ -372,12 +372,12 @@ agentCode = sales_team_structure .sales_code
 เอา sales_team_structure.id ที่หาได้มาใส่ใน field report_to_manager
 
 
-19	level	
+19    level    
 ระดับของตำแหน่งตัวแทน
 A = หัวหน้าหน่วย A
 B = หัวหน้าหน่วย B
 
-varchar	5	Y	 	
+varchar    5    Y         
 agentid: sup_ab
 
 ค่าว่าง = หัวหน้าหน่วย A

@@ -4,8 +4,8 @@ Subject: public.ili_policy_master - IT Enterprise Architecture - Ocean Life Insu
 Date: Thu, 23 Jul 2020 04:47:33 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--RU5Hou4MkBwaktNLOvU4Ud3P7BQ2ct5WYzbrYHxvsa----"
+    type="text/html";
+    boundary="----MultipartBoundary--RU5Hou4MkBwaktNLOvU4Ud3P7BQ2ct5WYzbrYHxvsa----"
 
 
 ------MultipartBoundary--RU5Hou4MkBwaktNLOvU4Ud3P7BQ2ct5WYzbrYHxvsa----
@@ -290,17 +290,17 @@ en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.5/5.3.1/_">
             <meta name=3D"ajs-existing-draft-id" content=3D"0">
             <meta name=3D"ajs-can-attach-files" content=3D"true">
                =20
-            		    <meta name=3D"ajs-max-thumb-width" content=3D"300">
-		    <meta name=3D"ajs-can-send-email" content=3D"true">
-		    <meta name=3D"ajs-is-dev-mode" content=3D"false">
-		    <meta name=3D"ajs-draft-save-interval" content=3D"30000">
-		    <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
-		    <meta name=3D"ajs-is-admin" content=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
+                        <meta name=3D"ajs-max-thumb-width" content=3D"300">
+            <meta name=3D"ajs-can-send-email" content=3D"true">
+            <meta name=3D"ajs-is-dev-mode" content=3D"false">
+            <meta name=3D"ajs-draft-save-interval" content=3D"30000">
+            <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
+            <meta name=3D"ajs-is-admin" content=3D"false">
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
 nt=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
 =3D"false">
-		    <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
+            <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
 =09
     </head>
 
@@ -4349,14 +4349,14 @@ select rctodt, rcpol#,count(1) from ilislib.receipdt group by rctodt, rcpol=
 having count(1) &gt; 1
 =E0=B8=97=E0=B8=B5=E0=B9=88 Production =E0=B8=8B=E0=B9=89=E0=B8=B3 2 =E0=B8=
 =81=E0=B8=A3=E0=B8=A1=E0=B8=98=E0=B8=A3=E0=B8=A3=E0=B8=A1=E0=B9=8C
-rctodt =3D 25590713	rcpol# =3D A5918331 =E0=B8=A1=E0=B8=B5 2 record
-rctodt =3D 25591025	rcpol# =3D J7378891 =E0=B8=A1=E0=B8=B5 2 record
+rctodt =3D 25590713    rcpol# =3D A5918331 =E0=B8=A1=E0=B8=B5 2 record
+rctodt =3D 25591025    rcpol# =3D J7378891 =E0=B8=A1=E0=B8=B5 2 record
 &nbsp;
 select rctodt, rcpol#,count(1) from govlib.receipdt group by rctodt, rcpol#
 having count(1) &gt; 1
 =E0=B8=97=E0=B8=B5=E0=B9=88 Production =E0=B8=8B=E0=B9=89=E0=B8=B3 1 =E0=B8=
 =81=E0=B8=A3=E0=B8=A1=E0=B8=98=E0=B8=A3=E0=B8=A3=E0=B8=A1=E0=B9=8C
-rctodt =3D 25590102	rcpol# =3D =E0=B8=820093291 =E0=B8=A1=E0=B8=B5 2 record
+rctodt =3D 25590102    rcpol# =3D =E0=B8=820093291 =E0=B8=A1=E0=B8=B5 2 record
 &nbsp;
 =E0=B8=95=E0=B8=B1=E0=B8=A7=E0=B8=97=E0=B8=B5=E0=B9=88=E0=B8=8B=E0=B9=89=E0=
 =B8=B3=E0=B8=84=E0=B8=A7=E0=B8=A3=E0=B9=81=E0=B8=88=E0=B9=89=E0=B8=87 as400=
@@ -4691,135 +4691,135 @@ Version 351 =E0=B8=A5=E0=B9=88=E0=B8=B2=E0=B8=AA=E0=B8=B8=E0=B8=94=E0=B8=97=
 p://jira.thaisamut.co.th/browse/ITD-20406  =E0=B9=80=E0=B8=9E=E0=B8=B7=E0=
 =B9=88=E0=B8=AD Test SIT
 
-select  	a."polic#" as policy_no, 'O' :: varchar(1) as policy_type, "popln@=
+select      a."polic#" as policy_no, 'O' :: varchar(1) as policy_type, "popln@=
 " as product_code,
-		case
-			when (("posts@" in ('I','O','R','F','E','W','P','A','L')) and (length(ca=
+        case
+            when (("posts@" in ('I','O','R','F','E','W','P','A','L')) and (length(ca=
 st(pocmdt as varchar)) =3D 6)) then=20
-				(cast(to_char(now(), 'yyyy') as numeric) + 543) - cast('25'||lpad(cast(=
+                (cast(to_char(now(), 'yyyy') as numeric) + 543) - cast('25'||lpad(cast(=
 pocmdt as varchar),2,'0') as numeric) + 1
-			when (("posts@" in ('I','O','R','F','E','W','P','A','L')) and (length(ca=
+            when (("posts@" in ('I','O','R','F','E','W','P','A','L')) and (length(ca=
 st(pocmdt as varchar)) =3D 5)) then=20
-				(cast(to_char(now(), 'yyyy') as numeric) + 543) - cast('250'||lpad(cast=
+                (cast(to_char(now(), 'yyyy') as numeric) + 543) - cast('250'||lpad(cast=
 (pocmdt as varchar),1) as numeric) + 1
-			else "popyy#" + 1
-		end as policy_year, "posts@" as policy_status,=20
-		a.posmas as sum_assured, a.poprem as premium_amount, a.poexpr as extra_pr=
+            else "popyy#" + 1
+        end as policy_year, "posts@" as policy_status,=20
+        a.posmas as sum_assured, a.poprem as premium_amount, a.poexpr as extra_pr=
 emium,
-		pocmdt as commencement_date, pomtdt as maturity_date, popedt as fully_pai=
+        pocmdt as commencement_date, pomtdt as maturity_date, popedt as fully_pai=
 d_date,
-		pofrdt as pay_from , potodt as pay_to,
-		n."rcway@" as payment_channel, "pomod#" as payment_mode, null as next_pai=
+        pofrdt as pay_from , potodt as pay_to,
+        n."rcway@" as payment_channel, "pomod#" as payment_mode, null as next_pai=
 d_date, polpdt as lapse_date,
-		"popyi#" as payment_term, "cragt#" as agent_code,
-		id_no as id_no, card_type as card_type, title_code as title_code, 	=09
-		f.prnnam as marital_status_desc, null as origin_desc,=20
-		h.ntnnam as nationality_desc, i.relnam as religion_desc, null as educatio=
+        "popyi#" as payment_term, "cragt#" as agent_code,
+        id_no as id_no, card_type as card_type, title_code as title_code,     =09
+        f.prnnam as marital_status_desc, null as origin_desc,=20
+        h.ntnnam as nationality_desc, i.relnam as religion_desc, null as educatio=
 n_desc, k.occupn as occupation_desc,
-		m.cumsts as marital_status, null as origin, d.apnati as nationality, d.ap=
+        m.cumsts as marital_status, null as origin, d.apnati as nationality, d.ap=
 reli as religion,
-		null as education,a."cuocp#" as occupation_code, phone1 as phone1, ext1 a=
+        null as education,a."cuocp#" as occupation_code, phone1 as phone1, ext1 a=
 s ext1, phone2 as phone2,
-		ext2 as ext2, mobile1 as mobile1, mobile2 as mobile2, a.cuisag as age_at_=
+        ext2 as ext2, mobile1 as mobile1, mobile2 as mobile2, a.cuisag as age_at_=
 comm_date,
-		case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
+        case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
 4) end annual_income1,
-		case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
+        case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
 4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, case when apinco+apotic =3D 0.00 then 0.00 else=
+        null as laser_code,
+        null as dopa_check_digit, case when apinco+apotic =3D 0.00 then 0.00 else=
  (apinco+apotic)/12 end as monthly_income,
-		d.apemai as email, a."custm#" :: varchar as cust_code,=20
-		case
-			when a."crorg#" is not null then substr(a."crorg#" :: varchar(7), 4, 4)=
+        d.apemai as email, a."custm#" :: varchar as cust_code,=20
+        case
+            when a."crorg#" is not null then substr(a."crorg#" :: varchar(7), 4, 4)=
 =20
-		else null
-		end  branch_no,
-		a."crorg#" as policy_org,
-		l.cutitl as title_desc, l.cuname as first_name, l.culsnm as last_name, lp=
+        else null
+        end  branch_no,
+        a."crorg#" as policy_org,
+        l.cutitl as title_desc, l.cuname as first_name, l.culsnm as last_name, lp=
 ad(l.cubidt :: varchar(6),6,'0') as birthdate,=20
-		case when l."cusex@" =3D '=E0=B8=8A' then 'M' when l."cusex@" =3D '=E0=B8=
-=8D' then 'F' else 'O' end gender_code	=09
-from 	as400_olis_olppolms a left join dc_service_customer b on a."polic#" =
+        case when l."cusex@" =3D '=E0=B8=8A' then 'M' when l."cusex@" =3D '=E0=B8=
+=8D' then 'F' else 'O' end gender_code    =09
+from     as400_olis_olppolms a left join dc_service_customer b on a."polic#" =
 =3D b.pol_no and b.pol_type =3D 'O'=20
 left join=20
   (  select distinct on ("appli#","appol#") "appli#", "appol#", apinco, apo=
 tic  from as400_olis_olpapptr=20
-	where  apinco+apotic &lt;&gt; 0 and "apsts@" in ('F','X','T','W','O')) c o=
+    where  apinco+apotic &lt;&gt; 0 and "apsts@" in ('F','X','T','W','O')) c o=
 n a."appli#" =3D c."appli#" and c."appol#" =3D a."polic#"
 left join=20
   ( select distinct "appli#", "appol#", max(apemai) as apemai , max(apreli)=
  as apreli , max(apnati) as apnati
-	from as400_olis_olpappdt group by "appli#", "appol#") d  on (a."appli#" =
+    from as400_olis_olpappdt group by "appli#", "appol#") d  on (a."appli#" =
 =3D d."appli#" and d."appol#" =3D a."polic#")=20
 left join=20
   ( select "custm#", max(cumsts) as cumsts  from as400_olis_olpcusm2 group =
 by "custm#") m on (m."custm#" =3D a."custm#")    =20
-left join	as400_oasys_oapprsts f
-on		m.cumsts =3D f.prncod
-left join	as400_oasys_oaprentn h
-on		d.apnati =3D h.ntncod
-left join	as400_oasys_oaprelig i
-on		d.apreli =3D i.relcde
-left join	as400_oasys_oapoccup k
-on		a."cuocp#" =3D k."occup#"=20
-left join	as400_olis_olpcusms l
-on		a."custm#" =3D l."custm#"
+left join    as400_oasys_oapprsts f
+on        m.cumsts =3D f.prncod
+left join    as400_oasys_oaprentn h
+on        d.apnati =3D h.ntncod
+left join    as400_oasys_oaprelig i
+on        d.apreli =3D i.relcde
+left join    as400_oasys_oapoccup k
+on        a."cuocp#" =3D k."occup#"=20
+left join    as400_olis_olpcusms l
+on        a."custm#" =3D l."custm#"
 left join
- (		select "rcpol#", max(rcpydt) as max_rcpydt,max(rcfrdt) as rcfrdt, max(r=
+ (        select "rcpol#", max(rcpydt) as max_rcpydt,max(rcfrdt) as rcfrdt, max(r=
 ctodt) as rctodt, max("rcway@") as "rcway@"
-		from as400_olis_olprecdt where rcpopr &lt;&gt; 0					=09
-		group by  "rcpol#"
+        from as400_olis_olprecdt where rcpopr &lt;&gt; 0                    =09
+        group by  "rcpol#"
  ) n on (a."polic#" =3D n."rcpol#" and a.popddt =3D n.max_rcpydt and a.pofr=
 dt =3D n.rcfrdt and a.potodt =3D n.rctodt)
 =20
 union all
 =20
-select 	a."mbpol#" as policy_no, 'I' :: varchar(1) as policy_type, a.mbplan=
+select     a."mbpol#" as policy_no, 'I' :: varchar(1) as policy_type, a.mbplan=
  :: varchar as product_code,
-		e.rcyear as policy_year, a.mbstas as policy_status, a.mbsins as sum_assur=
+        e.rcyear as policy_year, a.mbstas as policy_status, a.mbsins as sum_assur=
 ed , a.mbprem as premium_amount, null as extra_premium,
-		a.mbcdte as commencement_date, a.mbmdte as maturity_date, a.mbpdte as ful=
+        a.mbcdte as commencement_date, a.mbmdte as maturity_date, a.mbpdte as ful=
 ly_paid_date,
-		e.rcfrdt as pay_from ,e.rctodt as pay_to,
-		e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
+        e.rcfrdt as pay_from ,e.rctodt as pay_to,
+        e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
 ate, null as lapse_date,
-		e.rcperd as payment_term, a."mbagt#" as agent_code,
-		b.id_no as id_no, b.card_type as card_type, b.title_code as title_code, 	=
-		=09
-		case=20
-			when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
-			when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
-			when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
-			when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
+        e.rcperd as payment_term, a."mbagt#" as agent_code,
+        b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,     =
+        =09
+        case=20
+            when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
+            when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
+            when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
+            when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
 =E0=B8=99=E0=B8=AD=E0=B8=A2=E0=B8=B9=E0=B9=88'
-			when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
-=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,	=09
-		n.apot2 as origin_desc,=20
-		n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
-desc, k.occupn as occupation_desc,	=09
-		m.mcmrst :: varchar(1) as marital_status,
-		null as origin, null as nationality, null as religion,
-		null as education,m.mcoccu as occupation_code, b.phone1 as phone1, b.ext1=
+            when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
+=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,    =09
+        n.apot2 as origin_desc,=20
+        n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
+desc, k.occupn as occupation_desc,    =09
+        m.mcmrst :: varchar(1) as marital_status,
+        null as origin, null as nationality, null as religion,
+        null as education,m.mcoccu as occupation_code, b.phone1 as phone1, b.ext1=
  as ext1, b.phone2 as phone2,
-		b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mbiage as a=
+        b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mbiage as a=
 ge_at_comm_date,
-		case b.annual_income1 when  '' then null else b.annual_income1 :: numeric=
+        case b.annual_income1 when  '' then null else b.annual_income1 :: numeric=
 (14,4) end annual_income1,
-		case b.annual_income2 when  '' then null else b.annual_income2 :: numeric=
+        case b.annual_income2 when  '' then null else b.annual_income2 :: numeric=
 (14,4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, a.mbcsid=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, a.mbcsid=
  as cust_code, lpad(a."mbbr#" :: varchar,4,'0') as branch_no,
-		case=20
-		  when n."amorg#" is null then
-		    ('207'|| lpad(a."mbbr#" :: varchar,4,'0')) :: numeric(7)
-		  else  "amorg#" end policy_org,
-		m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
+        case=20
+          when n."amorg#" is null then
+            ('207'|| lpad(a."mbbr#" :: varchar,4,'0')) :: numeric(7)
+          else  "amorg#" end policy_org,
+        m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
 mcbyy :: varchar(4) || lpad(m.mcbmm :: varchar(2),2,'0') || lpad(m.mcbdd ::=
  varchar(2),2,'0')  as birthdate,=20
-		case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
- end gender_code	=09
+        case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
+ end gender_code    =09
 from=20
 ( select *
 from as400_ilislib_polcymb0 ) a=20
@@ -4828,23 +4828,23 @@ left join
 from dc_service_customer ) b on  (a."mbpol#" =3D b.pol_no and b.pol_type =
 =3D 'I')
 left join
- (		select	d.*
-		from		(
-					select	b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
-					from		(
-								select "rcpol#", max(rcyear) as max_rcyear
-								from as400_ilislib_receipdt 					=09
-								group by  "rcpol#"
-							) a
-					inner join	as400_ilislib_receipdt b
-					on		a."rcpol#" =3D b."rcpol#"
-						and	a.max_rcyear =3D b.rcyear	=09
-					group by	b."rcpol#", b.rcyear	=09
-				) c
-		inner join	as400_ilislib_receipdt d
-		on		c."rcpol#" =3D d."rcpol#"
-			and	c.rcyear =3D d.rcyear
-			and	c.max_rcperd =3D d.rcperd=09
+ (        select    d.*
+        from        (
+                    select    b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
+                    from        (
+                                select "rcpol#", max(rcyear) as max_rcyear
+                                from as400_ilislib_receipdt                     =09
+                                group by  "rcpol#"
+                            ) a
+                    inner join    as400_ilislib_receipdt b
+                    on        a."rcpol#" =3D b."rcpol#"
+                        and    a.max_rcyear =3D b.rcyear    =09
+                    group by    b."rcpol#", b.rcyear    =09
+                ) c
+        inner join    as400_ilislib_receipdt d
+        on        c."rcpol#" =3D d."rcpol#"
+            and    c.rcyear =3D d.rcyear
+            and    c.max_rcperd =3D d.rcperd=09
  ) e on (a."mbpol#" =3D e."rcpol#")
 left join
 ( select *=20
@@ -4859,50 +4859,50 @@ from as400_ilislib_polcyap0 left join as400_ilislib_appindms on aprpno =3D =
 =20
 union all
 =20
-select  	a."mxpol#" as policy_no, 'I' :: varchar(1) as policy_type, a.mxpla=
+select      a."mxpol#" as policy_no, 'I' :: varchar(1) as policy_type, a.mxpla=
 n :: varchar as product_code,
-		e.rcyear as policy_year, a.mxstas as policy_status, a.mxsins as sum_assur=
+        e.rcyear as policy_year, a.mxstas as policy_status, a.mxsins as sum_assur=
 ed , a.mxprem as premium_amount, null as extra_premium,
-		a.mxcdte as commencement_date, a.mxmdte as maturity_date, a.mxpdte as ful=
+        a.mxcdte as commencement_date, a.mxmdte as maturity_date, a.mxpdte as ful=
 ly_paid_date,
-		null as pay_from ,e.rctodt as pay_to, -- JIRA : ESB-465
-		e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
+        null as pay_from ,e.rctodt as pay_to, -- JIRA : ESB-465
+        e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
 ate, null as lapse_date,
-		e.rcperd as payment_term, a."mxagt#" as agent_code,
-		b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,		=
-	=09
-		case=20
-			when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
-			when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
-			when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
-			when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
+        e.rcperd as payment_term, a."mxagt#" as agent_code,
+        b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,        =
+    =09
+        case=20
+            when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
+            when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
+            when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
+            when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
 =E0=B8=99=E0=B8=AD=E0=B8=A2=E0=B8=B9=E0=B9=88'
-			when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
-=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,	=09
-		n.apot2 as origin_desc,=20
-		n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
-desc, k.occupn as occupation_desc,	=09
-		m.mcmrst :: varchar(1) as marital_status,=20
-		null as origin, null as nationality, null as religion,
-		null as education, m.mcoccu as occupation_code, b.phone1 as phone1, b.ext=
+            when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
+=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,    =09
+        n.apot2 as origin_desc,=20
+        n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
+desc, k.occupn as occupation_desc,    =09
+        m.mcmrst :: varchar(1) as marital_status,=20
+        null as origin, null as nationality, null as religion,
+        null as education, m.mcoccu as occupation_code, b.phone1 as phone1, b.ext=
 1 as ext1, b.phone2 as phone2,
-		b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mxiage as a=
+        b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mxiage as a=
 ge_at_comm_date,
-		case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
+        case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
 4) end annual_income1,
-		case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
+        case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
 4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, a.mxcsid=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, a.mxcsid=
  as cust_code, lpad(a."mxbr#" :: varchar,4,'0') as branch_no,
-		case=20
-		  when n."amorg#" is null then
-		    ('207'|| lpad(a."mxbr#" :: varchar,4,'0')) :: numeric(7)
-		  else  "amorg#" end policy_org,
-		m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
+        case=20
+          when n."amorg#" is null then
+            ('207'|| lpad(a."mxbr#" :: varchar,4,'0')) :: numeric(7)
+          else  "amorg#" end policy_org,
+        m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
  mcbyy :: varchar(4) || lpad(m.mcbmm :: varchar(2),2,'0') || lpad(m.mcbdd :=
-: varchar(2),2,'0')  as birthdate,	=09
-		case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
+: varchar(2),2,'0')  as birthdate,    =09
+        case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
  end gender_code
 from=20
 ( select *
@@ -4912,23 +4912,23 @@ left join
 from dc_service_customer ) b on  (a."mxpol#" =3D b.pol_no and b.pol_type =
 =3D 'I')
 left join
- (		select	d.*
-		from		(
-					select	b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
-					from		(
-								select "rcpol#", max(rcyear) as max_rcyear
-								from as400_ilislib_receipdt 					=09
-								group by  "rcpol#"
-							) a
-					inner join	as400_ilislib_receipdt b
-					on		a."rcpol#" =3D b."rcpol#"
-						and	a.max_rcyear =3D b.rcyear	=09
-					group by	b."rcpol#", b.rcyear	=09
-				) c
-		inner join	as400_ilislib_receipdt d
-		on		c."rcpol#" =3D d."rcpol#"
-			and	c.rcyear =3D d.rcyear
-			and	c.max_rcperd =3D d.rcperd=09
+ (        select    d.*
+        from        (
+                    select    b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
+                    from        (
+                                select "rcpol#", max(rcyear) as max_rcyear
+                                from as400_ilislib_receipdt                     =09
+                                group by  "rcpol#"
+                            ) a
+                    inner join    as400_ilislib_receipdt b
+                    on        a."rcpol#" =3D b."rcpol#"
+                        and    a.max_rcyear =3D b.rcyear    =09
+                    group by    b."rcpol#", b.rcyear    =09
+                ) c
+        inner join    as400_ilislib_receipdt d
+        on        c."rcpol#" =3D d."rcpol#"
+            and    c.rcyear =3D d.rcyear
+            and    c.max_rcperd =3D d.rcperd=09
  ) e on (a."mxpol#" =3D e."rcpol#")
 left join
 ( select *=20
@@ -4943,111 +4943,111 @@ from as400_ilislib_polcyap0 left join as400_ilislib_appindms on aprpno =3D =
 =09
 union all
      =20
-select  	a.policy_no as policy_no, 'I' :: varchar(1) as policy_type, a.prod=
+select      a.policy_no as policy_no, 'I' :: varchar(1) as policy_type, a.prod=
 uct_code as product_code,
-		e.rcyear as policy_year, a.policy_status as policy_status, a.sum_assured =
+        e.rcyear as policy_year, a.policy_status as policy_status, a.sum_assured =
 as sum_assured , a.premium_amount as premium_amount, null as extra_premium,
-		a.commencement_date as commencement_date, null as maturity_date, null as =
+        a.commencement_date as commencement_date, null as maturity_date, null as =
 fully_paid_date,
-		null as pay_from ,e.rctodt as pay_to, -- JIRA : ESB-465
-		e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
+        null as pay_from ,e.rctodt as pay_to, -- JIRA : ESB-465
+        e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
 ate, null as lapse_date,
-		e.rcperd as payment_term, null as agent_code,
-		b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,		=
-	=09
-		case=20
-			when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
-			when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
-			when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
-			when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
+        e.rcperd as payment_term, null as agent_code,
+        b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,        =
+    =09
+        case=20
+            when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
+            when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
+            when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
+            when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
 =E0=B8=99=E0=B8=AD=E0=B8=A2=E0=B8=B9=E0=B9=88'
-			when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
-=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,	=09
-		n.apot2 as origin_desc,=20
-		n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
-desc, k.occupn as occupation_desc,	=09
-		m.mcmrst :: varchar(1) as marital_status,=20
-		null as origin, null as nationality, null as religion,
-		null as education, m.mcoccu as occupation_code, b.phone1 as phone1, b.ext=
+            when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
+=E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,    =09
+        n.apot2 as origin_desc,=20
+        n.apot3 as nationality_desc, n.apot1 as religion_desc, null as education_=
+desc, k.occupn as occupation_desc,    =09
+        m.mcmrst :: varchar(1) as marital_status,=20
+        null as origin, null as nationality, null as religion,
+        null as education, m.mcoccu as occupation_code, b.phone1 as phone1, b.ext=
 1 as ext1, b.phone2 as phone2,
-		b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.age_at_comm=
+        b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.age_at_comm=
 _date,--case b.age when  '' then null else b.age :: numeric(3) end age_at_c=
 omm_date,
-		case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
+        case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
 4) end annual_income1,
-		case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
+        case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
 4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, a.cust_c=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, a.cust_c=
 ode as cust_code, a.branch_no as branch_no,
-		case=20
-		  when n."amorg#" is null then
-		    ('207'|| lpad(a.branch_no :: varchar,4,'0')) :: numeric(7)
-		  else  "amorg#" end policy_org,
-		a.title_desc as title_desc, a.first_name as first_name, a.last_name as la=
+        case=20
+          when n."amorg#" is null then
+            ('207'|| lpad(a.branch_no :: varchar,4,'0')) :: numeric(7)
+          else  "amorg#" end policy_org,
+        a.title_desc as title_desc, a.first_name as first_name, a.last_name as la=
 st_name, m. mcbyy :: varchar(4) || lpad(m.mcbmm :: varchar(2),2,'0') || lpa=
-d(m.mcbdd :: varchar(2),2,'0')  as birthdate, 	=09
-		case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
- end gender_code	=20
+d(m.mcbdd :: varchar(2),2,'0')  as birthdate,     =09
+        case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
+ end gender_code    =20
 from=20
 (
-	select "mrpol#" as policy_no, 'C' as policy_status, mrcdte as commencement=
+    select "mrpol#" as policy_no, 'C' as policy_status, mrcdte as commencement=
 _date, mrplan :: varchar as product_code
-	      , mrsins as sum_assured, mrprem as premium_amount, mrtitl as title_d=
+          , mrsins as sum_assured, mrprem as premium_amount, mrtitl as title_d=
 esc, mrname as first_name, mrsurn as last_name
-	      , mrcsid as cust_code, lpad("mrbr#" :: varchar,4,'0') as branch_no, =
+          , mrcsid as cust_code, lpad("mrbr#" :: varchar,4,'0') as branch_no, =
 'as400_ilislib_declnmr0' as source_table, mriage as age_at_comm_date
-	from as400_ilislib_declnmr0=20
-	where "mrpol#" NOT IN ('D5697543','D5786551','=E0=B8=811855317','=E0=B8=94=
+    from as400_ilislib_declnmr0=20
+    where "mrpol#" NOT IN ('D5697543','D5786551','=E0=B8=811855317','=E0=B8=94=
 5314311','=E0=B8=820203038','=E0=B8=820204821','=E0=B8=820214555','=E0=B8=
 =820214910')=20
-	--- Found in as400_ilislib_polcymx0 OR as400_govlib_gplcymx0
-	union=20
-	select "mopol#" as policy_no, 'D' as policy_status, mocdte as commencement=
+    --- Found in as400_ilislib_polcymx0 OR as400_govlib_gplcymx0
+    union=20
+    select "mopol#" as policy_no, 'D' as policy_status, mocdte as commencement=
 _dat, moplan :: varchar as product_code, mosins as sum_assured
-	      , moprem as premium_amount, motitl as title_desc, moname as first_na=
+          , moprem as premium_amount, motitl as title_desc, moname as first_na=
 me, mosurn as last_name
-	      , mocsid as cust_code, lpad("mobr#" :: varchar,4,'0') as branch_no, =
+          , mocsid as cust_code, lpad("mobr#" :: varchar,4,'0') as branch_no, =
 'as400_ilislib_deathmo0' as source_table, moiage as age_at_comm_date
-	from as400_ilislib_deathmo0
-	where "mopol#" NOT IN ('B5852983','D5360446','D5360446','D5690758','F62528=
+    from as400_ilislib_deathmo0
+    where "mopol#" NOT IN ('B5852983','D5360446','D5360446','D5690758','F62528=
 36','F6352438','J6872027','J6929365','T5567147','=E0=B8=815284807','=E0=B8=
 =941038099','=E0=B8=945332571')=20
-	--- Found in as400_ilislib_polcymb0 OR as400_ilislib_polcymx0
-	union
-	select "mnpol#" as policy_no, 'S' as policy_status, mncdte as commencement=
+    --- Found in as400_ilislib_polcymb0 OR as400_ilislib_polcymx0
+    union
+    select "mnpol#" as policy_no, 'S' as policy_status, mncdte as commencement=
 _date, mnplan :: varchar as product_code, mnsins as sum_assured,
-	 	  mnprem as premium_amount, mntitl as title_desc, mnname as first_name, =
+           mnprem as premium_amount, mntitl as title_desc, mnname as first_name, =
 mnsurn as last_name,
-	 	  '' as cust_code, lpad("mnbr#" :: varchar,4,'0') as branch_no, 'as400_i=
+           '' as cust_code, lpad("mnbr#" :: varchar,4,'0') as branch_no, 'as400_i=
 lislib_surremn0' as source_table, mniage as age_at_comm_date
-	from as400_ilislib_surremn0
-	where ("mnpol#",MNPDTE) in (select "mnpol#", max(MNPDTE) from as400_ilisli=
+    from as400_ilislib_surremn0
+    where ("mnpol#",MNPDTE) in (select "mnpol#", max(MNPDTE) from as400_ilisli=
 b_surremn0  group by "mnpol#")
-	and "mnpol#" NOT IN ('=E0=B8=810265763','H6784757') -- found in as400_ilis=
+    and "mnpol#" NOT IN ('=E0=B8=810265763','H6784757') -- found in as400_ilis=
 lib_deathmo0, H6784757-receipt duplicate
-	union
-	select "mapol#" as policy_no, 'A' as policy_status, macdte as commencement=
+    union
+    select "mapol#" as policy_no, 'A' as policy_status, macdte as commencement=
 _date, maplan :: varchar as product_code, masins as sum_assured,
-		  maprem as premium_amount, matitl as title_desc, maname as first_name, m=
+          maprem as premium_amount, matitl as title_desc, maname as first_name, m=
 asurn as last_name,
-		  '' as cust_code, lpad("mabr#" :: varchar,4,'0') as branch_no, 'as400_il=
+          '' as cust_code, lpad("mabr#" :: varchar,4,'0') as branch_no, 'as400_il=
 islib_surrema0' as source_table, maiage as age_at_comm_date
-	from as400_ilislib_surrema0
-	where "mapol#"  NOT IN ('D5651914','=E0=B8=811375098') -- found in as400_i=
+    from as400_ilislib_surrema0
+    where "mapol#"  NOT IN ('D5651914','=E0=B8=811375098') -- found in as400_i=
 lislib_deathmo0
-	) a
+    ) a
 left join dc_service_customer b on  (a.policy_no =3D b.pol_no and b.pol_typ=
 e =3D 'I')
 left join
  (
-	select d.*
-	from  (
-		select "rcpol#" as policy_no, max(rctodt) max_due_end_date
-		from as400_ilislib_receipdt r
-		group by "rcpol#"
-		) a
-	left join as400_ilislib_receipdt d on a.policy_no =3D d."rcpol#" and d.rct=
+    select d.*
+    from  (
+        select "rcpol#" as policy_no, max(rctodt) max_due_end_date
+        from as400_ilislib_receipdt r
+        group by "rcpol#"
+        ) a
+    left join as400_ilislib_receipdt d on a.policy_no =3D d."rcpol#" and d.rct=
 odt =3D a.max_due_end_date
  ) e on (a.policy_no =3D e."rcpol#")
 left join as400_ilislib_custmmc0  m on (a.cust_code =3D m.mccsid)
@@ -5055,52 +5055,52 @@ left join
 ( select *
 from as400_oasys_oapoccup ) k on  (m.mcoccu =3D k."occup#")
 left join
-	( select *
-	from as400_ilislib_polcyap0
-	left join as400_ilislib_appindms on aprpno =3D "ampli#" and "appol#" =3D "=
+    ( select *
+    from as400_ilislib_polcyap0
+    left join as400_ilislib_appindms on aprpno =3D "ampli#" and "appol#" =3D "=
 ampol#"
-	) n on  (n."appol#" =3D a.policy_no)
+    ) n on  (n."appol#" =3D a.policy_no)
 union all
-select   	a."mbpol#" as policy_no, 'G' :: varchar(1) as policy_type, a.mbpl=
+select       a."mbpol#" as policy_no, 'G' :: varchar(1) as policy_type, a.mbpl=
 an :: varchar as product_code,
-		e.rcyear as policy_year, a.mbstas as policy_status, a.mbsins as sum_assur=
+        e.rcyear as policy_year, a.mbstas as policy_status, a.mbsins as sum_assur=
 ed , a.mbprem as premium_amount, null as extra_premium,
-		a.mbcdte as commencement_date, a.mbmdte as maturity_date, a.mbpdte as ful=
+        a.mbcdte as commencement_date, a.mbmdte as maturity_date, a.mbpdte as ful=
 ly_paid_date,
-		e.rcfrdt as pay_from, e.rctodt as pay_to,
-		e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
+        e.rcfrdt as pay_from, e.rctodt as pay_to,
+        e.rcway as payment_channel, e.rcrmod as payment_mode, null as next_paid_d=
 ate, null as lapse_date,
-		e.rcperd as payment_term, a."mbagt#" as agent_code,
-		b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,
-		case
-			when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
-			when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
-			when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
-			when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
+        e.rcperd as payment_term, a."mbagt#" as agent_code,
+        b.id_no as id_no, b.card_type as card_type, b.title_code as title_code,
+        case
+            when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
+            when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
+            when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
+            when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
 =E0=B8=99=E0=B8=AD=E0=B8=A2=E0=B8=B9=E0=B9=88'
-			when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
+            when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
 =E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,
-		null as origin_desc,
-		null as nationality_desc, null as religion_desc, null as education_desc, =
+        null as origin_desc,
+        null as nationality_desc, null as religion_desc, null as education_desc, =
 k.occupn as occupation_desc,
-		m.mcmrst :: varchar(1) as marital_status,
-		null as origin, null as nationality, null as religion,
-		null as education,m.mcoccu as occupation_code, b.phone1 as phone1, b.ext1=
+        m.mcmrst :: varchar(1) as marital_status,
+        null as origin, null as nationality, null as religion,
+        null as education,m.mcoccu as occupation_code, b.phone1 as phone1, b.ext1=
  as ext1, b.phone2 as phone2,
-		b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mbiage as a=
+        b.ext2 as ext2, b.mobile1 as mobile1, b.mobile2 as mobile2, a.mbiage as a=
 ge_at_comm_date,
-		case b.annual_income1 when  '' then null else b.annual_income1 :: numeric=
+        case b.annual_income1 when  '' then null else b.annual_income1 :: numeric=
 (14,4) end annual_income1,
-		case b.annual_income2 when  '' then null else b.annual_income2 :: numeric=
+        case b.annual_income2 when  '' then null else b.annual_income2 :: numeric=
 (14,4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, a.mbcsid=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, a.mbcsid=
  as cust_code, lpad(a."mbbr#" :: varchar,4,'0') as branch_no,
-		('507'|| lpad(a."mbbr#" :: varchar,4,'0')) :: numeric(7) as policy_org,
-		m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
+        ('507'|| lpad(a."mbbr#" :: varchar,4,'0')) :: numeric(7) as policy_org,
+        m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
  mcbyy :: varchar(4) || lpad(m.mcbmm :: varchar(2),2,'0') || lpad(m.mcbdd :=
 : varchar(2),2,'0')  as birthdate,
-		case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
+        case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
  end gender_code
 from
 ( select *
@@ -5110,25 +5110,25 @@ left join
 from dc_service_customer ) b on  (a."mbpol#" =3D b.pol_no and b.pol_type =
 =3D 'G')
 left join
- (		select	d.*
-		from		(
-					select	b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd, max(b.rcacdt=
+ (        select    d.*
+        from        (
+                    select    b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd, max(b.rcacdt=
 ) as max_rcacdt
-					from		(
-								select "rcpol#", max(rcyear) as max_rcyear
-								from as400_govlib_receipdt
-								group by  "rcpol#"
-							) a
-					inner join	as400_govlib_receipdt b
-					on		a."rcpol#" =3D b."rcpol#"
-						and	a.max_rcyear =3D b.rcyear
-					group by	b."rcpol#", b.rcyear
-				) c
-		inner join	as400_govlib_receipdt d
-		on		c."rcpol#" =3D d."rcpol#"
-			and	c.rcyear =3D d.rcyear
-			and	c.max_rcperd =3D d.rcperd
-			and  c.max_rcacdt =3D d.rcacdt
+                    from        (
+                                select "rcpol#", max(rcyear) as max_rcyear
+                                from as400_govlib_receipdt
+                                group by  "rcpol#"
+                            ) a
+                    inner join    as400_govlib_receipdt b
+                    on        a."rcpol#" =3D b."rcpol#"
+                        and    a.max_rcyear =3D b.rcyear
+                    group by    b."rcpol#", b.rcyear
+                ) c
+        inner join    as400_govlib_receipdt d
+        on        c."rcpol#" =3D d."rcpol#"
+            and    c.rcyear =3D d.rcyear
+            and    c.max_rcperd =3D d.rcperd
+            and  c.max_rcacdt =3D d.rcacdt
  ) e on (a."mbpol#" =3D e."rcpol#")
 left join
 ( select *
@@ -5137,46 +5137,46 @@ left join
 ( select *
 from as400_oasys_oapoccup ) k on  (m.mcoccu =3D k."occup#")
 union all
-select  	"mxpol#" as policy_no, 'G' :: varchar(1) as policy_type, mxplan ::=
+select      "mxpol#" as policy_no, 'G' :: varchar(1) as policy_type, mxplan ::=
  varchar as product_code,
-		rcyear as policy_year, mxstas as policy_status, mxsins as sum_assured , m=
+        rcyear as policy_year, mxstas as policy_status, mxsins as sum_assured , m=
 xprem as premium_amount, null as extra_premium,
-		mxcdte as commencement, mxmdte as maturity_date, mxpdte as fully_paid_dat=
+        mxcdte as commencement, mxmdte as maturity_date, mxpdte as fully_paid_dat=
 e,
-		rcfrdt as pay_from, rctodt as pay_to,
-		rcway as payment_channel, rcrmod as payment_mode, null as next_paid_date,=
+        rcfrdt as pay_from, rctodt as pay_to,
+        rcway as payment_channel, rcrmod as payment_mode, null as next_paid_date,=
  null as lapse_date,
-		rcperd as payment_term, "mxagt#" as agent_code,
-		id_no as id_no, card_type as card_type, title_code as title_code,
-		case
-			when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
-			when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
-			when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
-			when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
+        rcperd as payment_term, "mxagt#" as agent_code,
+        id_no as id_no, card_type as card_type, title_code as title_code,
+        case
+            when m.mcmrst =3D 1 then '=E0=B8=AA=E0=B8=A1=E0=B8=A3=E0=B8=AA'
+            when m.mcmrst =3D 2 then '=E0=B9=82=E0=B8=AA=E0=B8=94'
+            when m.mcmrst =3D 3 then '=E0=B8=AB=E0=B8=A1=E0=B9=89=E0=B8=B2=E0=B8=A2'
+            when m.mcmrst =3D 4 then '=E0=B9=81=E0=B8=A2=E0=B8=81=E0=B8=81=E0=B8=B1=
 =E0=B8=99=E0=B8=AD=E0=B8=A2=E0=B8=B9=E0=B9=88'
-			when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
+            when m.mcmrst =3D 5 then '=E0=B8=AB=E0=B8=A2=E0=B9=88=E0=B8=B2=E0=B8=A3=
 =E0=B9=89=E0=B8=B2=E0=B8=87' end marital_status_desc,
-		null as origin_desc,
-		null as nationality_desc, null as religion_desc, null as education_desc, =
+        null as origin_desc,
+        null as nationality_desc, null as religion_desc, null as education_desc, =
 k.occupn as occupation_desc,
-		m.mcmrst :: varchar(1) as marital_status,
-		null as origin, null as nationality, null as religion,
-		null as education,m.mcoccu as occupation_code, phone1 as phone1, ext1 as =
+        m.mcmrst :: varchar(1) as marital_status,
+        null as origin, null as nationality, null as religion,
+        null as education,m.mcoccu as occupation_code, phone1 as phone1, ext1 as =
 ext1, phone2 as phone2,
-		ext2 as ext2, mobile1 as mobile1, mobile2 as mobile2, a.mxiage as age_at_=
+        ext2 as ext2, mobile1 as mobile1, mobile2 as mobile2, a.mxiage as age_at_=
 comm_date,
-		case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
+        case annual_income1 when  '' then null else annual_income1 :: numeric(14,=
 4) end annual_income1,
-		case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
+        case annual_income2 when  '' then null else annual_income2 :: numeric(14,=
 4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, mxcsid a=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, mxcsid a=
 s cust_code, lpad(a."mxbr#" :: varchar,4,'0') as branch_no,
-		('507'|| lpad(a."mxbr#" :: varchar,4,'0')) :: numeric(7) as policy_org,
-		m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
+        ('507'|| lpad(a."mxbr#" :: varchar,4,'0')) :: numeric(7) as policy_org,
+        m.mctitl as title_desc, m.mcname as first_name, m.mcsurn as last_name, m.=
 mcbyy :: varchar(4) || lpad(m.mcbmm :: varchar(2),2,'0') || lpad(m.mcbdd ::=
  varchar(2),2,'0')  as birthdate,
-		case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
+        case when m.mcsex =3D '1' then 'M' when m.mcsex =3D '2' then 'F' else 'O'=
  end gender_code
 from
 ( select *
@@ -5186,23 +5186,23 @@ left join
 from dc_service_customer ) b on  (a."mxpol#" =3D b.pol_no and b.pol_type =
 =3D 'G')
 left join
- (		select	d.*
-		from		(
-					select	b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
-					from		(
-								select "rcpol#", max(rcyear) as max_rcyear
-								from as400_govlib_receipdt
-								group by  "rcpol#"
-							) a
-					inner join	as400_govlib_receipdt b
-					on		a."rcpol#" =3D b."rcpol#"
-						and	a.max_rcyear =3D b.rcyear
-					group by	b."rcpol#", b.rcyear
-				) c
-		inner join	as400_govlib_receipdt d
-		on		c."rcpol#" =3D d."rcpol#"
-			and	c.rcyear =3D d.rcyear
-			and	c.max_rcperd =3D d.rcperd
+ (        select    d.*
+        from        (
+                    select    b."rcpol#", b.rcyear, max(b.rcperd) as max_rcperd
+                    from        (
+                                select "rcpol#", max(rcyear) as max_rcyear
+                                from as400_govlib_receipdt
+                                group by  "rcpol#"
+                            ) a
+                    inner join    as400_govlib_receipdt b
+                    on        a."rcpol#" =3D b."rcpol#"
+                        and    a.max_rcyear =3D b.rcyear
+                    group by    b."rcpol#", b.rcyear
+                ) c
+        inner join    as400_govlib_receipdt d
+        on        c."rcpol#" =3D d."rcpol#"
+            and    c.rcyear =3D d.rcyear
+            and    c.max_rcperd =3D d.rcperd
  ) e on (a."mxpol#" =3D e."rcpol#")
 left join
 ( select *
@@ -5216,42 +5216,42 @@ from as400_oasys_oapoccup ) k on  (m.mcoccu =3D k."occup#")
 union all
 select  pol.polno as policy_no, 'P' :: varchar(1) as policy_type, pol.polpl=
 n as product_code,
-		pol.polpyy as policy_year, pol.polsts as policy_status, pol.polsin as sum=
+        pol.polpyy as policy_year, pol.polsts as policy_status, pol.polsin as sum=
 _assured ,
-		--coalesce(pol.polpm1+pol.polpm2+pol.polpm3+pol.polpm4+ r.polrdp,0) as pr=
+        --coalesce(pol.polpm1+pol.polpm2+pol.polpm3+pol.polpm4+ r.polrdp,0) as pr=
 emium_amount,
-		coalesce(pol.polpm1+pol.polpm2+pol.polpm3+pol.polpm4,0) + coalesce(r.polr=
+        coalesce(pol.polpm1+pol.polpm2+pol.polpm3+pol.polpm4,0) + coalesce(r.polr=
 dp,0) as premium_amount,
-		r.polrde as extra_premium,
-		pol.polcdt as commencement, pol.polmdt as maturity_date, pol.polmdt as fu=
+        r.polrde as extra_premium,
+        pol.polcdt as commencement, pol.polmdt as maturity_date, pol.polmdt as fu=
 lly_paid_date,
-		null as pay_from, pol.poledt as pay_to,
-		rc.recway as payment_channel, null as payment_mode, null as next_paid_dat=
+        null as pay_from, pol.poledt as pay_to,
+        rc.recway as payment_channel, null as payment_mode, null as next_paid_dat=
 e, poledt as lapse_date,
-		rc.recmod as payment_term, pol.polagt as agent_code,
-		dc.id_no as id_no, dc.card_type as card_type, dc.title_code as title_code=
+        rc.recmod as payment_term, pol.polagt as agent_code,
+        dc.id_no as id_no, dc.card_type as card_type, dc.title_code as title_code=
 ,
-		null as marital_status_desc, null as origin_desc,
-		k.cusnat as nationality_desc, null as religion_desc, null as education_de=
+        null as marital_status_desc, null as origin_desc,
+        k.cusnat as nationality_desc, null as religion_desc, null as education_de=
 sc, pol.polocp || pol.polocd as occupation_desc,
-		null as marital_status, null as origin, null as nationality, null as reli=
+        null as marital_status, null as origin, null as nationality, null as reli=
 gion,
-		null as education,null as occupation_code, dc.phone1 as phone1, dc.ext1 a=
+        null as education,null as occupation_code, dc.phone1 as phone1, dc.ext1 a=
 s ext1, dc.phone2 as phone2,
-		dc.ext2 as ext2, dc.mobile1 as mobile1, dc.mobile2 as mobile2, pol.polage=
+        dc.ext2 as ext2, dc.mobile1 as mobile1, dc.mobile2 as mobile2, pol.polage=
  as age_at_comm_date,
-		case dc.annual_income1 when  '' then null else dc.annual_income1 :: numer=
+        case dc.annual_income1 when  '' then null else dc.annual_income1 :: numer=
 ic(14,4) end annual_income1,
-		case dc.annual_income2 when  '' then null else dc.annual_income2 :: numer=
+        case dc.annual_income2 when  '' then null else dc.annual_income2 :: numer=
 ic(14,4) end annual_income2,
-		null as laser_code,
-		null as dopa_check_digit, null as monthly_income, null as email, pol.polc=
+        null as laser_code,
+        null as dopa_check_digit, null as monthly_income, null as email, pol.polc=
 id as cust_code, lpad(polbrn :: varchar,4,'0') as branch_no,
-  		case when polchn is null then
-		          ('207'|| lpad(pol.polbrn :: varchar,4,'0')) :: numeric(7)
-		else (polchn || lpad(pol.polbrn :: varchar,4,'0')) :: numeric(7) end poli=
+          case when polchn is null then
+                  ('207'|| lpad(pol.polbrn :: varchar,4,'0')) :: numeric(7)
+        else (polchn || lpad(pol.polbrn :: varchar,4,'0')) :: numeric(7) end poli=
 cy_org,
-		k.custit as title_desc, k.cusnam as first_name, k.cussur as last_name, k.=
+        k.custit as title_desc, k.cusnam as first_name, k.cussur as last_name, k.=
 cusbdt :: varchar(8) as birthdate, k.cussex as gender_code
 from
 ( select *
@@ -5261,9 +5261,9 @@ left join
 from dc_service_customer ) dc on  (pol.polno =3D dc.pol_no and dc.pol_type =
 =3D 'P')
 left join
- (		select	recpol, max(recmod) as recmod, max(recldt) as recldt, max(recway=
+ (        select    recpol, max(recmod) as recmod, max(recldt) as recldt, max(recway=
 ) as recway
-		from as400_ppalib_tbreceip group by  recpol
+        from as400_ppalib_tbreceip group by  recpol
   ) rc on (pol.polno =3D rc.recpol)
 left join
 ( select *
@@ -6754,8 +6754,8 @@ icy_master"
 s</span></div><div id=3D"labels-section" class=3D"pageSection group">
     <div class=3D"labels-section-content content-column" entityid=3D"371589=
 187" entitytype=3D"page">
-	<div class=3D"labels-content">
-	=09
+    <div class=3D"labels-content">
+    =09
     <ul class=3D"label-list label-list-right  has-pen">
             <li class=3D"no-labels-message">
             No labels
@@ -7158,8 +7158,8 @@ ut.co.th/display/~raiwin.ph" class=3D"url fn confluence-userlink userlink-3=
 =E0=B8=97=E0=B8=B2=E0=B8=87=E0=B8=8A=E0=B8=B3=E0=B8=A3=E0=B8=B0 =E0=B8=A5=
 =E0=B9=88=E0=B8=B2=E0=B8=AA=E0=B8=B8=E0=B8=94</p><p>&nbsp;</p><pre>select r=
 cpol, max(rcpydt) as max_rcpydt, max(rcway) as rcway
-		from as400.olis_olprecdt 					=09
-		group by  rcpol</pre>
+        from as400.olis_olprecdt                     =09
+        group by  rcpol</pre>
                     </div>
                     <div class=3D"comment-actions">
                                                       <ul class=3D"comment-=

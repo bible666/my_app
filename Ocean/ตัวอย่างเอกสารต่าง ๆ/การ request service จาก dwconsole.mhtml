@@ -8,8 +8,8 @@ Subject: =?utf-8?Q?[APV-197]=20Prepare=20Query=20=E0=B8=AA=E0=B8=B3=E0=B8=AB=E0=
 Date: Thu, 16 Jul 2020 02:30:11 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--1A9Xum6wjWG0ctPqe4DDBs8IHzARlnkx30HXQ05Wg7----"
+    type="text/html";
+    boundary="----MultipartBoundary--1A9Xum6wjWG0ctPqe4DDBs8IHzARlnkx30HXQ05Wg7----"
 
 
 ------MultipartBoundary--1A9Xum6wjWG0ctPqe4DDBs8IHzARlnkx30HXQ05Wg7----
@@ -637,7 +637,7 @@ pes:multiselect" title=3D"Click to edit">
 
     <div class=3D"shorten" id=3D"customfield_10801-field" style=3D"height: =
 auto;">
-        							<span>SIT</span>			            </div>
+                                    <span>SIT</span>                        </div>
 
                             <span class=3D"overlay-icon icon icon-edit-sml"=
 ></span></div>
@@ -702,114 +702,114 @@ cy</p>
 
 <div class=3D"code panel" style=3D"border-width: 1px;"><div class=3D"codeCo=
 ntent panelContent">
-<pre class=3D"code-java">select 	=20
-	a.policy_no,a.policy_type,a.product_code,a.policy_status,a.sum_assured,
-	a.premium_amount,a.commencement_date,a.maturity_date,a.fully_paid_date,
-	a.payment_channel,a.payment_mode,a.next_paid_date,a.lapse_date,a.payment_t=
+<pre class=3D"code-java">select     =20
+    a.policy_no,a.policy_type,a.product_code,a.policy_status,a.sum_assured,
+    a.premium_amount,a.commencement_date,a.maturity_date,a.fully_paid_date,
+    a.payment_channel,a.payment_mode,a.next_paid_date,a.lapse_date,a.payment_t=
 erm,
-	a.policy_year,a.agent_code,a.id_no,a.first_name,a.last_name,a.birthdate,
-	a.gender_code,a.card_type,a.title_code,a.title_desc,a.marital_status,
-	a.marital_status_desc,a.origin,a.origin_desc,a.nationality,a.nationality_d=
+    a.policy_year,a.agent_code,a.id_no,a.first_name,a.last_name,a.birthdate,
+    a.gender_code,a.card_type,a.title_code,a.title_desc,a.marital_status,
+    a.marital_status_desc,a.origin,a.origin_desc,a.nationality,a.nationality_d=
 esc,
-	a.religion,a.religion_desc,a.education,a.education_desc,a.occupation_code,
-	a.occupation_desc,a.phone1,a.ext1,a.phone2,a.ext2,a.mobile1,a.mobile2,
-	a.age_at_comm_date,a.annual_income1,a.annual_income2,a.laser_code,
-	a.dopa_check_digit,a.monthly_income,a.email,a.cust_code,a.created_date,
-	a.updated_date,a.pay_from,
-	(<span class=3D"code-keyword">case</span>=20
-		when b.rc_status is <span class=3D"code-keyword">null</span> then a.pay_t=
+    a.religion,a.religion_desc,a.education,a.education_desc,a.occupation_code,
+    a.occupation_desc,a.phone1,a.ext1,a.phone2,a.ext2,a.mobile1,a.mobile2,
+    a.age_at_comm_date,a.annual_income1,a.annual_income2,a.laser_code,
+    a.dopa_check_digit,a.monthly_income,a.email,a.cust_code,a.created_date,
+    a.updated_date,a.pay_from,
+    (<span class=3D"code-keyword">case</span>=20
+        when b.rc_status is <span class=3D"code-keyword">null</span> then a.pay_t=
 o=20
-		<span class=3D"code-keyword">else</span> b.pay_to=20
-	end) as pay_to,
-	a.extra_premium,a.branch_no,a.policy_org,
-	(<span class=3D"code-keyword">case</span>=20
-		when a.policy_type =3D 'O' then e.prd_name1
-		when a.policy_type in ('G','I') then f.prd_name
-		when a.policy_type =3D 'P' then g.prd_name
-	end) as product_name,	=20
-	d.province_name as customer_province_name,=20
-	(<span class=3D"code-keyword">case</span>=20
-		when c.policy_no is <span class=3D"code-keyword">null</span> then <span c=
+        <span class=3D"code-keyword">else</span> b.pay_to=20
+    end) as pay_to,
+    a.extra_premium,a.branch_no,a.policy_org,
+    (<span class=3D"code-keyword">case</span>=20
+        when a.policy_type =3D 'O' then e.prd_name1
+        when a.policy_type in ('G','I') then f.prd_name
+        when a.policy_type =3D 'P' then g.prd_name
+    end) as product_name,    =20
+    d.province_name as customer_province_name,=20
+    (<span class=3D"code-keyword">case</span>=20
+        when c.policy_no is <span class=3D"code-keyword">null</span> then <span c=
 lass=3D"code-keyword">cast</span>('N' as varchar)=20
-		<span class=3D"code-keyword">else</span> <span class=3D"code-keyword">cas=
+        <span class=3D"code-keyword">else</span> <span class=3D"code-keyword">cas=
 t</span>('Y' as varchar)=20
-	end) as rider_flag,
-	b.rc_status,
-	b.rc_pay_date,
-	b.total_prem as premium_ordinary,
-	sum(c.premium_amount) as tot_rider_premium_amount, sum(c.extra_premium) as=
+    end) as rider_flag,
+    b.rc_status,
+    b.rc_pay_date,
+    b.total_prem as premium_ordinary,
+    sum(c.premium_amount) as tot_rider_premium_amount, sum(c.extra_premium) as=
  tot_rider_extra_premium,
-	now() as msapolicy_create_date,(<span class=3D"code-keyword">case</span> w=
+    now() as msapolicy_create_date,(<span class=3D"code-keyword">case</span> w=
 hen h.apl_status =3D'A' then 'Y' <span class=3D"code-keyword">else</span> '=
 N' end) as apl_flag
 from <span class=3D"code-keyword">public</span>.ili_policy_master a
 left join=20
-		(select b1.policy_no,b1.rc_status,b1.total_prem,b1.rc_pay_date,pay_to,
- 		ROW_NUMBER() over (partition by b1.policy_no order by pay_to) rn
-			from ili_receipt_ord_trn b1
-			where  b1.rc_agt =3D :agent_code_int 		=09
-			and b1.rc_status in ('B','C') )  b
-	on a.policy_no =3D b.policy_no
-	and a.policy_type =3D 'O'
-	and b.rc_status in ('B','C')
-	and b.rn =3D 1
+        (select b1.policy_no,b1.rc_status,b1.total_prem,b1.rc_pay_date,pay_to,
+         ROW_NUMBER() over (partition by b1.policy_no order by pay_to) rn
+            from ili_receipt_ord_trn b1
+            where  b1.rc_agt =3D :agent_code_int         =09
+            and b1.rc_status in ('B','C') )  b
+    on a.policy_no =3D b.policy_no
+    and a.policy_type =3D 'O'
+    and b.rc_status in ('B','C')
+    and b.rn =3D 1
 left join ili_rider_master c
-	on a.policy_no =3D c.policy_no
-	--and a.policy_type =3D c.policy_type
-	and ((a.policy_type =3D 'O' and c.rider_code &lt;&gt; '6') or a.policy_typ=
+    on a.policy_no =3D c.policy_no
+    --and a.policy_type =3D c.policy_type
+    and ((a.policy_type =3D 'O' and c.rider_code &lt;&gt; '6') or a.policy_typ=
 e in ('G','I','P'))
 left join ili_policy_address d
-	on a.policy_no =3D d.policy_no
-	and a.policy_type =3D d.policy_type
-	and d.address_type =3D '2'
+    on a.policy_no =3D d.policy_no
+    and a.policy_type =3D d.policy_type
+    and d.address_type =3D '2'
 left join ili_product_ord e
-	on a.product_code =3D e.prd_code
-	and a.policy_type =3D 'O'
+    on a.product_code =3D e.prd_code
+    and a.policy_type =3D 'O'
 left join ili_product_ind f
-	on a.product_code =3D f.prd_code
-	and a.policy_type in ('G','I')
+    on a.product_code =3D f.prd_code
+    and a.policy_type in ('G','I')
 left join ili_product_pa g
-	on a.product_code =3D g.prd_code
-	and a.policy_type =3D 'P'=09
+    on a.product_code =3D g.prd_code
+    and a.policy_type =3D 'P'=09
 left join ili_policy_apl h
-	on a.policy_no =3D h.policy_no
-	and h.apl_type =3D 'AP'=20
-	and h.apl_status =3D 'A'
+    on a.policy_no =3D h.policy_no
+    and h.apl_type =3D 'AP'=20
+    and h.apl_status =3D 'A'
 where a.agent_code =3D :agent_code_str=20
 group by=20
-	a.policy_no,a.policy_type,a.product_code,a.policy_status,a.sum_assured,
-	a.premium_amount,a.commencement_date,a.maturity_date,a.fully_paid_date,
-	a.payment_channel,a.payment_mode,a.next_paid_date,a.lapse_date,a.payment_t=
+    a.policy_no,a.policy_type,a.product_code,a.policy_status,a.sum_assured,
+    a.premium_amount,a.commencement_date,a.maturity_date,a.fully_paid_date,
+    a.payment_channel,a.payment_mode,a.next_paid_date,a.lapse_date,a.payment_t=
 erm,
-	a.policy_year,a.agent_code,a.id_no,a.first_name,a.last_name,a.birthdate,
-	a.gender_code,a.card_type,a.title_code,a.title_desc,a.marital_status,
-	a.marital_status_desc,a.origin,a.origin_desc,a.nationality,a.nationality_d=
+    a.policy_year,a.agent_code,a.id_no,a.first_name,a.last_name,a.birthdate,
+    a.gender_code,a.card_type,a.title_code,a.title_desc,a.marital_status,
+    a.marital_status_desc,a.origin,a.origin_desc,a.nationality,a.nationality_d=
 esc,
-	a.religion,a.religion_desc,a.education,a.education_desc,a.occupation_code,
-	a.occupation_desc,a.phone1,a.ext1,a.phone2,a.ext2,a.mobile1,a.mobile2,
-	a.age_at_comm_date,a.annual_income1,a.annual_income2,a.laser_code,
-	a.dopa_check_digit,a.monthly_income,a.email,a.cust_code,a.created_date,
-	a.updated_date,a.pay_from,
-	(<span class=3D"code-keyword">case</span>=20
-		when b.rc_status is <span class=3D"code-keyword">null</span> then a.pay_t=
+    a.religion,a.religion_desc,a.education,a.education_desc,a.occupation_code,
+    a.occupation_desc,a.phone1,a.ext1,a.phone2,a.ext2,a.mobile1,a.mobile2,
+    a.age_at_comm_date,a.annual_income1,a.annual_income2,a.laser_code,
+    a.dopa_check_digit,a.monthly_income,a.email,a.cust_code,a.created_date,
+    a.updated_date,a.pay_from,
+    (<span class=3D"code-keyword">case</span>=20
+        when b.rc_status is <span class=3D"code-keyword">null</span> then a.pay_t=
 o=20
-		<span class=3D"code-keyword">else</span> b.pay_to=20
-	end),
-	a.extra_premium,a.branch_no,a.policy_org,b.pay_to,
-	(<span class=3D"code-keyword">case</span>=20
-		when a.policy_type =3D 'O' then e.prd_name1
-		when a.policy_type in ('G','I') then f.prd_name
-		when a.policy_type =3D 'P' then g.prd_name
-	end),	=20
-	d.province_name,=20
-	(<span class=3D"code-keyword">case</span>=20
-		when c.policy_no is <span class=3D"code-keyword">null</span> then <span c=
+        <span class=3D"code-keyword">else</span> b.pay_to=20
+    end),
+    a.extra_premium,a.branch_no,a.policy_org,b.pay_to,
+    (<span class=3D"code-keyword">case</span>=20
+        when a.policy_type =3D 'O' then e.prd_name1
+        when a.policy_type in ('G','I') then f.prd_name
+        when a.policy_type =3D 'P' then g.prd_name
+    end),    =20
+    d.province_name,=20
+    (<span class=3D"code-keyword">case</span>=20
+        when c.policy_no is <span class=3D"code-keyword">null</span> then <span c=
 lass=3D"code-keyword">cast</span>('N' as varchar)=20
-		<span class=3D"code-keyword">else</span> <span class=3D"code-keyword">cas=
+        <span class=3D"code-keyword">else</span> <span class=3D"code-keyword">cas=
 t</span>('Y' as varchar)=20
-	end),
-	b.rc_status,b.rc_pay_date,b.total_prem,
-	(<span class=3D"code-keyword">case</span> when h.apl_status =3D'A' then 'Y=
+    end),
+    b.rc_status,b.rc_pay_date,b.total_prem,
+    (<span class=3D"code-keyword">case</span> when h.apl_status =3D'A' then 'Y=
 ' <span class=3D"code-keyword">else</span> 'N' end);=20
 </pre>
 </div></div>
@@ -1132,9 +1132,9 @@ n>   - <span class=3D"redText subText" title=3D"=E0=B9=80=E0=B8=AD=E0=B8=81=
 <p>2. =E0=B9=80=E0=B8=9E=E0=B8=B4=E0=B9=88=E0=B8=A1 left join ili_policy_ap=
 l <br>
 left join ili_policy_apl h<br>
-	on a.policy_no =3D h.policy_no<br>
-	and h.apl_type =3D 'AP' <br>
-	and h.apl_status =3D 'A'</p>
+    on a.policy_no =3D h.policy_no<br>
+    and h.apl_type =3D 'AP' <br>
+    and h.apl_status =3D 'A'</p>
 
 <p>3. =E0=B9=80=E0=B8=9E=E0=B8=B7=E0=B9=88=E0=B8=A1=E0=B8=AA=E0=B9=88=E0=B8=
 =A7=E0=B8=99 group by <br>
@@ -1179,9 +1179,9 @@ n>   - <span class=3D"redText subText" title=3D"=E0=B9=80=E0=B8=AD=E0=B8=81=
  2. =E0=B9=80=E0=B8=9E=E0=B8=B4=E0=B9=88=E0=B8=A1 left join ili_policy_apl =
 =20
 left join ili_policy_apl h=20
-	on a.policy_no =3D h.policy_no=20
-	and h.apl_type =3D 'AP' =20
-	and h.apl_status =3D 'A'=20
+    on a.policy_no =3D h.policy_no=20
+    and h.apl_type =3D 'AP' =20
+    and h.apl_status =3D 'A'=20
 
  3. =E0=B9=80=E0=B8=9E=E0=B8=B7=E0=B9=88=E0=B8=A1=E0=B8=AA=E0=B9=88=E0=B8=
 =A7=E0=B8=99 group by =20
@@ -1645,29 +1645,29 @@ ef=3D"http://jira.thaisamut.co.th/secure/ContactAdministrators!default.jspa=
     </div>
 
 <form id=3D"jira_request_timing_info" class=3D"dont-default-focus">
-	<fieldset class=3D"parameters hidden">
-	=09
-	=09
-	=09
-	=09
-	=09
-	=09
-	</fieldset>
+    <fieldset class=3D"parameters hidden">
+    =09
+    =09
+    =09
+    =09
+    =09
+    =09
+    </fieldset>
 </form>
 <!--
-	                 REQUEST ID : 569x3539954x1
-	          REQUEST TIMESTAMP : [16/Jul/2020:09:29:35 +0700]
-	               REQUEST TIME : 0.6660
-	                 ASESSIONID : arb4ji
-	        CONCURRENT REQUESTS : 1
+                     REQUEST ID : 569x3539954x1
+              REQUEST TIMESTAMP : [16/Jul/2020:09:29:35 +0700]
+                   REQUEST TIME : 0.6660
+                     ASESSIONID : arb4ji
+            CONCURRENT REQUESTS : 1
 
-	                      db.reads : name=3Ddb.reads; inv=3D278; ms=3D290; cpu=
+                          db.reads : name=3Ddb.reads; inv=3D278; ms=3D290; cpu=
 =3D0; rss=3D0;
-	                      db.conns : name=3Ddb.conns; inv=3D282; ms=3D318; cpu=
+                          db.conns : name=3Ddb.conns; inv=3D282; ms=3D318; cpu=
 =3D0; rss=3D0;
-	                     db.writes : name=3Ddb.writes; inv=3D2; ms=3D5; cpu=3D=
+                         db.writes : name=3Ddb.writes; inv=3D2; ms=3D5; cpu=3D=
 0; rss=3D0;
-	             issue.index.reads : name=3Dissue.index.reads; inv=3D1; ms=3D2=
+                 issue.index.reads : name=3Dissue.index.reads; inv=3D1; ms=3D2=
 6; cpu=3D0; rss=3D0;
 -->
 

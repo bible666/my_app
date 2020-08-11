@@ -4,8 +4,8 @@ Subject: public.biz_payment_customer - IT Enterprise Architecture - Ocean Life I
 Date: Tue, 14 Jul 2020 08:43:03 -0000
 MIME-Version: 1.0
 Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--MxAGOjEw42zICmS15NjQtIH3RH2biQFUpbUZFjoeWy----"
+    type="text/html";
+    boundary="----MultipartBoundary--MxAGOjEw42zICmS15NjQtIH3RH2biQFUpbUZFjoeWy----"
 
 
 ------MultipartBoundary--MxAGOjEw42zICmS15NjQtIH3RH2biQFUpbUZFjoeWy----
@@ -278,17 +278,17 @@ en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.5/5.3.1/_">
             <meta name=3D"ajs-existing-draft-id" content=3D"0">
             <meta name=3D"ajs-can-attach-files" content=3D"true">
                =20
-            		    <meta name=3D"ajs-max-thumb-width" content=3D"300">
-		    <meta name=3D"ajs-can-send-email" content=3D"true">
-		    <meta name=3D"ajs-is-dev-mode" content=3D"false">
-		    <meta name=3D"ajs-draft-save-interval" content=3D"30000">
-		    <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
-		    <meta name=3D"ajs-is-admin" content=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
+                        <meta name=3D"ajs-max-thumb-width" content=3D"300">
+            <meta name=3D"ajs-can-send-email" content=3D"true">
+            <meta name=3D"ajs-is-dev-mode" content=3D"false">
+            <meta name=3D"ajs-draft-save-interval" content=3D"30000">
+            <meta name=3D"ajs-show-hidden-user-macros" content=3D"false">
+            <meta name=3D"ajs-is-admin" content=3D"false">
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autocomplete" conte=
 nt=3D"false">
-		    <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
+            <meta name=3D"ajs-confluence.prefs.editor.disable.autoformat" content=
 =3D"false">
-		    <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
+            <meta name=3D"ajs-heartbeat-interval" content=3D"30000">
 =09
     </head>
 
@@ -4152,24 +4152,24 @@ ayment =E0=B8=82=E0=B8=AD=E0=B8=87 KTB</pre>
 =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
 =20
 CREATE TABLE public.biz_payment_customer (
-	id numeric(14) NOT NULL,
-	branch_code varchar(5) NOT NULL,
-	deduct_date numeric(4) NOT NULL,
-	bank_account varchar(10) NOT NULL,
-	bank_account_name varchar(255) NOT NULL,
-	policy_type varchar(10) NOT NULL,
-	policy_no varchar(25) NOT NULL,
-	bizpayment_channel varchar(1) NOT NULL,=09
-	gen_giro varchar(1) NULL DEFAULT 'N'::character varying,
-	mode_payment numeric(4) NULL DEFAULT 1,
-	bank_date timestamp without time zone NULL,
-	upload_date timestamp without time zone NULL,
-	status_pay varchar(1) NULL,
-	gen_date timestamp without time zone NULL,
-	send_r_biz_payment numeric(4) NULL DEFAULT 1,
-	status_group numeric(4) NULL,
-	transaction_date timestamp without time zone NULL,
-	CONSTRAINT biz_payment_customer_pkey PRIMARY KEY (id)
+    id numeric(14) NOT NULL,
+    branch_code varchar(5) NOT NULL,
+    deduct_date numeric(4) NOT NULL,
+    bank_account varchar(10) NOT NULL,
+    bank_account_name varchar(255) NOT NULL,
+    policy_type varchar(10) NOT NULL,
+    policy_no varchar(25) NOT NULL,
+    bizpayment_channel varchar(1) NOT NULL,=09
+    gen_giro varchar(1) NULL DEFAULT 'N'::character varying,
+    mode_payment numeric(4) NULL DEFAULT 1,
+    bank_date timestamp without time zone NULL,
+    upload_date timestamp without time zone NULL,
+    status_pay varchar(1) NULL,
+    gen_date timestamp without time zone NULL,
+    send_r_biz_payment numeric(4) NULL DEFAULT 1,
+    status_group numeric(4) NULL,
+    transaction_date timestamp without time zone NULL,
+    CONSTRAINT biz_payment_customer_pkey PRIMARY KEY (id)
 );</pre>
 </div></div><div class=3D"preformatted panel" style=3D"border-width: 1px;">=
 <div class=3D"preformattedContent panelContent">
@@ -4216,12 +4216,12 @@ px;"><div class=3D"preformattedContent panelContent">
 =3D=3D=3D=3D=3D=3D=3D=3D
 &nbsp;
 select
-	id,branch_code,deduct_date,bank_account,bank_account_name,policy_type,poli=
+    id,branch_code,deduct_date,bank_account,bank_account_name,policy_type,poli=
 cy_no,
-	bizpayment_channel,gen_giro,mode_payment,bank_date,upload_date,status_pay,=
+    bizpayment_channel,gen_giro,mode_payment,bank_date,upload_date,status_pay,=
 gen_date,send_r_biz_payment,status_group,now() as transaction_date
 from
-	biz_payment_customer;</pre>
+    biz_payment_customer;</pre>
 </div></div><div class=3D"table-wrap"><table class=3D"confluenceTable"><col=
 group><col><col><col><col><col><col><col></colgroup><tbody><tr><td class=3D=
 "highlight-grey confluenceTd" data-highlight-colour=3D"grey"><strong>TABLE<=
@@ -4514,8 +4514,8 @@ ment_customer"
 this</span></div><div id=3D"labels-section" class=3D"pageSection group">
     <div class=3D"labels-section-content content-column" entityid=3D"747766=
 006" entitytype=3D"page">
-	<div class=3D"labels-content">
-	=09
+    <div class=3D"labels-content">
+    =09
     <ul class=3D"label-list label-list-right  has-pen">
             <li class=3D"no-labels-message">
             No labels

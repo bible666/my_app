@@ -62,14 +62,14 @@ Over view
 Table : as400_olis_olpdecln
 Description: เก็บข้อมูล free look บอกล้าง ของ กธ. สามัญ
 
-Field Key Attribute	Data Type	size    decimal     comments
-POLIC#	CHAR(7)	 	เลขที่ กรมธรรม์
-DCLNDT	NUMERIC(6,0)	 	วันที่ บอกล้าง
-BOOKNM	CHAR(12)	 	เลขที่ หนังสือ
-RTNAMT	DECIMAL(14,2)	 	เงินคืน
-RTNDAT	NUMERIC(6,0)	 	วันที่ จ่ายคืน
-STSCDE	CHAR(1)	 	สถานภาพ ที่บันทึก
-USERID	CHAR(6)	 	USER ID
+Field Key Attribute    Data Type    size    decimal     comments
+POLIC#    CHAR(7)         เลขที่ กรมธรรม์
+DCLNDT    NUMERIC(6,0)         วันที่ บอกล้าง
+BOOKNM    CHAR(12)         เลขที่ หนังสือ
+RTNAMT    DECIMAL(14,2)         เงินคืน
+RTNDAT    NUMERIC(6,0)         วันที่ จ่ายคืน
+STSCDE    CHAR(1)         สถานภาพ ที่บันทึก
+USERID    CHAR(6)         USER ID
 
 
 Issue 2
@@ -82,11 +82,11 @@ Over view
 Table : as400_olis_olpdecln
 Description: เก็บข้อมูล free look บอกล้าง ของ กธ. สามัญ
 
-Field Key Attribute	Data Type	size    decimal     comments
-POLIC#	CHAR(7)	 	เลขที่ กรมธรรม์
-DCLNDT	NUMERIC(6,0)	 	วันที่ บอกล้าง
-BOOKNM	CHAR(12)	 	เลขที่ หนังสือ
-RTNAMT	DECIMAL(14,2)	 	เงินคืน
-RTNDAT	NUMERIC(6,0)	 	วันที่ จ่ายคืน
-STSCDE	CHAR(1)	 	สถานภาพ ที่บันทึก
-USERID	CHAR(6)	 	USER ID
+Field Key Attribute    Data Type    size    decimal     comments
+POLIC#    CHAR(7)         เลขที่ กรมธรรม์
+DCLNDT    NUMERIC(6,0)         วันที่ บอกล้าง
+BOOKNM    CHAR(12)         เลขที่ หนังสือ
+RTNAMT    DECIMAL(14,2)         เงินคืน
+RTNDAT    NUMERIC(6,0)         วันที่ จ่ายคืน
+STSCDE    CHAR(1)         สถานภาพ ที่บันทึก
+USERID    CHAR(6)         USER ID

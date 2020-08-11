@@ -8,35 +8,35 @@ Table : olpappdt
 
 
 ================== ชื่อ นามสกุล =======================
-APETIT	คำนำEN ผู้ขอ	tx_insure_request.insure_title_en_name	new_case_ops.insure_title_eng	
+APETIT    คำนำEN ผู้ขอ    tx_insure_request.insure_title_en_name    new_case_ops.insure_title_eng    
 new_case_ops.insure_title_eng
  
-APENAM	ชื่อEN ผู้ขอ	tx_insure_request.insure_first_en_name	new_case_ops.insure_name_eng	
+APENAM    ชื่อEN ผู้ขอ    tx_insure_request.insure_first_en_name    new_case_ops.insure_name_eng    
 new_case_ops.insure_name_eng
  
-APELNM	สกุลEN ผู้ขอ	tx_insure_request.insure_last_en_name	new_case_ops.insure_sname_eng	
+APELNM    สกุลEN ผู้ขอ    tx_insure_request.insure_last_en_name    new_case_ops.insure_sname_eng    
 new_case_ops.insure_sname_eng
  
-APOTIT	คำนำเดิม ผู้ขอ	tx_insure_request.insure_title_old_name	new_case_ops.insure_title_old	
+APOTIT    คำนำเดิม ผู้ขอ    tx_insure_request.insure_title_old_name    new_case_ops.insure_title_old    
 new_case_ops.insure_title_old
  
-APONAM	ชื่อเดิม ผู้ขอ	tx_insure_request.insure_first_old_name	new_case_ops.insure_name_old	
+APONAM    ชื่อเดิม ผู้ขอ    tx_insure_request.insure_first_old_name    new_case_ops.insure_name_old    
 new_case_ops.insure_name_old
  
-APOLNM	สกุลเดิม ผู้ขอ	tx_insure_request.insure_last_old_name	new_case_ops.insure_sname_old	
+APOLNM    สกุลเดิม ผู้ขอ    tx_insure_request.insure_last_old_name    new_case_ops.insure_sname_old    
 new_case_ops.insure_sname_old
  
-APMSTS	สถานภาพ	tx_insure_request.insure_marital_status	new_case_ops.insure_marital_status	
+APMSTS    สถานภาพ    tx_insure_request.insure_marital_status    new_case_ops.insure_marital_status    
 new_case_ops.insure_marital_status
     1 โสด 2 สมรส
  
-APMTIT	คำนำ คู่สมรส	tx_insure_request.insure_spouse_title_name	new_case_ops.insure_spouse_title	
+APMTIT    คำนำ คู่สมรส    tx_insure_request.insure_spouse_title_name    new_case_ops.insure_spouse_title    
 new_case_ops.insure_spouse_title
  
-APMNAM	ชื่อ คู่สมรส	tx_insure_request.insure_spouse_first_name	new_case_ops.insure_spouse_name	
+APMNAM    ชื่อ คู่สมรส    tx_insure_request.insure_spouse_first_name    new_case_ops.insure_spouse_name    
 new_case_ops.insure_spouse_name
  
-APMLNM	สกุล คู่สมรส	tx_insure_request.insure_spouse_last_name	new_case_ops.insure_spouse_sname	
+APMLNM    สกุล คู่สมรส    tx_insure_request.insure_spouse_last_name    new_case_ops.insure_spouse_sname    
 new_case_ops.insure_spouse_sname
 ========================================================
 
@@ -44,31 +44,31 @@ new_case_ops.insure_spouse_sname
 
 
 ================== ที่อยู่ ติดต่อ =======================
-APCNO	เลขที่ ปัจุบัน	tx_insure_request.addr_contact_house_no	new_case_ops.insure_addr_no3	
+APCNO    เลขที่ ปัจุบัน    tx_insure_request.addr_contact_house_no    new_case_ops.insure_addr_no3    
 new_case_ops.insure_addr_no3
  
-APCMOO	หมู่ที่ ปัจุบัน	tx_insure_request.addr_contact_village_no	new_case_ops.insure_moo3	
+APCMOO    หมู่ที่ ปัจุบัน    tx_insure_request.addr_contact_village_no    new_case_ops.insure_moo3    
 new_case_ops.insure_moo3
  
-APCTWN	อาคาร ปัจุบัน	tx_insure_request.addr_contact_village_name	new_case_ops.insure_village_building3	
+APCTWN    อาคาร ปัจุบัน    tx_insure_request.addr_contact_village_name    new_case_ops.insure_village_building3    
 new_case_ops.insure_village_building3
  
-APCSOI	ซอย ปัจุบัน	tx_insure_request.addr_contact_alley	new_case_ops.insure_soi3	
+APCSOI    ซอย ปัจุบัน    tx_insure_request.addr_contact_alley    new_case_ops.insure_soi3    
 new_case_ops.insure_soi3
  
-APCRAD	ถนน ปัจุบัน	tx_insure_request.addr_contact_road	new_case_ops.insure_road3	
+APCRAD    ถนน ปัจุบัน    tx_insure_request.addr_contact_road    new_case_ops.insure_road3    
 new_case_ops.insure_road3
  
-APCTCD	ตำบล ปัจุบัน	tx_insure_request.addr_contact_sub_distict	new_case_ops.insure_subdist3_as400	
+APCTCD    ตำบล ปัจุบัน    tx_insure_request.addr_contact_sub_distict    new_case_ops.insure_subdist3_as400    
 new_case_ops.insure_subdist3_as400
  
-APCUCD	อำเภอ ปัจุบัน	tx_insure_request.addr_contact_distict	new_case_ops.insure_district3_as400	
+APCUCD    อำเภอ ปัจุบัน    tx_insure_request.addr_contact_distict    new_case_ops.insure_district3_as400    
 new_case_ops.insure_district3_as400
  
-APCPCD	จังหวัด ปัจุบัน	tx_insure_request.addr_contact_province	new_case_ops.insure_province3_as400	
+APCPCD    จังหวัด ปัจุบัน    tx_insure_request.addr_contact_province    new_case_ops.insure_province3_as400    
 new_case_ops.insure_province3_as400
  
-APCZCD	ไปรษณีย์ ปัจุบัน	tx_insure_request.addr_contact_zip	new_case_ops.insure_zip3	
+APCZCD    ไปรษณีย์ ปัจุบัน    tx_insure_request.addr_contact_zip    new_case_ops.insure_zip3    
 new_case_ops.insure_zip3
 ========================================================
 
@@ -76,10 +76,10 @@ new_case_ops.insure_zip3
 
 
 ================== เบอร์โทร     =======================
-APHPHO	โทรศัพท์บ้าน	tx_insure_request.	new_case_ops.insure_tel3	
+APHPHO    โทรศัพท์บ้าน    tx_insure_request.    new_case_ops.insure_tel3    
 new_case_ops.insure_tel3
  
-APRPOH	โทรศัพท์มือถือ	tx_insure_request.	new_case_ops.insure_mobile3	
+APRPOH    โทรศัพท์มือถือ    tx_insure_request.    new_case_ops.insure_mobile3    
 new_case_ops.insure_mobile3
 
 ===================================================
@@ -88,42 +88,42 @@ new_case_ops.insure_mobile3
 
 
 ================== อาชีพ     =======================
-APOCPP	ตำแหน่ง	tx_insure_request.insure_occ_position	new_case_ops.insure_occ1_position	
+APOCPP    ตำแหน่ง    tx_insure_request.insure_occ_position    new_case_ops.insure_occ1_position    
 new_case_ops.insure_occ1_position
  
-APOCPA	ลักษณะงาน	tx_insure_request.insure_occ_jobdesc	new_case_ops.insure_occ1_jobdesc	
+APOCPA    ลักษณะงาน    tx_insure_request.insure_occ_jobdesc    new_case_ops.insure_occ1_jobdesc    
 new_case_ops.insure_occ1_jobdesc
  
-APOCPB	ลักษณะธุรกิจ	tx_insure_request.insure_occ_biztype	new_case_ops.insure_occ1_type	
+APOCPB    ลักษณะธุรกิจ    tx_insure_request.insure_occ_biztype    new_case_ops.insure_occ1_type    
 new_case_ops.insure_occ1_type
  
-APOCPO	รหัสอาชีพอื่นๆ	tx_insure_request.insure_occ_other_code	if new_case_ops.insure_occ1_code = '249'
+APOCPO    รหัสอาชีพอื่นๆ    tx_insure_request.insure_occ_other_code    if new_case_ops.insure_occ1_code = '249'
 or new_case_ops.insure_occ2_code = '249'
 ===================================================
 
 ================== สูปบุหรี่    =======================
-APSMK	สูบบุหรี่ 1=สูบ,0=ไม่	 	- ถ้า new_case_ops.pron_smoke = Y ใส่ 1
+APSMK    สูบบุหรี่ 1=สูบ,0=ไม่         - ถ้า new_case_ops.pron_smoke = Y ใส่ 1
 - ถ้า new_case_ops.pron_smoke = N ใส่ 0
-- default ค่าว่าง	
+- default ค่าว่าง    
 - ถ้า new_case_ops.pron_smoke = Y ใส่ 1
 - ถ้า new_case_ops.pron_smoke = N ใส่ 0
 - default ค่าว่าง
  
-APSMKA	สูบม้วนต่อวัน	 	new_case_ops.pb_pron_smoke_amount	
+APSMKA    สูบม้วนต่อวัน         new_case_ops.pb_pron_smoke_amount    
 new_case_ops.pb_pron_smoke_amount
  
-APSMKY	สูบมา(ปี)	 	 	default 0	 
+APSMKY    สูบมา(ปี)              default 0     
 ===================================================
 
 ================== ดื่มเหล้า   =======================
-APDRNK	ดื่มแอลกฮอล์ 1=ดื่ม,0=ไม่ดื่ม	 	- ถ้า new_case_ops.pron_alcohol = Y ใส่ 1
+APDRNK    ดื่มแอลกฮอล์ 1=ดื่ม,0=ไม่ดื่ม         - ถ้า new_case_ops.pron_alcohol = Y ใส่ 1
 - ถ้า new_case_ops.pron_alcohol = N ใส่ 0
-- default ค่าว่าง	
+- default ค่าว่าง    
 - ถ้า new_case_ops.pron_alcohol = Y ใส่ 1
 - ถ้า new_case_ops.pron_alcohol = N ใส่ 0
 - default ค่าว่าง
  
-APDRNA	แก้วต่อครั้ง	 	 	default 0	 
-APDRNW	ครั้งต่อสัปดาห์	 	 	 	 
-APDRNY	ดื่มมา(ปี)	 	 	default 0	 
+APDRNA    แก้วต่อครั้ง              default 0     
+APDRNW    ครั้งต่อสัปดาห์                    
+APDRNY    ดื่มมา(ปี)              default 0     
 ===================================================

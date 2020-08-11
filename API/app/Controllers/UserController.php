@@ -140,6 +140,7 @@ class UserController extends Origin001
         $user_login    = '';
         $user_password = '';
         $token         = '';
+        $http_code     = 200;
 
         $dataDB['status']  = "error";
         $dataDB['message'] = "";
@@ -224,13 +225,13 @@ class UserController extends Origin001
                 $this->mst_user_table->where( 'user_id', $row->user_id );
                 $this->mst_user_table->update( $user_update );
 
-                $dataDB['message'] = "not user22.[" . $user_login . "]"; //.$my;//.$this->encryption->encrypt('password');
+                $dataDB['message'] = "not user.[" . $user_login . "]"; //.$my;//.$this->encryption->encrypt('password');
             }
         } else {
             $dataDB['message'] = "not user."; //.$headers['Authorization'];
         }
 
-        return $this->respond( $dataDB );
+        return $this->respond( $dataDB, $http_code );
 
     }
 

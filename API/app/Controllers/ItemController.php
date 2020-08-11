@@ -76,8 +76,9 @@ class ItemController extends Origin001
      */
     public function get_data_by_id()
     {
-        $token = $this->getAuthHeader();
-        $data  = $this->request->getJSON();
+        $token          = $this->getAuthHeader();
+        $data           = $this->request->getJSON();
+        $http_code      = 200;
 
         //init data
         $item_code = isset( $data->item_code ) ? $data->item_code : -1;
@@ -99,7 +100,7 @@ class ItemController extends Origin001
                 $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
-                return $this->respond( $dataDB, 200 );
+                return $this->respond( $dataDB, $http_code );
             }
 
             $dataDB['status']  = "success";
@@ -110,9 +111,10 @@ class ItemController extends Origin001
             $dataDB['status']  = "error";
             $dataDB['message'] = "token not found";
             $dataDB['data']    = "";
+            $http_code         = 401;
         }
 
-        return $this->respond( $dataDB, 200 );
+        return $this->respond( $dataDB, $http_code );
     }
 
     public function get_lot_no_by_location_item()

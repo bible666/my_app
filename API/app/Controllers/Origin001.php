@@ -94,6 +94,7 @@ class Origin001 extends ResourceController
             $tokenData->staff_name = $staff_data->first_name;
             $tokenData->company_id = 0;
             $tokenData->staff_cat  = $staff_data->user_group_id;
+            $tokenData->http_code  = 401;
 
             //     //update token data
             //     $this->db->set(['update_date' => date("Y-m-d H:i:s")]);

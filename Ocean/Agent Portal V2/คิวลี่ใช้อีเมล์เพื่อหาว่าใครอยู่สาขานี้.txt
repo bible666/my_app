@@ -1,0 +1,4 @@
+SELECT *
+FROM dm_as400_pspslorg B INNER JOIN DM_AS400_PSPAGMT4 P ON B."SLUNT#" = P."AGORG#"
+     INNER JOIN DM_AS400_PSPAGMT1 ag on P."AGENT#" = ag."AGENT#"
+WHERE b.slunnm like '%อ้อมน้อย%' 

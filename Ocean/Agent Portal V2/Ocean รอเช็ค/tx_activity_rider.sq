@@ -1,0 +1,22 @@
+-- public.tx_activity_rider definition
+
+-- Drop table
+
+-- DROP TABLE public.tx_activity_rider;
+
+CREATE TABLE public.tx_activity_rider (
+	activity_rider_id numeric NOT NULL DEFAULT nextval('seq_tx_activity_rider'::regclass),
+	fk_activity_data_id int4 NULL,
+	rider_code varchar(10) NULL,
+	rider_name varchar(50) NULL,
+	rider_plan varchar(50) NULL,
+	rider_plan_name varchar(100) NULL,
+	active_flag varchar(1) NULL,
+	create_date timestamp NULL,
+	create_by varchar(50) NULL,
+	update_date timestamp NULL,
+	update_by varchar(50) NULL,
+	short_name varchar(20) NULL,
+	"type" varchar(10) NULL,
+	CONSTRAINT tx_activity_rider_pkey PRIMARY KEY (activity_rider_id)
+);

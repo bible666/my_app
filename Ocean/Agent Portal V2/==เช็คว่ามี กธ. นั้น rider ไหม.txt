@@ -1,0 +1,38 @@
+==เช็คว่ามี กธ. นั้น rider ไหม
+ili_rider_master
+==หาชื่อ prodcut
+ili_product_ind
+ili_product_ord
+ili_product_pa
+==จังหวัดลูกค้า
+ili_policy_address
+5:03
+http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=542572644
+5:05
+*********************8
+==หาเบี้ยหลัก+rider ของ กธ. สามัญ
+ili_receipt_ord_trn   where rc_code in ('B','C')
+==เช็คว่ามี กธ. นั้น rider ไหม
+ili_rider_master
+==หาชื่อ prodcut
+ili_product_ind
+ili_product_ord
+ili_product_pa
+==จังหวัดลูกค้า
+ili_policy_address
+New
+5:08
+###############
+5:08
+==หาเบี้ยหลัก+rider ของ กธ. สามัญ
+ili_receipt_ord_trn   where rc_code in ('B','C')
+- total_perm : เบี้ยหลัก+เบี้ย rider
+- due_date : วันชำระ
+==เช็คว่ามี กธ. นั้น rider ไหม
+ili_rider_master
+==หาชื่อ prodcut
+ili_product_ind
+ili_product_ord
+ili_product_pa
+==จังหวัดลูกค้า
+ili_policy_address

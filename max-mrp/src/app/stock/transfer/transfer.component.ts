@@ -38,11 +38,15 @@ export class TransferComponent implements OnInit {
         window.scroll(0,0);
         this.service.getLocation()
         .pipe(
-            tap(()         =>{this.loading.show();}),
-            finalize(()    =>{this.loading.hide();})
+            tap(()         =>{
+                this.loading.show();
+            }),
+            finalize(()    =>{
+                this.loading.hide();
+            })
         )
-        .subscribe(data=>{
-            if (data['status']== 'success'){
+        .subscribe( data => {
+            if ( data['status'] == 'success' ){
                 this.ar_location = data['data'];
             } 
         },
@@ -72,12 +76,11 @@ export class TransferComponent implements OnInit {
                 //cancel delete data
                 //alert('hiii');
             } else {
-                console.log(result);
                 // update seq
                 this.seq        += 1;
 
                 //conver result data to class
-                let insert_grid     : cGridData;
+                let insert_grid             : cGridData;
                 insert_grid                 = new cGridData();
                 insert_grid.id              = this.seq;
                 insert_grid.item_code       = result['item_code'];
@@ -89,17 +92,6 @@ export class TransferComponent implements OnInit {
 
                 //add class to array
                 this.ar_grid_data.push(insert_grid);
-                console.log(insert_grid);
-                console.log(this.ar_grid_data);
-
-
-                //let holiday = new FormGroup({
-                //  'holiday_date'        : new FormControl(result.holiday_date, [ Validators.required, Validators.maxLength(10) ]),
-                //  'holiday_name'        : new FormControl(result.holiday_text, [ Validators.required, Validators.maxLength(50) ]),
-                //  'show_date'           : new FormControl(result.show_date)
-                //});
-
-                //this.holidayForms.push(holiday);
                 
             }
         });

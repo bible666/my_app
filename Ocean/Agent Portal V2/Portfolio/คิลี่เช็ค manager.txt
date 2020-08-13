@@ -1,0 +1,125 @@
+HEAD_MANAGER("ผจภ.สข.","ผจภ.สข.","headmn_code_7","hmn") 
+
+select cc.manager_code_7 as agentCode7, cc.manager_name as agentName,    
+               cc.position_group as positionGroup,   
+               cc.position,   
+               cc.premium_portfolio as fyp, cc.commission_first as fyc,  
+               coalesce(cc.manager_persistency,0) as persistency,  
+               coalesce(cc.member,0) as member,  
+               ROW_NUMBER () OVER (ORDER BY cc.premium_portfolio desc, cc.manager_code_7) as row_number  
+              from  
+              (  
+              select aa.manager_code_7, aa.manager_name,    
+               cast('ผจก.หน่วย' as varchar) as position_group,   
+               cast('ผู้จัดการหน่วย' as varchar) as position,   
+               aa.premium_portfolio, aa.commission_first,  
+               aa.manager_persistency,  
+               bb.member   
+              from (  
+               select a.manager_code_7, a.manager_name,   
+               a.premium_portfolio, a.commission_first,  
+               b.manager_persistency  
+               from (  
+
+
+
+               select period, branch_code, manager_code_7, manager_name,  
+               sum(premium_portfolio) as premium_portfolio,  
+               sum(commission_first) as commission_first  
+               from agpt_agent_income  
+               where period = :period  
+               and branch_code = :branchCode  
+               and headmn_code_7 = :agentCode  
+               and (manager_code_7 <> '' and manager_code_7 is not null)  
+               group by period, branch_code, manager_code_7, manager_name   
+             
+
+  ) a   
+               left outer join agpt_persistency_summary b  
+               on a.period = b.period  
+               and a.branch_code = b.branch_code  
+               and a.manager_code_7 = b.manager_code_7   
+               group by a.manager_code_7, a.manager_name,  
+               a.premium_portfolio, a.commission_first, b.manager_persistency  
+               ) aa  
+              left outer join  
+               (  
+               select a.manager_code_7, count(a.agent_code_7) as member  
+               from (   
+               select manager_code_7, agent_code_7  
+               from agpt_agent_income   
+               where period = :period  
+               and branch_code = :branchCode  
+               and (position_group <> 'ตท.' and position_group <> 'ตท.กง.' and position_group is not null)  
+               and (asst_manager_code_7 is null or asst_manager_code_7 = '')  
+               group by manager_code_7, agent_code_7   
+               union all   
+               select manager_code_7, agent_code_7  
+               from agpt_agent_income  
+               where period = :period  
+               and branch_code = :branchCode  
+               and ((agent_code_7 = recruiter_code_7 or recruiter_code_7 is null or recruiter_code_7 = '') and  
+               (position_group = 'ตท.' or position_group = 'ตท.กง.' or position_group is null))   
+               and (asst_manager_code_7 is null or asst_manager_code_7 = '')  
+               union all  
+               select manager_code_7, asst_manager_code_7 as agent_code_7  
+               from agpt_agent_income  
+               where period = :period   
+               and branch_code = :branchCode  
+               and (manager_code_7 <> asst_manager_code_7 and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))  
+               group by manager_code_7, asst_manager_code_7   
+               ) a  
+               group by a.manager_code_7  
+               ) bb  
+              on aa.manager_code_7 = bb.manager_code_7  
+              union all  
+              select aa.manager_code_7, aa.manager_name,    
+               cast('ผช.ผจก.หน่วย' as varchar) as position_group,   
+               cast('ผู้ช่วยผู้จัดการหน่วย' as varchar) as position,   
+               aa.premium_portfolio, aa.commission_first,  
+               aa.manager_persistency,  
+               bb.member   
+              from (  
+               select a.asst_manager_code_7 as manager_code_7, a.asst_manager_name as manager_name,   
+               a.premium_portfolio, a.commission_first,  
+               b.asst_manager_persistency as manager_persistency  
+               from (  
+               select period, branch_code, asst_manager_code_7, asst_manager_name,  
+               sum(premium_portfolio) as premium_portfolio,  
+               sum(commission_first) as commission_first  
+               from agpt_agent_income  
+               where period = :period  
+               and branch_code = :branchCode  
+               and headmn_code_7 = :agentCode  
+               and ((manager_code_7 is null or manager_code_7 = '') and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))  
+               group by period, branch_code, asst_manager_code_7, asst_manager_name   
+               ) a   
+               left outer join agpt_persistency_summary b  
+               on a.period = b.period  
+               and a.branch_code = b.branch_code  
+               and a.asst_manager_code_7 = b.asst_manager_code_7   
+               group by a.asst_manager_code_7, a.asst_manager_name,  
+               a.premium_portfolio, a.commission_first, b.asst_manager_persistency  
+               ) aa  
+              left outer join  
+               (  
+               select a.asst_manager_code_7 as manager_code_7, count(a.agent_code_7) as member  
+               from (   
+               select asst_manager_code_7, agent_code_7  
+               from agpt_agent_income   
+               where period = :period  
+               and branch_code = :branchCode  
+               and (position_group <> 'ตท.' and position_group <> 'ตท.กง.' and position_group is not null)  
+               group by asst_manager_code_7, agent_code_7   
+               union all   
+               select asst_manager_code_7, agent_code_7  
+               from agpt_agent_income  
+               where period = :period  
+               and branch_code = :branchCode  
+               and ((agent_code_7 = recruiter_code_7 or recruiter_code_7 is null or recruiter_code_7 = '') and   
+               (position_group = 'ตท.' or position_group = 'ตท.กง.' or position_group is null))   
+               ) a  
+               group by a.asst_manager_code_7  
+               ) bb  
+              on aa.manager_code_7 = bb.manager_code_7  
+              ) cc

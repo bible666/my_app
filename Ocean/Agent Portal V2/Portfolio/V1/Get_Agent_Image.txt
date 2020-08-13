@@ -1,0 +1,33 @@
+APUI00_04_Get_Agent_Image
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Nov 14, 2017  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงรูปตาม agent code ที่ได้รับมา
+ 
+
+Process Overview
+ดึงรูปตาม agent code ที่ได้รับมาตาม path ที่เก็บไฟล์นี้ไว้ เพื่อนำไปแสดงบนหน้าจอ
+ 
+
+Preconditions
+รับค่า agent code เข้ามา
+ 
+
+Process Description
+ให้ดึงชื่อรูปตาม agent code ที่ได้รับมา ในฐานข้อมูล
+- ถ้าพบ 1 record จะได้ชื่อไฟล์รูปภาพ image_name เพื่อนำไปดึงรูปภาพนี้จาก path ที่เก็บไฟล์นี้ไว้ (Path >> ${jboss.server.data.dir}/geras/images/profile) แต่ถ้าไม่พบไฟล์ก็ให้ระบบแสดงรูปภาพ default (เป็นภาพการ์ตูนที่ใช้แทนตัวแทนที่ไม่มีรูปภาพ)
+- ถ้าพบ 0 record ให้ระบบแสดงรูปภาพ default (เป็นภาพการ์ตูนที่ใช้แทนตัวแทนที่ไม่มีรูปภาพ)
+Icon
+select	image_name
+from	agpt_agent_image
+where	agent_code_7 = v_agent_code;
+
+ตัวอย่างรูปภาพการ์ตูนที่ใช้แทนตัวแทนที่ไม่มีรูปภาพ       >>      
+
+Post-conditions
+ทำการ return ข้อมูล Agent Image ทั้งหมด 1 fields คือ 
+- image_name
+สามารถแสดงรูปของ Agent ที่ได้รับมาได้

@@ -1,0 +1,11 @@
+SELECT DISTINCT
+     cast(B."SLUNT#" as VARCHAR) as branch_code,
+     B."slunnm" as branch_name,
+     R."SLUNT#" as region_code,
+     R."slunnm" as region_name,
+     A."AGPOS@"
+from DM_AS400_PSPAGMT4 A
+    left join DM_AS400_PSPAGMT6 T on A."AGENT#"=T."AGENT#"
+    left join dm_as400_pspslorg B on (A."AGORG#" = B."SLUNT#" OR A."AGORG#" = B."SLREL#")
+    left join dm_as400_pspslorg R on (R."SLUNT#" = B."SLREL#")
+WHERE LOWER(T.AGMAIL) like  '%amnat.ru@ocean.co.th%'

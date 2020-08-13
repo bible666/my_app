@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on darwin)" generated="20191215 12:32:59.906" rpa="false">
+<suite id="s1" name="Testgc" source="/Applications/MAMP/htdocs/test_robot/testgc.robot">
+<kw name="ตั้งต้นระบบ" library="function_g" type="setup">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20191215 12:33:00.059" level="INFO">Connecting using : psycopg2.connect(database=ocean, user=postgres, password=eggthai, host=localhost, port=5432) </msg>
+<status status="PASS" starttime="20191215 12:33:00.046" endtime="20191215 12:33:00.065"></status>
+</kw>
+<kw name="Execute Sql Script" library="DatabaseLibrary">
+<doc>Executes the content of the `sqlScriptFileName` as SQL commands. Useful for setting the database to a known
+state before running your tests, or clearing out your test data after running each a test. Set optional input
+`sansTran` to True to run command without an explicit transaction commit or rollback.</doc>
+<arguments>
+<arg>./resources/init_news.sql</arg>
+</arguments>
+<msg timestamp="20191215 12:33:00.065" level="INFO">Executing : Execute SQL Script  |  ./resources/init_news.sql </msg>
+<status status="PASS" starttime="20191215 12:33:00.065" endtime="20191215 12:33:00.099"></status>
+</kw>
+<status status="PASS" starttime="20191215 12:33:00.046" endtime="20191215 12:33:00.099"></status>
+</kw>
+<test id="s1-t1" name="เพิ่ม knowledge ใหม่">
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select * from ms_knows_group</arg>
+</arguments>
+<msg timestamp="20191215 12:33:00.100" level="INFO">Executing : Check If Exists In Database  |  select * from ms_knows_group </msg>
+<msg timestamp="20191215 12:33:00.100" level="INFO">Executing : Query  |  select * from ms_knows_group </msg>
+<status status="PASS" starttime="20191215 12:33:00.100" endtime="20191215 12:33:00.100"></status>
+</kw>
+<tags>
+<tag>ok</tag>
+</tags>
+<status status="PASS" starttime="20191215 12:33:00.099" endtime="20191215 12:33:00.101" critical="yes"></status>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="teardown">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20191215 12:33:00.101" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20191215 12:33:00.101" endtime="20191215 12:33:00.101"></status>
+</kw>
+<status status="PASS" starttime="20191215 12:32:59.912" endtime="20191215 12:33:00.101"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">ok</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Testgc">Testgc</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,8 @@
+CREATE TABLE public.biz_payment_customer (
+ policy_no varchar(25) NOT NULL,
+ policy_type varchar(10) NOT NULL,
+ bizpayment_channel varchar(1) NULL,
+ bank_account varchar(10) NULL,
+ bank_account_name varchar(255) NULL,
+ CONSTRAINT "PK_BIZ_PAYMENT_CUSTOMER" PRIMARY KEY (policy_no)
+);

@@ -1,0 +1,30 @@
+Table HERMES_OTHER_CHANNEL_PAYMENT
+เก็บข้อมูล Other Channel Payment
+
+NO
+KEY
+ATTRIBUTE_NAME
+DATA_TYPE
+LENGTH
+DESCRIPTION
+1	PK	policy_no	varchar	8	เลขกรมธรรม์
+2	 	policy_type	varchar	3	IND, GOV, ORD
+3	 	is_premium_card	varchar	1	สถานะมีบัตรชำระเบี้ย
+1 = มีบัตรชำระเบี้ย ,
+0 = ไม่มีบัตรชำระเบี้ย
+4	 	payment_mode	int	 	mode ที่ลงทะเบียนไว้
+5	 	is_notice_letter	varchar	1	สถานะมีใบแจ้ง
+1 = มีใบแจ้ง ,
+0 = ไม่มีใบแจ้ง
+6	 	is_barcode_sms	varchar	1	สถานะมีการสมัครรับ sms barcode ชำระเบี้ย
+1 = สมัครรับ sms barcode ชำระเบี้ย
+0 = ไม่สมัครรับ sms barcode ชำระเบี้ย
+7	 	register_date	date	 	วันที่สมัคร other channel
+8	 	case_type	varchar	20	ที่มาของการสมัคร
+9	 	esb_created_date	timestamp	 	 
+10	 	
+created_date
+
+Timestamp	 	วันที่สร้างข้อมูล
+11	 	updated_date	Timestamp	 	วันที่ Update ข้อมูล
+12	 	premium_amount	numeric	13,2	เบี้ยประกัน

@@ -1,0 +1,201 @@
+APUI10_02_Get_Persistency_Detail_by_Status
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Jun 04, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูล Persistency Detail แยกตามสถานะ (เบี้ยมีผล, เบี้ยขาดผล) ตาม agent code, branch_code, period, position_group, premium_status และ policy_type ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูล Persistency Detail แยกตามสถานะ (เบี้ยมีผล, เบี้ยขาดผล) ในฐานข้อมูล ตาม agent code, branch_code, period, position_group, premium_status และ policy_type ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า agent code, branch_code, period, position_group, premium_status และ policy_type เข้ามา
+ 
+
+Process Description
+ถ้า agent code, branch_code, period, premium_status และ policy_type ที่ได้รับมานั้น มี position_group = "ผจภ.สข." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 2.)
+Icon
+select	case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_code_7 else a.supervisor_code_7 end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_code_7 else b.supervisor_code_7 end
+		end agent_code,
+		case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_name else a.supervisor_name end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_name else b.supervisor_name end
+		end agent_name,
+		case when a.headmn_code_7 = a.supervisor_code_7 then 'Y' else 'N' end as myself_flag,
+		a.policy_type, a.policy_no, 
+		case when a.premium_can_be <> 0 then a.premium_status else b.premium_status end as premium_status,
+		a.plan_code, a.plan_name,
+		case when a.premium_can_be <> 0 then a.premium_can_be else b.premium_month end as premium, 
+		case when a.premium_can_be <> 0 then a.sum_assure else b.sum_assured end as sum_assured, 
+		case when a.premium_can_be <> 0 then a.paid_to_date else b.paid_to_date end as paid_to_date, 
+		b.last_grace_period_date, 
+		a.commencement_date, a.la_name_surname		
+from		agpt_persistency_detail a
+left outer join	agpt_inactive_policy_detail b
+on		a.period = b.period
+	and	a.branch_code = b.branch_code
+	and	a.headmn_code_7 = b.headmn_code_7
+	and	a.policy_no = b.policy_no
+where	a.period = v_period -- '2560/18'
+	and	a.branch_code = v_branch_code -- '3208'
+	and	a.headmn_code_7 = v_agent_code -- '5711431'
+	and	a.premium_status = v_premium_status -- 'เบี้ยมีผล'
+	and	a.policy_type = v_policy_type -- 'สามัญ'
+order by	myself_flag desc, a.agent_code_7, a.policy_type desc, a.policy_no;
+     
+
+ถ้า agent code, branch_code, period, premium_status และ policy_type ที่ได้รับมานั้น มี position_group = "ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 3.) 
+Icon
+select	case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_code_7 else a.supervisor_code_7 end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_code_7 else b.supervisor_code_7 end
+		end agent_code,
+		case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_name else a.supervisor_name end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_name else b.supervisor_name end
+		end agent_name,
+		case when a.manager_code_7 = a.supervisor_code_7 then 'Y' else 'N' end as myself_flag,
+		a.policy_type, a.policy_no, 
+		case when a.premium_can_be <> 0 then a.premium_status else b.premium_status end as premium_status,
+		a.plan_code, a.plan_name,
+		case when a.premium_can_be <> 0 then a.premium_can_be else b.premium_month end as premium, 
+		case when a.premium_can_be <> 0 then a.sum_assure else b.sum_assured end as sum_assured, 
+		case when a.premium_can_be <> 0 then a.paid_to_date else b.paid_to_date end as paid_to_date, 
+		b.last_grace_period_date, 
+		a.commencement_date, a.la_name_surname		
+from		agpt_persistency_detail a
+left outer join	agpt_inactive_policy_detail b
+on		a.period = b.period
+	and	a.branch_code = b.branch_code
+	and	a.manager_code_7 = b.manager_code_7
+	and	a.policy_no = b.policy_no
+where	a.period = v_period -- '2560/18'
+	and	a.branch_code = v_branch_code -- '3208'
+	and	a.manager_code_7 = v_agent_code -- '5711431'
+	and	a.premium_status = v_premium_status -- 'เบี้ยมีผล'
+	and	a.policy_type = v_policy_type -- 'สามัญ'
+order by	myself_flag desc, a.agent_code_7, a.policy_type desc, a.policy_no;
+     
+
+ถ้า agent code, branch_code, period, premium_status และ policy_type ที่ได้รับมานั้น มี position_group = "ผช.ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 4.)
+Icon
+select	case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_code_7 else a.supervisor_code_7 end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_code_7 else b.supervisor_code_7 end
+		end agent_code,
+		case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_name else a.supervisor_name end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_name else b.supervisor_name end
+		end agent_name,
+		case when a.asst_manager_code_7 = a.supervisor_code_7 then 'Y' else 'N' end as myself_flag,
+		a.policy_type, a.policy_no, 
+		case when a.premium_can_be <> 0 then a.premium_status else b.premium_status end as premium_status,
+		a.plan_code, a.plan_name,
+		case when a.premium_can_be <> 0 then a.premium_can_be else b.premium_month end as premium, 
+		case when a.premium_can_be <> 0 then a.sum_assure else b.sum_assured end as sum_assured, 
+		case when a.premium_can_be <> 0 then a.paid_to_date else b.paid_to_date end as paid_to_date, 
+		b.last_grace_period_date, 
+		a.commencement_date, a.la_name_surname		
+from		agpt_persistency_detail a
+left outer join	agpt_inactive_policy_detail b
+on		a.period = b.period
+	and	a.branch_code = b.branch_code
+	and	a.asst_manager_code_7 = b.asst_manager_code_7
+	and	a.policy_no = b.policy_no
+where	a.period = v_period -- '2560/18'
+	and	a.branch_code = v_branch_code -- '3208'
+	and	a.asst_manager_code_7 = v_agent_code -- '3508459'
+	and	a.premium_status = v_premium_status -- 'เบี้ยมีผล'
+	and	a.policy_type = v_policy_type -- 'สามัญ'
+order by	myself_flag desc, a.agent_code_7, a.policy_type desc, a.policy_no;
+     
+
+ถ้า agent code, branch_code, period, premium_status และ policy_type ที่ได้รับมานั้น มี position_group = "หนน." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 5.)
+Icon
+select	case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_code_7 else a.supervisor_code_7 end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_code_7 else b.supervisor_code_7 end
+		end agent_code,
+		case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_name else a.supervisor_name end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_name else b.supervisor_name end
+		end agent_name,
+		'Y' as myself_flag,
+		a.policy_type, a.policy_no, 
+		case when a.premium_can_be <> 0 then a.premium_status else b.premium_status end as premium_status,
+		a.plan_code, a.plan_name,
+		case when a.premium_can_be <> 0 then a.premium_can_be else b.premium_month end as premium, 
+		case when a.premium_can_be <> 0 then a.sum_assure else b.sum_assured end as sum_assured, 
+		case when a.premium_can_be <> 0 then a.paid_to_date else b.paid_to_date end as paid_to_date, 
+		b.last_grace_period_date, 
+		a.commencement_date, a.la_name_surname		
+from		agpt_persistency_detail a
+left outer join	agpt_inactive_policy_detail b
+on		a.period = b.period
+	and	a.branch_code = b.branch_code
+	and	a.supervisor_code_7 = b.supervisor_code_7
+	and	a.policy_no = b.policy_no
+where	a.period = v_period -- '2560/18'
+	and	a.branch_code = v_branch_code -- '3208'
+	and	a.supervisor_code_7 = v_agent_code -- '5711431'
+	and	a.premium_status = v_premium_status -- 'เบี้ยมีผล'
+	and	a.policy_type = v_policy_type -- 'สามัญ'
+order by	myself_flag desc, a.agent_code_7, a.policy_type desc, a.policy_no;
+     
+
+ถ้า agent code, branch_code, period, premium_status และ policy_type ที่ได้รับมานั้น มี position_group in ("ตท.", "ตท.กง.") อย่างใดอย่างหนึ่ง ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 6.)
+Icon
+select	case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_code_7 else a.supervisor_code_7 end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_code_7 else b.supervisor_code_7 end
+		end agent_code,
+		case when a.premium_can_be <> 0 then 
+				case when (a.agent_code_7 is not null and a.agent_code_7 <> '') then a.agent_name else a.supervisor_name end
+			else case when (b.agent_code_7 is not null and b.agent_code_7 <> '') then b.agent_name else b.supervisor_name end
+		end agent_name,
+		'Y' as myself_flag,
+		a.policy_type, a.policy_no, 
+		case when a.premium_can_be <> 0 then a.premium_status else b.premium_status end as premium_status,
+		a.plan_code, a.plan_name,
+		case when a.premium_can_be <> 0 then a.premium_can_be else b.premium_month end as premium, 
+		case when a.premium_can_be <> 0 then a.sum_assure else b.sum_assured end as sum_assured, 
+		case when a.premium_can_be <> 0 then a.paid_to_date else b.paid_to_date end as paid_to_date, 
+		b.last_grace_period_date, 
+		a.commencement_date, a.la_name_surname		
+from		agpt_persistency_detail a
+left outer join	agpt_inactive_policy_detail b
+on		a.period = b.period
+	and	a.branch_code = b.branch_code
+	and	a.agent_code_7 = b.agent_code_7
+	and	a.policy_no = b.policy_no
+where	a.period = v_period -- '2561/07'
+	and	a.branch_code = v_branch_code -- '3406'
+	and	(a.agent_code_7 = v_agent_code or a.supervisor_code_7 = v_agent_code) -- '3508111'
+	and	a.premium_status = v_premium_status -- 'เบี้ยมีผล'
+	and	a.policy_type = v_policy_type -- 'สามัญ'
+order by	myself_flag desc, a.agent_code_7, a.policy_type desc, a.policy_no;
+     
+
+ [SQL Not Used : Old Version]
+Post-conditions
+ทำการ return ข้อมูล Persistency Detail ทั้งหมด 14 fields คือ 
+- agent_code
+- agent_name
+- myself_flag
+- policy_type
+- policy_no
+- premium_status
+- plan_code
+- plan_name
+- premium
+- sum_assured
+- paid_to_date
+- last_grace_period_date
+- commencement_date
+- la_name_surname

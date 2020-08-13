@@ -1,0 +1,31 @@
+select chk.policy_no_v2 , chk.branch_code ,chk.tmp_group_policy_status,
+       chk.temp_birthdate_v21,chk.cust_birthdate_400,
+       chk.temp_commencement_date_v5 , chk.commencement_date_400 ,
+       chk.age_nbs,chk.age_at_comm_400,age_nbs_check_more55YY ,age_as400_check_more55YY 
+       ,age_nbs_check_less55YYmore6MM + 1 as age_nbs_check_less55YYmore6M_complete
+      ,age_nbs_check_less55YYless6MM ,  age_as400_check_less55YYmore6MM + 1 as  age_as400_check_less55YYmore6M_complete
+      , age_as400_check_less55YYless6MM , check_birth_year83
+      from( 
+			select
+				case when cast(temp_commencement_date_v5 as numeric) > '25550101' 
+					then cast(substring(temp_birthdate_v21,1,2 ) as numeric) - cast(substring(temp_commencement_date_v5,1,2  as numeric) as age_nbs_check_more55YY
+				
+				,case when commencement_date_400 > '25550101'
+					then cast(substring(cust_birthdate_400,1,2 ) as numeric) - cast(substring(commencement_date_400,1,2 ) as numeric)  as age_as400_check_more55YY
+					
+				, case when cast(temp_commencement_date_v5 as numeric) < '25550101' and cast(substring(temp_commencement_date_v5,3,2 ) as numeric) > 6
+					then cast(substring(temp_birthdate_v21,1,2 ) as numeric)  - cast(temp_commencement_date_v5 ,1,2 ) as numeric)  as age_nbs_check_less55YYmore6MM 
+
+				, case when cast(temp_commencement_date_v5 as numeric) < '25550101' and cast(substring(temp_commencement_date_v5,3,2 ) as numeric) < 6
+					then cast(substring(temp_birthdate_v21,1,2 ) as numeric) - cast(temp_commencement_date_v5 ,1,2 ) as numeric) as age_nbs_check_less55YYless6MM
+					
+				, case when cust_birthdate_400 < '25550101' and cast(substring(cust_birthdate_400,3,2 ) as numeric) > 6
+					then cast(substring(cust_birthdate_400,1,2 ) as numeric)  - cast(commencement_date_400 as numeric)  as age_as400_check_less55YYmore6MM 
+
+				, case when cust_birthdate_400  < '25550101' and cast(substring(cust_birthdate_400,3,2 ) as numeric) < 6
+					then cast(substring(cust_birthdate_400,1,2 ) as numeric) - cast(commencement_date_400 as numeric) as age_as400_check_less55YYless6MM
+				,case when cast(substring(commencement_date_400,1,2 ) as numeric) < '83'and 
+					cast(substring(cust_birthdate_400,3,2 ) as numeric)||cast(substring(cust_birthdate_400,1,2 ) as numeric) = '0101'
+					then 1 else 0 end as check_birth_year83
+			from check_birth_nomatch chk 
+		) 

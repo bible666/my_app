@@ -1,0 +1,287 @@
+Table lg_activity_agent {
+  activity_agent_log_id int [pk, increment] // auto-increment
+  fk_activity_agent_id int
+  fk_activity_data  int
+  agent7 varchar(7) 
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table lg_activity_branch
+{
+  activity_branch_log_id int [pk, increment] // auto-increment
+  fk_activity_branch_id int
+  fk_activity_data_id int
+  branch_code varchar(20)
+  branch_name varchar(100)
+  region_code varchar(20)
+  region_name varchar(100)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+
+}
+
+TABLE lg_activity_agent_data
+{
+
+  activity_data_log_id int [pk, increment] // auto-increment
+  fk_activity_data_id int
+  activity_name varchar(200)
+  activity_body varchar(2000)
+  cover_image int
+  policy_period_start varchar(10)
+  policy_period_end varchar(10)
+  activity_type varchar(1)
+  calculate_type varchar(1)
+  view_type varchar(1)
+  summary_type varchar(1)
+  org_all_flag varchar(1)
+  position_all_flag varchar(1)
+  policy_type_ord_flag varchar(1)
+  policy_type_ind_flag varchar(1)
+  policy_type_pa_flag varchar(1)
+  policy_type_ul_flag varchar(1)
+  fyp_flag varchar(1)
+  fyc_flag varchar(1)
+  sum_insured varchar(1)
+  min_insurance_case int
+  min_amount numeric
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table lg_activity_detail
+{
+  activity_detail_log_id int [pk, increment] // auto-increment
+  fk_activity_detail_id int
+  fk_activity_data_id int
+  running_no int
+  min_value int
+  max_value int
+  award_type varchar(1)
+  each_value int
+  award varchar(200)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table lg_activity_insurance
+{
+  activity_insurance_log_id int [pk, increment] // auto-increment
+  fk_activity_insurance_id int
+  fk_activity_data_id int
+  insurance_code varchar(20)
+  insurance_name varchar(500)
+  cover_year int
+  payment_year int
+  insurance_type varchar(1)
+  sub_type varchar(200)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+
+Table lg_activity_position
+{
+  activity_position_log_id int [pk, increment] // auto-increment
+  fk_activity_position_id int
+  fk_activity_data_id int
+  position_code varchar(2)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table lg_activity_rider
+{
+  activity_rider_id int [pk, increment] // auto-increment
+  fk_activity_rider_id int
+  fk_activity_data_id int
+  rider_code varchar(10)
+  rider_name varchar(50)
+  rider_plan varchar(50)
+  rider_plan_name varchar(100)
+  type varchar(10)
+  short_name varchar(20)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table lg_activity_upload
+{
+  activity_upload_log_id int [pk, increment] // auto-increment
+  fk_activity_upload_id int
+  fk_activity_data_id int
+  content_id varchar(200)
+  file_Name varchar(200)
+  status varchar(1)
+  file_type varchar(10)
+  create_date timestamp
+  create_by varchar(50)
+}
+
+Table tx_activity_data
+{
+  activity_data_id int [pk, increment] // auto-increment
+  activity_name varchar(200)
+  activity_body varchar(2000)
+  cover_image int
+  policy_period_start varchar(10)
+  policy_period_end varchar(10)
+  activity_type varchar(1)
+  calculate_type varchar(1)
+  view_number int
+  summary_type varchar(1)
+  org_all_flag varchar(1)
+  position_all_flag varchar(1)
+  policy_type_ord_flag varchar(1)
+  policy_type_ind_flag varchar(1)
+  policy_type_pa_flag varchar(1)
+  policy_type_ul_flag varchar(1)
+  fyp_flag varchar(1)
+  fyc_flag varchar(1)
+  sum_insured varchar(1)
+  min_insurance_case int
+  min_amount numeric
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_agent
+{
+  activity_agent_id int [pk, increment] // auto-increment
+  fk_activity_data int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  agent_7 varchar(7)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_agent_data
+{
+  activity_agent_data_id int [pk, increment] // auto-increment
+  fk_activity_data_id int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  fk_policy_period varchar(10)
+  agent7 varchar(7)
+  region varchar(50)
+  branch_code varchar(4)
+  position_code varchar(10)
+  cover_year int
+  payment_year int
+  ord_flag varchar(1)
+  ann_flag varchar(1)
+  mrta_flag varchar(1)
+  mlta_flag varchar(1)
+  ind_flag varchar(1)
+  pa_flag varchar(1)
+  FYP numeric(19,2)
+  FYC numeric(19,2)
+  suminsured numeric(19,2)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_branch
+{
+  activity_branch_id int [pk, increment] // auto-increment
+  fk_activity_data_id int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  branch_code varchar(20)
+  branch_name varchar(100)
+  region_code varchar(20)
+  region_name varchar(100)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_detail
+{
+  activity_detail_id int [pk, increment] // auto-increment
+  fk_activity_data int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  running_no int
+  min_value int
+  max_value int
+  award_type varchar(1)
+  each_value int
+  award varchar(200)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_insurance
+{
+  activity_insurance_id int [pk, increment] // auto-increment
+  fk_activity_data_id int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  insurance_code varchar(20)
+  insurance_name varchar(500)
+  cover_year int
+  payment_year int
+  insurance_type varchar(1)
+  sub_type varchar(200)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_position
+{
+  activity_position_id int [pk, increment] // auto-increment
+  fk_activity_type_id int
+  position_code varchar(2)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_rider
+{
+  activity_rider_id int [pk, increment] // auto-increment
+  fk_activity_data_id int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  rider_code varchar(10)
+  rider_name varchar(50)
+  rider_plan varchar(50)
+  rider_plan_name varchar(100)
+  type varchar(10)
+  short_name varchar(20)
+  active_flag varchar(1)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}
+
+Table tx_activity_upload
+{
+  activity_upload_id int [pk, increment] // auto-increment
+  fk_activity_data int [ref: > tx_activity_data.activity_data_id] // inline relationship (many-to-one) 
+  upload_path varchar(200)
+  file_name varchar(200)
+  status varchar(1)
+  file_type varchar(10)
+  create_date timestamp
+  create_by varchar(50)
+  update_date timestamp
+  update_by varchar(50)
+}

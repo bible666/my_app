@@ -1,0 +1,30 @@
+ดึงข้อมูลกรมธรรม์สามัญ
+
+select  a.policy_type, a.pay_to, a.policy_no, a.policy_year, a.policy_status, 
+        a.product_code, b.prd_name1 as product_name, b.coverage_term, b.payment_term,
+        a.sum_assured, a.premium_amount, a.extra_premium, a.payment_mode, 
+        a.payment_channel, a.commencement_date, a.maturity_date, 
+        a.title_desc,a.first_name,a.last_name, a.age_at_comm_date,
+        a.mobile1 as mobile, d.province_name, a.agent_code,
+        case when c.policy_no is null then cast('N' as varchar)
+        else cast('Y' as varchar) end as rider_flag
+from        ili_policy_master a
+left outer join ili_product_ord b
+on      a.product_code = b.prd_code   
+left outer join ili_rider_master c 
+on      a.policy_no = c.policy_no and c.rider_code <> '6'
+left outer join ili_policy_address d
+on      a.policy_no = d.policy_no and address_type = '2'
+where   a.agent_code = ?  
+and a.policy_type in (?) 
+and (a.pay_to >= ? and a.pay_to < ?)
+and a.policy_status = ?
+group by    a.policy_type, a.pay_to, a.policy_no, a.policy_year, a.policy_status, 
+        a.product_code, b.prd_name1, b.coverage_term, b.payment_term,
+        a.sum_assured, a.premium_amount, a.extra_premium, a.payment_mode, 
+        a.payment_channel, a.commencement_date, a.maturity_date, 
+        a.title_desc, a.first_name, a.last_name, a.age_at_comm_date, 
+        a.mobile1, d.province_name, a.agent_code, 
+        case when c.policy_no is null then cast('N' as varchar)
+        else cast('Y' as varchar) end
+order by policy_no asc/desc offset ? limit ? 

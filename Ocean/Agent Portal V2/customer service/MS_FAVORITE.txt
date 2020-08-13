@@ -1,0 +1,44 @@
+MS_FAVORITE
+Skip to end of metadata
+Added by เอกวิทย์ ดวงจันทร์, last edited by เอกวิทย์ ดวงจันทร์ on Jun 04, 2020  (view change)Go to start of metadata
+TOC
+
+ 
+
+[ Convention ] [ Table   MS_FAVORITE ]
+ 
+
+ Convention
+
+<N/A ยังไม่ได้กำหนดน่ะเวลานี้>
+
+ 
+
+Table news type master
+
+เก็บข้อมูลตั้งชื่อกลุ่มลูกค้าที่ชื่นชอบ(favorite) ของ agent 
+
+Overview
+TABLE	
+MS_FAVORITE
+
+DESCRIPTION	เก็บข้อมูลตั้งชื่อกลุ่มลูกค้าที่ชื่นชอบ(favorite) ของ agent 
+NO	KEY	Column	
+Data Type
+
+Description	Remark	Constraints
+1	P	
+favorite_id
+
+integer	รหัสกลุ่ม	
+1 agent : สามารถสร้าง favorite ได้สูงสุด 5 กลุ่ม
+
+โดยให้ running favorite_id => 1-5 เท่านั้น
+
+PRIMARY KEY
+2	 	favorite_name	varchar(50)	ชื่อ กลุ่ม	 	 
+3	P	agent_code	varchar(10)	รหัสตัวแทน	 	PRIMARY KEY
+4	 	create_date	timestamp	วัน เวลาที่สร้าง	 	 
+5	 	create_by	varchar (30)	คนสร้าง	 	 
+6	 	update_date	timestamp	วัน เวลาที่แก้ไข	 	 
+7	 	update_by	varchar(30)	คนที่แก้ไข	 	 

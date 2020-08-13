@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20191217 08:57:39.987" rpa="false">
+<suite id="s1" name="Testgc" source="D:\robot_test\test_robot\test_robot\testgc.robot">
+<kw name="ตั้งต้นระบบ" library="function_g" type="setup">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20191217 08:57:40.330" level="INFO">Connecting using : psycopg2.connect(database=agentteam, user=agentteam, password=nopass, host=11.100.7.67, port=5432) </msg>
+<status status="PASS" starttime="20191217 08:57:40.256" endtime="20191217 08:57:40.362"></status>
+</kw>
+<status status="PASS" starttime="20191217 08:57:40.255" endtime="20191217 08:57:40.362"></status>
+</kw>
+<test id="s1-t1" name="เพิ่ม knowledge ใหม่">
+<kw name="Check If Exists In Database" library="DatabaseLibrary">
+<doc>Check if any row would be returned by given the input `selectStatement`. If there are no results, then this will
+throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit transaction
+commit or rollback.</doc>
+<arguments>
+<arg>select * from ms_knows_group</arg>
+</arguments>
+<msg timestamp="20191217 08:57:40.367" level="INFO">Executing : Check If Exists In Database  |  select * from ms_knows_group </msg>
+<msg timestamp="20191217 08:57:40.368" level="INFO">Executing : Query  |  select * from ms_knows_group </msg>
+<msg timestamp="20191217 08:57:40.386" level="FAIL">UndefinedTable: relation "ms_knows_group" does not exist
+LINE 1: select * from ms_knows_group
+                      ^
+</msg>
+<status status="FAIL" starttime="20191217 08:57:40.367" endtime="20191217 08:57:40.386"></status>
+</kw>
+<tags>
+<tag>ok</tag>
+</tags>
+<status status="FAIL" starttime="20191217 08:57:40.363" endtime="20191217 08:57:40.389" critical="yes">UndefinedTable: relation "ms_knows_group" does not exist
+LINE 1: select * from ms_knows_group
+                      ^
+</status>
+</test>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="teardown">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20191217 08:57:40.392" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20191217 08:57:40.392" endtime="20191217 08:57:40.393"></status>
+</kw>
+<status status="FAIL" starttime="20191217 08:57:39.989" endtime="20191217 08:57:40.393"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1">ok</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" id="s1" name="Testgc">Testgc</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,84 @@
+APUI12_06_Get_FYP_FYC_Seperate_of_Manager
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Mar 08, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูล FYP, FYC แยกเป็น 2 กลุ่ม ของระดับตำแหน่ง ผจก.หน่วย โดยแยกจาก Logic คือ กลุ่ม 1 จะรวม FYP, FYC เฉพาะของระดับตำแหน่ง ผจก.หน่วย กับ กลุ่ม 2 จะรวม FYP, FYC เฉพาะของระดับตำแหน่ง ผช.ผจก.หน่วย (เพื่อนำไป lookup ค่า commission rate แยก 2 กลุ่ม)  ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูล FYP, FYC แยกเป็น 2 กลุ่ม ของระดับตำแหน่ง ผจก.หน่วย โดยแยกจาก Logic คือ กลุ่ม 1 จะรวม FYP, FYC เฉพาะของระดับตำแหน่ง ผจก.หน่วย กับ กลุ่ม 2 จะรวม FYP, FYC เฉพาะของระดับตำแหน่ง ผช.ผจก.หน่วย (เพื่อนำไป lookup ค่า commission rate แยก 2 กลุ่ม) ในฐานข้อมูล ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า agent code, branch_code, period และ position_group เข้ามา
+ 
+
+Process Description
+ให้ get fyp, fyc และยอดต่าง ๆ ที่แยกตาม 2 กลุ่มข้างต้น จาก Query นี้
+Icon
+select		manager_code_7,
+		cast('ผจก.หน่วย' as varchar) as position_group,
+		cast('ผู้จัดการหน่วย' as varchar) as position,
+		sum(aa.fyp_manager) as fyp_manager,
+		sum(aa.fyp_asst_manager) as fyp_asst_manager,
+		sum(aa.fyp) as fyp,
+		sum(aa.fyc_manager) as fyc_manager,
+		sum(aa.fyc_asst_manager) as fyc_asst_manager,
+		sum(aa.fyc) as fyc,
+		sum(aa.new_case_manager) as new_case_manager,
+		sum(aa.new_case_asst_manager) as new_case_asst_manager,
+		sum(aa.new_case) as new_case,
+		sum(aa.new_case_ord_ind_manager) as new_case_ord_ind_manager,
+		sum(aa.new_case_ord_ind_asst_manager) as new_case_ord_ind_asst_manager,
+		sum(aa.new_case_ord_ind) as new_case_ord_ind,
+		sum(aa.new_case_pa_manager) as new_case_pa_manager,
+		sum(aa.new_case_pa_asst_manager) as new_case_pa_asst_manager,
+		sum(aa.new_case_pa) as new_case_pa
+from		(
+			select	manager_code_7, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then premium_portfolio else 0 end as fyp_manager, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then 0 else premium_portfolio end as fyp_asst_manager,
+					premium_portfolio as fyp,
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then commission_first else 0 end as fyc_manager, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then 0 else commission_first end as fyc_asst_manager,
+					commission_first as fyc,
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then (new_case_ord_ind + new_case_pa) else 0 end as new_case_manager, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then 0 else (new_case_ord_ind + new_case_pa) end as new_case_asst_manager,
+					(new_case_ord_ind + new_case_pa) as new_case,
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then new_case_ord_ind else 0 end as new_case_ord_ind_manager, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then 0 else new_case_ord_ind end as new_case_ord_ind_asst_manager,
+					new_case_ord_ind as new_case_ord_ind,
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then new_case_pa else 0 end as new_case_pa_manager, 
+					case when (asst_manager_code_7 is null or asst_manager_code_7 = '') then 0 else new_case_pa end as new_case_pa_asst_manager,
+					new_case_pa as new_case_pa
+			from		agpt_agent_income
+			where	period = v_period -- '2560/18'
+				and	branch_code = v_branch_code -- '3208'
+				and	manager_code_7 = v_agent_code -- '3902262'	
+		) aa	
+group by	manager_code_7;
+     
+
+Post-conditions
+ทำการ return ข้อมูลทั้งหมด 18 fields คือ 
+- manager_code_7
+- position_group
+- position
+- fyp_manager
+- fyp_asst_manager
+- fyp
+- fyc_manager
+- fyc_asst_manager
+- fyc
+- new_case_manager
+- new_case_asst_manager
+- new_case
+- new_case_ord_ind_manager
+- new_case_ord_ind_asst_manager
+- new_case_ord_ind
+- new_case_pa_manager
+- new_case_pa_asst_manager
+- new_case_pa

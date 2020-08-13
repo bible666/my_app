@@ -1,0 +1,43 @@
+if(policyType != null && policyType == PolicyType.O ) {
+ switch(policyStatus) {
+  case "I": return "มีผลบังคับ";
+  case "F": return "ชำระครบ";
+  case "O": return "ค้างชำระ";
+  case "W": return "ยกเว้นชำระ";
+  case "E": return "ขยายเวลา";
+  case "R": return "ปิดบัญชี";
+  case "P": return "ปิดบัญชีอัตโนมัติ";
+  case "C": return "ปฏิเสธ";
+  case "Z": return "ยกเลิก";
+  case "D": return "มรณกรรม";
+  case "S": return "เวนคืน";
+  case "L": return "ขาดผล";
+  case "A": return "เวนคืนอัตโนมัติ";
+  case "T": return "ขาดผลครบ 5 ปี";
+  case "M": return "ครบสัญญา";
+  default: return null;
+ }
+}else if(policyType != null && (policyType == PolicyType.I || policyType == PolicyType.G)) {
+ switch(policyStatus) {
+  case "0": return "มีผลบังคับ";
+  case "1": return "มีผลบังคับ (ขาดชำระ 1 เดือน)";
+  case "2": return "มีผลบังคับ (ขาดชำระ 2 เดือน)";
+  case "3": return "ค้างชำระ (Outstanding 3 เดือน)";
+  case "4": return "ค้างชำระ (Outstanding 4 เดือน)";
+  case "5": return "ค้างชำระ (Outstanding 5 เดือน)";
+  case "6": return "ปิดบัญชี (มีมูลค่า)";
+  case "7": return "ขาดผล";
+  case "8": return "ชำระครบ";
+  default: return null;
+ }
+}else if(policyType != null && policyType == PolicyType.P ) {
+ switch(policyStatus) {
+  case "I": return "มีผลบังคับ";
+  case "L": return "ขาดผล";
+  case "M": return "สิ้นสุดสัญญา";
+  case "B": return "บอกล้าง";
+  case "C": return "ยกเลิกสัญญา (โดยบริษัท)";
+  case "D": return "เสียชีวิต";
+  case "F": return "ปฏิเสธการจ่ายสินไหม";
+  case "Z": return "ยกเลิก (ลูกค้า)";
+  default: return null;

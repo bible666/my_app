@@ -1,0 +1,24 @@
+rect rgba(20, 230, 255, .1)
+    Note over  user,db: show news list
+    user->>login: input user/password
+    login->>+serviceLogin: check user/password
+    serviceLogin-->>-login: login 
+    login->>home: redirect
+    home->>news_list:get list for home
+    news_list->>service:call service get show data
+    service->>+db:get data for current date
+    db-->>-service:return data for current date
+    service->>news_list:return data for current date
+    news_list->>home: html news list
+    home->>user: show news list
+    user->>home: select news for show detail
+    home->>show_news: redirect
+    show_news->>service: get current news data
+    service->>db: get news data
+    Note over service, db: insert/update access read log
+    db-->>service: return current news data
+    service->>show_news: return request news data
+    show_news->>user: show news data
+    Note over user, db: if priority is high show accept button else show back button only
+ 
+end

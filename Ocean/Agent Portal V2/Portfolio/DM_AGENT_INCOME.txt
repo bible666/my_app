@@ -1,0 +1,96 @@
+dm_AGENT_INCOME
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Jan 17, 2019  (view change)Go to start of metadata
+TOC
+
+[ Convention ] [ Table AGPT_AGENT_INCOME type Transaction ] [ Relations ]
+ 
+
+Convention
+<N/A ยังไม่ได้กำหนดน่ะเวลานี้>
+
+Table dm_AGENT_INCOME type Transaction
+เก็บข้อมูลจาก file agent_income.csv จากระบบ Income และเป็นข้อมูลเดียวกับออก Report ในระบบ Income คือ รายงานผลงานรายได้_(รายสาขา-รายตัวแทน)_ทุกสาขา_0160_1460.xlsx (เพียงแต่เปลี่ยนการเก็บข้อมูลจากเดิมทีจะมีข้อมูลตั้งแต่งวดแรกถึงงวดที่สาขาบันทึกมา ก็จะเก็บเฉพาะงวดที่สาขาบันทึกมาเท่านั้น)
+
+No
+Key
+Column
+Data Type
+Description
+Remark
+Constraints
+1    PFK    id    varchar(10)    ที่          
+2    PFK    period    varchar(10)    งวด    ตัวอย่างข้อมูล เช่น 2560/14 เป็นต้น     
+3         region    varchar(50)    ภูมิภาค          
+4         branch_code    varchar(4)    รหัสสาขา          
+5         branch_name    varchar(50)    ชื่อสาขา          
+6         head_business_code_7    varchar(7)    รหัสผจก.ภาค          
+7         head_business_name    varchar(100)    ชื่อ - นามสกุล ผจก.ภาค    ชื่อผจก.ภาค [ ชื่อ column ใน excel ต้นฉบับ ]     
+8         headmn_code_7    varchar(7)    รหัสผจภ.สข.          
+9         headmn_name    varchar(100)    ชื่อ - นามสกุล ผจภ.สข.    ชื่อผจก.สข. [ ชื่อ column ใน excel ต้นฉบับ ]     
+10         manager_code_7    varchar(7)    รหัสผจก.หน่วย          
+11         manager_name    varchar(100)    ชื่อ - นามสกุล ผจก.หน่วย    ชื่อผจก.หน่วย [ ชื่อ column ใน excel ต้นฉบับ ]     
+12         agent_code_7    varchar(7)    รหัสตัวแทน          
+13         agent_status    varchar(20)    สถานะตัวแทน    ตัวอย่างข้อมูล เช่น Active เป็นต้น     
+14         agent_name    varchar(100)    ชื่อ - นามสกุล ตัวแทน    ชื่อตัวแทน [ ชื่อ column ใน excel ต้นฉบับ ]     
+15         position    varchar(100)    ตำแหน่ง          
+16         position_group    varchar(50)    กลุ่มตำแหน่ง    ตัวอย่างข้อมูล เช่น ผจก.หน่วย, หนน., ตท., ตท.กง., ข้อมูลไม่ชัดเจน เป็นต้น (ถ้าได้ข้อมูลเป็น ผจก.หน่วย หรือ ข้อมูลไม่ชัดเจน เมื่อนำไปใช้งานจะต้องแปลงเป็น หนน.)     
+17         personal_id    varchar(30)    เลขที่บัตรประชาชน    [ Production Issues ] JIRA : AGPT-196 (ขยายขนาดจาก 13 เป็น 30) เพราะมีข้อมูล personal_id > 13 หลักเข้ามา (เป็น format ที่ DC generate ขึ้นมา กรณีที่ ประเภทบัตร เป็นอื่นๆ เช่น 1400PPA10522528 ==> branch + policy type + policy no.)     
+18         occupation    varchar(100)    อาชีพ          
+19         occupation_group    varchar(100)    กลุ่มอาชีพ          
+20         education    varchar(100)    การศึกษา          
+21         education_group    varchar(100)    กลุ่มการศึกษา          
+22         agent_start_date    date    วันเริ่มงาน    ตัวอย่างข้อมูล เช่น 22/11/2559 เป็นต้น     
+23         
+appointed_year_desc
+varchar(100)    ปีที่แต่งตั้ง    ตัวอย่างข้อมูล เช่น แต่งตั้งปี 59 เป็นต้น     
+24         agent_age    varchar(5)    อายุตัวแทน          
+25         agent_age_duration    varchar(20)    ช่วงอายุตัวแทน          
+26         gender    varchar(5)    เพศ    ตัวอย่างข้อมูล เช่น ช, ญ เป็นต้น     
+27         working_age    varchar(5)    อายุงาน          
+28         position_date_current    date    วันเริ่มตำแหน่งปัจจุบัน          
+29         position_age    varchar(5)    อายุงานในตำแหน่ง          
+30         license    varchar(20)    เลขที่ใบอนุญาต          
+31         license_expired_date    date    วันหมดอายุ          
+32         appointed_period    varchar(20)    งวดที่แต่งตั้ง YYYY    YYYY คือ ปี พ.ศ. เช่น 2561 เป็นต้น     
+33         recruiter_code_7    varchar(7)    โค้ดผู้สร้าง          
+34         recruiter_name    varchar(100)    ชื่อ - นามสกุล ผู้สร้าง    ชื่อผู้สร้าง [ ชื่อ column ใน excel ต้นฉบับ ]     
+35         recruiter_position    varchar(100)    ตำแหน่งผู้สร้างสิ้นงวด YYYY/NN    YYYY/NN คือ ปี พ.ศ. / งวด เช่น 2560/14 เป็นต้น     
+36         manager_period_adjust    varchar(10)    งวดที่ปรับผจน.    ตัวอย่างข้อมูล เช่น 2560/14 เป็นต้น     
+37         manager_adjust_desc    varchar(100)    กลุ่มการปรับผจน.    ตัวอย่างข้อมูล เช่น ผจน.ใหม่ เป็นต้น     
+38         supervisor_period_adjust    varchar(10)    งวดที่ปรับหนน.    ตัวอย่างข้อมูล เช่น 2560/14 เป็นต้น     
+39         supervisor_adjust_desc    varchar(100)    กลุ่มการปรับหนน.    ตัวอย่างข้อมูล เช่น หนน.ใหม่, หนน.เก่า เป็นต้น     
+40         premium_cream    numeric(19,2)    เบี้ยครีม          
+41         premium_pa    numeric(19,2)    เบี้ย PA          
+42         premium_coffee    numeric(19,2)    เบี้ยกาแฟ          
+43         premium_total    numeric(19,2)    เบี้ยรวม          
+44         premium_portfolio    numeric(19,2)    เบี้ยนับผลงาน          
+45         new_case_ord_ind    numeric(10,0)    จำนวนเคสใหม่ (ปช.,สามัญ)          
+46         new_case_pa    numeric(10,0)    จำนวนเคสใหม่ (PA)          
+47         commission_first    numeric(19,2)    คอมปีแรก          
+48         commission_first_level    varchar(100)    ระดับคอมปีแรก    ตัวอย่างข้อมูล เช่น ไม่มีรายได้ / 1-4,999 บาท / 5,000-7,499 บาท / 7,500-12,999 บาท / 13,000-14,999 บาท / 15,000-19,999 บาท / 20,000-24,999 บาท / 25,000 บาทขึ้นไป เป็นต้น     
+49         commission_next_year    numeric(19,2)    คอมปีต่อไป          
+50         premium_can_be    numeric(19,2)    เบี้ยทำได้          
+51         premium_target    numeric(19,2)    เบี้ยตัวตั้ง          
+52         persistency    varchar(10)    อัตราคงอยู่ปี2    ตัวอย่างข้อมูล เช่น 100.00%, 96.34%, 0% เป็นต้น     
+53         
+appointed_agent_amount
+numeric(10,0)    จำนวนตัวแทนแต่งตั้ง          
+54         keep_amount    numeric(19,2)    ค่าเก็บ          
+55         ov_supervisor    numeric(19,2)    OV หนน          
+56         ov_manager    numeric(19,2)    OV ผจก.หน่วย          
+57         csv_created_date    timestamp    วัน/เดือน/ปี เวลา ที่สร้างไฟล์ csv    ตัวอย่างข้อมูล เช่น 01/11/2017 18:19:20 เป็นต้น     
+58         csv_created_by    varchar(20)    ผู้ที่สร้างไฟล์ csv    ตัวอย่างข้อมูล เช่น SYSTEM เป็นต้น     
+59         _audit_filename    varchar(255)    ชื่อไฟล์ (ไม่รวม path)    generate จาก ESB     
+60         _audit_filemod    timestamp    วัน/เดือน/ปี เวลา ที่แก้ไขไฟล์    generate จาก ESB     
+61         _audit_filesize    numeric(16,0)    ขนาดของไฟล์    generate จาก ESB     
+62         _audit_created    timestamp    วัน/เดือน/ปี เวลา ที่สร้างไฟล์    generate จาก ESB     
+63         asst_manager_code_7    varchar(7)    รหัส ผช.ผจก.หน่วย    [ เพิ่มมาใน Phase 2 ]     
+64         asst_manager_name    varchar(100)    ชื่อ - นามสกุล ผช.ผจก.หน่วย    [ เพิ่มมาใน Phase 2 ]     
+65         position_level    varchar(1)    ระดับของ ผจภ.สข.    
+[ เพิ่มมาใน Phase 2 ]
+
+มี 4 ค่า คือ null, '1', '2', '3' ใช้สำหรับนำไปเลือก query lookup commission ของตำแหน่ง ผจภ.สข. (Call Process : APUI12_05_Get_Commission_by_Position_Group (ข้อ 4.))
+
+ 
+Script

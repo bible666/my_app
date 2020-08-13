@@ -1,0 +1,41 @@
+sequenceDiagram
+    participant user
+    participant login as msa-nbsportal
+    participant home as msa-agentteam
+    participant news_list as msa-agentnewskm
+    participant db
+
+rect rgba(0, 0, 255, .1)
+    Note over user,db: update knowledge
+    user->>login: input user/password
+    login->>login: call service for check login
+    login->>home: redirect to main menu
+    user->>home: click menu knowledge
+    home->>news_list: request view knowledge list
+    news_list->>news_list:call service getKnowledge
+    news_list->>+db: send query for get data
+    db-->>-news_list: data for show in list
+    news_list->>news_list: refresh knowledge data
+    user->>news_list: click edit knowledge
+    news_list->>news_list: redirect to knowledge edit
+    user->>news_list: update knowledge data
+    user->>news_list: click save
+    news_list->>news_list: call service updateKnowledge
+    news_list->>+db:begin transaction
+    db-->>-news_list: return ok status
+    news_list->>+db: update tx_knows_data
+    db-->>-news_list: return ok status
+    news_list->>+db: insert lg_knows_history
+    db-->>-news_list: return ok status
+    news_list->>+db: insert/update tx_knows_upload
+    db-->>-news_list: return ok status
+    news_list->>+db:commit transaction
+    db-->>-news_list: return ok status
+    news_list->>news_list: redirect to knowledge list
+    news_list->>news_list:call service getKnowledge
+    news_list->>+db: send query for get data
+    db-->>-news_list: data for show in list
+    news_list->>news_list: refresh knowledge data
+    news_list->>user:show message save ok
+    
+end

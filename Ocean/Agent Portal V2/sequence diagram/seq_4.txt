@@ -1,0 +1,25 @@
+rect rgba(150, 0, 255, .1)
+    Note over  user,db: show news after login
+    user->>login: input user/password
+    login->>+serviceLogin: check user/password
+    serviceLogin-->>-login: login 
+    login->>home: redirect
+    home->>service:get news high priority
+    service->>+db:get high priority news
+    Note over service, db: get only not accept  and <br/>now date > start and  <br/>(now date <= end or end is null )
+    db-->>-service:high priority data
+    service->>home:send high priority data
+    
+    loop show high data
+        home->>+service: setRead
+        service->>+db: insert agent read
+        db-->>-service: status ok
+        service-->>-home: status ok
+        home->>+user: show high priority data with dialog
+        user->>-home: click accept
+        home->>service: setAccept
+        service->>+db: update agent accept
+        db-->>-service: status ok
+        service-->>home: status ok
+    end
+end

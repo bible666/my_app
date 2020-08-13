@@ -1,0 +1,2 @@
+select * from ms_admin_manage_branch mamb
+where email = 'suchanun.wo@ocean.co.th'   = 

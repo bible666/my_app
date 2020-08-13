@@ -1,0 +1,398 @@
+APUI05_05_Get_FYP_FYC_Pers_Order_BY_FYC
+Skip to end of metadata
+Added by วิรัตน์ มหาศาลประเสริฐ, last edited by วิรัตน์ มหาศาลประเสริฐ on Feb 12, 2018  (view change)Go to start of metadata
+TOC
+
+[ Objectives ] [ Process Overview ] [ Preconditions ] [ Process Description ] [ Post-conditions ]
+Objectives
+ดึงข้อมูล FYP, FYC และ Persistency รวมทีม ของลูกทีม โดยเรียงตาม FYC จากมากไปน้อย ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Process Overview
+ดึงข้อมูล FYP, FYC และ Persistency รวมทีม ของลูกทีม โดยเรียงตาม FYC จากมากไปน้อย ในฐานข้อมูล ตาม agent code, branch_code, period และ position_group ที่ได้รับมา
+ 
+
+Preconditions
+รับค่า agent code, branch_code, period และ position_group เข้ามา
+ 
+
+Process Description
+[Phase 2 - edit] ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผจภ.สข." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 2.)
+Icon
+select	cc.manager_code_7 as agent_code_7, cc.manager_name as agent_name, 					
+		cc.position_group, 
+		cc.position, 
+		cc.premium_portfolio as fyp, cc.commission_first as fyc,
+		coalesce(cc.manager_persistency,0) as persistency,
+		coalesce(cc.member,0) as member,
+		ROW_NUMBER () OVER (ORDER BY cc.commission_first desc, cc.manager_code_7) as row_number
+from
+(
+select	aa.manager_code_7, aa.manager_name, 					
+		'ผจก.หน่วย' :: varchar as position_group, 
+		'ผู้จัดการหน่วย' :: varchar as position, 
+		aa.premium_portfolio, aa.commission_first,
+		aa.manager_persistency,
+		bb.member		
+from		(
+			select	a.manager_code_7, a.manager_name, 
+					a.premium_portfolio, a.commission_first,
+					b.manager_persistency
+			from		(
+						select	period, branch_code, manager_code_7, manager_name,
+								sum(premium_portfolio) as premium_portfolio,
+								sum(commission_first) as commission_first
+						from		agpt_agent_income
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	headmn_code_7 = v_agent_code
+							and	(manager_code_7 <> '' and manager_code_7 is not null)
+						group by	period, branch_code, manager_code_7, manager_name							
+					) a			
+			left outer join	agpt_persistency_summary b
+			on		a.period = b.period
+				and	a.branch_code = b.branch_code
+				and	a.manager_code_7 = b.manager_code_7	
+			group by	a.manager_code_7, a.manager_name,
+					a.premium_portfolio, a.commission_first, b.manager_persistency
+		) aa
+left outer join
+		(
+			select	a.manager_code_7, count(a.agent_code_7) as member
+			from		(				
+						select	manager_code_7, agent_code_7
+						from		agpt_agent_income				
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	(position_group <> 'ตท.' and position_group <> 'ตท.กง.' and position_group is not null)
+							and	(asst_manager_code_7 is null or asst_manager_code_7 = '')
+						group by	manager_code_7, agent_code_7	
+						union all -- Manager --> Agent (not have supervisor)
+						select	manager_code_7, agent_code_7
+						from		agpt_agent_income
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	((agent_code_7 = recruiter_code_7 or recruiter_code_7 is null or recruiter_code_7 = '') and -- >> [corrected by AGPT-34]
+								(position_group = 'ตท.' or position_group = 'ตท.กง.' or position_group is null))		
+							and	(asst_manager_code_7 is null or asst_manager_code_7 = '')
+						union all
+						select	manager_code_7, asst_manager_code_7 as agent_code_7
+						from		agpt_agent_income
+						where	period = v_period 
+							and	branch_code = v_branch_code
+							and	(manager_code_7 <> asst_manager_code_7 and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))
+						group by	manager_code_7, asst_manager_code_7						
+					) a
+			group by	a.manager_code_7
+		) bb
+on		aa.manager_code_7 = bb.manager_code_7
+union all
+select	aa.manager_code_7, aa.manager_name, 					
+		'ผช.ผจก.หน่วย' :: varchar as position_group, 
+		'ผู้ช่วยผู้จัดการหน่วย' :: varchar as position, 
+		aa.premium_portfolio, aa.commission_first,
+		aa.manager_persistency,
+		bb.member		
+from		(
+			select	a.asst_manager_code_7 as manager_code_7, a.asst_manager_name as manager_name, 
+					a.premium_portfolio, a.commission_first,
+					b.asst_manager_persistency as manager_persistency
+			from		(
+						select	period, branch_code, asst_manager_code_7, asst_manager_name,
+								sum(premium_portfolio) as premium_portfolio,
+								sum(commission_first) as commission_first
+						from		agpt_agent_income
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	headmn_code_7 = v_agent_code
+							and	((manager_code_7 is null or manager_code_7 = '') and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))
+						group by	period, branch_code, asst_manager_code_7, asst_manager_name							
+					) a			
+			left outer join	agpt_persistency_summary b
+			on		a.period = b.period
+				and	a.branch_code = b.branch_code
+				and	a.asst_manager_code_7 = b.asst_manager_code_7	
+			group by	a.asst_manager_code_7, a.asst_manager_name,
+					a.premium_portfolio, a.commission_first, b.asst_manager_persistency
+		) aa
+left outer join
+		(
+			select	a.asst_manager_code_7 as manager_code_7, count(a.agent_code_7) as member
+			from		(				
+						select	asst_manager_code_7, agent_code_7
+						from		agpt_agent_income				
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	(position_group <> 'ตท.' and position_group <> 'ตท.กง.' and position_group is not null)
+						group by	asst_manager_code_7, agent_code_7	
+						union all -- Manager --> Agent (not have supervisor)
+						select	asst_manager_code_7, agent_code_7
+						from		agpt_agent_income
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	((agent_code_7 = recruiter_code_7 or recruiter_code_7 is null or recruiter_code_7 = '') and -- >> [corrected by AGPT-34]
+								(position_group = 'ตท.' or position_group = 'ตท.กง.' or position_group is null))								
+					) a
+			group by	a.asst_manager_code_7
+		) bb
+on		aa.manager_code_7 = bb.manager_code_7
+) cc;
+     
+
+ [SQL Not Used : Old Version]
+     
+
+[Phase 2 - edit] ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 3.) 
+Icon
+select	cc.agent_code_7, cc.agent_name,
+		case when cc.position_group not in ('ผช.ผจก.หน่วย', 'หนน.', 'ตท.', 'ตท.กง.') then 'หนน.' :: varchar
+			else cc.position_group
+		end position_group,
+		case when cc.position_group not in ('ผช.ผจก.หน่วย', 'หนน.', 'ตท.', 'ตท.กง.') then 'หัวหน้าหน่วย' :: varchar
+			else cc.position
+		end as position, 
+		cc.premium_portfolio as fyp, cc.commission_first as fyc,
+		coalesce(cc.supervisor_persistency,0) as persistency,
+		case when cc.position_group in ('ตท.', 'ตท.กง.') then 0 -- >> [corrected by AGPT-31]
+			else coalesce(cc.member,0)
+		end as member,
+		ROW_NUMBER () OVER (ORDER BY cc.commission_first desc, cc.agent_code_7) as row_number
+from		
+(		
+select	aa.agent_code_7, aa.agent_name,
+		aa.position_group,
+		aa.position, 
+		aa.premium_portfolio, aa.commission_first,
+		aa.supervisor_persistency,
+		bb.member		
+from		(
+			select	c.agent_code_7, c.agent_name, c.position_group, c.position,  
+					(c.premium_portfolio + c.sub_premium_portfolio) as premium_portfolio, 
+					(c.commission_first + c.sub_commission_first) as commission_first,
+					d.supervisor_persistency
+			from		(
+						select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, 
+								a.premium_portfolio, sum(coalesce(b.premium_portfolio,0)) as sub_premium_portfolio,
+								a.commission_first, sum(coalesce(b.commission_first,0)) as sub_commission_first,
+								a.position_group, a.position
+						from		agpt_agent_income a
+						left outer join	agpt_agent_income b
+						on		(a.period = b.period and a.branch_code = b.branch_code and
+								 a.agent_code_7 = b.recruiter_code_7 and a.agent_code_7 <> b.agent_code_7 and
+								(b.position_group = 'ตท.' or b.position_group = 'ตท.กง.' or b.position_group is null))					
+						where	a.period = v_period
+							and	a.branch_code = v_branch_code
+							and	a.manager_code_7 = v_agent_code
+							and	(a.position_group <> 'ตท.' and a.position_group <> 'ตท.กง.' and a.position_group is not null)
+							and	(a.asst_manager_code_7 is null or a.asst_manager_code_7 = '')
+						group by	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, a.premium_portfolio, a.commission_first, a.position_group, a.position
+						union all -- Manager --> Agent (not have supervisor)
+						select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, 
+								a.premium_portfolio, 0 as sub_premium_portfolio,
+								a.commission_first, 0 as sub_commission_first,
+								a.position_group, a.position
+						from		agpt_agent_income a
+						where	a.period = v_period
+							and	a.branch_code = v_branch_code
+							and	a.manager_code_7 = v_agent_code
+							and	((a.agent_code_7 = a.recruiter_code_7 or a.recruiter_code_7 is null or a.recruiter_code_7 = '') and 
+								(a.position_group = 'ตท.' or a.position_group = 'ตท.กง.' or a.position_group is null))	
+							and	(a.asst_manager_code_7 is null or a.asst_manager_code_7 = '')			
+					) c		
+			left outer join	agpt_persistency_summary d
+			on		c.period = d.period
+				and	c.branch_code = d.branch_code
+				and	c.agent_code_7 = d.supervisor_code_7
+			group by	c.agent_code_7, c.agent_name, c.position_group, c.position,
+					(c.premium_portfolio + c.sub_premium_portfolio), 
+					(c.commission_first + c.sub_commission_first), d.supervisor_persistency
+		) aa
+left outer join
+		(
+			select	a.recruiter_code_7, count(a.agent_code_7) as member
+			from		(				
+						select	recruiter_code_7, agent_code_7
+						from		agpt_agent_income				
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	(position_group = 'ตท.' or position_group = 'ตท.กง.')
+							and	recruiter_code_7 <> agent_code_7 -- >> [corrected by AGPT-31]	
+						group by	recruiter_code_7, agent_code_7									
+					) a
+			group by	a.recruiter_code_7
+		) bb
+on		aa.agent_code_7 = bb.recruiter_code_7
+union all
+select	aa.agent_code_7, aa.agent_name,
+		aa.position_group,
+		aa.position, 
+		aa.premium_portfolio, aa.commission_first,
+		aa.supervisor_persistency,
+		bb.member
+from		(
+			select	c.agent_code_7, c.agent_name, c.position_group, c.position,  
+					(c.premium_portfolio + c.sub_premium_portfolio) as premium_portfolio, 
+					(c.commission_first + c.sub_commission_first) as commission_first,
+					d.asst_manager_persistency as supervisor_persistency
+			from		(
+						select	period, branch_code, asst_manager_code_7 as agent_code_7, asst_manager_name as agent_name, 
+								null as recruiter_code_7, sum(premium_portfolio) as premium_portfolio, 0 as sub_premium_portfolio,
+								sum(commission_first) as commission_first, 0 as sub_commission_first,
+								'ผช.ผจก.หน่วย' :: varchar as position_group, 'ผู้ช่วยผู้จัดการหน่วย' :: varchar as position
+						from		agpt_agent_income
+						where	period = v_period 
+							and	branch_code = v_branch_code
+							and	manager_code_7 = v_agent_code
+							and	(manager_code_7 <> asst_manager_code_7 and (asst_manager_code_7 is not null and asst_manager_code_7 <> ''))
+						group by	period, branch_code, asst_manager_code_7, asst_manager_name	
+					) c		
+			left outer join	agpt_persistency_summary d
+			on		c.period = d.period
+				and	c.branch_code = d.branch_code
+				and	c.agent_code_7 = d.asst_manager_code_7	
+			group by	c.agent_code_7, c.agent_name, c.position_group, c.position,
+					(c.premium_portfolio + c.sub_premium_portfolio), 
+					(c.commission_first + c.sub_commission_first), d.asst_manager_persistency
+		) aa
+left outer join
+		(
+			select	a.asst_manager_code_7, count(a.agent_code_7) as member
+			from		(				
+						select	asst_manager_code_7, agent_code_7
+						from		agpt_agent_income				
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	(position_group <> 'ตท.' and position_group <> 'ตท.กง.' and position_group is not null)
+						group by	asst_manager_code_7, agent_code_7	
+						union all -- Manager --> Agent (not have supervisor)
+						select	asst_manager_code_7, agent_code_7
+						from		agpt_agent_income
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	((agent_code_7 = recruiter_code_7 or recruiter_code_7 is null or recruiter_code_7 = '') and -- >> [corrected by AGPT-34]
+								(position_group = 'ตท.' or position_group = 'ตท.กง.' or position_group is null))									
+					) a
+			group by	a.asst_manager_code_7
+		) bb
+on		aa.agent_code_7 = bb.asst_manager_code_7
+) cc;
+     
+
+ [SQL Not Used : Old Version]
+     
+
+[Phase 2 - add] ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "ผช.ผจก.หน่วย" ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 4.)
+Icon
+select	aa.agent_code_7, aa.agent_name,
+		case when aa.position_group not in ('หนน.', 'ตท.', 'ตท.กง.') then 'หนน.' :: varchar
+			else aa.position_group
+		end position_group,
+		case when aa.position_group not in ('หนน.', 'ตท.', 'ตท.กง.') then 'หัวหน้าหน่วย' :: varchar
+			else aa.position
+		end as position, 
+		aa.premium_portfolio as fyp, aa.commission_first as fyc,
+		coalesce(aa.supervisor_persistency,0) as persistency,
+		case when aa.position_group in ('ตท.', 'ตท.กง.') then 0 -- >> [corrected by AGPT-31]
+			else coalesce(bb.member,0)
+		end as member,
+		ROW_NUMBER () OVER (ORDER BY aa.commission_first desc, aa.agent_code_7) as row_number
+from		(
+			select	c.agent_code_7, c.agent_name, c.position_group, c.position,  
+					(c.premium_portfolio + c.sub_premium_portfolio) as premium_portfolio, 
+					(c.commission_first + c.sub_commission_first) as commission_first,
+					d.supervisor_persistency
+			from		(
+						select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, 
+								a.premium_portfolio, sum(coalesce(b.premium_portfolio,0)) as sub_premium_portfolio,
+								a.commission_first, sum(coalesce(b.commission_first,0)) as sub_commission_first,
+								a.position_group, a.position
+						from		agpt_agent_income a
+						left outer join	agpt_agent_income b
+						on		(a.period = b.period and a.branch_code = b.branch_code and
+								 a.agent_code_7 = b.recruiter_code_7 and a.agent_code_7 <> b.agent_code_7 and
+								(b.position_group = 'ตท.' or b.position_group = 'ตท.กง.' or b.position_group is null))					
+						where	a.period = v_period
+							and	a.branch_code = v_branch_code
+							and	a.asst_manager_code_7 = v_agent_code
+							and	(a.position_group <> 'ตท.' and a.position_group <> 'ตท.กง.' and a.position_group is not null)
+						group by	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, a.premium_portfolio, a.commission_first, a.position_group, a.position
+						union all -- Manager --> Agent (not have supervisor)
+						select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, 
+								a.premium_portfolio, 0 as sub_premium_portfolio,
+								a.commission_first, 0 as sub_commission_first,
+								a.position_group, a.position
+						from		agpt_agent_income a
+						where	a.period = v_period
+							and	a.branch_code = v_branch_code
+							and	a.asst_manager_code_7 = v_agent_code
+							and	((a.agent_code_7 = a.recruiter_code_7 or a.recruiter_code_7 is null or a.recruiter_code_7 = '') and 
+								(a.position_group = 'ตท.' or a.position_group = 'ตท.กง.' or a.position_group is null))					
+					) c		
+			left outer join	agpt_persistency_summary d
+			on		c.period = d.period
+				and	c.branch_code = d.branch_code
+				and	c.agent_code_7 = d.supervisor_code_7	
+			group by	c.agent_code_7, c.agent_name, c.position_group, c.position,
+					(c.premium_portfolio + c.sub_premium_portfolio), 
+					(c.commission_first + c.sub_commission_first), d.supervisor_persistency
+		) aa
+left outer join
+		(
+			select	a.recruiter_code_7, count(a.agent_code_7) as member
+			from		(				
+						select	recruiter_code_7, agent_code_7
+						from		agpt_agent_income				
+						where	period = v_period
+							and	branch_code = v_branch_code
+							and	(position_group = 'ตท.' or position_group = 'ตท.กง.')
+							and	recruiter_code_7 <> agent_code_7 -- >> [corrected by AGPT-31]	
+						group by	recruiter_code_7, agent_code_7									
+					) a
+			group by	a.recruiter_code_7
+		) bb
+on		aa.agent_code_7 = bb.recruiter_code_7;
+     
+
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group = "หนน." ให้ใช้ SQL ดังนี้ (ไม่ต้องทำต่อข้อ 5.)
+Icon
+select	aa.agent_code_7, aa.agent_name,
+		aa.position_group, aa.position, 
+		aa.premium_portfolio as fyp, aa.commission_first as fyc,
+		coalesce(aa.agent_persistency,0) as persistency,
+		0 as member,
+		ROW_NUMBER () OVER (ORDER BY aa.commission_first desc, aa.agent_code_7) as row_number
+from		(
+			select	a.agent_code_7, a.agent_name, a.position_group, a.position,  
+					a.premium_portfolio, a.commission_first,
+					b.agent_persistency
+			from		(
+						select	a.period, a.branch_code, a.agent_code_7, a.agent_name, a.recruiter_code_7, 
+								a.premium_portfolio, a.commission_first,
+								a.position_group, a.position
+						from		agpt_agent_income a
+						where	a.period = v_period
+							and	a.branch_code = v_branch_code
+							and	a.recruiter_code_7 = v_agent_code
+							and	(a.position_group = 'ตท.' or a.position_group = 'ตท.กง.')											
+					) a		
+			left outer join	agpt_persistency_summary b
+			on		a.period = b.period
+				and	a.branch_code = b.branch_code
+				and	a.agent_code_7 = b.agent_code_7
+		) aa;
+     
+
+ถ้า agent code, branch_code และ period ที่ได้รับมานั้น มี position_group in ("ตท.", "ตท.กง.") อย่างใดอย่างหนึ่ง จะ return null
+ 
+
+Post-conditions
+ทำการ return ข้อมูล FYP, FYC และ Persistency รวมทีม ของลูกทีม โดยเรียงตาม FYC จากมากไปน้อย ทั้งหมด 9 fields คือ 
+- agent_code_7
+- agent_name
+- position_group
+- position
+- fyp
+- fyc
+- persistency
+- member
+- row_number

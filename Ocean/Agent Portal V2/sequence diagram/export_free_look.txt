@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant user
+    participant web as agent portal
+    participant api as service
+    participant db as msa_policy
+
+    user->>+web: click download file
+    web->>api: call API download file
+    api->>+db: request download data
+    db->>-api: return download data 
+    api->>api: create excel file
+    api->>web: send excel back to web
+    web->>user: get excel file

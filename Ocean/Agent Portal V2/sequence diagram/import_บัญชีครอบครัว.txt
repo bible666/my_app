@@ -1,0 +1,26 @@
+sequenceDiagram
+    participant user
+    participant web as agent portal
+    participant api as service
+    participant db as msa_agent
+
+    user->>+web: select upload file
+    web->>api: send upload file
+    loop Every rows
+        api->>db: check agent code in db
+        db->>api: return true/false
+        api->>api: convert upload file to data
+    end
+    api->>web: send data back to web
+    web->>-user: show import data
+    user->>user: user check data
+    user->>+web: user confirm data
+    web->>+api: send confirm data
+    
+    loop Every rows
+        api->>+db: update/insert data
+        db->>-api: finished update/insert data
+    end
+    
+    api->>-web: send insert update status
+    web->>-user: finished import

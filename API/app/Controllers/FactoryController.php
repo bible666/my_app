@@ -312,9 +312,7 @@ class FactoryController extends Origin001
         $factory_code = isset( $data->factory_code ) ? trim( $data->factory_code ) : '';
         $company_code = isset( $data->company_code ) ? trim( $data->company_code ) : '';
         $factory_name = isset( $data->factory_name ) ? trim( $data->factory_name ) : '';
-        $addr_1       = isset( $data->addr_1 ) ? trim( $data->addr_1 ) : '';
-        $addr_2       = isset( $data->addr_2 ) ? trim( $data->addr_2 ) : '';
-        $addr_3       = isset( $data->addr_3 ) ? trim( $data->addr_3 ) : '';
+        $address      = isset( $data->address ) ? trim( $data->address ) : '';
         $telno        = isset( $data->telno ) ? trim( $data->telno ) : '';
         $faxno        = isset( $data->faxno ) ? trim( $data->faxno ) : '';
         $email        = isset( $data->email ) ? trim( $data->email ) : '';
@@ -360,9 +358,7 @@ class FactoryController extends Origin001
             $insert_data['company_code'] = $company_code;
             $insert_data['factory_code'] = $factory_code;
             $insert_data['factory_name'] = $factory_name;
-            $insert_data['addr_1']       = $addr_1;
-            $insert_data['addr_2']       = $addr_2;
-            $insert_data['addr_3']       = $addr_3;
+            $insert_data['address']      = $address;
 
             $insert_data['telno']       = $telno;
             $insert_data['faxno']       = $faxno;

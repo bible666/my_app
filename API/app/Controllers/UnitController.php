@@ -52,23 +52,24 @@ class UnitController extends Origin001
         }
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
-        if ( $result->user_id > 0 ) {
-            $insert_data['active_flag'] = false;
-            $insert_data['update_date'] = date( "Y-m-d H:i:s" );
-            $insert_data['update_user'] = $result->user_id;
 
-            $this->mst_unit->update( $insert_data, ['unit_code' => $unit_code] );
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $insert_data['active_flag'] = false;
+        $insert_data['update_date'] = date( "Y-m-d H:i:s" );
+        $insert_data['update_user'] = $result->user_id;
+
+        $this->mst_unit->update( $insert_data, ['unit_code' => $unit_code] );
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $data;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -85,33 +86,35 @@ class UnitController extends Origin001
         $unit_code = isset( $data->unit_code ) ? $data->unit_code : -1;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-			SELECT *
-			FROM mst_unit
-			WHERE unit_code = :unit_code:
-				AND active_flag = true
-			";
 
-            $itemn_data = $this->db->query( $query_str, ['unit_code' => $unit_code] )->getRow();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = $query_str;
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        SELECT *
+        FROM mst_unit
+        WHERE unit_code = :unit_code:
+            AND active_flag = true
+        ";
+
+        $itemn_data = $this->db->query( $query_str, ['unit_code' => $unit_code] )->getRow();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = $query_str;
+        $dataDB['data']    = $itemn_data;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -177,25 +180,34 @@ class UnitController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id >= 0 ) {
 
             // ???? Condition
             list( $strCond, $params ) = $this->_getCond( $data );
 
             $query_str = "
-			SELECT *
-			FROM mst_unit
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY unit_code
-			LIMIT {$limit} OFFSET {$offset}
-			";
+            SELECT *
+            FROM mst_unit
+            WHERE " . $strCond . " active_flag = true
+            ORDER BY unit_code
+            LIMIT {$limit} OFFSET {$offset}
+            ";
             //print_r($query_str);exit;
             $query_count = "
-			SELECT count(unit_code) as my_count
-			FROM mst_unit
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY unit_code
-			";
+            SELECT count(unit_code) as my_count
+            FROM mst_unit
+            WHERE " . $strCond . " active_flag = true
+            ORDER BY unit_code
+            ";
 
             $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
 
@@ -248,14 +260,6 @@ class UnitController extends Origin001
         $remark = isset( $data->remark ) ? trim( $data->remark ) : '';
 
         //Validation Data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, 200 );
-        }
-
         if ( $unit_code == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "กรุณาระบุรหัสหน่วย";
@@ -274,6 +278,14 @@ class UnitController extends Origin001
 
         //get data from token
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
         if ( $result->user_id > 0 ) {
 

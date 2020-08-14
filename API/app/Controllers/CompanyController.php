@@ -39,7 +39,15 @@ class CompanyController extends Origin001
         $id    = isset( $data->company_code ) ? $data->company_code : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $insert_data['active_flag'] = false;
             $insert_data['update_date'] = date( "Y-m-d H:i:s" );
@@ -83,6 +91,15 @@ class CompanyController extends Origin001
         $id = isset( $data->id ) ? $data->id : -1;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $itemn_data = $this->mst_company->getWhere( [
                 'company_code' => $id,
@@ -158,6 +175,16 @@ class CompanyController extends Origin001
     {
         $token = $this->getAuthHeader();
 
+        $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         $query_str = " SELECT * FROM mst_calendar where active_flag = true";
 
         $itemn_data = $this->db->query( $query_str )->getResult();
@@ -191,6 +218,23 @@ class CompanyController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id >= 0 ) {
 
             // ???? Condition
@@ -265,13 +309,6 @@ class CompanyController extends Origin001
         $remark       = isset( $data->remark ) ? $data->remark : '';
 
         //Validation Data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, 200 );
-        }
 
         if ( $company_name == '' ) {
             $dataDB['status']  = "error";
@@ -283,6 +320,14 @@ class CompanyController extends Origin001
 
         //get data from token
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
         if ( $result->user_id > 0 ) {
 

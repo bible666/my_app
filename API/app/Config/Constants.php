@@ -11,7 +11,7 @@
 // NOTE: changing this will require manually modifying the
 // existing namespaces of App\* namespaced-classes.
 //
-defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
+defined( 'APP_NAMESPACE' ) || define( 'APP_NAMESPACE', 'App' );
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +20,8 @@ defined('APP_NAMESPACE') || define('APP_NAMESPACE', 'App');
 |
 | The path that Composer's autoload file is expected to live. By default,
 | the vendor folder is in the Root directory, but you can customize that here.
-*/
-defined('COMPOSER_PATH') || define('COMPOSER_PATH', ROOTPATH . 'vendor/autoload.php');
+ */
+defined( 'COMPOSER_PATH' ) || define( 'COMPOSER_PATH', ROOTPATH . 'vendor/autoload.php' );
 
 /*
 |--------------------------------------------------------------------------
@@ -30,15 +30,15 @@ defined('COMPOSER_PATH') || define('COMPOSER_PATH', ROOTPATH . 'vendor/autoload.
 |
 | Provide simple ways to work with the myriad of PHP functions that
 | require information to be in seconds.
-*/
-defined('SECOND') || define('SECOND', 1);
-defined('MINUTE') || define('MINUTE', 60);
-defined('HOUR')   || define('HOUR', 3600);
-defined('DAY')    || define('DAY', 86400);
-defined('WEEK')   || define('WEEK', 604800);
-defined('MONTH')  || define('MONTH', 2592000);
-defined('YEAR')   || define('YEAR', 31536000);
-defined('DECADE') || define('DECADE', 315360000);
+ */
+defined( 'SECOND' ) || define( 'SECOND', 1 );
+defined( 'MINUTE' ) || define( 'MINUTE', 60 );
+defined( 'HOUR' ) || define( 'HOUR', 3600 );
+defined( 'DAY' ) || define( 'DAY', 86400 );
+defined( 'WEEK' ) || define( 'WEEK', 604800 );
+defined( 'MONTH' ) || define( 'MONTH', 2592000 );
+defined( 'YEAR' ) || define( 'YEAR', 31536000 );
+defined( 'DECADE' ) || define( 'DECADE', 315360000 );
 
 /*
 |--------------------------------------------------------------------------
@@ -64,19 +64,22 @@ defined('DECADE') || define('DECADE', 315360000);
 |    Bash scripting:
 |       http://tldp.org/LDP/abs/html/exitcodes.html
 |
-*/
-defined('EXIT_SUCCESS')        || define('EXIT_SUCCESS', 0); // no errors
-defined('EXIT_ERROR')          || define('EXIT_ERROR', 1); // generic error
-defined('EXIT_CONFIG')         || define('EXIT_CONFIG', 3); // configuration error
-defined('EXIT_UNKNOWN_FILE')   || define('EXIT_UNKNOWN_FILE', 4); // file not found
-defined('EXIT_UNKNOWN_CLASS')  || define('EXIT_UNKNOWN_CLASS', 5); // unknown class
-defined('EXIT_UNKNOWN_METHOD') || define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
-defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT', 7); // invalid user input
-defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
-defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
-defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+ */
+defined( 'EXIT_SUCCESS' ) || define( 'EXIT_SUCCESS', 0 ); // no errors
+defined( 'EXIT_ERROR' ) || define( 'EXIT_ERROR', 1 ); // generic error
+defined( 'EXIT_CONFIG' ) || define( 'EXIT_CONFIG', 3 ); // configuration error
+defined( 'EXIT_UNKNOWN_FILE' ) || define( 'EXIT_UNKNOWN_FILE', 4 ); // file not found
+defined( 'EXIT_UNKNOWN_CLASS' ) || define( 'EXIT_UNKNOWN_CLASS', 5 ); // unknown class
+defined( 'EXIT_UNKNOWN_METHOD' ) || define( 'EXIT_UNKNOWN_METHOD', 6 ); // unknown class member
+defined( 'EXIT_USER_INPUT' ) || define( 'EXIT_USER_INPUT', 7 ); // invalid user input
+defined( 'EXIT_DATABASE' ) || define( 'EXIT_DATABASE', 8 ); // database error
+defined( 'EXIT__AUTO_MIN' ) || define( 'EXIT__AUTO_MIN', 9 ); // lowest automatically-assigned error code
+defined( 'EXIT__AUTO_MAX' ) || define( 'EXIT__AUTO_MAX', 125 ); // highest automatically-assigned error code
 
-defined('MAX_LOGIN_COUNT')      || define('MAX_LOGIN_COUNT', 5); 
-defined('MAX_LOCK_LOGIN_TIME_MINIUS')      || define('MAX_LOCK_LOGIN_TIME_MINIUS', 30); 
+defined( 'MAX_LOGIN_COUNT' ) || define( 'MAX_LOGIN_COUNT', 5 );
+defined( 'MAX_LOCK_LOGIN_TIME_MINIUS' ) || define( 'MAX_LOCK_LOGIN_TIME_MINIUS', 30 );
+defined( 'TOKEN_LIVE_TIME_MINIUS' ) || define( 'TOKEN_LIVE_TIME_MINIUS', 30 );
 
-defined('TOKEN_NOT_FOUND', 401);
+defined( 'HTML_STATUS_UNAUTHORIZED' ) || define( 'HTML_STATUS_UNAUTHORIZED', 400 ); // database error
+defined( 'HTML_STATUS_SUCCESS' ) || define( 'HTML_STATUS_SUCCESS', 200 ); // database error
+defined( 'TOKEN_NOT_FOUND' ) || define( 'TOKEN_NOT_FOUND', 401 ); // database error

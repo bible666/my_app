@@ -3,19 +3,10 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 
-
 class Origin001 extends ResourceController
 {
     protected $db;
-
-    // public function __construct()
-    // {
-    //     parent::__construct();
-    //     $this->load->helper('date');
-    //     $this->load->database();
-    //     $this->load->library('encrypt');
-
-    // }
+    protected $prg_token_origin;
 
     /**
      * Constructor.
@@ -30,6 +21,9 @@ class Origin001 extends ResourceController
         //--------------------------------------------------------------------
         // E.g.:
         // $this->session = \Config\Services::session();
+        $this->db = \Config\Database::connect();
+        $this->prg_token_origin      = $this->db->table( 'prg_token' );
+
         header( 'Access-Control-Allow-Origin: *' );
         header( "Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization" );
         header( "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE" );
@@ -37,7 +31,7 @@ class Origin001 extends ResourceController
         if ( $method == "OPTIONS" ) {
             die();
         }
-        $this->db = \Config\Database::connect();
+        
     }
 
     /**
@@ -75,41 +69,50 @@ class Origin001 extends ResourceController
     {
 
         $query_str = "
-            SELECT s.*,t.id as token_code,t.create_date as token_update,t.active_flag
+            SELECT s.*,t.id as token_code,t.active_flag,
+                CASE WHEN t.update_date IS NULL THEN t.create_date ELSE t.update_date END as token_update
             FROM prg_token t INNER JOIN mst_user s ON t.user_id = s.user_id
             WHERE t.token_code = :token:
-                AND t.active_flag = 0
+                AND t.active_flag = true
         ";
 
         $staff_data = $this->db->query( $query_str, ['token' => $token] )->getRow();
 
         $tokenData = new check_token_class();
 
-        if ( isset( $staff_data ) ) {
-            //$minDiff = $this->dateDifference($staff_data->token_update,date("Y-m-d H:i:s"),'%i');
-            //print_r($minDiff);
-            //if ($minDiff <= 30 ){
-            $tokenData->status     = $staff_data->active_flag;
-            $tokenData->user_id    = $staff_data->user_id;
-            $tokenData->staff_name = $staff_data->first_name;
-            $tokenData->company_id = 0;
-            $tokenData->staff_cat  = $staff_data->user_group_id;
-            $tokenData->http_code  = 401;
+        if ( !isset( $staff_data ) ) {
+            return null;
+        }
 
-            //     //update token data
+        $minDiff = $this->dateDifference( $staff_data->token_update, date( "Y-m-d H:i:s" ), '%i' );
+
+        if ( $minDiff >= TOKEN_LIVE_TIME_MINIUS ) {
+            //update token data
+            //Clear Old Token Data
+            $data = ['active_flag' => false];
+            $this->prg_token_origin->where( ['token_code' => $token] );
+            $this->prg_token_origin->update( $data );
+
+            return null;
+        }
+
+        $tokenData->status     = $staff_data->active_flag;
+        $tokenData->user_id    = $staff_data->user_id;
+        $tokenData->staff_name = $staff_data->first_name;
+        $tokenData->company_id = 0;
+        $tokenData->staff_cat  = $staff_data->user_group_id;
+
+            //update token data
+            $data = ['update_date' => date( "Y-m-d H:i:s" )];
+            $this->prg_token_origin->where( ['token_code' => $token] );
+            $this->prg_token_origin->update( $data );
             //     $this->db->set(['update_date' => date("Y-m-d H:i:s")]);
             //     $this->db->where(['id' => $staff_data->token_code]);
             //     $this->db->update('prg_token');
-            // } else {
-            //     //update token data
-            //     $this->db->set(['del_flag' => 1]);
-            //     $this->db->where(['id' => $staff_data->token_code]);
-            //     $this->db->update('prg_token');
-            // }
-            //echo $minDiff;
-            //if ($staff_data->token_update > date("Y-m-d H:i:s"))
 
-        }
+        //echo $minDiff;
+        //if ($staff_data->token_update > date("Y-m-d H:i:s"))
+
 
         return $tokenData;
     }

@@ -20,27 +20,29 @@ class StaffController extends Origin001
         $id    = isset( $data->id ) ? $data->id : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
-        if ( $result->user_id > 0 ) {
-            $insert_data['del_flag']     = 1;
-            $insert_data['updated_date'] = date( "Y-m-d H:i:s" );
-            $insert_data['updated']      = $result->user_id;
 
-            $this->db->where( [
-                'id'           => $id,
-                'm_company_id' => $result->company_id,
-            ] );
-            $this->db->update( 'm_staffs', $insert_data );
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $insert_data['del_flag']     = 1;
+        $insert_data['updated_date'] = date( "Y-m-d H:i:s" );
+        $insert_data['updated']      = $result->user_id;
+
+        $this->db->where( [
+            'id'           => $id,
+            'm_company_id' => $result->company_id,
+        ] );
+        $this->db->update( 'm_staffs', $insert_data );
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $data;
+
         $this->response( $dataDB, 200 );
     }
 
@@ -57,25 +59,28 @@ class StaffController extends Origin001
         $id    = isset( $data->id ) ? $data->id : -1;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-			SELECT s.*
-			FROM m_staffs s
-			WHERE s.m_company_id = ? AND s.id = ?
-				AND s.del_flag = 0
-			";
 
-            $itemn_data = $this->db->query( $query_str, [$result->company_id, $id] )->row();
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        SELECT s.*
+        FROM m_staffs s
+        WHERE s.m_company_id = ? AND s.id = ?
+            AND s.del_flag = 0
+        ";
+
+        $itemn_data = $this->db->query( $query_str, [$result->company_id, $id] )->row();
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $itemn_data;
+
         $this->response( $dataDB, 200 );
     }
 
@@ -105,12 +110,21 @@ class StaffController extends Origin001
         $token = isset( $data->token ) ? $data->token : '';
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $query_str = "
-			SELECT *
-			FROM m_staffs
-			WHERE m_company_id = ? AND del_flag = 0
-			";
+            SELECT *
+            FROM m_staffs
+            WHERE m_company_id = ? AND del_flag = 0
+            ";
 
             $itemn_data = $this->db->query( $query_str, [$result->company_id] )->result();
 
@@ -147,6 +161,15 @@ class StaffController extends Origin001
 
         //get data from token
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
 
         if ( $result->user_id > 0 ) {
 

@@ -43,32 +43,32 @@ class ItemController extends Origin001
         $item_code = isset( $data->item_code ) ? $data->item_code : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
-        if ( $result->user_id > 0 ) {
-            $insert_data['active_flag'] = false;
-            $insert_data['update_date'] = date( "Y-m-d H:i:s" );
-            $insert_data['update_user'] = $result->user_id;
 
-            $this->mst_item->update( $insert_data, ['item_code' => $item_code] );
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, $http_code );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $insert_data['active_flag'] = false;
+        $insert_data['update_date'] = date( "Y-m-d H:i:s" );
+        $insert_data['update_user'] = $result->user_id;
+
+        $this->mst_item->update( $insert_data, ['item_code' => $item_code] );
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $data;
 
         return $this->respond( $dataDB, $http_code );
     }
@@ -86,35 +86,36 @@ class ItemController extends Origin001
         $item_code = isset( $data->item_code ) ? $data->item_code : -1;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-            SELECT mst_item.*,mst_unit.unit_name
-            FROM mst_item
-                INNER JOIN mst_unit on mst_item.unit_code = mst_unit.unit_code
-            WHERE item_code = :item_code:
-                AND mst_item.active_flag = true
-            ";
 
-            $itemn_data = $this->db->query( $query_str, ['item_code' => $item_code] )->getRow();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, $http_code );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = $query_str;
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        SELECT mst_item.*,mst_unit.unit_name
+        FROM mst_item
+            INNER JOIN mst_unit on mst_item.unit_code = mst_unit.unit_code
+        WHERE item_code = :item_code:
+            AND mst_item.active_flag = true
+        ";
+
+        $itemn_data = $this->db->query( $query_str, ['item_code' => $item_code] )->getRow();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = $query_str;
+        $dataDB['data']    = $itemn_data;
 
         return $this->respond( $dataDB, $http_code );
     }
@@ -130,39 +131,40 @@ class ItemController extends Origin001
         $item_code     = isset( $data->item_code ) ? $data->item_code : '';
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-            select distinct ps.lot_no
-            from prg_stock ps
-            where ps.location_code = :location_code: and ps.item_code = :item_code:
-                and ps.quantity > 0
-            ";
 
-            $itemn_data = $this->db->query(
-                $query_str,
-                [
-                    'location_code' => $location_code,
-                    'item_code'     => $item_code,
-                ] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, $http_code );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = '';
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        select distinct ps.lot_no
+        from prg_stock ps
+        where ps.location_code = :location_code: and ps.item_code = :item_code:
+            and ps.quantity > 0
+        ";
+
+        $itemn_data = $this->db->query(
+            $query_str,
+            [
+                'location_code' => $location_code,
+                'item_code'     => $item_code,
+            ] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = '';
+        $dataDB['data']    = $itemn_data;
 
         return $this->respond( $dataDB, $http_code );
     }
@@ -179,39 +181,40 @@ class ItemController extends Origin001
         $lot_no        = isset( $data->lot_no ) ? $data->lot_no : '';
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-            select distinct ps.first_receive_date,ps.quantity,u.unit_name
-            from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
-                inner join mst_unit u on i.unit_code = u.unit_code
-            where ps.location_code = :location_code: and ps.item_code = :item_code: and ps.lot_no = :lot_no:
-                and i.active_flag = true and ps.quantity > 0
-            ";
 
-            $itemn_data = $this->db->query( $query_str, [
-                'location_code' => $location_code,
-                'item_code'     => $item_code,
-                'lot_no'        => $lot_no,
-            ] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, $http_code );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = '';
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        select distinct ps.first_receive_date,ps.quantity,u.unit_name
+        from prg_stock ps inner join mst_item i on ps.item_code  = i.item_code
+            inner join mst_unit u on i.unit_code = u.unit_code
+        where ps.location_code = :location_code: and ps.item_code = :item_code: and ps.lot_no = :lot_no:
+            and i.active_flag = true and ps.quantity > 0
+        ";
+
+        $itemn_data = $this->db->query( $query_str, [
+            'location_code' => $location_code,
+            'item_code'     => $item_code,
+            'lot_no'        => $lot_no,
+        ] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = '';
+        $dataDB['data']    = $itemn_data;
 
         return $this->respond( $dataDB, $http_code );
     }
@@ -227,6 +230,15 @@ class ItemController extends Origin001
         $item_name     = isset( $data->item_name ) ? $data->item_name : '';
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $query_str = "
             select distinct i.item_code, i.item_name
@@ -321,6 +333,15 @@ class ItemController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id >= 0 ) {
 
             // ???? Condition
@@ -403,14 +424,6 @@ class ItemController extends Origin001
         $remark = isset( $data->remark ) ? trim( $data->remark ) : '';
 
         //Validation Data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, $http_code );
-        }
-
         if ( $item_name == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "กรุณาระบุชื่อวัตถุดิบ";
@@ -430,80 +443,80 @@ class ItemController extends Origin001
         //get data from token
         $result = $this->_checkToken( $token );
 
-        if ( $result->user_id > 0 ) {
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
 
-            if ( $this->is_dupplicate_data( $old_item_code, $item_code ) ) {
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
+        if ( $this->is_dupplicate_data( $old_item_code, $item_code ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = "รหัสวัตถุดิบนี้มีการใช้งานแล้ว";
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        if ( $old_item_code == -1 ) {
+            $old_data = $this->mst_item->getWhere( ['item_code' => $item_code, 'active_flag' => false] )->getRow();
+            if ( isset( $old_data ) ) {
+                $old_item_code = $old_data->item_code;
+            }
+        }
+
+        $insert_data = [];
+
+        //$insert_data['m_company_id']    = $result->company_id;
+
+        //set data to array for add or update
+        $insert_data['item_code']            = $item_code;
+        $insert_data['item_name']            = $item_name;
+        $insert_data['item_type']            = $item_type;
+        $insert_data['lot_flag']             = $lot_flag;
+        $insert_data['unit_code']            = $unit_code;
+        $insert_data['standard_location']    = $standard_location;
+        $insert_data['production_lead_time'] = $production_lead_time;
+        $insert_data['request_decimal']      = $request_decimal;
+        $insert_data['mrp_flag']             = $mrp_flag;
+
+        $insert_data['remark']      = $remark;
+        $insert_data['active_flag'] = true;
+
+        $this->db->transStart();
+
+        if ( $old_item_code == '-1' ) {
+            $insert_data['create_date'] = date( "Y-m-d H:i:s" );
+            $insert_data['create_user'] = $result->user_id;
+            $this->mst_item->insert( $insert_data );
+
+            if ( $this->db->error()['message'] !== '' ) {
                 $dataDB['status']  = "error";
-                $dataDB['message'] = "รหัสวัตถุดิบนี้มีการใช้งานแล้ว";
+                $dataDB['message'] = $this->db->error()['message'];
                 $dataDB['data']    = "";
 
                 return $this->respond( $dataDB, $http_code );
             }
-
-            if ( $old_item_code == -1 ) {
-                $old_data = $this->mst_item->getWhere( ['item_code' => $item_code, 'active_flag' => false] )->getRow();
-                if ( isset( $old_data ) ) {
-                    $old_item_code = $old_data->item_code;
-                }
-            }
-
-            $insert_data = [];
-
-            //$insert_data['m_company_id']    = $result->company_id;
-
-            //set data to array for add or update
-            $insert_data['item_code']            = $item_code;
-            $insert_data['item_name']            = $item_name;
-            $insert_data['item_type']            = $item_type;
-            $insert_data['lot_flag']             = $lot_flag;
-            $insert_data['unit_code']            = $unit_code;
-            $insert_data['standard_location']    = $standard_location;
-            $insert_data['production_lead_time'] = $production_lead_time;
-            $insert_data['request_decimal']      = $request_decimal;
-            $insert_data['mrp_flag']             = $mrp_flag;
-
-            $insert_data['remark']      = $remark;
-            $insert_data['active_flag'] = true;
-
-            $this->db->transStart();
-
-            if ( $old_item_code == '-1' ) {
-                $insert_data['create_date'] = date( "Y-m-d H:i:s" );
-                $insert_data['create_user'] = $result->user_id;
-                $this->mst_item->insert( $insert_data );
-
-                if ( $this->db->error()['message'] !== '' ) {
-                    $dataDB['status']  = "error";
-                    $dataDB['message'] = $this->db->error()['message'];
-                    $dataDB['data']    = "";
-
-                    return $this->respond( $dataDB, $http_code );
-                }
-            } else {
-                $insert_data['update_date'] = date( "Y-m-d H:i:s" );
-                $insert_data['update_user'] = $result->user_id;
-
-                $this->mst_item->update( $insert_data, ['item_code' => $old_item_code] );
-
-                if ( $this->db->error()['message'] !== '' ) {
-                    $dataDB['status']  = "error";
-                    $dataDB['message'] = $this->db->error()['message'];
-                    $dataDB['data']    = "";
-
-                    return $this->respond( $dataDB, $http_code );
-                }
-            }
-            $this->db->transComplete();
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $insert_data;
         } else {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
-            $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+            $insert_data['update_date'] = date( "Y-m-d H:i:s" );
+            $insert_data['update_user'] = $result->user_id;
+
+            $this->mst_item->update( $insert_data, ['item_code' => $old_item_code] );
+
+            if ( $this->db->error()['message'] !== '' ) {
+                $dataDB['status']  = "error";
+                $dataDB['message'] = $this->db->error()['message'];
+                $dataDB['data']    = "";
+
+                return $this->respond( $dataDB, $http_code );
+            }
         }
+        $this->db->transComplete();
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $insert_data;
 
         return $this->respond( $dataDB, $http_code );
     }
@@ -582,32 +595,33 @@ class ItemController extends Origin001
         //get data from token
         $result = $this->_checkToken( $token );
 
-        if ( $result->user_id > 0 ) {
-            $unit_data = $this->mst_unit->getWhere( ['unit_code' => $data->unit_code, 'active_flag' => true] )->getRow();
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
 
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
-                return $this->respond( $dataDB, $http_code );
-            }
+        $unit_data = $this->mst_unit->getWhere( ['unit_code' => $data->unit_code, 'active_flag' => true] )->getRow();
 
-            if ( isset( $unit_data ) ) {
-                $dataDB['status']  = "success";
-                $dataDB['message'] = "";
-                $dataDB['data']    = $unit_data;
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
 
-            } else {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = "unit code not found";
-                $dataDB['data']    = "";
-            }
+            return $this->respond( $dataDB, $http_code );
+        }
+
+        if ( isset( $unit_data ) ) {
+            $dataDB['status']  = "success";
+            $dataDB['message'] = "";
+            $dataDB['data']    = $unit_data;
+
         } else {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = "unit code not found";
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
         }
 
         return $this->respond( $dataDB, $http_code );
@@ -619,50 +633,42 @@ class ItemController extends Origin001
         $data      = $this->request->getJSON();
         $http_code = 200;
 
-        if ( $token == '' ) {
+        //get data from token
+        $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
 
             return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
 
-        //get data from token
-        $result = $this->_checkToken( $token );
+        //print_r($query_str);exit;
+        $query = "
+        SELECT *
+        FROM mst_unit
+        WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
+        ";
 
-        if ( $result->user_id > 0 ) {
-            //print_r($query_str);exit;
-            $query = "
-            SELECT *
-            FROM mst_unit
-            WHERE (unit_code = :unit_name: or unit_name = :unit_name: ) and active_flag = true
-            ";
+        $data = $this->db->query( $query, ['unit_name' => $data->unit_name] )->getRow();
 
-            $data = $this->db->query( $query, ['unit_name' => $data->unit_name] )->getRow();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, $http_code );
-            }
-
-            $unit_code = "";
-
-            if ( isset( $data ) ) {
-                $unit_code = $data->unit_code;
-            }
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $unit_code;
-
-        } else {
+        if ( $this->db->error()['message'] !== '' ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
-            $http_code         = TOKEN_NOT_FOUND;
+
+            return $this->respond( $dataDB, $http_code );
         }
+
+        $unit_code = "";
+
+        if ( isset( $data ) ) {
+            $unit_code = $data->unit_code;
+        }
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $unit_code;
 
         return $this->respond( $dataDB, $http_code );
     }

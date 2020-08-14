@@ -43,7 +43,15 @@ class FactoryController extends Origin001
         $company_cd = isset( $data->company_code ) ? $data->company_code : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $insert_data['active_flag'] = false;
             $insert_data['update_date'] = date( "Y-m-d H:i:s" );
@@ -89,14 +97,23 @@ class FactoryController extends Origin001
         $company_cd = isset( $data->company_code ) ? $data->company_code : -1;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $query_str = "
-			SELECT *
-			FROM mst_factory
-			WHERE company_code = :company_cd:
-				AND factory_code = :factory_cd:
-				AND active_flag = true
-			";
+            SELECT *
+            FROM mst_factory
+            WHERE company_code = :company_cd:
+                AND factory_code = :factory_cd:
+                AND active_flag = true
+            ";
 
             $itemn_data = $this->db->query( $query_str, ['company_cd' => $company_cd, 'factory_cd' => $factory_cd] )->getRow();
 
@@ -225,56 +242,57 @@ class FactoryController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id >= 0 ) {
 
-            // ???? Condition
-            list( $strCond, $params ) = $this->_getCond( $data );
-
-            $query_str = "
-			SELECT *
-			FROM mst_factory
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY company_code
-			LIMIT {$limit} OFFSET {$offset}
-			";
-            //print_r($query_str);exit;
-            $query_count = "
-			SELECT count(company_code) as my_count
-			FROM mst_factory
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY company_code,factory_code
-			";
-
-            $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $itemn_count = $this->db->query( $query_count, [$result->company_id] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $itemn_data;
-            $dataDB['max_rows'] = $itemn_count[0]->my_count;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        // ???? Condition
+        list( $strCond, $params ) = $this->_getCond( $data );
+
+        $query_str = "
+        SELECT *
+        FROM mst_factory
+        WHERE " . $strCond . " active_flag = true
+        ORDER BY company_code
+        LIMIT {$limit} OFFSET {$offset}
+        ";
+        //print_r($query_str);exit;
+        $query_count = "
+        SELECT count(company_code) as my_count
+        FROM mst_factory
+        WHERE " . $strCond . " active_flag = true
+        ORDER BY company_code,factory_code
+        ";
+
+        $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $itemn_count = $this->db->query( $query_count, [$result->company_id] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $dataDB['status']   = "success";
+        $dataDB['message']  = "";
+        $dataDB['data']     = $itemn_data;
+        $dataDB['max_rows'] = $itemn_count[0]->my_count;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -304,14 +322,6 @@ class FactoryController extends Origin001
         $remark       = isset( $data->remark ) ? trim( $data->remark ) : '';
 
         //Validation Data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, 200 );
-        }
-
         if ( $factory_name == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "กรุณาระบุชื่อโรงงาน";
@@ -322,6 +332,14 @@ class FactoryController extends Origin001
 
         //get data from token
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
         if ( $result->user_id > 0 ) {
 

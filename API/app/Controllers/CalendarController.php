@@ -81,6 +81,15 @@ class CalendarController extends Origin001
         $id = isset( $data->id ) ? $data->id : -1;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $itemn_data = $this->mst_calendar->getWhere( [
                 'cal_no'      => $id,
@@ -144,6 +153,15 @@ class CalendarController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id >= 0 ) {
 
             // ???? Condition
@@ -209,7 +227,15 @@ class CalendarController extends Origin001
         $id    = isset( $data->id ) ? $data->id : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id > 0 ) {
             $insert_data['active_flag'] = false;
             $insert_data['update_date'] = date( "Y-m-d H:i:s" );
@@ -269,14 +295,6 @@ class CalendarController extends Origin001
         $holidays = isset( $data->holidays ) ? $data->holidays : [];
 
         //validate data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, 200 );
-        }
-
         if ( $cal_name == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "กรุณากรอกชื่อปฏิทิน";
@@ -294,6 +312,14 @@ class CalendarController extends Origin001
         }
 
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
         if ( $result->user_id > 0 ) {
             $this->db->transStart();

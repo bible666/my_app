@@ -43,35 +43,36 @@ class LocationController extends Origin001
         $factory_cd  = isset( $data->factory_code ) ? $data->factory_code : -1;
 
         $result = $this->_checkToken( $token );
-        //print_r($result);
-        if ( $result->user_id > 0 ) {
-            $insert_data['active_flag'] = false;
-            $insert_data['update_date'] = date( "Y-m-d H:i:s" );
-            $insert_data['update_user'] = $result->user_id;
 
-            $where = [
-                'factory_code'  => $factory_cd,
-                'location_code' => $location_cd,
-            ];
-            $this->mst_location->update( $insert_data, $where );
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = "";
-            $dataDB['data']    = $data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $insert_data['active_flag'] = false;
+        $insert_data['update_date'] = date( "Y-m-d H:i:s" );
+        $insert_data['update_user'] = $result->user_id;
+
+        $where = [
+            'factory_code'  => $factory_cd,
+            'location_code' => $location_cd,
+        ];
+        $this->mst_location->update( $insert_data, $where );
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = "";
+        $dataDB['data']    = $data;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -89,34 +90,36 @@ class LocationController extends Origin001
         $factory_cd  = isset( $data->factory_code ) ? $data->factory_code : -1;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id > 0 ) {
-            $query_str = "
-			SELECT *
-			FROM mst_location
-			WHERE factory_code = :factory_cd:
-				AND location_code = :location_cd:
-				AND active_flag = true
-			";
 
-            $itemn_data = $this->db->query( $query_str, ['factory_cd' => $factory_cd, 'location_cd' => $location_cd] )->getRow();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $dataDB['status']  = "success";
-            $dataDB['message'] = $query_str;
-            $dataDB['data']    = $itemn_data;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        $query_str = "
+        SELECT *
+        FROM mst_location
+        WHERE factory_code = :factory_cd:
+            AND location_code = :location_cd:
+            AND active_flag = true
+        ";
+
+        $itemn_data = $this->db->query( $query_str, ['factory_cd' => $factory_cd, 'location_cd' => $location_cd] )->getRow();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $dataDB['status']  = "success";
+        $dataDB['message'] = $query_str;
+        $dataDB['data']    = $itemn_data;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -205,56 +208,57 @@ class LocationController extends Origin001
         $offset = ( $data->page_index - 1 ) * $limit;
 
         $result = $this->_checkToken( $token );
-        if ( $result->user_id >= 0 ) {
 
-            // ???? Condition
-            list( $strCond, $params ) = $this->_getCond( $data );
-
-            $query_str = "
-			SELECT *
-			FROM mst_location
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY factory_code
-			LIMIT {$limit} OFFSET {$offset}
-			";
-            //print_r($query_str);exit;
-            $query_count = "
-			SELECT count(location_code) as my_count
-			FROM mst_location
-			WHERE " . $strCond . " active_flag = true
-			ORDER BY factory_code,location_code
-			";
-
-            $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $itemn_count = $this->db->query( $query_count, [$result->company_id] )->getResult();
-
-            if ( $this->db->error()['message'] !== '' ) {
-                $dataDB['status']  = "error";
-                $dataDB['message'] = $this->db->error()['message'];
-                $dataDB['data']    = "";
-
-                return $this->respond( $dataDB, 200 );
-            }
-
-            $dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $itemn_data;
-            $dataDB['max_rows'] = $itemn_count[0]->my_count;
-
-        } else {
+        if ( !isset( $result ) ) {
             $dataDB['status']  = "error";
-            $dataDB['message'] = "token not found";
+            $dataDB['message'] = $this->db->error()['message'];
             $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
         }
+
+        // ???? Condition
+        list( $strCond, $params ) = $this->_getCond( $data );
+
+        $query_str = "
+        SELECT *
+        FROM mst_location
+        WHERE " . $strCond . " active_flag = true
+        ORDER BY factory_code
+        LIMIT {$limit} OFFSET {$offset}
+        ";
+        //print_r($query_str);exit;
+        $query_count = "
+        SELECT count(location_code) as my_count
+        FROM mst_location
+        WHERE " . $strCond . " active_flag = true
+        ORDER BY factory_code,location_code
+        ";
+
+        $itemn_data = $this->db->query( $query_str, [$result->company_id] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $itemn_count = $this->db->query( $query_count, [$result->company_id] )->getResult();
+
+        if ( $this->db->error()['message'] !== '' ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, 200 );
+        }
+
+        $dataDB['status']   = "success";
+        $dataDB['message']  = "";
+        $dataDB['data']     = $itemn_data;
+        $dataDB['max_rows'] = $itemn_count[0]->my_count;
 
         return $this->respond( $dataDB, 200 );
     }
@@ -282,14 +286,6 @@ class LocationController extends Origin001
         $remark = isset( $data->remark ) ? trim( $data->remark ) : '';
 
         //Validation Data
-        if ( $token == '' ) {
-            $dataDB['status']  = "error";
-            $dataDB['message'] = "token is empty";
-            $dataDB['data']    = "";
-
-            return $this->respond( $dataDB, 200 );
-        }
-
         if ( $location_name == '' ) {
             $dataDB['status']  = "error";
             $dataDB['message'] = "กรุณาระบุชื่อพื้นที่เก็บของ";
@@ -308,6 +304,14 @@ class LocationController extends Origin001
 
         //get data from token
         $result = $this->_checkToken( $token );
+
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
 
         if ( $result->user_id > 0 ) {
 
@@ -410,17 +414,25 @@ class LocationController extends Origin001
 
         $result = $this->_checkToken( $token );
 
+        if ( !isset( $result ) ) {
+            $dataDB['status']  = "error";
+            $dataDB['message'] = $this->db->error()['message'];
+            $dataDB['data']    = "";
+
+            return $this->respond( $dataDB, TOKEN_NOT_FOUND );
+        }
+
         if ( $result->user_id >= 0 ) {
 
             $query_str = "
-            select mu.user_id ,mu.user_group_id ,mug.department_code ,mdl.factory_code ,mdl.location_code,ml.location_name 
+            select mu.user_id ,mu.user_group_id ,mug.department_code ,mdl.factory_code ,mdl.location_code,ml.location_name
             from mst_user mu inner join mst_user_group mug on mu.user_group_id = mug.user_group_id
                 inner join mst_department_location mdl on mug.department_code = mdl.department_code
-                inner join mst_location ml on mdl.location_code = ml.location_code 
+                inner join mst_location ml on mdl.location_code = ml.location_code
             where mu.user_id = :user_id: and mu.active_flag  = TRUE
             ";
 
-            $db_data = $this->db->query( $query_str, ['user_id'=>$result->user_id] )->getResult();
+            $db_data = $this->db->query( $query_str, ['user_id' => $result->user_id] )->getResult();
 
             if ( $this->db->error()['message'] !== '' ) {
                 $dataDB['status']  = "error";
@@ -430,9 +442,9 @@ class LocationController extends Origin001
                 return $this->respond( $dataDB, 200 );
             }
 
-            $dataDB['status']   = "success";
-            $dataDB['message']  = "";
-            $dataDB['data']     = $db_data;
+            $dataDB['status']  = "success";
+            $dataDB['message'] = "";
+            $dataDB['data']    = $db_data;
 
         } else {
             $dataDB['status']  = "error";

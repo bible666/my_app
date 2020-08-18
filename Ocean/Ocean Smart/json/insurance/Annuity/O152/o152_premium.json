@@ -1,0 +1,366 @@
+[
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 25,
+    "PREM_A": 48.5,
+    "PREM_M": 4.4
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 26,
+    "PREM_A": 50.9,
+    "PREM_M": 4.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 27,
+    "PREM_A": 53.4,
+    "PREM_M": 4.8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 28,
+    "PREM_A": 56.2,
+    "PREM_M": 5.1
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 29,
+    "PREM_A": 59.2,
+    "PREM_M": 5.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 30,
+    "PREM_A": 62.4,
+    "PREM_M": 5.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 31,
+    "PREM_A": 65.9,
+    "PREM_M": 5.9
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 32,
+    "PREM_A": 69.8,
+    "PREM_M": 6.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 33,
+    "PREM_A": 74,
+    "PREM_M": 6.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 34,
+    "PREM_A": 78.6,
+    "PREM_M": 7.1
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 35,
+    "PREM_A": 83.7,
+    "PREM_M": 7.5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 36,
+    "PREM_A": 89.4,
+    "PREM_M": 8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 37,
+    "PREM_A": 95.7,
+    "PREM_M": 8.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 38,
+    "PREM_A": 102.8,
+    "PREM_M": 9.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 39,
+    "PREM_A": 110.8,
+    "PREM_M": 10
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 40,
+    "PREM_A": 119.9,
+    "PREM_M": 10.8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 41,
+    "PREM_A": 130.3,
+    "PREM_M": 11.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 42,
+    "PREM_A": 142.4,
+    "PREM_M": 12.8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 43,
+    "PREM_A": 156.6,
+    "PREM_M": 14.1
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 44,
+    "PREM_A": 173.3,
+    "PREM_M": 15.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 45,
+    "PREM_A": 193.6,
+    "PREM_M": 17.4
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 46,
+    "PREM_A": 218.6,
+    "PREM_M": 19.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 47,
+    "PREM_A": 249.9,
+    "PREM_M": 22.5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 48,
+    "PREM_A": 290.7,
+    "PREM_M": 26.2
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 49,
+    "PREM_A": 345.9,
+    "PREM_M": 31.1
+  },
+  {
+    "PLAN": 152,
+    "SEX": 1,
+    "AGE": 50,
+    "PREM_A": 424.4,
+    "PREM_M": 38.2
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 25,
+    "PREM_A": 50.8,
+    "PREM_M": 4.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 26,
+    "PREM_A": 53.3,
+    "PREM_M": 4.8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 27,
+    "PREM_A": 56,
+    "PREM_M": 5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 28,
+    "PREM_A": 58.9,
+    "PREM_M": 5.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 29,
+    "PREM_A": 62.1,
+    "PREM_M": 5.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 30,
+    "PREM_A": 65.5,
+    "PREM_M": 5.9
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 31,
+    "PREM_A": 69.2,
+    "PREM_M": 6.2
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 32,
+    "PREM_A": 73.2,
+    "PREM_M": 6.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 33,
+    "PREM_A": 77.7,
+    "PREM_M": 7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 34,
+    "PREM_A": 82.5,
+    "PREM_M": 7.4
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 35,
+    "PREM_A": 87.9,
+    "PREM_M": 7.9
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 36,
+    "PREM_A": 93.9,
+    "PREM_M": 8.5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 37,
+    "PREM_A": 100.5,
+    "PREM_M": 9
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 38,
+    "PREM_A": 108,
+    "PREM_M": 9.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 39,
+    "PREM_A": 116.4,
+    "PREM_M": 10.5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 40,
+    "PREM_A": 126,
+    "PREM_M": 11.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 41,
+    "PREM_A": 137,
+    "PREM_M": 12.3
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 42,
+    "PREM_A": 149.7,
+    "PREM_M": 13.5
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 43,
+    "PREM_A": 164.7,
+    "PREM_M": 14.8
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 44,
+    "PREM_A": 182.4,
+    "PREM_M": 16.4
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 45,
+    "PREM_A": 203.9,
+    "PREM_M": 18.4
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 46,
+    "PREM_A": 230.2,
+    "PREM_M": 20.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 47,
+    "PREM_A": 263.5,
+    "PREM_M": 23.7
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 48,
+    "PREM_A": 306.7,
+    "PREM_M": 27.6
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 49,
+    "PREM_A": 365.1,
+    "PREM_M": 32.9
+  },
+  {
+    "PLAN": 152,
+    "SEX": 2,
+    "AGE": 50,
+    "PREM_A": 448.5,
+    "PREM_M": 40.4
+  }
+]

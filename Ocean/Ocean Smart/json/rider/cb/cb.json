@@ -1,0 +1,2594 @@
+[
+  {
+    "AGE": 16,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 17,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 18,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 19,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 20,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 21,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 22,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 23,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 24,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 25,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 55
+  },
+  {
+    "AGE": 26,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 64
+  },
+  {
+    "AGE": 27,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 64
+  },
+  {
+    "AGE": 28,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 64
+  },
+  {
+    "AGE": 29,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 64
+  },
+  {
+    "AGE": 30,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 64
+  },
+  {
+    "AGE": 31,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 91
+  },
+  {
+    "AGE": 32,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 91
+  },
+  {
+    "AGE": 33,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 91
+  },
+  {
+    "AGE": 34,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 91
+  },
+  {
+    "AGE": 35,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 91
+  },
+  {
+    "AGE": 36,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 119
+  },
+  {
+    "AGE": 37,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 119
+  },
+  {
+    "AGE": 38,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 119
+  },
+  {
+    "AGE": 39,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 119
+  },
+  {
+    "AGE": 40,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 146
+  },
+  {
+    "AGE": 41,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 183
+  },
+  {
+    "AGE": 42,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 219
+  },
+  {
+    "AGE": 43,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 265
+  },
+  {
+    "AGE": 44,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 293
+  },
+  {
+    "AGE": 45,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 302
+  },
+  {
+    "AGE": 46,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 329
+  },
+  {
+    "AGE": 47,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 347
+  },
+  {
+    "AGE": 48,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 401
+  },
+  {
+    "AGE": 49,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 447
+  },
+  {
+    "AGE": 50,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 493
+  },
+  {
+    "AGE": 51,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 548
+  },
+  {
+    "AGE": 52,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 593
+  },
+  {
+    "AGE": 53,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 694
+  },
+  {
+    "AGE": 54,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 831
+  },
+  {
+    "AGE": 55,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 968
+  },
+  {
+    "AGE": 56,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1113
+  },
+  {
+    "AGE": 57,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1269
+  },
+  {
+    "AGE": 58,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1397
+  },
+  {
+    "AGE": 59,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1543
+  },
+  {
+    "AGE": 60,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1743
+  },
+  {
+    "AGE": 61,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1743
+  },
+  {
+    "AGE": 62,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1743
+  },
+  {
+    "AGE": 63,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1743
+  },
+  {
+    "AGE": 64,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 1743
+  },
+  {
+    "AGE": 65,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 2240
+  },
+  {
+    "AGE": 66,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 2240
+  },
+  {
+    "AGE": 67,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 2240
+  },
+  {
+    "AGE": 68,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 2240
+  },
+  {
+    "AGE": 69,
+    "SEX": 1,
+    "MODE": 1,
+    "RPRM": 2240
+  },
+  {
+    "AGE": 16,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 17,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 18,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 19,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 20,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 21,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 22,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 23,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 24,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 25,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 162
+  },
+  {
+    "AGE": 26,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 188
+  },
+  {
+    "AGE": 27,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 188
+  },
+  {
+    "AGE": 28,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 188
+  },
+  {
+    "AGE": 29,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 188
+  },
+  {
+    "AGE": 30,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 188
+  },
+  {
+    "AGE": 31,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 268
+  },
+  {
+    "AGE": 32,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 268
+  },
+  {
+    "AGE": 33,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 268
+  },
+  {
+    "AGE": 34,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 268
+  },
+  {
+    "AGE": 35,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 268
+  },
+  {
+    "AGE": 36,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 350
+  },
+  {
+    "AGE": 37,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 350
+  },
+  {
+    "AGE": 38,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 350
+  },
+  {
+    "AGE": 39,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 350
+  },
+  {
+    "AGE": 40,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 429
+  },
+  {
+    "AGE": 41,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 538
+  },
+  {
+    "AGE": 42,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 644
+  },
+  {
+    "AGE": 43,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 779
+  },
+  {
+    "AGE": 44,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 861
+  },
+  {
+    "AGE": 45,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 888
+  },
+  {
+    "AGE": 46,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 967
+  },
+  {
+    "AGE": 47,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1020
+  },
+  {
+    "AGE": 48,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1182
+  },
+  {
+    "AGE": 49,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1317
+  },
+  {
+    "AGE": 50,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1452
+  },
+  {
+    "AGE": 51,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1614
+  },
+  {
+    "AGE": 52,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 1746
+  },
+  {
+    "AGE": 53,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 2043
+  },
+  {
+    "AGE": 54,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 2446
+  },
+  {
+    "AGE": 55,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 2849
+  },
+  {
+    "AGE": 56,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 3278
+  },
+  {
+    "AGE": 57,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 3737
+  },
+  {
+    "AGE": 58,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 4113
+  },
+  {
+    "AGE": 59,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 4542
+  },
+  {
+    "AGE": 60,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 5133
+  },
+  {
+    "AGE": 61,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 5133
+  },
+  {
+    "AGE": 62,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 5133
+  },
+  {
+    "AGE": 63,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 5133
+  },
+  {
+    "AGE": 64,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 5133
+  },
+  {
+    "AGE": 65,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 6596
+  },
+  {
+    "AGE": 66,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 6596
+  },
+  {
+    "AGE": 67,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 6596
+  },
+  {
+    "AGE": 68,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 6596
+  },
+  {
+    "AGE": 69,
+    "SEX": 1,
+    "MODE": 3,
+    "RPRM": 6596
+  },
+  {
+    "AGE": 16,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 17,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 18,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 19,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 20,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 21,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 22,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 23,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 24,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 25,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 317
+  },
+  {
+    "AGE": 26,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 369
+  },
+  {
+    "AGE": 27,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 369
+  },
+  {
+    "AGE": 28,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 369
+  },
+  {
+    "AGE": 29,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 369
+  },
+  {
+    "AGE": 30,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 369
+  },
+  {
+    "AGE": 31,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 525
+  },
+  {
+    "AGE": 32,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 525
+  },
+  {
+    "AGE": 33,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 525
+  },
+  {
+    "AGE": 34,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 525
+  },
+  {
+    "AGE": 35,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 525
+  },
+  {
+    "AGE": 36,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 686
+  },
+  {
+    "AGE": 37,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 686
+  },
+  {
+    "AGE": 38,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 686
+  },
+  {
+    "AGE": 39,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 686
+  },
+  {
+    "AGE": 40,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 842
+  },
+  {
+    "AGE": 41,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1056
+  },
+  {
+    "AGE": 42,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1264
+  },
+  {
+    "AGE": 43,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1529
+  },
+  {
+    "AGE": 44,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1690
+  },
+  {
+    "AGE": 45,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1742
+  },
+  {
+    "AGE": 46,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 1898
+  },
+  {
+    "AGE": 47,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 2002
+  },
+  {
+    "AGE": 48,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 2319
+  },
+  {
+    "AGE": 49,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 2584
+  },
+  {
+    "AGE": 50,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 2850
+  },
+  {
+    "AGE": 51,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 3167
+  },
+  {
+    "AGE": 52,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 3427
+  },
+  {
+    "AGE": 53,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 4009
+  },
+  {
+    "AGE": 54,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 4800
+  },
+  {
+    "AGE": 55,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 5590
+  },
+  {
+    "AGE": 56,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 6432
+  },
+  {
+    "AGE": 57,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 7332
+  },
+  {
+    "AGE": 58,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 8070
+  },
+  {
+    "AGE": 59,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 8913
+  },
+  {
+    "AGE": 60,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 10072
+  },
+  {
+    "AGE": 61,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 10072
+  },
+  {
+    "AGE": 62,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 10072
+  },
+  {
+    "AGE": 63,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 10072
+  },
+  {
+    "AGE": 64,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 10072
+  },
+  {
+    "AGE": 65,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 12943
+  },
+  {
+    "AGE": 66,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 12943
+  },
+  {
+    "AGE": 67,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 12943
+  },
+  {
+    "AGE": 68,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 12943
+  },
+  {
+    "AGE": 69,
+    "SEX": 1,
+    "MODE": 6,
+    "RPRM": 12943
+  },
+  {
+    "AGE": 16,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 17,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 18,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 19,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 20,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 21,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 22,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 23,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 24,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 25,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 610
+  },
+  {
+    "AGE": 26,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 710
+  },
+  {
+    "AGE": 27,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 710
+  },
+  {
+    "AGE": 28,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 710
+  },
+  {
+    "AGE": 29,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 710
+  },
+  {
+    "AGE": 30,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 710
+  },
+  {
+    "AGE": 31,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1010
+  },
+  {
+    "AGE": 32,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1010
+  },
+  {
+    "AGE": 33,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1010
+  },
+  {
+    "AGE": 34,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1010
+  },
+  {
+    "AGE": 35,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1010
+  },
+  {
+    "AGE": 36,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1320
+  },
+  {
+    "AGE": 37,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1320
+  },
+  {
+    "AGE": 38,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1320
+  },
+  {
+    "AGE": 39,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1320
+  },
+  {
+    "AGE": 40,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 1620
+  },
+  {
+    "AGE": 41,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 2030
+  },
+  {
+    "AGE": 42,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 2430
+  },
+  {
+    "AGE": 43,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 2940
+  },
+  {
+    "AGE": 44,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 3250
+  },
+  {
+    "AGE": 45,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 3350
+  },
+  {
+    "AGE": 46,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 3650
+  },
+  {
+    "AGE": 47,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 3850
+  },
+  {
+    "AGE": 48,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 4460
+  },
+  {
+    "AGE": 49,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 4970
+  },
+  {
+    "AGE": 50,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 5480
+  },
+  {
+    "AGE": 51,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 6090
+  },
+  {
+    "AGE": 52,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 6590
+  },
+  {
+    "AGE": 53,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 7710
+  },
+  {
+    "AGE": 54,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 9230
+  },
+  {
+    "AGE": 55,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 10750
+  },
+  {
+    "AGE": 56,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 12370
+  },
+  {
+    "AGE": 57,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 14100
+  },
+  {
+    "AGE": 58,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 15520
+  },
+  {
+    "AGE": 59,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 17140
+  },
+  {
+    "AGE": 60,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 19370
+  },
+  {
+    "AGE": 61,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 19370
+  },
+  {
+    "AGE": 62,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 19370
+  },
+  {
+    "AGE": 63,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 19370
+  },
+  {
+    "AGE": 64,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 19370
+  },
+  {
+    "AGE": 65,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 24890
+  },
+  {
+    "AGE": 66,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 24890
+  },
+  {
+    "AGE": 67,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 24890
+  },
+  {
+    "AGE": 68,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 24890
+  },
+  {
+    "AGE": 69,
+    "SEX": 1,
+    "MODE": 12,
+    "RPRM": 24890
+  },
+  {
+    "AGE": 16,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 17,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 18,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 19,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 20,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 21,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 22,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 23,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 24,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 25,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 93
+  },
+  {
+    "AGE": 26,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 102
+  },
+  {
+    "AGE": 27,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 102
+  },
+  {
+    "AGE": 28,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 102
+  },
+  {
+    "AGE": 29,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 111
+  },
+  {
+    "AGE": 30,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 130
+  },
+  {
+    "AGE": 31,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 139
+  },
+  {
+    "AGE": 32,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 148
+  },
+  {
+    "AGE": 33,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 167
+  },
+  {
+    "AGE": 34,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 185
+  },
+  {
+    "AGE": 35,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 203
+  },
+  {
+    "AGE": 36,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 212
+  },
+  {
+    "AGE": 37,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 222
+  },
+  {
+    "AGE": 38,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 240
+  },
+  {
+    "AGE": 39,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 249
+  },
+  {
+    "AGE": 40,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 268
+  },
+  {
+    "AGE": 41,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 286
+  },
+  {
+    "AGE": 42,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 314
+  },
+  {
+    "AGE": 43,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 333
+  },
+  {
+    "AGE": 44,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 379
+  },
+  {
+    "AGE": 45,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 407
+  },
+  {
+    "AGE": 46,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 444
+  },
+  {
+    "AGE": 47,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 472
+  },
+  {
+    "AGE": 48,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 509
+  },
+  {
+    "AGE": 49,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 545
+  },
+  {
+    "AGE": 50,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 573
+  },
+  {
+    "AGE": 51,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 601
+  },
+  {
+    "AGE": 52,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 638
+  },
+  {
+    "AGE": 53,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 693
+  },
+  {
+    "AGE": 54,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 768
+  },
+  {
+    "AGE": 55,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 860
+  },
+  {
+    "AGE": 56,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 934
+  },
+  {
+    "AGE": 57,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1008
+  },
+  {
+    "AGE": 58,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1091
+  },
+  {
+    "AGE": 59,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1165
+  },
+  {
+    "AGE": 60,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1184
+  },
+  {
+    "AGE": 61,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1184
+  },
+  {
+    "AGE": 62,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1184
+  },
+  {
+    "AGE": 63,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1184
+  },
+  {
+    "AGE": 64,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1184
+  },
+  {
+    "AGE": 65,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1304
+  },
+  {
+    "AGE": 66,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1304
+  },
+  {
+    "AGE": 67,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1304
+  },
+  {
+    "AGE": 68,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1304
+  },
+  {
+    "AGE": 69,
+    "SEX": 2,
+    "MODE": 1,
+    "RPRM": 1304
+  },
+  {
+    "AGE": 16,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 17,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 18,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 19,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 20,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 21,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 22,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 23,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 24,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 25,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 273
+  },
+  {
+    "AGE": 26,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 299
+  },
+  {
+    "AGE": 27,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 299
+  },
+  {
+    "AGE": 28,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 299
+  },
+  {
+    "AGE": 29,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 326
+  },
+  {
+    "AGE": 30,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 382
+  },
+  {
+    "AGE": 31,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 408
+  },
+  {
+    "AGE": 32,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 435
+  },
+  {
+    "AGE": 33,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 490
+  },
+  {
+    "AGE": 34,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 543
+  },
+  {
+    "AGE": 35,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 599
+  },
+  {
+    "AGE": 36,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 625
+  },
+  {
+    "AGE": 37,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 655
+  },
+  {
+    "AGE": 38,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 708
+  },
+  {
+    "AGE": 39,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 734
+  },
+  {
+    "AGE": 40,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 790
+  },
+  {
+    "AGE": 41,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 843
+  },
+  {
+    "AGE": 42,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 925
+  },
+  {
+    "AGE": 43,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 981
+  },
+  {
+    "AGE": 44,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1116
+  },
+  {
+    "AGE": 45,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1198
+  },
+  {
+    "AGE": 46,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1306
+  },
+  {
+    "AGE": 47,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1389
+  },
+  {
+    "AGE": 48,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1497
+  },
+  {
+    "AGE": 49,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1606
+  },
+  {
+    "AGE": 50,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1688
+  },
+  {
+    "AGE": 51,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1770
+  },
+  {
+    "AGE": 52,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 1879
+  },
+  {
+    "AGE": 53,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 2041
+  },
+  {
+    "AGE": 54,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 2260
+  },
+  {
+    "AGE": 55,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 2531
+  },
+  {
+    "AGE": 56,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 2751
+  },
+  {
+    "AGE": 57,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 2968
+  },
+  {
+    "AGE": 58,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3212
+  },
+  {
+    "AGE": 59,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3429
+  },
+  {
+    "AGE": 60,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3485
+  },
+  {
+    "AGE": 61,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3485
+  },
+  {
+    "AGE": 62,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3485
+  },
+  {
+    "AGE": 63,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3485
+  },
+  {
+    "AGE": 64,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3485
+  },
+  {
+    "AGE": 65,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3840
+  },
+  {
+    "AGE": 66,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3840
+  },
+  {
+    "AGE": 67,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3840
+  },
+  {
+    "AGE": 68,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3840
+  },
+  {
+    "AGE": 69,
+    "SEX": 2,
+    "MODE": 3,
+    "RPRM": 3840
+  },
+  {
+    "AGE": 16,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 17,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 18,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 19,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 20,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 21,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 22,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 23,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 24,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 25,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 536
+  },
+  {
+    "AGE": 26,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 588
+  },
+  {
+    "AGE": 27,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 588
+  },
+  {
+    "AGE": 28,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 588
+  },
+  {
+    "AGE": 29,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 640
+  },
+  {
+    "AGE": 30,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 749
+  },
+  {
+    "AGE": 31,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 801
+  },
+  {
+    "AGE": 32,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 853
+  },
+  {
+    "AGE": 33,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 962
+  },
+  {
+    "AGE": 34,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1066
+  },
+  {
+    "AGE": 35,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1175
+  },
+  {
+    "AGE": 36,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1227
+  },
+  {
+    "AGE": 37,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1284
+  },
+  {
+    "AGE": 38,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1388
+  },
+  {
+    "AGE": 39,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1440
+  },
+  {
+    "AGE": 40,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1550
+  },
+  {
+    "AGE": 41,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1654
+  },
+  {
+    "AGE": 42,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1815
+  },
+  {
+    "AGE": 43,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 1924
+  },
+  {
+    "AGE": 44,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 2189
+  },
+  {
+    "AGE": 45,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 2350
+  },
+  {
+    "AGE": 46,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 2564
+  },
+  {
+    "AGE": 47,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 2725
+  },
+  {
+    "AGE": 48,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 2938
+  },
+  {
+    "AGE": 49,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 3151
+  },
+  {
+    "AGE": 50,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 3312
+  },
+  {
+    "AGE": 51,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 3474
+  },
+  {
+    "AGE": 52,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 3687
+  },
+  {
+    "AGE": 53,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 4004
+  },
+  {
+    "AGE": 54,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 4436
+  },
+  {
+    "AGE": 55,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 4966
+  },
+  {
+    "AGE": 56,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 5398
+  },
+  {
+    "AGE": 57,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 5824
+  },
+  {
+    "AGE": 58,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6302
+  },
+  {
+    "AGE": 59,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6729
+  },
+  {
+    "AGE": 60,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6838
+  },
+  {
+    "AGE": 61,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6838
+  },
+  {
+    "AGE": 62,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6838
+  },
+  {
+    "AGE": 63,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6838
+  },
+  {
+    "AGE": 64,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 6838
+  },
+  {
+    "AGE": 65,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 7535
+  },
+  {
+    "AGE": 66,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 7535
+  },
+  {
+    "AGE": 67,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 7535
+  },
+  {
+    "AGE": 68,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 7535
+  },
+  {
+    "AGE": 69,
+    "SEX": 2,
+    "MODE": 6,
+    "RPRM": 7535
+  },
+  {
+    "AGE": 16,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 17,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 18,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 19,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 20,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 21,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 22,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 23,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 24,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 25,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1030
+  },
+  {
+    "AGE": 26,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1130
+  },
+  {
+    "AGE": 27,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1130
+  },
+  {
+    "AGE": 28,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1130
+  },
+  {
+    "AGE": 29,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1230
+  },
+  {
+    "AGE": 30,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1440
+  },
+  {
+    "AGE": 31,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1540
+  },
+  {
+    "AGE": 32,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1640
+  },
+  {
+    "AGE": 33,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 1850
+  },
+  {
+    "AGE": 34,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2050
+  },
+  {
+    "AGE": 35,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2260
+  },
+  {
+    "AGE": 36,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2360
+  },
+  {
+    "AGE": 37,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2470
+  },
+  {
+    "AGE": 38,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2670
+  },
+  {
+    "AGE": 39,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2770
+  },
+  {
+    "AGE": 40,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 2980
+  },
+  {
+    "AGE": 41,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 3180
+  },
+  {
+    "AGE": 42,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 3490
+  },
+  {
+    "AGE": 43,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 3700
+  },
+  {
+    "AGE": 44,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 4210
+  },
+  {
+    "AGE": 45,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 4520
+  },
+  {
+    "AGE": 46,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 4930
+  },
+  {
+    "AGE": 47,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 5240
+  },
+  {
+    "AGE": 48,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 5650
+  },
+  {
+    "AGE": 49,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 6060
+  },
+  {
+    "AGE": 50,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 6370
+  },
+  {
+    "AGE": 51,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 6680
+  },
+  {
+    "AGE": 52,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 7090
+  },
+  {
+    "AGE": 53,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 7700
+  },
+  {
+    "AGE": 54,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 8530
+  },
+  {
+    "AGE": 55,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 9550
+  },
+  {
+    "AGE": 56,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 10380
+  },
+  {
+    "AGE": 57,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 11200
+  },
+  {
+    "AGE": 58,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 12120
+  },
+  {
+    "AGE": 59,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 12940
+  },
+  {
+    "AGE": 60,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 13150
+  },
+  {
+    "AGE": 61,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 13150
+  },
+  {
+    "AGE": 62,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 13150
+  },
+  {
+    "AGE": 63,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 13150
+  },
+  {
+    "AGE": 64,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 13150
+  },
+  {
+    "AGE": 65,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 14490
+  },
+  {
+    "AGE": 66,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 14490
+  },
+  {
+    "AGE": 67,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 14490
+  },
+  {
+    "AGE": 68,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 14490
+  },
+  {
+    "AGE": 69,
+    "SEX": 2,
+    "MODE": 12,
+    "RPRM": 14490
+  }
+]

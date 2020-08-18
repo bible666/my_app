@@ -1,0 +1,1562 @@
+[
+  {
+    "CODE": 15,
+    "AGE": 0,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 0,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 0,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 0,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 1,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 1,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 1,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 1,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 2,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 2,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 2,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 2,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 3,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 3,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 3,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 3,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 4,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 4,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 4,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 4,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 5,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 5,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 5,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 5,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 6,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 6,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 6,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 6,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 7,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 7,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 7,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 7,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 8,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 8,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 8,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 8,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 9,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 9,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 9,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 9,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 10,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 10,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 10,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 10,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 11,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 11,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 11,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 11,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 12,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 12,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 12,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 12,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 13,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 13,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 13,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 13,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 14,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 14,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 14,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 14,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 15,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 15,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 15,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 15,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 16,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 16,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 16,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 16,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 17,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 17,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 17,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 17,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 18,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 18,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 18,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 18,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 19,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 19,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 19,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 19,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 20,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 20,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 20,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 20,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 21,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 21,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 21,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 21,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 22,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 22,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 22,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 22,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 23,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 23,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 23,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 23,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 24,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 24,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 24,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 24,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 25,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 25,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 25,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 25,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 26,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 26,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 26,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 26,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 27,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 27,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 27,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 27,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 28,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 28,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 28,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 28,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 29,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 29,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 29,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 29,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 30,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 30,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 30,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 30,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 31,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 31,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 31,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 31,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 32,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 32,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 32,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 32,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 33,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 33,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 33,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 33,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 34,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 34,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 34,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 34,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 35,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 35,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 35,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 35,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 36,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 36,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 36,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 36,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 37,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 37,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 37,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 37,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 38,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 38,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 38,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 38,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 39,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 39,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 39,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 39,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 40,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 40,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 40,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 40,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 41,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 41,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 41,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 41,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 42,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 42,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 42,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 42,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 43,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 43,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 43,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 43,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 44,
+    "MODE": 1,
+    "RPRM": 18.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 44,
+    "MODE": 3,
+    "RPRM": 54.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 44,
+    "MODE": 6,
+    "RPRM": 106.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 44,
+    "MODE": 12,
+    "RPRM": 204
+  },
+  {
+    "CODE": 15,
+    "AGE": 45,
+    "MODE": 1,
+    "RPRM": 31.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 45,
+    "MODE": 3,
+    "RPRM": 91.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 45,
+    "MODE": 6,
+    "RPRM": 179.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 45,
+    "MODE": 12,
+    "RPRM": 345
+  },
+  {
+    "CODE": 15,
+    "AGE": 46,
+    "MODE": 1,
+    "RPRM": 31.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 46,
+    "MODE": 3,
+    "RPRM": 91.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 46,
+    "MODE": 6,
+    "RPRM": 179.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 46,
+    "MODE": 12,
+    "RPRM": 345
+  },
+  {
+    "CODE": 15,
+    "AGE": 47,
+    "MODE": 1,
+    "RPRM": 31.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 47,
+    "MODE": 3,
+    "RPRM": 91.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 47,
+    "MODE": 6,
+    "RPRM": 179.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 47,
+    "MODE": 12,
+    "RPRM": 345
+  },
+  {
+    "CODE": 15,
+    "AGE": 48,
+    "MODE": 1,
+    "RPRM": 31.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 48,
+    "MODE": 3,
+    "RPRM": 91.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 48,
+    "MODE": 6,
+    "RPRM": 179.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 48,
+    "MODE": 12,
+    "RPRM": 345
+  },
+  {
+    "CODE": 15,
+    "AGE": 49,
+    "MODE": 1,
+    "RPRM": 31.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 49,
+    "MODE": 3,
+    "RPRM": 91.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 49,
+    "MODE": 6,
+    "RPRM": 179.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 49,
+    "MODE": 12,
+    "RPRM": 345
+  },
+  {
+    "CODE": 15,
+    "AGE": 50,
+    "MODE": 1,
+    "RPRM": 39.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 50,
+    "MODE": 3,
+    "RPRM": 115.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 50,
+    "MODE": 6,
+    "RPRM": 225.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 50,
+    "MODE": 12,
+    "RPRM": 434
+  },
+  {
+    "CODE": 15,
+    "AGE": 51,
+    "MODE": 1,
+    "RPRM": 39.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 51,
+    "MODE": 3,
+    "RPRM": 115.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 51,
+    "MODE": 6,
+    "RPRM": 225.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 51,
+    "MODE": 12,
+    "RPRM": 434
+  },
+  {
+    "CODE": 15,
+    "AGE": 52,
+    "MODE": 1,
+    "RPRM": 39.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 52,
+    "MODE": 3,
+    "RPRM": 115.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 52,
+    "MODE": 6,
+    "RPRM": 225.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 52,
+    "MODE": 12,
+    "RPRM": 434
+  },
+  {
+    "CODE": 15,
+    "AGE": 53,
+    "MODE": 1,
+    "RPRM": 39.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 53,
+    "MODE": 3,
+    "RPRM": 115.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 53,
+    "MODE": 6,
+    "RPRM": 225.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 53,
+    "MODE": 12,
+    "RPRM": 434
+  },
+  {
+    "CODE": 15,
+    "AGE": 54,
+    "MODE": 1,
+    "RPRM": 39.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 54,
+    "MODE": 3,
+    "RPRM": 115.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 54,
+    "MODE": 6,
+    "RPRM": 225.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 54,
+    "MODE": 12,
+    "RPRM": 434
+  },
+  {
+    "CODE": 15,
+    "AGE": 55,
+    "MODE": 1,
+    "RPRM": 48
+  },
+  {
+    "CODE": 15,
+    "AGE": 55,
+    "MODE": 3,
+    "RPRM": 140.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 55,
+    "MODE": 6,
+    "RPRM": 276.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 55,
+    "MODE": 12,
+    "RPRM": 531
+  },
+  {
+    "CODE": 15,
+    "AGE": 56,
+    "MODE": 1,
+    "RPRM": 48
+  },
+  {
+    "CODE": 15,
+    "AGE": 56,
+    "MODE": 3,
+    "RPRM": 140.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 56,
+    "MODE": 6,
+    "RPRM": 276.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 56,
+    "MODE": 12,
+    "RPRM": 531
+  },
+  {
+    "CODE": 15,
+    "AGE": 57,
+    "MODE": 1,
+    "RPRM": 48
+  },
+  {
+    "CODE": 15,
+    "AGE": 57,
+    "MODE": 3,
+    "RPRM": 140.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 57,
+    "MODE": 6,
+    "RPRM": 276.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 57,
+    "MODE": 12,
+    "RPRM": 531
+  },
+  {
+    "CODE": 15,
+    "AGE": 58,
+    "MODE": 1,
+    "RPRM": 48
+  },
+  {
+    "CODE": 15,
+    "AGE": 58,
+    "MODE": 3,
+    "RPRM": 140.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 58,
+    "MODE": 6,
+    "RPRM": 276.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 58,
+    "MODE": 12,
+    "RPRM": 531
+  },
+  {
+    "CODE": 15,
+    "AGE": 59,
+    "MODE": 1,
+    "RPRM": 48
+  },
+  {
+    "CODE": 15,
+    "AGE": 59,
+    "MODE": 3,
+    "RPRM": 140.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 59,
+    "MODE": 6,
+    "RPRM": 276.25
+  },
+  {
+    "CODE": 15,
+    "AGE": 59,
+    "MODE": 12,
+    "RPRM": 531
+  },
+  {
+    "CODE": 15,
+    "AGE": 60,
+    "MODE": 1,
+    "RPRM": 58.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 60,
+    "MODE": 3,
+    "RPRM": 171.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 60,
+    "MODE": 6,
+    "RPRM": 337
+  },
+  {
+    "CODE": 15,
+    "AGE": 60,
+    "MODE": 12,
+    "RPRM": 648
+  },
+  {
+    "CODE": 15,
+    "AGE": 61,
+    "MODE": 1,
+    "RPRM": 58.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 61,
+    "MODE": 3,
+    "RPRM": 171.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 61,
+    "MODE": 6,
+    "RPRM": 337
+  },
+  {
+    "CODE": 15,
+    "AGE": 61,
+    "MODE": 12,
+    "RPRM": 648
+  },
+  {
+    "CODE": 15,
+    "AGE": 62,
+    "MODE": 1,
+    "RPRM": 58.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 62,
+    "MODE": 3,
+    "RPRM": 171.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 62,
+    "MODE": 6,
+    "RPRM": 337
+  },
+  {
+    "CODE": 15,
+    "AGE": 62,
+    "MODE": 12,
+    "RPRM": 648
+  },
+  {
+    "CODE": 15,
+    "AGE": 63,
+    "MODE": 1,
+    "RPRM": 58.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 63,
+    "MODE": 3,
+    "RPRM": 171.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 63,
+    "MODE": 6,
+    "RPRM": 337
+  },
+  {
+    "CODE": 15,
+    "AGE": 63,
+    "MODE": 12,
+    "RPRM": 648
+  },
+  {
+    "CODE": 15,
+    "AGE": 64,
+    "MODE": 1,
+    "RPRM": 58.5
+  },
+  {
+    "CODE": 15,
+    "AGE": 64,
+    "MODE": 3,
+    "RPRM": 171.75
+  },
+  {
+    "CODE": 15,
+    "AGE": 64,
+    "MODE": 6,
+    "RPRM": 337
+  },
+  {
+    "CODE": 15,
+    "AGE": 64,
+    "MODE": 12,
+    "RPRM": 648
+  }
+]

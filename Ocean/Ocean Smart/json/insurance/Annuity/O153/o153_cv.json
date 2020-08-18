@@ -1,0 +1,11162 @@
+[
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 2,
+    "CASH_VALUE": 18,
+    "PAID_UP": 40,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 3,
+    "CASH_VALUE": 56,
+    "PAID_UP": 119,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 4,
+    "CASH_VALUE": 96,
+    "PAID_UP": 200,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 5,
+    "CASH_VALUE": 137,
+    "PAID_UP": 279,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 6,
+    "CASH_VALUE": 183,
+    "PAID_UP": 365,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 7,
+    "CASH_VALUE": 234,
+    "PAID_UP": 456,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 8,
+    "CASH_VALUE": 277,
+    "PAID_UP": 527,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 9,
+    "CASH_VALUE": 321,
+    "PAID_UP": 596,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 10,
+    "CASH_VALUE": 365,
+    "PAID_UP": 663,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 11,
+    "CASH_VALUE": 411,
+    "PAID_UP": 729,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 12,
+    "CASH_VALUE": 459,
+    "PAID_UP": 794,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 13,
+    "CASH_VALUE": 507,
+    "PAID_UP": 857,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 14,
+    "CASH_VALUE": 557,
+    "PAID_UP": 919,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 15,
+    "CASH_VALUE": 607,
+    "PAID_UP": 979,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 16,
+    "CASH_VALUE": 659,
+    "PAID_UP": 1000,
+    "CASH_PU": 24
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 17,
+    "CASH_VALUE": 713,
+    "PAID_UP": 1000,
+    "CASH_PU": 62
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 18,
+    "CASH_VALUE": 767,
+    "PAID_UP": 1000,
+    "CASH_PU": 101
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 19,
+    "CASH_VALUE": 823,
+    "PAID_UP": 1000,
+    "CASH_PU": 141
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 20,
+    "CASH_VALUE": 880,
+    "PAID_UP": 1000,
+    "CASH_PU": 182
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 21,
+    "CASH_VALUE": 939,
+    "PAID_UP": 1000,
+    "CASH_PU": 224
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 22,
+    "CASH_VALUE": 999,
+    "PAID_UP": 1000,
+    "CASH_PU": 267
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 23,
+    "CASH_VALUE": 1061,
+    "PAID_UP": 1000,
+    "CASH_PU": 311
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 24,
+    "CASH_VALUE": 1124,
+    "PAID_UP": 1000,
+    "CASH_PU": 356
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 25,
+    "CASH_VALUE": 1188,
+    "PAID_UP": 1000,
+    "CASH_PU": 402
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 26,
+    "CASH_VALUE": 1254,
+    "PAID_UP": 1000,
+    "CASH_PU": 449
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 27,
+    "CASH_VALUE": 1322,
+    "PAID_UP": 1000,
+    "CASH_PU": 498
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 28,
+    "CASH_VALUE": 1391,
+    "PAID_UP": 1000,
+    "CASH_PU": 547
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 29,
+    "CASH_VALUE": 1462,
+    "PAID_UP": 1000,
+    "CASH_PU": 598
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 30,
+    "CASH_VALUE": 1535,
+    "PAID_UP": 1000,
+    "CASH_PU": 650
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 31,
+    "CASH_VALUE": 1610,
+    "PAID_UP": 1000,
+    "CASH_PU": 703
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 32,
+    "CASH_VALUE": 1686,
+    "PAID_UP": 1000,
+    "CASH_PU": 757
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 33,
+    "CASH_VALUE": 1765,
+    "PAID_UP": 1000,
+    "CASH_PU": 813
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 34,
+    "CASH_VALUE": 1846,
+    "PAID_UP": 1000,
+    "CASH_PU": 870
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 25,
+    "POL_YR": 35,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 2,
+    "CASH_VALUE": 19,
+    "PAID_UP": 41,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 3,
+    "CASH_VALUE": 58,
+    "PAID_UP": 122,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 4,
+    "CASH_VALUE": 100,
+    "PAID_UP": 204,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 5,
+    "CASH_VALUE": 143,
+    "PAID_UP": 286,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 6,
+    "CASH_VALUE": 191,
+    "PAID_UP": 373,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 7,
+    "CASH_VALUE": 245,
+    "PAID_UP": 466,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 8,
+    "CASH_VALUE": 290,
+    "PAID_UP": 538,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 9,
+    "CASH_VALUE": 335,
+    "PAID_UP": 608,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 10,
+    "CASH_VALUE": 382,
+    "PAID_UP": 677,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 11,
+    "CASH_VALUE": 430,
+    "PAID_UP": 744,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 12,
+    "CASH_VALUE": 479,
+    "PAID_UP": 810,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 13,
+    "CASH_VALUE": 530,
+    "PAID_UP": 875,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 14,
+    "CASH_VALUE": 582,
+    "PAID_UP": 938,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 15,
+    "CASH_VALUE": 635,
+    "PAID_UP": 999,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 16,
+    "CASH_VALUE": 689,
+    "PAID_UP": 1000,
+    "CASH_PU": 39
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 17,
+    "CASH_VALUE": 745,
+    "PAID_UP": 1000,
+    "CASH_PU": 79
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 18,
+    "CASH_VALUE": 802,
+    "PAID_UP": 1000,
+    "CASH_PU": 120
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 19,
+    "CASH_VALUE": 860,
+    "PAID_UP": 1000,
+    "CASH_PU": 162
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 20,
+    "CASH_VALUE": 920,
+    "PAID_UP": 1000,
+    "CASH_PU": 205
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 21,
+    "CASH_VALUE": 981,
+    "PAID_UP": 1000,
+    "CASH_PU": 249
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 22,
+    "CASH_VALUE": 1044,
+    "PAID_UP": 1000,
+    "CASH_PU": 294
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 23,
+    "CASH_VALUE": 1108,
+    "PAID_UP": 1000,
+    "CASH_PU": 340
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 24,
+    "CASH_VALUE": 1174,
+    "PAID_UP": 1000,
+    "CASH_PU": 388
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 25,
+    "CASH_VALUE": 1241,
+    "PAID_UP": 1000,
+    "CASH_PU": 436
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 26,
+    "CASH_VALUE": 1310,
+    "PAID_UP": 1000,
+    "CASH_PU": 486
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 27,
+    "CASH_VALUE": 1381,
+    "PAID_UP": 1000,
+    "CASH_PU": 537
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 28,
+    "CASH_VALUE": 1453,
+    "PAID_UP": 1000,
+    "CASH_PU": 589
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 29,
+    "CASH_VALUE": 1527,
+    "PAID_UP": 1000,
+    "CASH_PU": 642
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 30,
+    "CASH_VALUE": 1604,
+    "PAID_UP": 1000,
+    "CASH_PU": 697
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 31,
+    "CASH_VALUE": 1682,
+    "PAID_UP": 1000,
+    "CASH_PU": 752
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 32,
+    "CASH_VALUE": 1762,
+    "PAID_UP": 1000,
+    "CASH_PU": 810
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 33,
+    "CASH_VALUE": 1844,
+    "PAID_UP": 1000,
+    "CASH_PU": 868
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 26,
+    "POL_YR": 34,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 2,
+    "CASH_VALUE": 20,
+    "PAID_UP": 42,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 3,
+    "CASH_VALUE": 61,
+    "PAID_UP": 124,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 4,
+    "CASH_VALUE": 105,
+    "PAID_UP": 209,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 5,
+    "CASH_VALUE": 150,
+    "PAID_UP": 292,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 6,
+    "CASH_VALUE": 200,
+    "PAID_UP": 381,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 7,
+    "CASH_VALUE": 256,
+    "PAID_UP": 476,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 8,
+    "CASH_VALUE": 303,
+    "PAID_UP": 550,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 9,
+    "CASH_VALUE": 351,
+    "PAID_UP": 622,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 10,
+    "CASH_VALUE": 400,
+    "PAID_UP": 692,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 11,
+    "CASH_VALUE": 450,
+    "PAID_UP": 761,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 12,
+    "CASH_VALUE": 502,
+    "PAID_UP": 828,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 13,
+    "CASH_VALUE": 555,
+    "PAID_UP": 894,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 14,
+    "CASH_VALUE": 609,
+    "PAID_UP": 958,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 15,
+    "CASH_VALUE": 664,
+    "PAID_UP": 1000,
+    "CASH_PU": 14
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 16,
+    "CASH_VALUE": 721,
+    "PAID_UP": 1000,
+    "CASH_PU": 55
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 17,
+    "CASH_VALUE": 779,
+    "PAID_UP": 1000,
+    "CASH_PU": 97
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 18,
+    "CASH_VALUE": 839,
+    "PAID_UP": 1000,
+    "CASH_PU": 140
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 19,
+    "CASH_VALUE": 900,
+    "PAID_UP": 1000,
+    "CASH_PU": 185
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 20,
+    "CASH_VALUE": 962,
+    "PAID_UP": 1000,
+    "CASH_PU": 230
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 21,
+    "CASH_VALUE": 1026,
+    "PAID_UP": 1000,
+    "CASH_PU": 276
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 22,
+    "CASH_VALUE": 1091,
+    "PAID_UP": 1000,
+    "CASH_PU": 324
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 23,
+    "CASH_VALUE": 1158,
+    "PAID_UP": 1000,
+    "CASH_PU": 373
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 24,
+    "CASH_VALUE": 1227,
+    "PAID_UP": 1000,
+    "CASH_PU": 422
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 25,
+    "CASH_VALUE": 1298,
+    "PAID_UP": 1000,
+    "CASH_PU": 473
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 26,
+    "CASH_VALUE": 1370,
+    "PAID_UP": 1000,
+    "CASH_PU": 525
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 27,
+    "CASH_VALUE": 1444,
+    "PAID_UP": 1000,
+    "CASH_PU": 579
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 28,
+    "CASH_VALUE": 1519,
+    "PAID_UP": 1000,
+    "CASH_PU": 634
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 29,
+    "CASH_VALUE": 1597,
+    "PAID_UP": 1000,
+    "CASH_PU": 690
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 30,
+    "CASH_VALUE": 1676,
+    "PAID_UP": 1000,
+    "CASH_PU": 747
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 31,
+    "CASH_VALUE": 1758,
+    "PAID_UP": 1000,
+    "CASH_PU": 806
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 32,
+    "CASH_VALUE": 1842,
+    "PAID_UP": 1000,
+    "CASH_PU": 867
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 27,
+    "POL_YR": 33,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 2,
+    "CASH_VALUE": 21,
+    "PAID_UP": 43,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 3,
+    "CASH_VALUE": 64,
+    "PAID_UP": 127,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 4,
+    "CASH_VALUE": 110,
+    "PAID_UP": 214,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 5,
+    "CASH_VALUE": 157,
+    "PAID_UP": 299,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 6,
+    "CASH_VALUE": 210,
+    "PAID_UP": 390,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 7,
+    "CASH_VALUE": 269,
+    "PAID_UP": 487,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 8,
+    "CASH_VALUE": 317,
+    "PAID_UP": 562,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 9,
+    "CASH_VALUE": 367,
+    "PAID_UP": 636,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 10,
+    "CASH_VALUE": 419,
+    "PAID_UP": 708,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 11,
+    "CASH_VALUE": 471,
+    "PAID_UP": 778,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 12,
+    "CASH_VALUE": 526,
+    "PAID_UP": 847,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 13,
+    "CASH_VALUE": 581,
+    "PAID_UP": 914,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 14,
+    "CASH_VALUE": 637,
+    "PAID_UP": 980,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 15,
+    "CASH_VALUE": 695,
+    "PAID_UP": 1000,
+    "CASH_PU": 29
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 16,
+    "CASH_VALUE": 755,
+    "PAID_UP": 1000,
+    "CASH_PU": 73
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 17,
+    "CASH_VALUE": 815,
+    "PAID_UP": 1000,
+    "CASH_PU": 117
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 18,
+    "CASH_VALUE": 878,
+    "PAID_UP": 1000,
+    "CASH_PU": 163
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 19,
+    "CASH_VALUE": 941,
+    "PAID_UP": 1000,
+    "CASH_PU": 209
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 20,
+    "CASH_VALUE": 1007,
+    "PAID_UP": 1000,
+    "CASH_PU": 257
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 21,
+    "CASH_VALUE": 1073,
+    "PAID_UP": 1000,
+    "CASH_PU": 306
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 22,
+    "CASH_VALUE": 1142,
+    "PAID_UP": 1000,
+    "CASH_PU": 356
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 23,
+    "CASH_VALUE": 1212,
+    "PAID_UP": 1000,
+    "CASH_PU": 407
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 24,
+    "CASH_VALUE": 1284,
+    "PAID_UP": 1000,
+    "CASH_PU": 460
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 25,
+    "CASH_VALUE": 1358,
+    "PAID_UP": 1000,
+    "CASH_PU": 513
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 26,
+    "CASH_VALUE": 1433,
+    "PAID_UP": 1000,
+    "CASH_PU": 569
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 27,
+    "CASH_VALUE": 1510,
+    "PAID_UP": 1000,
+    "CASH_PU": 625
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 28,
+    "CASH_VALUE": 1590,
+    "PAID_UP": 1000,
+    "CASH_PU": 683
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 29,
+    "CASH_VALUE": 1671,
+    "PAID_UP": 1000,
+    "CASH_PU": 742
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 30,
+    "CASH_VALUE": 1755,
+    "PAID_UP": 1000,
+    "CASH_PU": 803
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 31,
+    "CASH_VALUE": 1840,
+    "PAID_UP": 1000,
+    "CASH_PU": 865
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 28,
+    "POL_YR": 32,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 2,
+    "CASH_VALUE": 22,
+    "PAID_UP": 44,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 3,
+    "CASH_VALUE": 67,
+    "PAID_UP": 130,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 4,
+    "CASH_VALUE": 115,
+    "PAID_UP": 219,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 5,
+    "CASH_VALUE": 165,
+    "PAID_UP": 306,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 6,
+    "CASH_VALUE": 220,
+    "PAID_UP": 399,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 7,
+    "CASH_VALUE": 282,
+    "PAID_UP": 499,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 8,
+    "CASH_VALUE": 333,
+    "PAID_UP": 576,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 9,
+    "CASH_VALUE": 385,
+    "PAID_UP": 651,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 10,
+    "CASH_VALUE": 439,
+    "PAID_UP": 725,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 11,
+    "CASH_VALUE": 494,
+    "PAID_UP": 797,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 12,
+    "CASH_VALUE": 551,
+    "PAID_UP": 867,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 13,
+    "CASH_VALUE": 609,
+    "PAID_UP": 936,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 14,
+    "CASH_VALUE": 668,
+    "PAID_UP": 1000,
+    "CASH_PU": 2
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 15,
+    "CASH_VALUE": 728,
+    "PAID_UP": 1000,
+    "CASH_PU": 47
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 16,
+    "CASH_VALUE": 791,
+    "PAID_UP": 1000,
+    "CASH_PU": 92
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 17,
+    "CASH_VALUE": 854,
+    "PAID_UP": 1000,
+    "CASH_PU": 139
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 18,
+    "CASH_VALUE": 919,
+    "PAID_UP": 1000,
+    "CASH_PU": 187
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 19,
+    "CASH_VALUE": 986,
+    "PAID_UP": 1000,
+    "CASH_PU": 237
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 20,
+    "CASH_VALUE": 1054,
+    "PAID_UP": 1000,
+    "CASH_PU": 287
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 21,
+    "CASH_VALUE": 1124,
+    "PAID_UP": 1000,
+    "CASH_PU": 338
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 22,
+    "CASH_VALUE": 1196,
+    "PAID_UP": 1000,
+    "CASH_PU": 391
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 23,
+    "CASH_VALUE": 1270,
+    "PAID_UP": 1000,
+    "CASH_PU": 445
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 24,
+    "CASH_VALUE": 1345,
+    "PAID_UP": 1000,
+    "CASH_PU": 501
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 25,
+    "CASH_VALUE": 1422,
+    "PAID_UP": 1000,
+    "CASH_PU": 558
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 26,
+    "CASH_VALUE": 1501,
+    "PAID_UP": 1000,
+    "CASH_PU": 616
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 27,
+    "CASH_VALUE": 1582,
+    "PAID_UP": 1000,
+    "CASH_PU": 675
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 28,
+    "CASH_VALUE": 1665,
+    "PAID_UP": 1000,
+    "CASH_PU": 736
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 29,
+    "CASH_VALUE": 1751,
+    "PAID_UP": 1000,
+    "CASH_PU": 799
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 30,
+    "CASH_VALUE": 1838,
+    "PAID_UP": 1000,
+    "CASH_PU": 863
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 29,
+    "POL_YR": 31,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 2,
+    "CASH_VALUE": 23,
+    "PAID_UP": 45,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 3,
+    "CASH_VALUE": 70,
+    "PAID_UP": 134,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 4,
+    "CASH_VALUE": 121,
+    "PAID_UP": 225,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 5,
+    "CASH_VALUE": 173,
+    "PAID_UP": 314,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 6,
+    "CASH_VALUE": 231,
+    "PAID_UP": 409,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 7,
+    "CASH_VALUE": 296,
+    "PAID_UP": 511,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 8,
+    "CASH_VALUE": 349,
+    "PAID_UP": 590,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 9,
+    "CASH_VALUE": 404,
+    "PAID_UP": 667,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 10,
+    "CASH_VALUE": 461,
+    "PAID_UP": 743,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 11,
+    "CASH_VALUE": 519,
+    "PAID_UP": 816,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 12,
+    "CASH_VALUE": 578,
+    "PAID_UP": 888,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 13,
+    "CASH_VALUE": 638,
+    "PAID_UP": 958,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 14,
+    "CASH_VALUE": 700,
+    "PAID_UP": 1000,
+    "CASH_PU": 18
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 15,
+    "CASH_VALUE": 764,
+    "PAID_UP": 1000,
+    "CASH_PU": 66
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 16,
+    "CASH_VALUE": 829,
+    "PAID_UP": 1000,
+    "CASH_PU": 114
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 17,
+    "CASH_VALUE": 896,
+    "PAID_UP": 1000,
+    "CASH_PU": 164
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 18,
+    "CASH_VALUE": 964,
+    "PAID_UP": 1000,
+    "CASH_PU": 214
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 19,
+    "CASH_VALUE": 1034,
+    "PAID_UP": 1000,
+    "CASH_PU": 266
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 20,
+    "CASH_VALUE": 1106,
+    "PAID_UP": 1000,
+    "CASH_PU": 320
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 21,
+    "CASH_VALUE": 1179,
+    "PAID_UP": 1000,
+    "CASH_PU": 374
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 22,
+    "CASH_VALUE": 1254,
+    "PAID_UP": 1000,
+    "CASH_PU": 430
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 23,
+    "CASH_VALUE": 1331,
+    "PAID_UP": 1000,
+    "CASH_PU": 487
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 24,
+    "CASH_VALUE": 1410,
+    "PAID_UP": 1000,
+    "CASH_PU": 546
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 25,
+    "CASH_VALUE": 1491,
+    "PAID_UP": 1000,
+    "CASH_PU": 605
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 26,
+    "CASH_VALUE": 1574,
+    "PAID_UP": 1000,
+    "CASH_PU": 667
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 27,
+    "CASH_VALUE": 1659,
+    "PAID_UP": 1000,
+    "CASH_PU": 730
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 28,
+    "CASH_VALUE": 1747,
+    "PAID_UP": 1000,
+    "CASH_PU": 795
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 29,
+    "CASH_VALUE": 1836,
+    "PAID_UP": 1000,
+    "CASH_PU": 861
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 30,
+    "POL_YR": 30,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 2,
+    "CASH_VALUE": 24,
+    "PAID_UP": 46,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 3,
+    "CASH_VALUE": 74,
+    "PAID_UP": 137,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 4,
+    "CASH_VALUE": 127,
+    "PAID_UP": 230,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 5,
+    "CASH_VALUE": 182,
+    "PAID_UP": 322,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 6,
+    "CASH_VALUE": 243,
+    "PAID_UP": 420,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 7,
+    "CASH_VALUE": 310,
+    "PAID_UP": 525,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 8,
+    "CASH_VALUE": 367,
+    "PAID_UP": 605,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 9,
+    "CASH_VALUE": 425,
+    "PAID_UP": 685,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 10,
+    "CASH_VALUE": 484,
+    "PAID_UP": 762,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 11,
+    "CASH_VALUE": 545,
+    "PAID_UP": 837,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 12,
+    "CASH_VALUE": 607,
+    "PAID_UP": 911,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 13,
+    "CASH_VALUE": 670,
+    "PAID_UP": 983,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 14,
+    "CASH_VALUE": 735,
+    "PAID_UP": 1000,
+    "CASH_PU": 37
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 15,
+    "CASH_VALUE": 802,
+    "PAID_UP": 1000,
+    "CASH_PU": 87
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 16,
+    "CASH_VALUE": 870,
+    "PAID_UP": 1000,
+    "CASH_PU": 138
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 17,
+    "CASH_VALUE": 940,
+    "PAID_UP": 1000,
+    "CASH_PU": 191
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 18,
+    "CASH_VALUE": 1012,
+    "PAID_UP": 1000,
+    "CASH_PU": 244
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 19,
+    "CASH_VALUE": 1085,
+    "PAID_UP": 1000,
+    "CASH_PU": 299
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 20,
+    "CASH_VALUE": 1160,
+    "PAID_UP": 1000,
+    "CASH_PU": 355
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 21,
+    "CASH_VALUE": 1237,
+    "PAID_UP": 1000,
+    "CASH_PU": 413
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 22,
+    "CASH_VALUE": 1316,
+    "PAID_UP": 1000,
+    "CASH_PU": 472
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 23,
+    "CASH_VALUE": 1397,
+    "PAID_UP": 1000,
+    "CASH_PU": 533
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 24,
+    "CASH_VALUE": 1480,
+    "PAID_UP": 1000,
+    "CASH_PU": 595
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 25,
+    "CASH_VALUE": 1565,
+    "PAID_UP": 1000,
+    "CASH_PU": 658
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 26,
+    "CASH_VALUE": 1652,
+    "PAID_UP": 1000,
+    "CASH_PU": 723
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 27,
+    "CASH_VALUE": 1742,
+    "PAID_UP": 1000,
+    "CASH_PU": 790
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 28,
+    "CASH_VALUE": 1834,
+    "PAID_UP": 1000,
+    "CASH_PU": 858
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 31,
+    "POL_YR": 29,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 2,
+    "CASH_VALUE": 26,
+    "PAID_UP": 47,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 3,
+    "CASH_VALUE": 78,
+    "PAID_UP": 141,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 4,
+    "CASH_VALUE": 134,
+    "PAID_UP": 237,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 5,
+    "CASH_VALUE": 191,
+    "PAID_UP": 330,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 6,
+    "CASH_VALUE": 255,
+    "PAID_UP": 431,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 7,
+    "CASH_VALUE": 327,
+    "PAID_UP": 539,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 8,
+    "CASH_VALUE": 386,
+    "PAID_UP": 622,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 9,
+    "CASH_VALUE": 447,
+    "PAID_UP": 703,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 10,
+    "CASH_VALUE": 509,
+    "PAID_UP": 782,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 11,
+    "CASH_VALUE": 572,
+    "PAID_UP": 859,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 12,
+    "CASH_VALUE": 638,
+    "PAID_UP": 935,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 13,
+    "CASH_VALUE": 704,
+    "PAID_UP": 1000,
+    "CASH_PU": 6
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 14,
+    "CASH_VALUE": 773,
+    "PAID_UP": 1000,
+    "CASH_PU": 58
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 15,
+    "CASH_VALUE": 843,
+    "PAID_UP": 1000,
+    "CASH_PU": 111
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 16,
+    "CASH_VALUE": 915,
+    "PAID_UP": 1000,
+    "CASH_PU": 165
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 17,
+    "CASH_VALUE": 988,
+    "PAID_UP": 1000,
+    "CASH_PU": 220
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 18,
+    "CASH_VALUE": 1063,
+    "PAID_UP": 1000,
+    "CASH_PU": 277
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 19,
+    "CASH_VALUE": 1140,
+    "PAID_UP": 1000,
+    "CASH_PU": 335
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 20,
+    "CASH_VALUE": 1219,
+    "PAID_UP": 1000,
+    "CASH_PU": 395
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 21,
+    "CASH_VALUE": 1300,
+    "PAID_UP": 1000,
+    "CASH_PU": 456
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 22,
+    "CASH_VALUE": 1383,
+    "PAID_UP": 1000,
+    "CASH_PU": 519
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 23,
+    "CASH_VALUE": 1468,
+    "PAID_UP": 1000,
+    "CASH_PU": 583
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 24,
+    "CASH_VALUE": 1556,
+    "PAID_UP": 1000,
+    "CASH_PU": 649
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 25,
+    "CASH_VALUE": 1645,
+    "PAID_UP": 1000,
+    "CASH_PU": 716
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 26,
+    "CASH_VALUE": 1737,
+    "PAID_UP": 1000,
+    "CASH_PU": 785
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 27,
+    "CASH_VALUE": 1831,
+    "PAID_UP": 1000,
+    "CASH_PU": 856
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 32,
+    "POL_YR": 28,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 2,
+    "CASH_VALUE": 27,
+    "PAID_UP": 49,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 3,
+    "CASH_VALUE": 82,
+    "PAID_UP": 145,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 4,
+    "CASH_VALUE": 141,
+    "PAID_UP": 243,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 5,
+    "CASH_VALUE": 201,
+    "PAID_UP": 340,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 6,
+    "CASH_VALUE": 269,
+    "PAID_UP": 444,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 7,
+    "CASH_VALUE": 344,
+    "PAID_UP": 554,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 8,
+    "CASH_VALUE": 406,
+    "PAID_UP": 639,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 9,
+    "CASH_VALUE": 470,
+    "PAID_UP": 723,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 10,
+    "CASH_VALUE": 535,
+    "PAID_UP": 804,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 11,
+    "CASH_VALUE": 602,
+    "PAID_UP": 883,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 12,
+    "CASH_VALUE": 671,
+    "PAID_UP": 961,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 13,
+    "CASH_VALUE": 741,
+    "PAID_UP": 1000,
+    "CASH_PU": 26
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 14,
+    "CASH_VALUE": 813,
+    "PAID_UP": 1000,
+    "CASH_PU": 81
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 15,
+    "CASH_VALUE": 887,
+    "PAID_UP": 1000,
+    "CASH_PU": 137
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 16,
+    "CASH_VALUE": 962,
+    "PAID_UP": 1000,
+    "CASH_PU": 195
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 17,
+    "CASH_VALUE": 1040,
+    "PAID_UP": 1000,
+    "CASH_PU": 254
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 18,
+    "CASH_VALUE": 1119,
+    "PAID_UP": 1000,
+    "CASH_PU": 314
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 19,
+    "CASH_VALUE": 1200,
+    "PAID_UP": 1000,
+    "CASH_PU": 376
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 20,
+    "CASH_VALUE": 1283,
+    "PAID_UP": 1000,
+    "CASH_PU": 439
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 21,
+    "CASH_VALUE": 1368,
+    "PAID_UP": 1000,
+    "CASH_PU": 504
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 22,
+    "CASH_VALUE": 1456,
+    "PAID_UP": 1000,
+    "CASH_PU": 570
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 23,
+    "CASH_VALUE": 1545,
+    "PAID_UP": 1000,
+    "CASH_PU": 638
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 24,
+    "CASH_VALUE": 1637,
+    "PAID_UP": 1000,
+    "CASH_PU": 708
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 25,
+    "CASH_VALUE": 1732,
+    "PAID_UP": 1000,
+    "CASH_PU": 780
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 26,
+    "CASH_VALUE": 1829,
+    "PAID_UP": 1000,
+    "CASH_PU": 853
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 33,
+    "POL_YR": 27,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 2,
+    "CASH_VALUE": 29,
+    "PAID_UP": 51,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 3,
+    "CASH_VALUE": 86,
+    "PAID_UP": 150,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 4,
+    "CASH_VALUE": 149,
+    "PAID_UP": 251,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 5,
+    "CASH_VALUE": 212,
+    "PAID_UP": 350,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 6,
+    "CASH_VALUE": 284,
+    "PAID_UP": 457,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 7,
+    "CASH_VALUE": 363,
+    "PAID_UP": 571,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 8,
+    "CASH_VALUE": 428,
+    "PAID_UP": 659,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 9,
+    "CASH_VALUE": 496,
+    "PAID_UP": 744,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 10,
+    "CASH_VALUE": 565,
+    "PAID_UP": 828,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 11,
+    "CASH_VALUE": 635,
+    "PAID_UP": 909,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 12,
+    "CASH_VALUE": 707,
+    "PAID_UP": 989,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 13,
+    "CASH_VALUE": 781,
+    "PAID_UP": 1000,
+    "CASH_PU": 49
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 14,
+    "CASH_VALUE": 857,
+    "PAID_UP": 1000,
+    "CASH_PU": 107
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 15,
+    "CASH_VALUE": 935,
+    "PAID_UP": 1000,
+    "CASH_PU": 167
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 16,
+    "CASH_VALUE": 1014,
+    "PAID_UP": 1000,
+    "CASH_PU": 228
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 17,
+    "CASH_VALUE": 1095,
+    "PAID_UP": 1000,
+    "CASH_PU": 291
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 18,
+    "CASH_VALUE": 1179,
+    "PAID_UP": 1000,
+    "CASH_PU": 355
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 19,
+    "CASH_VALUE": 1264,
+    "PAID_UP": 1000,
+    "CASH_PU": 420
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 20,
+    "CASH_VALUE": 1352,
+    "PAID_UP": 1000,
+    "CASH_PU": 488
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 21,
+    "CASH_VALUE": 1442,
+    "PAID_UP": 1000,
+    "CASH_PU": 556
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 22,
+    "CASH_VALUE": 1534,
+    "PAID_UP": 1000,
+    "CASH_PU": 627
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 23,
+    "CASH_VALUE": 1629,
+    "PAID_UP": 1000,
+    "CASH_PU": 700
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 24,
+    "CASH_VALUE": 1726,
+    "PAID_UP": 1000,
+    "CASH_PU": 774
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 25,
+    "CASH_VALUE": 1826,
+    "PAID_UP": 1000,
+    "CASH_PU": 850
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 34,
+    "POL_YR": 26,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 2,
+    "CASH_VALUE": 32,
+    "PAID_UP": 55,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 3,
+    "CASH_VALUE": 93,
+    "PAID_UP": 158,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 4,
+    "CASH_VALUE": 159,
+    "PAID_UP": 263,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 5,
+    "CASH_VALUE": 227,
+    "PAID_UP": 365,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 6,
+    "CASH_VALUE": 302,
+    "PAID_UP": 475,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 7,
+    "CASH_VALUE": 385,
+    "PAID_UP": 592,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 8,
+    "CASH_VALUE": 454,
+    "PAID_UP": 682,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 9,
+    "CASH_VALUE": 525,
+    "PAID_UP": 770,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 10,
+    "CASH_VALUE": 598,
+    "PAID_UP": 856,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 11,
+    "CASH_VALUE": 672,
+    "PAID_UP": 940,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 12,
+    "CASH_VALUE": 748,
+    "PAID_UP": 1000,
+    "CASH_PU": 16
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 13,
+    "CASH_VALUE": 826,
+    "PAID_UP": 1000,
+    "CASH_PU": 77
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 14,
+    "CASH_VALUE": 906,
+    "PAID_UP": 1000,
+    "CASH_PU": 138
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 15,
+    "CASH_VALUE": 988,
+    "PAID_UP": 1000,
+    "CASH_PU": 202
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 16,
+    "CASH_VALUE": 1071,
+    "PAID_UP": 1000,
+    "CASH_PU": 267
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 17,
+    "CASH_VALUE": 1157,
+    "PAID_UP": 1000,
+    "CASH_PU": 333
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 18,
+    "CASH_VALUE": 1245,
+    "PAID_UP": 1000,
+    "CASH_PU": 401
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 19,
+    "CASH_VALUE": 1335,
+    "PAID_UP": 1000,
+    "CASH_PU": 471
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 20,
+    "CASH_VALUE": 1428,
+    "PAID_UP": 1000,
+    "CASH_PU": 542
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 21,
+    "CASH_VALUE": 1523,
+    "PAID_UP": 1000,
+    "CASH_PU": 616
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 22,
+    "CASH_VALUE": 1620,
+    "PAID_UP": 1000,
+    "CASH_PU": 691
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 23,
+    "CASH_VALUE": 1720,
+    "PAID_UP": 1000,
+    "CASH_PU": 768
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 24,
+    "CASH_VALUE": 1823,
+    "PAID_UP": 1000,
+    "CASH_PU": 847
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 35,
+    "POL_YR": 25,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 2,
+    "CASH_VALUE": 35,
+    "PAID_UP": 59,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 3,
+    "CASH_VALUE": 101,
+    "PAID_UP": 167,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 4,
+    "CASH_VALUE": 171,
+    "PAID_UP": 275,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 5,
+    "CASH_VALUE": 242,
+    "PAID_UP": 381,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 6,
+    "CASH_VALUE": 322,
+    "PAID_UP": 494,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 7,
+    "CASH_VALUE": 410,
+    "PAID_UP": 615,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 8,
+    "CASH_VALUE": 483,
+    "PAID_UP": 708,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 9,
+    "CASH_VALUE": 557,
+    "PAID_UP": 798,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 10,
+    "CASH_VALUE": 634,
+    "PAID_UP": 887,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 11,
+    "CASH_VALUE": 712,
+    "PAID_UP": 973,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 12,
+    "CASH_VALUE": 793,
+    "PAID_UP": 1000,
+    "CASH_PU": 43
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 13,
+    "CASH_VALUE": 875,
+    "PAID_UP": 1000,
+    "CASH_PU": 107
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 14,
+    "CASH_VALUE": 959,
+    "PAID_UP": 1000,
+    "CASH_PU": 173
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 15,
+    "CASH_VALUE": 1045,
+    "PAID_UP": 1000,
+    "CASH_PU": 240
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 16,
+    "CASH_VALUE": 1134,
+    "PAID_UP": 1000,
+    "CASH_PU": 310
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 17,
+    "CASH_VALUE": 1224,
+    "PAID_UP": 1000,
+    "CASH_PU": 380
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 18,
+    "CASH_VALUE": 1317,
+    "PAID_UP": 1000,
+    "CASH_PU": 453
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 19,
+    "CASH_VALUE": 1412,
+    "PAID_UP": 1000,
+    "CASH_PU": 527
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 20,
+    "CASH_VALUE": 1510,
+    "PAID_UP": 1000,
+    "CASH_PU": 603
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 21,
+    "CASH_VALUE": 1610,
+    "PAID_UP": 1000,
+    "CASH_PU": 681
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 22,
+    "CASH_VALUE": 1714,
+    "PAID_UP": 1000,
+    "CASH_PU": 762
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 23,
+    "CASH_VALUE": 1819,
+    "PAID_UP": 1000,
+    "CASH_PU": 844
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 36,
+    "POL_YR": 24,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 2,
+    "CASH_VALUE": 39,
+    "PAID_UP": 64,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 3,
+    "CASH_VALUE": 109,
+    "PAID_UP": 176,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 4,
+    "CASH_VALUE": 183,
+    "PAID_UP": 289,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 5,
+    "CASH_VALUE": 259,
+    "PAID_UP": 398,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 6,
+    "CASH_VALUE": 343,
+    "PAID_UP": 515,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 7,
+    "CASH_VALUE": 436,
+    "PAID_UP": 640,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 8,
+    "CASH_VALUE": 513,
+    "PAID_UP": 735,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 9,
+    "CASH_VALUE": 592,
+    "PAID_UP": 829,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 10,
+    "CASH_VALUE": 673,
+    "PAID_UP": 920,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 11,
+    "CASH_VALUE": 756,
+    "PAID_UP": 1000,
+    "CASH_PU": 6
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 12,
+    "CASH_VALUE": 841,
+    "PAID_UP": 1000,
+    "CASH_PU": 73
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 13,
+    "CASH_VALUE": 928,
+    "PAID_UP": 1000,
+    "CASH_PU": 142
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 14,
+    "CASH_VALUE": 1017,
+    "PAID_UP": 1000,
+    "CASH_PU": 212
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 15,
+    "CASH_VALUE": 1108,
+    "PAID_UP": 1000,
+    "CASH_PU": 284
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 16,
+    "CASH_VALUE": 1201,
+    "PAID_UP": 1000,
+    "CASH_PU": 357
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 17,
+    "CASH_VALUE": 1297,
+    "PAID_UP": 1000,
+    "CASH_PU": 433
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 18,
+    "CASH_VALUE": 1396,
+    "PAID_UP": 1000,
+    "CASH_PU": 510
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 19,
+    "CASH_VALUE": 1497,
+    "PAID_UP": 1000,
+    "CASH_PU": 590
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 20,
+    "CASH_VALUE": 1600,
+    "PAID_UP": 1000,
+    "CASH_PU": 671
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 21,
+    "CASH_VALUE": 1707,
+    "PAID_UP": 1000,
+    "CASH_PU": 755
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 22,
+    "CASH_VALUE": 1816,
+    "PAID_UP": 1000,
+    "CASH_PU": 840
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 37,
+    "POL_YR": 23,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 2,
+    "CASH_VALUE": 42,
+    "PAID_UP": 68,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 3,
+    "CASH_VALUE": 118,
+    "PAID_UP": 186,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 4,
+    "CASH_VALUE": 197,
+    "PAID_UP": 303,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 5,
+    "CASH_VALUE": 277,
+    "PAID_UP": 416,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 6,
+    "CASH_VALUE": 366,
+    "PAID_UP": 537,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 7,
+    "CASH_VALUE": 465,
+    "PAID_UP": 666,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 8,
+    "CASH_VALUE": 547,
+    "PAID_UP": 765,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 9,
+    "CASH_VALUE": 630,
+    "PAID_UP": 861,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 10,
+    "CASH_VALUE": 716,
+    "PAID_UP": 955,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 11,
+    "CASH_VALUE": 804,
+    "PAID_UP": 1000,
+    "CASH_PU": 36
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 12,
+    "CASH_VALUE": 894,
+    "PAID_UP": 1000,
+    "CASH_PU": 108
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 13,
+    "CASH_VALUE": 986,
+    "PAID_UP": 1000,
+    "CASH_PU": 181
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 14,
+    "CASH_VALUE": 1080,
+    "PAID_UP": 1000,
+    "CASH_PU": 256
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 15,
+    "CASH_VALUE": 1177,
+    "PAID_UP": 1000,
+    "CASH_PU": 332
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 16,
+    "CASH_VALUE": 1276,
+    "PAID_UP": 1000,
+    "CASH_PU": 411
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 17,
+    "CASH_VALUE": 1377,
+    "PAID_UP": 1000,
+    "CASH_PU": 492
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 18,
+    "CASH_VALUE": 1482,
+    "PAID_UP": 1000,
+    "CASH_PU": 575
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 19,
+    "CASH_VALUE": 1589,
+    "PAID_UP": 1000,
+    "CASH_PU": 660
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 20,
+    "CASH_VALUE": 1699,
+    "PAID_UP": 1000,
+    "CASH_PU": 747
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 21,
+    "CASH_VALUE": 1812,
+    "PAID_UP": 1000,
+    "CASH_PU": 836
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 38,
+    "POL_YR": 22,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 2,
+    "CASH_VALUE": 47,
+    "PAID_UP": 74,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 3,
+    "CASH_VALUE": 128,
+    "PAID_UP": 196,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 4,
+    "CASH_VALUE": 212,
+    "PAID_UP": 318,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 5,
+    "CASH_VALUE": 297,
+    "PAID_UP": 435,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 6,
+    "CASH_VALUE": 392,
+    "PAID_UP": 561,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 7,
+    "CASH_VALUE": 497,
+    "PAID_UP": 695,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 8,
+    "CASH_VALUE": 583,
+    "PAID_UP": 797,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 9,
+    "CASH_VALUE": 672,
+    "PAID_UP": 897,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 10,
+    "CASH_VALUE": 763,
+    "PAID_UP": 994,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 11,
+    "CASH_VALUE": 856,
+    "PAID_UP": 1000,
+    "CASH_PU": 70
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 12,
+    "CASH_VALUE": 951,
+    "PAID_UP": 1000,
+    "CASH_PU": 146
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 13,
+    "CASH_VALUE": 1049,
+    "PAID_UP": 1000,
+    "CASH_PU": 225
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 14,
+    "CASH_VALUE": 1149,
+    "PAID_UP": 1000,
+    "CASH_PU": 305
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 15,
+    "CASH_VALUE": 1252,
+    "PAID_UP": 1000,
+    "CASH_PU": 388
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 16,
+    "CASH_VALUE": 1357,
+    "PAID_UP": 1000,
+    "CASH_PU": 472
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 17,
+    "CASH_VALUE": 1466,
+    "PAID_UP": 1000,
+    "CASH_PU": 559
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 18,
+    "CASH_VALUE": 1576,
+    "PAID_UP": 1000,
+    "CASH_PU": 647
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 19,
+    "CASH_VALUE": 1691,
+    "PAID_UP": 1000,
+    "CASH_PU": 739
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 20,
+    "CASH_VALUE": 1808,
+    "PAID_UP": 1000,
+    "CASH_PU": 832
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 39,
+    "POL_YR": 21,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 2,
+    "CASH_VALUE": 51,
+    "PAID_UP": 79,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 3,
+    "CASH_VALUE": 138,
+    "PAID_UP": 208,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 4,
+    "CASH_VALUE": 228,
+    "PAID_UP": 334,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 5,
+    "CASH_VALUE": 318,
+    "PAID_UP": 456,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 6,
+    "CASH_VALUE": 420,
+    "PAID_UP": 587,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 7,
+    "CASH_VALUE": 532,
+    "PAID_UP": 726,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 8,
+    "CASH_VALUE": 624,
+    "PAID_UP": 832,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 9,
+    "CASH_VALUE": 718,
+    "PAID_UP": 935,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 10,
+    "CASH_VALUE": 815,
+    "PAID_UP": 1000,
+    "CASH_PU": 29
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 11,
+    "CASH_VALUE": 914,
+    "PAID_UP": 1000,
+    "CASH_PU": 109
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 12,
+    "CASH_VALUE": 1015,
+    "PAID_UP": 1000,
+    "CASH_PU": 191
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 13,
+    "CASH_VALUE": 1119,
+    "PAID_UP": 1000,
+    "CASH_PU": 275
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 14,
+    "CASH_VALUE": 1226,
+    "PAID_UP": 1000,
+    "CASH_PU": 361
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 15,
+    "CASH_VALUE": 1335,
+    "PAID_UP": 1000,
+    "CASH_PU": 450
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 16,
+    "CASH_VALUE": 1448,
+    "PAID_UP": 1000,
+    "CASH_PU": 541
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 17,
+    "CASH_VALUE": 1563,
+    "PAID_UP": 1000,
+    "CASH_PU": 634
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 18,
+    "CASH_VALUE": 1681,
+    "PAID_UP": 1000,
+    "CASH_PU": 729
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 19,
+    "CASH_VALUE": 1803,
+    "PAID_UP": 1000,
+    "CASH_PU": 827
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 40,
+    "POL_YR": 20,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 2,
+    "CASH_VALUE": 57,
+    "PAID_UP": 85,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 3,
+    "CASH_VALUE": 150,
+    "PAID_UP": 220,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 4,
+    "CASH_VALUE": 246,
+    "PAID_UP": 352,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 5,
+    "CASH_VALUE": 343,
+    "PAID_UP": 479,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 6,
+    "CASH_VALUE": 451,
+    "PAID_UP": 616,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 7,
+    "CASH_VALUE": 570,
+    "PAID_UP": 761,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 8,
+    "CASH_VALUE": 668,
+    "PAID_UP": 871,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 9,
+    "CASH_VALUE": 769,
+    "PAID_UP": 978,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 10,
+    "CASH_VALUE": 872,
+    "PAID_UP": 1000,
+    "CASH_PU": 67
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 11,
+    "CASH_VALUE": 978,
+    "PAID_UP": 1000,
+    "CASH_PU": 153
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 12,
+    "CASH_VALUE": 1086,
+    "PAID_UP": 1000,
+    "CASH_PU": 242
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 13,
+    "CASH_VALUE": 1197,
+    "PAID_UP": 1000,
+    "CASH_PU": 332
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 14,
+    "CASH_VALUE": 1311,
+    "PAID_UP": 1000,
+    "CASH_PU": 425
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 15,
+    "CASH_VALUE": 1428,
+    "PAID_UP": 1000,
+    "CASH_PU": 521
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 16,
+    "CASH_VALUE": 1548,
+    "PAID_UP": 1000,
+    "CASH_PU": 618
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 17,
+    "CASH_VALUE": 1671,
+    "PAID_UP": 1000,
+    "CASH_PU": 719
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 18,
+    "CASH_VALUE": 1798,
+    "PAID_UP": 1000,
+    "CASH_PU": 822
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 41,
+    "POL_YR": 19,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 2,
+    "CASH_VALUE": 62,
+    "PAID_UP": 91,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 3,
+    "CASH_VALUE": 163,
+    "PAID_UP": 234,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 4,
+    "CASH_VALUE": 266,
+    "PAID_UP": 372,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 5,
+    "CASH_VALUE": 370,
+    "PAID_UP": 505,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 6,
+    "CASH_VALUE": 485,
+    "PAID_UP": 647,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 7,
+    "CASH_VALUE": 613,
+    "PAID_UP": 799,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 8,
+    "CASH_VALUE": 718,
+    "PAID_UP": 914,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 9,
+    "CASH_VALUE": 825,
+    "PAID_UP": 1000,
+    "CASH_PU": 21
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 10,
+    "CASH_VALUE": 936,
+    "PAID_UP": 1000,
+    "CASH_PU": 112
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 11,
+    "CASH_VALUE": 1049,
+    "PAID_UP": 1000,
+    "CASH_PU": 205
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 12,
+    "CASH_VALUE": 1165,
+    "PAID_UP": 1000,
+    "CASH_PU": 300
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 13,
+    "CASH_VALUE": 1283,
+    "PAID_UP": 1000,
+    "CASH_PU": 398
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 14,
+    "CASH_VALUE": 1406,
+    "PAID_UP": 1000,
+    "CASH_PU": 499
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 15,
+    "CASH_VALUE": 1531,
+    "PAID_UP": 1000,
+    "CASH_PU": 602
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 16,
+    "CASH_VALUE": 1660,
+    "PAID_UP": 1000,
+    "CASH_PU": 708
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 17,
+    "CASH_VALUE": 1792,
+    "PAID_UP": 1000,
+    "CASH_PU": 816
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 42,
+    "POL_YR": 18,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 2,
+    "CASH_VALUE": 69,
+    "PAID_UP": 98,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 3,
+    "CASH_VALUE": 178,
+    "PAID_UP": 249,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 4,
+    "CASH_VALUE": 289,
+    "PAID_UP": 394,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 5,
+    "CASH_VALUE": 400,
+    "PAID_UP": 533,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 6,
+    "CASH_VALUE": 524,
+    "PAID_UP": 682,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 7,
+    "CASH_VALUE": 661,
+    "PAID_UP": 841,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 8,
+    "CASH_VALUE": 774,
+    "PAID_UP": 961,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 9,
+    "CASH_VALUE": 889,
+    "PAID_UP": 1000,
+    "CASH_PU": 65
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 10,
+    "CASH_VALUE": 1007,
+    "PAID_UP": 1000,
+    "CASH_PU": 163
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 11,
+    "CASH_VALUE": 1129,
+    "PAID_UP": 1000,
+    "CASH_PU": 264
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 12,
+    "CASH_VALUE": 1253,
+    "PAID_UP": 1000,
+    "CASH_PU": 368
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 13,
+    "CASH_VALUE": 1381,
+    "PAID_UP": 1000,
+    "CASH_PU": 474
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 14,
+    "CASH_VALUE": 1512,
+    "PAID_UP": 1000,
+    "CASH_PU": 583
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 15,
+    "CASH_VALUE": 1647,
+    "PAID_UP": 1000,
+    "CASH_PU": 695
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 16,
+    "CASH_VALUE": 1785,
+    "PAID_UP": 1000,
+    "CASH_PU": 810
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 43,
+    "POL_YR": 17,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 2,
+    "CASH_VALUE": 76,
+    "PAID_UP": 106,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 3,
+    "CASH_VALUE": 194,
+    "PAID_UP": 266,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 4,
+    "CASH_VALUE": 314,
+    "PAID_UP": 419,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 5,
+    "CASH_VALUE": 434,
+    "PAID_UP": 565,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 6,
+    "CASH_VALUE": 567,
+    "PAID_UP": 722,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 7,
+    "CASH_VALUE": 715,
+    "PAID_UP": 889,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 8,
+    "CASH_VALUE": 836,
+    "PAID_UP": 1000,
+    "CASH_PU": 12
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 9,
+    "CASH_VALUE": 961,
+    "PAID_UP": 1000,
+    "CASH_PU": 117
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 10,
+    "CASH_VALUE": 1088,
+    "PAID_UP": 1000,
+    "CASH_PU": 224
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 11,
+    "CASH_VALUE": 1219,
+    "PAID_UP": 1000,
+    "CASH_PU": 333
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 12,
+    "CASH_VALUE": 1353,
+    "PAID_UP": 1000,
+    "CASH_PU": 446
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 13,
+    "CASH_VALUE": 1491,
+    "PAID_UP": 1000,
+    "CASH_PU": 562
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 14,
+    "CASH_VALUE": 1633,
+    "PAID_UP": 1000,
+    "CASH_PU": 681
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 15,
+    "CASH_VALUE": 1778,
+    "PAID_UP": 1000,
+    "CASH_PU": 803
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 44,
+    "POL_YR": 16,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 2,
+    "CASH_VALUE": 84,
+    "PAID_UP": 115,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 3,
+    "CASH_VALUE": 213,
+    "PAID_UP": 285,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 4,
+    "CASH_VALUE": 343,
+    "PAID_UP": 446,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 5,
+    "CASH_VALUE": 472,
+    "PAID_UP": 601,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 6,
+    "CASH_VALUE": 617,
+    "PAID_UP": 766,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 7,
+    "CASH_VALUE": 777,
+    "PAID_UP": 943,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 8,
+    "CASH_VALUE": 908,
+    "PAID_UP": 1000,
+    "CASH_PU": 64
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 9,
+    "CASH_VALUE": 1042,
+    "PAID_UP": 1000,
+    "CASH_PU": 178
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 10,
+    "CASH_VALUE": 1180,
+    "PAID_UP": 1000,
+    "CASH_PU": 294
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 11,
+    "CASH_VALUE": 1322,
+    "PAID_UP": 1000,
+    "CASH_PU": 415
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 12,
+    "CASH_VALUE": 1467,
+    "PAID_UP": 1000,
+    "CASH_PU": 538
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 13,
+    "CASH_VALUE": 1616,
+    "PAID_UP": 1000,
+    "CASH_PU": 664
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 14,
+    "CASH_VALUE": 1770,
+    "PAID_UP": 1000,
+    "CASH_PU": 794
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 45,
+    "POL_YR": 15,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 1,
+    "CASH_VALUE": 6,
+    "PAID_UP": 9,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 2,
+    "CASH_VALUE": 94,
+    "PAID_UP": 125,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 3,
+    "CASH_VALUE": 250,
+    "PAID_UP": 326,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 4,
+    "CASH_VALUE": 398,
+    "PAID_UP": 506,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 5,
+    "CASH_VALUE": 573,
+    "PAID_UP": 713,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 6,
+    "CASH_VALUE": 709,
+    "PAID_UP": 860,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 7,
+    "CASH_VALUE": 847,
+    "PAID_UP": 1000,
+    "CASH_PU": 3
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 8,
+    "CASH_VALUE": 990,
+    "PAID_UP": 1000,
+    "CASH_PU": 125
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 9,
+    "CASH_VALUE": 1135,
+    "PAID_UP": 1000,
+    "CASH_PU": 250
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 10,
+    "CASH_VALUE": 1285,
+    "PAID_UP": 1000,
+    "CASH_PU": 379
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 11,
+    "CASH_VALUE": 1439,
+    "PAID_UP": 1000,
+    "CASH_PU": 510
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 12,
+    "CASH_VALUE": 1598,
+    "PAID_UP": 1000,
+    "CASH_PU": 646
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 13,
+    "CASH_VALUE": 1760,
+    "PAID_UP": 1000,
+    "CASH_PU": 785
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 46,
+    "POL_YR": 14,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 1,
+    "CASH_VALUE": 8,
+    "PAID_UP": 10,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 2,
+    "CASH_VALUE": 105,
+    "PAID_UP": 136,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 3,
+    "CASH_VALUE": 277,
+    "PAID_UP": 352,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 4,
+    "CASH_VALUE": 438,
+    "PAID_UP": 544,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 5,
+    "CASH_VALUE": 630,
+    "PAID_UP": 765,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 6,
+    "CASH_VALUE": 778,
+    "PAID_UP": 921,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 7,
+    "CASH_VALUE": 929,
+    "PAID_UP": 1000,
+    "CASH_PU": 65
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 8,
+    "CASH_VALUE": 1084,
+    "PAID_UP": 1000,
+    "CASH_PU": 199
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 9,
+    "CASH_VALUE": 1244,
+    "PAID_UP": 1000,
+    "CASH_PU": 337
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 10,
+    "CASH_VALUE": 1408,
+    "PAID_UP": 1000,
+    "CASH_PU": 478
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 11,
+    "CASH_VALUE": 1576,
+    "PAID_UP": 1000,
+    "CASH_PU": 624
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 12,
+    "CASH_VALUE": 1750,
+    "PAID_UP": 1000,
+    "CASH_PU": 774
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 47,
+    "POL_YR": 13,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 1,
+    "CASH_VALUE": 9,
+    "PAID_UP": 11,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 2,
+    "CASH_VALUE": 117,
+    "PAID_UP": 149,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 3,
+    "CASH_VALUE": 308,
+    "PAID_UP": 382,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 4,
+    "CASH_VALUE": 485,
+    "PAID_UP": 588,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 5,
+    "CASH_VALUE": 696,
+    "PAID_UP": 825,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 6,
+    "CASH_VALUE": 858,
+    "PAID_UP": 993,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 7,
+    "CASH_VALUE": 1025,
+    "PAID_UP": 1000,
+    "CASH_PU": 139
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 8,
+    "CASH_VALUE": 1195,
+    "PAID_UP": 1000,
+    "CASH_PU": 288
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 9,
+    "CASH_VALUE": 1371,
+    "PAID_UP": 1000,
+    "CASH_PU": 442
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 10,
+    "CASH_VALUE": 1551,
+    "PAID_UP": 1000,
+    "CASH_PU": 599
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 11,
+    "CASH_VALUE": 1737,
+    "PAID_UP": 1000,
+    "CASH_PU": 761
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 48,
+    "POL_YR": 12,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 1,
+    "CASH_VALUE": 10,
+    "PAID_UP": 13,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 2,
+    "CASH_VALUE": 132,
+    "PAID_UP": 164,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 3,
+    "CASH_VALUE": 344,
+    "PAID_UP": 418,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 4,
+    "CASH_VALUE": 540,
+    "PAID_UP": 640,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 5,
+    "CASH_VALUE": 775,
+    "PAID_UP": 897,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 6,
+    "CASH_VALUE": 954,
+    "PAID_UP": 1000,
+    "CASH_PU": 69
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 7,
+    "CASH_VALUE": 1138,
+    "PAID_UP": 1000,
+    "CASH_PU": 231
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 8,
+    "CASH_VALUE": 1327,
+    "PAID_UP": 1000,
+    "CASH_PU": 398
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 9,
+    "CASH_VALUE": 1522,
+    "PAID_UP": 1000,
+    "CASH_PU": 570
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 10,
+    "CASH_VALUE": 1722,
+    "PAID_UP": 1000,
+    "CASH_PU": 746
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 49,
+    "POL_YR": 11,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 1,
+    "CASH_VALUE": 12,
+    "PAID_UP": 15,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 2,
+    "CASH_VALUE": 150,
+    "PAID_UP": 182,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 3,
+    "CASH_VALUE": 388,
+    "PAID_UP": 460,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 4,
+    "CASH_VALUE": 608,
+    "PAID_UP": 703,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 5,
+    "CASH_VALUE": 870,
+    "PAID_UP": 982,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 6,
+    "CASH_VALUE": 1070,
+    "PAID_UP": 1000,
+    "CASH_PU": 163
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 7,
+    "CASH_VALUE": 1275,
+    "PAID_UP": 1000,
+    "CASH_PU": 346
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 8,
+    "CASH_VALUE": 1486,
+    "PAID_UP": 1000,
+    "CASH_PU": 534
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 9,
+    "CASH_VALUE": 1704,
+    "PAID_UP": 1000,
+    "CASH_PU": 728
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 50,
+    "POL_YR": 10,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 1,
+    "CASH_VALUE": 43,
+    "PAID_UP": 52,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 2,
+    "CASH_VALUE": 173,
+    "PAID_UP": 204,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 3,
+    "CASH_VALUE": 443,
+    "PAID_UP": 512,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 4,
+    "CASH_VALUE": 690,
+    "PAID_UP": 779,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 5,
+    "CASH_VALUE": 986,
+    "PAID_UP": 1000,
+    "CASH_PU": 79
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 6,
+    "CASH_VALUE": 1211,
+    "PAID_UP": 1000,
+    "CASH_PU": 282
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 7,
+    "CASH_VALUE": 1443,
+    "PAID_UP": 1000,
+    "CASH_PU": 491
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 8,
+    "CASH_VALUE": 1682,
+    "PAID_UP": 1000,
+    "CASH_PU": 706
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 51,
+    "POL_YR": 9,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 1,
+    "CASH_VALUE": 51,
+    "PAID_UP": 60,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 2,
+    "CASH_VALUE": 200,
+    "PAID_UP": 232,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 3,
+    "CASH_VALUE": 510,
+    "PAID_UP": 576,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 4,
+    "CASH_VALUE": 793,
+    "PAID_UP": 875,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 5,
+    "CASH_VALUE": 1132,
+    "PAID_UP": 1000,
+    "CASH_PU": 202
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 6,
+    "CASH_VALUE": 1389,
+    "PAID_UP": 1000,
+    "CASH_PU": 437
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 7,
+    "CASH_VALUE": 1655,
+    "PAID_UP": 1000,
+    "CASH_PU": 679
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 52,
+    "POL_YR": 8,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 1,
+    "CASH_VALUE": 62,
+    "PAID_UP": 71,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 2,
+    "CASH_VALUE": 236,
+    "PAID_UP": 267,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 3,
+    "CASH_VALUE": 598,
+    "PAID_UP": 659,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 4,
+    "CASH_VALUE": 926,
+    "PAID_UP": 997,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 5,
+    "CASH_VALUE": 1320,
+    "PAID_UP": 1000,
+    "CASH_PU": 368
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 6,
+    "CASH_VALUE": 1619,
+    "PAID_UP": 1000,
+    "CASH_PU": 644
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 53,
+    "POL_YR": 7,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 1,
+    "CASH_VALUE": 76,
+    "PAID_UP": 86,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 2,
+    "CASH_VALUE": 284,
+    "PAID_UP": 313,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 3,
+    "CASH_VALUE": 715,
+    "PAID_UP": 769,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 4,
+    "CASH_VALUE": 1105,
+    "PAID_UP": 1000,
+    "CASH_PU": 153
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 5,
+    "CASH_VALUE": 1573,
+    "PAID_UP": 1000,
+    "CASH_PU": 597
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 54,
+    "POL_YR": 6,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 55,
+    "POL_YR": 1,
+    "CASH_VALUE": 96,
+    "PAID_UP": 106,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 55,
+    "POL_YR": 2,
+    "CASH_VALUE": 352,
+    "PAID_UP": 378,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 55,
+    "POL_YR": 3,
+    "CASH_VALUE": 879,
+    "PAID_UP": 924,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 55,
+    "POL_YR": 4,
+    "CASH_VALUE": 1356,
+    "PAID_UP": 1000,
+    "CASH_PU": 381
+  },
+  {
+    "PLAN": 153,
+    "SEX": 1,
+    "AGE": 55,
+    "POL_YR": 5,
+    "CASH_VALUE": 1929,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 2,
+    "CASH_VALUE": 19,
+    "PAID_UP": 43,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 3,
+    "CASH_VALUE": 59,
+    "PAID_UP": 128,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 4,
+    "CASH_VALUE": 101,
+    "PAID_UP": 215,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 5,
+    "CASH_VALUE": 145,
+    "PAID_UP": 300,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 6,
+    "CASH_VALUE": 194,
+    "PAID_UP": 391,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 7,
+    "CASH_VALUE": 248,
+    "PAID_UP": 488,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 8,
+    "CASH_VALUE": 293,
+    "PAID_UP": 563,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 9,
+    "CASH_VALUE": 339,
+    "PAID_UP": 636,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 10,
+    "CASH_VALUE": 386,
+    "PAID_UP": 708,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 11,
+    "CASH_VALUE": 434,
+    "PAID_UP": 777,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 12,
+    "CASH_VALUE": 484,
+    "PAID_UP": 845,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 13,
+    "CASH_VALUE": 535,
+    "PAID_UP": 912,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 14,
+    "CASH_VALUE": 587,
+    "PAID_UP": 977,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 15,
+    "CASH_VALUE": 641,
+    "PAID_UP": 1000,
+    "CASH_PU": 25
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 16,
+    "CASH_VALUE": 695,
+    "PAID_UP": 1000,
+    "CASH_PU": 64
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 17,
+    "CASH_VALUE": 751,
+    "PAID_UP": 1000,
+    "CASH_PU": 105
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 18,
+    "CASH_VALUE": 809,
+    "PAID_UP": 1000,
+    "CASH_PU": 147
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 19,
+    "CASH_VALUE": 868,
+    "PAID_UP": 1000,
+    "CASH_PU": 189
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 20,
+    "CASH_VALUE": 928,
+    "PAID_UP": 1000,
+    "CASH_PU": 233
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 21,
+    "CASH_VALUE": 990,
+    "PAID_UP": 1000,
+    "CASH_PU": 278
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 22,
+    "CASH_VALUE": 1053,
+    "PAID_UP": 1000,
+    "CASH_PU": 324
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 23,
+    "CASH_VALUE": 1118,
+    "PAID_UP": 1000,
+    "CASH_PU": 371
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 24,
+    "CASH_VALUE": 1185,
+    "PAID_UP": 1000,
+    "CASH_PU": 419
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 25,
+    "CASH_VALUE": 1253,
+    "PAID_UP": 1000,
+    "CASH_PU": 469
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 26,
+    "CASH_VALUE": 1322,
+    "PAID_UP": 1000,
+    "CASH_PU": 519
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 27,
+    "CASH_VALUE": 1394,
+    "PAID_UP": 1000,
+    "CASH_PU": 571
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 28,
+    "CASH_VALUE": 1467,
+    "PAID_UP": 1000,
+    "CASH_PU": 624
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 29,
+    "CASH_VALUE": 1543,
+    "PAID_UP": 1000,
+    "CASH_PU": 679
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 30,
+    "CASH_VALUE": 1620,
+    "PAID_UP": 1000,
+    "CASH_PU": 735
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 31,
+    "CASH_VALUE": 1699,
+    "PAID_UP": 1000,
+    "CASH_PU": 792
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 32,
+    "CASH_VALUE": 1780,
+    "PAID_UP": 1000,
+    "CASH_PU": 851
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 33,
+    "CASH_VALUE": 1863,
+    "PAID_UP": 1000,
+    "CASH_PU": 911
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 34,
+    "CASH_VALUE": 1949,
+    "PAID_UP": 1000,
+    "CASH_PU": 973
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 25,
+    "POL_YR": 35,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 2,
+    "CASH_VALUE": 20,
+    "PAID_UP": 44,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 3,
+    "CASH_VALUE": 62,
+    "PAID_UP": 131,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 4,
+    "CASH_VALUE": 106,
+    "PAID_UP": 219,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 5,
+    "CASH_VALUE": 151,
+    "PAID_UP": 306,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 6,
+    "CASH_VALUE": 202,
+    "PAID_UP": 399,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 7,
+    "CASH_VALUE": 259,
+    "PAID_UP": 498,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 8,
+    "CASH_VALUE": 306,
+    "PAID_UP": 575,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 9,
+    "CASH_VALUE": 354,
+    "PAID_UP": 649,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 10,
+    "CASH_VALUE": 403,
+    "PAID_UP": 722,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 11,
+    "CASH_VALUE": 454,
+    "PAID_UP": 793,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 12,
+    "CASH_VALUE": 506,
+    "PAID_UP": 862,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 13,
+    "CASH_VALUE": 559,
+    "PAID_UP": 930,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 14,
+    "CASH_VALUE": 614,
+    "PAID_UP": 996,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 15,
+    "CASH_VALUE": 669,
+    "PAID_UP": 1000,
+    "CASH_PU": 38
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 16,
+    "CASH_VALUE": 727,
+    "PAID_UP": 1000,
+    "CASH_PU": 80
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 17,
+    "CASH_VALUE": 785,
+    "PAID_UP": 1000,
+    "CASH_PU": 123
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 18,
+    "CASH_VALUE": 845,
+    "PAID_UP": 1000,
+    "CASH_PU": 167
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 19,
+    "CASH_VALUE": 907,
+    "PAID_UP": 1000,
+    "CASH_PU": 212
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 20,
+    "CASH_VALUE": 970,
+    "PAID_UP": 1000,
+    "CASH_PU": 258
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 21,
+    "CASH_VALUE": 1034,
+    "PAID_UP": 1000,
+    "CASH_PU": 305
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 22,
+    "CASH_VALUE": 1100,
+    "PAID_UP": 1000,
+    "CASH_PU": 353
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 23,
+    "CASH_VALUE": 1168,
+    "PAID_UP": 1000,
+    "CASH_PU": 403
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 24,
+    "CASH_VALUE": 1238,
+    "PAID_UP": 1000,
+    "CASH_PU": 454
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 25,
+    "CASH_VALUE": 1309,
+    "PAID_UP": 1000,
+    "CASH_PU": 505
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 26,
+    "CASH_VALUE": 1382,
+    "PAID_UP": 1000,
+    "CASH_PU": 559
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 27,
+    "CASH_VALUE": 1456,
+    "PAID_UP": 1000,
+    "CASH_PU": 613
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 28,
+    "CASH_VALUE": 1533,
+    "PAID_UP": 1000,
+    "CASH_PU": 669
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 29,
+    "CASH_VALUE": 1612,
+    "PAID_UP": 1000,
+    "CASH_PU": 727
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 30,
+    "CASH_VALUE": 1692,
+    "PAID_UP": 1000,
+    "CASH_PU": 786
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 31,
+    "CASH_VALUE": 1775,
+    "PAID_UP": 1000,
+    "CASH_PU": 846
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 32,
+    "CASH_VALUE": 1860,
+    "PAID_UP": 1000,
+    "CASH_PU": 908
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 33,
+    "CASH_VALUE": 1947,
+    "PAID_UP": 1000,
+    "CASH_PU": 971
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 26,
+    "POL_YR": 34,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 2,
+    "CASH_VALUE": 21,
+    "PAID_UP": 45,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 3,
+    "CASH_VALUE": 64,
+    "PAID_UP": 133,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 4,
+    "CASH_VALUE": 111,
+    "PAID_UP": 224,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 5,
+    "CASH_VALUE": 158,
+    "PAID_UP": 312,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 6,
+    "CASH_VALUE": 212,
+    "PAID_UP": 407,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 7,
+    "CASH_VALUE": 271,
+    "PAID_UP": 509,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 8,
+    "CASH_VALUE": 320,
+    "PAID_UP": 587,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 9,
+    "CASH_VALUE": 370,
+    "PAID_UP": 663,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 10,
+    "CASH_VALUE": 422,
+    "PAID_UP": 737,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 11,
+    "CASH_VALUE": 475,
+    "PAID_UP": 809,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 12,
+    "CASH_VALUE": 529,
+    "PAID_UP": 880,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 13,
+    "CASH_VALUE": 585,
+    "PAID_UP": 950,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 14,
+    "CASH_VALUE": 642,
+    "PAID_UP": 1000,
+    "CASH_PU": 11
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 15,
+    "CASH_VALUE": 700,
+    "PAID_UP": 1000,
+    "CASH_PU": 54
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 16,
+    "CASH_VALUE": 760,
+    "PAID_UP": 1000,
+    "CASH_PU": 98
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 17,
+    "CASH_VALUE": 821,
+    "PAID_UP": 1000,
+    "CASH_PU": 143
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 18,
+    "CASH_VALUE": 884,
+    "PAID_UP": 1000,
+    "CASH_PU": 189
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 19,
+    "CASH_VALUE": 948,
+    "PAID_UP": 1000,
+    "CASH_PU": 236
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 20,
+    "CASH_VALUE": 1014,
+    "PAID_UP": 1000,
+    "CASH_PU": 285
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 21,
+    "CASH_VALUE": 1081,
+    "PAID_UP": 1000,
+    "CASH_PU": 334
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 22,
+    "CASH_VALUE": 1150,
+    "PAID_UP": 1000,
+    "CASH_PU": 385
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 23,
+    "CASH_VALUE": 1221,
+    "PAID_UP": 1000,
+    "CASH_PU": 437
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 24,
+    "CASH_VALUE": 1294,
+    "PAID_UP": 1000,
+    "CASH_PU": 491
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 25,
+    "CASH_VALUE": 1368,
+    "PAID_UP": 1000,
+    "CASH_PU": 546
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 26,
+    "CASH_VALUE": 1445,
+    "PAID_UP": 1000,
+    "CASH_PU": 602
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 27,
+    "CASH_VALUE": 1523,
+    "PAID_UP": 1000,
+    "CASH_PU": 659
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 28,
+    "CASH_VALUE": 1603,
+    "PAID_UP": 1000,
+    "CASH_PU": 718
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 29,
+    "CASH_VALUE": 1685,
+    "PAID_UP": 1000,
+    "CASH_PU": 779
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 30,
+    "CASH_VALUE": 1770,
+    "PAID_UP": 1000,
+    "CASH_PU": 841
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 31,
+    "CASH_VALUE": 1856,
+    "PAID_UP": 1000,
+    "CASH_PU": 904
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 32,
+    "CASH_VALUE": 1945,
+    "PAID_UP": 1000,
+    "CASH_PU": 969
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 27,
+    "POL_YR": 33,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 2,
+    "CASH_VALUE": 22,
+    "PAID_UP": 46,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 3,
+    "CASH_VALUE": 67,
+    "PAID_UP": 136,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 4,
+    "CASH_VALUE": 116,
+    "PAID_UP": 229,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 5,
+    "CASH_VALUE": 166,
+    "PAID_UP": 319,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 6,
+    "CASH_VALUE": 222,
+    "PAID_UP": 416,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 7,
+    "CASH_VALUE": 283,
+    "PAID_UP": 520,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 8,
+    "CASH_VALUE": 335,
+    "PAID_UP": 599,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 9,
+    "CASH_VALUE": 388,
+    "PAID_UP": 677,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 10,
+    "CASH_VALUE": 442,
+    "PAID_UP": 753,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 11,
+    "CASH_VALUE": 497,
+    "PAID_UP": 827,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 12,
+    "CASH_VALUE": 554,
+    "PAID_UP": 900,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 13,
+    "CASH_VALUE": 612,
+    "PAID_UP": 970,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 14,
+    "CASH_VALUE": 672,
+    "PAID_UP": 1000,
+    "CASH_PU": 25
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 15,
+    "CASH_VALUE": 733,
+    "PAID_UP": 1000,
+    "CASH_PU": 71
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 16,
+    "CASH_VALUE": 795,
+    "PAID_UP": 1000,
+    "CASH_PU": 117
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 17,
+    "CASH_VALUE": 859,
+    "PAID_UP": 1000,
+    "CASH_PU": 164
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 18,
+    "CASH_VALUE": 925,
+    "PAID_UP": 1000,
+    "CASH_PU": 213
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 19,
+    "CASH_VALUE": 992,
+    "PAID_UP": 1000,
+    "CASH_PU": 263
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 20,
+    "CASH_VALUE": 1061,
+    "PAID_UP": 1000,
+    "CASH_PU": 314
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 21,
+    "CASH_VALUE": 1132,
+    "PAID_UP": 1000,
+    "CASH_PU": 366
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 22,
+    "CASH_VALUE": 1204,
+    "PAID_UP": 1000,
+    "CASH_PU": 420
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 23,
+    "CASH_VALUE": 1278,
+    "PAID_UP": 1000,
+    "CASH_PU": 475
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 24,
+    "CASH_VALUE": 1354,
+    "PAID_UP": 1000,
+    "CASH_PU": 531
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 25,
+    "CASH_VALUE": 1432,
+    "PAID_UP": 1000,
+    "CASH_PU": 589
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 26,
+    "CASH_VALUE": 1512,
+    "PAID_UP": 1000,
+    "CASH_PU": 648
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 27,
+    "CASH_VALUE": 1594,
+    "PAID_UP": 1000,
+    "CASH_PU": 709
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 28,
+    "CASH_VALUE": 1678,
+    "PAID_UP": 1000,
+    "CASH_PU": 771
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 29,
+    "CASH_VALUE": 1764,
+    "PAID_UP": 1000,
+    "CASH_PU": 835
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 30,
+    "CASH_VALUE": 1852,
+    "PAID_UP": 1000,
+    "CASH_PU": 900
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 31,
+    "CASH_VALUE": 1943,
+    "PAID_UP": 1000,
+    "CASH_PU": 968
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 28,
+    "POL_YR": 32,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 2,
+    "CASH_VALUE": 23,
+    "PAID_UP": 47,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 3,
+    "CASH_VALUE": 71,
+    "PAID_UP": 139,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 4,
+    "CASH_VALUE": 122,
+    "PAID_UP": 234,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 5,
+    "CASH_VALUE": 174,
+    "PAID_UP": 327,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 6,
+    "CASH_VALUE": 232,
+    "PAID_UP": 426,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 7,
+    "CASH_VALUE": 297,
+    "PAID_UP": 532,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 8,
+    "CASH_VALUE": 351,
+    "PAID_UP": 613,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 9,
+    "CASH_VALUE": 406,
+    "PAID_UP": 693,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 10,
+    "CASH_VALUE": 463,
+    "PAID_UP": 770,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 11,
+    "CASH_VALUE": 521,
+    "PAID_UP": 846,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 12,
+    "CASH_VALUE": 580,
+    "PAID_UP": 920,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 13,
+    "CASH_VALUE": 641,
+    "PAID_UP": 992,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 14,
+    "CASH_VALUE": 704,
+    "PAID_UP": 1000,
+    "CASH_PU": 42
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 15,
+    "CASH_VALUE": 768,
+    "PAID_UP": 1000,
+    "CASH_PU": 89
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 16,
+    "CASH_VALUE": 833,
+    "PAID_UP": 1000,
+    "CASH_PU": 138
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 17,
+    "CASH_VALUE": 900,
+    "PAID_UP": 1000,
+    "CASH_PU": 188
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 18,
+    "CASH_VALUE": 969,
+    "PAID_UP": 1000,
+    "CASH_PU": 240
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 19,
+    "CASH_VALUE": 1039,
+    "PAID_UP": 1000,
+    "CASH_PU": 292
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 20,
+    "CASH_VALUE": 1112,
+    "PAID_UP": 1000,
+    "CASH_PU": 346
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 21,
+    "CASH_VALUE": 1186,
+    "PAID_UP": 1000,
+    "CASH_PU": 401
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 22,
+    "CASH_VALUE": 1261,
+    "PAID_UP": 1000,
+    "CASH_PU": 458
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 23,
+    "CASH_VALUE": 1339,
+    "PAID_UP": 1000,
+    "CASH_PU": 516
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 24,
+    "CASH_VALUE": 1418,
+    "PAID_UP": 1000,
+    "CASH_PU": 576
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 25,
+    "CASH_VALUE": 1500,
+    "PAID_UP": 1000,
+    "CASH_PU": 637
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 26,
+    "CASH_VALUE": 1584,
+    "PAID_UP": 1000,
+    "CASH_PU": 699
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 27,
+    "CASH_VALUE": 1670,
+    "PAID_UP": 1000,
+    "CASH_PU": 763
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 28,
+    "CASH_VALUE": 1758,
+    "PAID_UP": 1000,
+    "CASH_PU": 829
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 29,
+    "CASH_VALUE": 1848,
+    "PAID_UP": 1000,
+    "CASH_PU": 896
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 30,
+    "CASH_VALUE": 1941,
+    "PAID_UP": 1000,
+    "CASH_PU": 965
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 29,
+    "POL_YR": 31,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 2,
+    "CASH_VALUE": 24,
+    "PAID_UP": 48,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 3,
+    "CASH_VALUE": 74,
+    "PAID_UP": 143,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 4,
+    "CASH_VALUE": 128,
+    "PAID_UP": 240,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 5,
+    "CASH_VALUE": 182,
+    "PAID_UP": 334,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 6,
+    "CASH_VALUE": 244,
+    "PAID_UP": 436,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 7,
+    "CASH_VALUE": 312,
+    "PAID_UP": 544,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 8,
+    "CASH_VALUE": 368,
+    "PAID_UP": 628,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 9,
+    "CASH_VALUE": 426,
+    "PAID_UP": 709,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 10,
+    "CASH_VALUE": 486,
+    "PAID_UP": 789,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 11,
+    "CASH_VALUE": 546,
+    "PAID_UP": 866,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 12,
+    "CASH_VALUE": 609,
+    "PAID_UP": 942,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 13,
+    "CASH_VALUE": 673,
+    "PAID_UP": 1000,
+    "CASH_PU": 11
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 14,
+    "CASH_VALUE": 738,
+    "PAID_UP": 1000,
+    "CASH_PU": 60
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 15,
+    "CASH_VALUE": 805,
+    "PAID_UP": 1000,
+    "CASH_PU": 110
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 16,
+    "CASH_VALUE": 874,
+    "PAID_UP": 1000,
+    "CASH_PU": 162
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 17,
+    "CASH_VALUE": 944,
+    "PAID_UP": 1000,
+    "CASH_PU": 215
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 18,
+    "CASH_VALUE": 1016,
+    "PAID_UP": 1000,
+    "CASH_PU": 269
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 19,
+    "CASH_VALUE": 1090,
+    "PAID_UP": 1000,
+    "CASH_PU": 325
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 20,
+    "CASH_VALUE": 1166,
+    "PAID_UP": 1000,
+    "CASH_PU": 382
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 21,
+    "CASH_VALUE": 1243,
+    "PAID_UP": 1000,
+    "CASH_PU": 440
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 22,
+    "CASH_VALUE": 1323,
+    "PAID_UP": 1000,
+    "CASH_PU": 500
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 23,
+    "CASH_VALUE": 1404,
+    "PAID_UP": 1000,
+    "CASH_PU": 561
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 24,
+    "CASH_VALUE": 1488,
+    "PAID_UP": 1000,
+    "CASH_PU": 624
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 25,
+    "CASH_VALUE": 1573,
+    "PAID_UP": 1000,
+    "CASH_PU": 688
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 26,
+    "CASH_VALUE": 1661,
+    "PAID_UP": 1000,
+    "CASH_PU": 755
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 27,
+    "CASH_VALUE": 1751,
+    "PAID_UP": 1000,
+    "CASH_PU": 822
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 28,
+    "CASH_VALUE": 1844,
+    "PAID_UP": 1000,
+    "CASH_PU": 892
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 29,
+    "CASH_VALUE": 1939,
+    "PAID_UP": 1000,
+    "CASH_PU": 963
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 30,
+    "POL_YR": 30,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 2,
+    "CASH_VALUE": 26,
+    "PAID_UP": 49,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 3,
+    "CASH_VALUE": 78,
+    "PAID_UP": 146,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 4,
+    "CASH_VALUE": 134,
+    "PAID_UP": 246,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 5,
+    "CASH_VALUE": 191,
+    "PAID_UP": 343,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 6,
+    "CASH_VALUE": 256,
+    "PAID_UP": 447,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 7,
+    "CASH_VALUE": 327,
+    "PAID_UP": 558,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 8,
+    "CASH_VALUE": 387,
+    "PAID_UP": 643,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 9,
+    "CASH_VALUE": 448,
+    "PAID_UP": 727,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 10,
+    "CASH_VALUE": 510,
+    "PAID_UP": 808,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 11,
+    "CASH_VALUE": 574,
+    "PAID_UP": 888,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 12,
+    "CASH_VALUE": 639,
+    "PAID_UP": 965,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 13,
+    "CASH_VALUE": 706,
+    "PAID_UP": 1000,
+    "CASH_PU": 28
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 14,
+    "CASH_VALUE": 775,
+    "PAID_UP": 1000,
+    "CASH_PU": 80
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 15,
+    "CASH_VALUE": 845,
+    "PAID_UP": 1000,
+    "CASH_PU": 133
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 16,
+    "CASH_VALUE": 917,
+    "PAID_UP": 1000,
+    "CASH_PU": 188
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 17,
+    "CASH_VALUE": 991,
+    "PAID_UP": 1000,
+    "CASH_PU": 244
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 18,
+    "CASH_VALUE": 1067,
+    "PAID_UP": 1000,
+    "CASH_PU": 301
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 19,
+    "CASH_VALUE": 1144,
+    "PAID_UP": 1000,
+    "CASH_PU": 360
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 20,
+    "CASH_VALUE": 1224,
+    "PAID_UP": 1000,
+    "CASH_PU": 420
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 21,
+    "CASH_VALUE": 1305,
+    "PAID_UP": 1000,
+    "CASH_PU": 482
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 22,
+    "CASH_VALUE": 1388,
+    "PAID_UP": 1000,
+    "CASH_PU": 546
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 23,
+    "CASH_VALUE": 1474,
+    "PAID_UP": 1000,
+    "CASH_PU": 611
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 24,
+    "CASH_VALUE": 1562,
+    "PAID_UP": 1000,
+    "CASH_PU": 677
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 25,
+    "CASH_VALUE": 1652,
+    "PAID_UP": 1000,
+    "CASH_PU": 745
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 26,
+    "CASH_VALUE": 1744,
+    "PAID_UP": 1000,
+    "CASH_PU": 815
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 27,
+    "CASH_VALUE": 1839,
+    "PAID_UP": 1000,
+    "CASH_PU": 887
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 28,
+    "CASH_VALUE": 1936,
+    "PAID_UP": 1000,
+    "CASH_PU": 961
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 31,
+    "POL_YR": 29,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 2,
+    "CASH_VALUE": 27,
+    "PAID_UP": 51,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 3,
+    "CASH_VALUE": 82,
+    "PAID_UP": 150,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 4,
+    "CASH_VALUE": 141,
+    "PAID_UP": 252,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 5,
+    "CASH_VALUE": 201,
+    "PAID_UP": 352,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 6,
+    "CASH_VALUE": 269,
+    "PAID_UP": 459,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 7,
+    "CASH_VALUE": 344,
+    "PAID_UP": 573,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 8,
+    "CASH_VALUE": 407,
+    "PAID_UP": 660,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 9,
+    "CASH_VALUE": 471,
+    "PAID_UP": 746,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 10,
+    "CASH_VALUE": 536,
+    "PAID_UP": 829,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 11,
+    "CASH_VALUE": 603,
+    "PAID_UP": 911,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 12,
+    "CASH_VALUE": 672,
+    "PAID_UP": 991,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 13,
+    "CASH_VALUE": 742,
+    "PAID_UP": 1000,
+    "CASH_PU": 47
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 14,
+    "CASH_VALUE": 815,
+    "PAID_UP": 1000,
+    "CASH_PU": 103
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 15,
+    "CASH_VALUE": 888,
+    "PAID_UP": 1000,
+    "CASH_PU": 159
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 16,
+    "CASH_VALUE": 964,
+    "PAID_UP": 1000,
+    "CASH_PU": 217
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 17,
+    "CASH_VALUE": 1042,
+    "PAID_UP": 1000,
+    "CASH_PU": 276
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 18,
+    "CASH_VALUE": 1121,
+    "PAID_UP": 1000,
+    "CASH_PU": 337
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 19,
+    "CASH_VALUE": 1203,
+    "PAID_UP": 1000,
+    "CASH_PU": 399
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 20,
+    "CASH_VALUE": 1286,
+    "PAID_UP": 1000,
+    "CASH_PU": 463
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 21,
+    "CASH_VALUE": 1372,
+    "PAID_UP": 1000,
+    "CASH_PU": 529
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 22,
+    "CASH_VALUE": 1460,
+    "PAID_UP": 1000,
+    "CASH_PU": 596
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 23,
+    "CASH_VALUE": 1549,
+    "PAID_UP": 1000,
+    "CASH_PU": 665
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 24,
+    "CASH_VALUE": 1642,
+    "PAID_UP": 1000,
+    "CASH_PU": 735
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 25,
+    "CASH_VALUE": 1737,
+    "PAID_UP": 1000,
+    "CASH_PU": 808
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 26,
+    "CASH_VALUE": 1834,
+    "PAID_UP": 1000,
+    "CASH_PU": 882
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 27,
+    "CASH_VALUE": 1934,
+    "PAID_UP": 1000,
+    "CASH_PU": 958
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 32,
+    "POL_YR": 28,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 2,
+    "CASH_VALUE": 29,
+    "PAID_UP": 52,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 3,
+    "CASH_VALUE": 86,
+    "PAID_UP": 155,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 4,
+    "CASH_VALUE": 149,
+    "PAID_UP": 260,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 5,
+    "CASH_VALUE": 212,
+    "PAID_UP": 362,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 6,
+    "CASH_VALUE": 284,
+    "PAID_UP": 472,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 7,
+    "CASH_VALUE": 363,
+    "PAID_UP": 589,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 8,
+    "CASH_VALUE": 428,
+    "PAID_UP": 679,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 9,
+    "CASH_VALUE": 496,
+    "PAID_UP": 767,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 10,
+    "CASH_VALUE": 565,
+    "PAID_UP": 853,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 11,
+    "CASH_VALUE": 635,
+    "PAID_UP": 936,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 12,
+    "CASH_VALUE": 707,
+    "PAID_UP": 1000,
+    "CASH_PU": 13
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 13,
+    "CASH_VALUE": 782,
+    "PAID_UP": 1000,
+    "CASH_PU": 70
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 14,
+    "CASH_VALUE": 857,
+    "PAID_UP": 1000,
+    "CASH_PU": 128
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 15,
+    "CASH_VALUE": 935,
+    "PAID_UP": 1000,
+    "CASH_PU": 188
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 16,
+    "CASH_VALUE": 1015,
+    "PAID_UP": 1000,
+    "CASH_PU": 249
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 17,
+    "CASH_VALUE": 1096,
+    "PAID_UP": 1000,
+    "CASH_PU": 312
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 18,
+    "CASH_VALUE": 1180,
+    "PAID_UP": 1000,
+    "CASH_PU": 377
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 19,
+    "CASH_VALUE": 1266,
+    "PAID_UP": 1000,
+    "CASH_PU": 443
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 20,
+    "CASH_VALUE": 1354,
+    "PAID_UP": 1000,
+    "CASH_PU": 511
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 21,
+    "CASH_VALUE": 1444,
+    "PAID_UP": 1000,
+    "CASH_PU": 580
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 22,
+    "CASH_VALUE": 1536,
+    "PAID_UP": 1000,
+    "CASH_PU": 652
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 23,
+    "CASH_VALUE": 1631,
+    "PAID_UP": 1000,
+    "CASH_PU": 725
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 24,
+    "CASH_VALUE": 1728,
+    "PAID_UP": 1000,
+    "CASH_PU": 800
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 25,
+    "CASH_VALUE": 1828,
+    "PAID_UP": 1000,
+    "CASH_PU": 877
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 26,
+    "CASH_VALUE": 1931,
+    "PAID_UP": 1000,
+    "CASH_PU": 955
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 33,
+    "POL_YR": 27,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 2,
+    "CASH_VALUE": 32,
+    "PAID_UP": 56,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 3,
+    "CASH_VALUE": 93,
+    "PAID_UP": 163,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 4,
+    "CASH_VALUE": 159,
+    "PAID_UP": 271,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 5,
+    "CASH_VALUE": 226,
+    "PAID_UP": 376,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 6,
+    "CASH_VALUE": 301,
+    "PAID_UP": 489,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 7,
+    "CASH_VALUE": 385,
+    "PAID_UP": 610,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 8,
+    "CASH_VALUE": 454,
+    "PAID_UP": 702,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 9,
+    "CASH_VALUE": 525,
+    "PAID_UP": 792,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 10,
+    "CASH_VALUE": 597,
+    "PAID_UP": 880,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 11,
+    "CASH_VALUE": 671,
+    "PAID_UP": 966,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 12,
+    "CASH_VALUE": 747,
+    "PAID_UP": 1000,
+    "CASH_PU": 36
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 13,
+    "CASH_VALUE": 825,
+    "PAID_UP": 1000,
+    "CASH_PU": 96
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 14,
+    "CASH_VALUE": 905,
+    "PAID_UP": 1000,
+    "CASH_PU": 158
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 15,
+    "CASH_VALUE": 987,
+    "PAID_UP": 1000,
+    "CASH_PU": 222
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 16,
+    "CASH_VALUE": 1071,
+    "PAID_UP": 1000,
+    "CASH_PU": 287
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 17,
+    "CASH_VALUE": 1157,
+    "PAID_UP": 1000,
+    "CASH_PU": 354
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 18,
+    "CASH_VALUE": 1245,
+    "PAID_UP": 1000,
+    "CASH_PU": 422
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 19,
+    "CASH_VALUE": 1335,
+    "PAID_UP": 1000,
+    "CASH_PU": 492
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 20,
+    "CASH_VALUE": 1428,
+    "PAID_UP": 1000,
+    "CASH_PU": 564
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 21,
+    "CASH_VALUE": 1523,
+    "PAID_UP": 1000,
+    "CASH_PU": 638
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 22,
+    "CASH_VALUE": 1620,
+    "PAID_UP": 1000,
+    "CASH_PU": 714
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 23,
+    "CASH_VALUE": 1720,
+    "PAID_UP": 1000,
+    "CASH_PU": 791
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 24,
+    "CASH_VALUE": 1823,
+    "PAID_UP": 1000,
+    "CASH_PU": 871
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 25,
+    "CASH_VALUE": 1928,
+    "PAID_UP": 1000,
+    "CASH_PU": 952
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 34,
+    "POL_YR": 26,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 2,
+    "CASH_VALUE": 35,
+    "PAID_UP": 61,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 3,
+    "CASH_VALUE": 100,
+    "PAID_UP": 171,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 4,
+    "CASH_VALUE": 170,
+    "PAID_UP": 283,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 5,
+    "CASH_VALUE": 241,
+    "PAID_UP": 392,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 6,
+    "CASH_VALUE": 320,
+    "PAID_UP": 508,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 7,
+    "CASH_VALUE": 408,
+    "PAID_UP": 632,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 8,
+    "CASH_VALUE": 481,
+    "PAID_UP": 727,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 9,
+    "CASH_VALUE": 556,
+    "PAID_UP": 819,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 10,
+    "CASH_VALUE": 632,
+    "PAID_UP": 910,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 11,
+    "CASH_VALUE": 711,
+    "PAID_UP": 998,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 12,
+    "CASH_VALUE": 791,
+    "PAID_UP": 1000,
+    "CASH_PU": 61
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 13,
+    "CASH_VALUE": 873,
+    "PAID_UP": 1000,
+    "CASH_PU": 126
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 14,
+    "CASH_VALUE": 957,
+    "PAID_UP": 1000,
+    "CASH_PU": 192
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 15,
+    "CASH_VALUE": 1043,
+    "PAID_UP": 1000,
+    "CASH_PU": 259
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 16,
+    "CASH_VALUE": 1132,
+    "PAID_UP": 1000,
+    "CASH_PU": 328
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 17,
+    "CASH_VALUE": 1222,
+    "PAID_UP": 1000,
+    "CASH_PU": 399
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 18,
+    "CASH_VALUE": 1315,
+    "PAID_UP": 1000,
+    "CASH_PU": 472
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 19,
+    "CASH_VALUE": 1410,
+    "PAID_UP": 1000,
+    "CASH_PU": 547
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 20,
+    "CASH_VALUE": 1508,
+    "PAID_UP": 1000,
+    "CASH_PU": 623
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 21,
+    "CASH_VALUE": 1608,
+    "PAID_UP": 1000,
+    "CASH_PU": 702
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 22,
+    "CASH_VALUE": 1711,
+    "PAID_UP": 1000,
+    "CASH_PU": 782
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 23,
+    "CASH_VALUE": 1817,
+    "PAID_UP": 1000,
+    "CASH_PU": 865
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 24,
+    "CASH_VALUE": 1925,
+    "PAID_UP": 1000,
+    "CASH_PU": 949
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 35,
+    "POL_YR": 25,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 2,
+    "CASH_VALUE": 38,
+    "PAID_UP": 65,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 3,
+    "CASH_VALUE": 108,
+    "PAID_UP": 180,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 4,
+    "CASH_VALUE": 182,
+    "PAID_UP": 296,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 5,
+    "CASH_VALUE": 257,
+    "PAID_UP": 408,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 6,
+    "CASH_VALUE": 341,
+    "PAID_UP": 528,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 7,
+    "CASH_VALUE": 434,
+    "PAID_UP": 656,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 8,
+    "CASH_VALUE": 511,
+    "PAID_UP": 753,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 9,
+    "CASH_VALUE": 590,
+    "PAID_UP": 849,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 10,
+    "CASH_VALUE": 670,
+    "PAID_UP": 942,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 11,
+    "CASH_VALUE": 753,
+    "PAID_UP": 1000,
+    "CASH_PU": 24
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 12,
+    "CASH_VALUE": 838,
+    "PAID_UP": 1000,
+    "CASH_PU": 91
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 13,
+    "CASH_VALUE": 924,
+    "PAID_UP": 1000,
+    "CASH_PU": 159
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 14,
+    "CASH_VALUE": 1013,
+    "PAID_UP": 1000,
+    "CASH_PU": 229
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 15,
+    "CASH_VALUE": 1104,
+    "PAID_UP": 1000,
+    "CASH_PU": 301
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 16,
+    "CASH_VALUE": 1198,
+    "PAID_UP": 1000,
+    "CASH_PU": 375
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 17,
+    "CASH_VALUE": 1293,
+    "PAID_UP": 1000,
+    "CASH_PU": 450
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 18,
+    "CASH_VALUE": 1391,
+    "PAID_UP": 1000,
+    "CASH_PU": 528
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 19,
+    "CASH_VALUE": 1492,
+    "PAID_UP": 1000,
+    "CASH_PU": 607
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 20,
+    "CASH_VALUE": 1595,
+    "PAID_UP": 1000,
+    "CASH_PU": 689
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 21,
+    "CASH_VALUE": 1701,
+    "PAID_UP": 1000,
+    "CASH_PU": 772
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 22,
+    "CASH_VALUE": 1810,
+    "PAID_UP": 1000,
+    "CASH_PU": 858
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 23,
+    "CASH_VALUE": 1922,
+    "PAID_UP": 1000,
+    "CASH_PU": 946
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 36,
+    "POL_YR": 24,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 2,
+    "CASH_VALUE": 42,
+    "PAID_UP": 70,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 3,
+    "CASH_VALUE": 117,
+    "PAID_UP": 190,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 4,
+    "CASH_VALUE": 195,
+    "PAID_UP": 310,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 5,
+    "CASH_VALUE": 275,
+    "PAID_UP": 425,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 6,
+    "CASH_VALUE": 364,
+    "PAID_UP": 549,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 7,
+    "CASH_VALUE": 462,
+    "PAID_UP": 681,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 8,
+    "CASH_VALUE": 543,
+    "PAID_UP": 782,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 9,
+    "CASH_VALUE": 627,
+    "PAID_UP": 880,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 10,
+    "CASH_VALUE": 712,
+    "PAID_UP": 976,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 11,
+    "CASH_VALUE": 799,
+    "PAID_UP": 1000,
+    "CASH_PU": 52
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 12,
+    "CASH_VALUE": 889,
+    "PAID_UP": 1000,
+    "CASH_PU": 123
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 13,
+    "CASH_VALUE": 980,
+    "PAID_UP": 1000,
+    "CASH_PU": 196
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 14,
+    "CASH_VALUE": 1074,
+    "PAID_UP": 1000,
+    "CASH_PU": 271
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 15,
+    "CASH_VALUE": 1171,
+    "PAID_UP": 1000,
+    "CASH_PU": 348
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 16,
+    "CASH_VALUE": 1269,
+    "PAID_UP": 1000,
+    "CASH_PU": 426
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 17,
+    "CASH_VALUE": 1371,
+    "PAID_UP": 1000,
+    "CASH_PU": 507
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 18,
+    "CASH_VALUE": 1474,
+    "PAID_UP": 1000,
+    "CASH_PU": 590
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 19,
+    "CASH_VALUE": 1581,
+    "PAID_UP": 1000,
+    "CASH_PU": 674
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 20,
+    "CASH_VALUE": 1690,
+    "PAID_UP": 1000,
+    "CASH_PU": 761
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 21,
+    "CASH_VALUE": 1803,
+    "PAID_UP": 1000,
+    "CASH_PU": 851
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 22,
+    "CASH_VALUE": 1918,
+    "PAID_UP": 1000,
+    "CASH_PU": 942
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 37,
+    "POL_YR": 23,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 2,
+    "CASH_VALUE": 46,
+    "PAID_UP": 75,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 3,
+    "CASH_VALUE": 126,
+    "PAID_UP": 200,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 4,
+    "CASH_VALUE": 210,
+    "PAID_UP": 325,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 5,
+    "CASH_VALUE": 294,
+    "PAID_UP": 444,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 6,
+    "CASH_VALUE": 388,
+    "PAID_UP": 573,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 7,
+    "CASH_VALUE": 493,
+    "PAID_UP": 709,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 8,
+    "CASH_VALUE": 579,
+    "PAID_UP": 813,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 9,
+    "CASH_VALUE": 667,
+    "PAID_UP": 914,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 10,
+    "CASH_VALUE": 757,
+    "PAID_UP": 1000,
+    "CASH_PU": 10
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 11,
+    "CASH_VALUE": 850,
+    "PAID_UP": 1000,
+    "CASH_PU": 84
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 12,
+    "CASH_VALUE": 945,
+    "PAID_UP": 1000,
+    "CASH_PU": 161
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 13,
+    "CASH_VALUE": 1042,
+    "PAID_UP": 1000,
+    "CASH_PU": 238
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 14,
+    "CASH_VALUE": 1141,
+    "PAID_UP": 1000,
+    "CASH_PU": 318
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 15,
+    "CASH_VALUE": 1243,
+    "PAID_UP": 1000,
+    "CASH_PU": 400
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 16,
+    "CASH_VALUE": 1348,
+    "PAID_UP": 1000,
+    "CASH_PU": 484
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 17,
+    "CASH_VALUE": 1455,
+    "PAID_UP": 1000,
+    "CASH_PU": 570
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 18,
+    "CASH_VALUE": 1565,
+    "PAID_UP": 1000,
+    "CASH_PU": 659
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 19,
+    "CASH_VALUE": 1678,
+    "PAID_UP": 1000,
+    "CASH_PU": 750
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 20,
+    "CASH_VALUE": 1795,
+    "PAID_UP": 1000,
+    "CASH_PU": 843
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 21,
+    "CASH_VALUE": 1914,
+    "PAID_UP": 1000,
+    "CASH_PU": 938
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 38,
+    "POL_YR": 22,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 2,
+    "CASH_VALUE": 51,
+    "PAID_UP": 80,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 3,
+    "CASH_VALUE": 137,
+    "PAID_UP": 212,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 4,
+    "CASH_VALUE": 225,
+    "PAID_UP": 340,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 5,
+    "CASH_VALUE": 315,
+    "PAID_UP": 465,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 6,
+    "CASH_VALUE": 415,
+    "PAID_UP": 598,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 7,
+    "CASH_VALUE": 526,
+    "PAID_UP": 739,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 8,
+    "CASH_VALUE": 618,
+    "PAID_UP": 847,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 9,
+    "CASH_VALUE": 711,
+    "PAID_UP": 952,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 10,
+    "CASH_VALUE": 807,
+    "PAID_UP": 1000,
+    "CASH_PU": 42
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 11,
+    "CASH_VALUE": 905,
+    "PAID_UP": 1000,
+    "CASH_PU": 121
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 12,
+    "CASH_VALUE": 1006,
+    "PAID_UP": 1000,
+    "CASH_PU": 203
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 13,
+    "CASH_VALUE": 1109,
+    "PAID_UP": 1000,
+    "CASH_PU": 286
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 14,
+    "CASH_VALUE": 1215,
+    "PAID_UP": 1000,
+    "CASH_PU": 372
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 15,
+    "CASH_VALUE": 1323,
+    "PAID_UP": 1000,
+    "CASH_PU": 459
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 16,
+    "CASH_VALUE": 1434,
+    "PAID_UP": 1000,
+    "CASH_PU": 549
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 17,
+    "CASH_VALUE": 1548,
+    "PAID_UP": 1000,
+    "CASH_PU": 642
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 18,
+    "CASH_VALUE": 1665,
+    "PAID_UP": 1000,
+    "CASH_PU": 737
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 19,
+    "CASH_VALUE": 1786,
+    "PAID_UP": 1000,
+    "CASH_PU": 834
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 20,
+    "CASH_VALUE": 1909,
+    "PAID_UP": 1000,
+    "CASH_PU": 934
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 39,
+    "POL_YR": 21,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 2,
+    "CASH_VALUE": 56,
+    "PAID_UP": 86,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 3,
+    "CASH_VALUE": 148,
+    "PAID_UP": 223,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 4,
+    "CASH_VALUE": 243,
+    "PAID_UP": 358,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 5,
+    "CASH_VALUE": 338,
+    "PAID_UP": 487,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 6,
+    "CASH_VALUE": 445,
+    "PAID_UP": 625,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 7,
+    "CASH_VALUE": 563,
+    "PAID_UP": 772,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 8,
+    "CASH_VALUE": 660,
+    "PAID_UP": 884,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 9,
+    "CASH_VALUE": 760,
+    "PAID_UP": 993,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 10,
+    "CASH_VALUE": 862,
+    "PAID_UP": 1000,
+    "CASH_PU": 78
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 11,
+    "CASH_VALUE": 966,
+    "PAID_UP": 1000,
+    "CASH_PU": 163
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 12,
+    "CASH_VALUE": 1073,
+    "PAID_UP": 1000,
+    "CASH_PU": 250
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 13,
+    "CASH_VALUE": 1183,
+    "PAID_UP": 1000,
+    "CASH_PU": 340
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 14,
+    "CASH_VALUE": 1296,
+    "PAID_UP": 1000,
+    "CASH_PU": 432
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 15,
+    "CASH_VALUE": 1411,
+    "PAID_UP": 1000,
+    "CASH_PU": 526
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 16,
+    "CASH_VALUE": 1530,
+    "PAID_UP": 1000,
+    "CASH_PU": 623
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 17,
+    "CASH_VALUE": 1651,
+    "PAID_UP": 1000,
+    "CASH_PU": 722
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 18,
+    "CASH_VALUE": 1776,
+    "PAID_UP": 1000,
+    "CASH_PU": 824
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 19,
+    "CASH_VALUE": 1904,
+    "PAID_UP": 1000,
+    "CASH_PU": 929
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 40,
+    "POL_YR": 20,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 2,
+    "CASH_VALUE": 61,
+    "PAID_UP": 92,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 3,
+    "CASH_VALUE": 160,
+    "PAID_UP": 237,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 4,
+    "CASH_VALUE": 262,
+    "PAID_UP": 377,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 5,
+    "CASH_VALUE": 364,
+    "PAID_UP": 511,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 6,
+    "CASH_VALUE": 478,
+    "PAID_UP": 655,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 7,
+    "CASH_VALUE": 604,
+    "PAID_UP": 809,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 8,
+    "CASH_VALUE": 708,
+    "PAID_UP": 925,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 9,
+    "CASH_VALUE": 814,
+    "PAID_UP": 1000,
+    "CASH_PU": 30
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 10,
+    "CASH_VALUE": 922,
+    "PAID_UP": 1000,
+    "CASH_PU": 119
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 11,
+    "CASH_VALUE": 1034,
+    "PAID_UP": 1000,
+    "CASH_PU": 211
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 12,
+    "CASH_VALUE": 1148,
+    "PAID_UP": 1000,
+    "CASH_PU": 305
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 13,
+    "CASH_VALUE": 1265,
+    "PAID_UP": 1000,
+    "CASH_PU": 402
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 14,
+    "CASH_VALUE": 1385,
+    "PAID_UP": 1000,
+    "CASH_PU": 501
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 15,
+    "CASH_VALUE": 1509,
+    "PAID_UP": 1000,
+    "CASH_PU": 602
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 16,
+    "CASH_VALUE": 1635,
+    "PAID_UP": 1000,
+    "CASH_PU": 706
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 17,
+    "CASH_VALUE": 1766,
+    "PAID_UP": 1000,
+    "CASH_PU": 814
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 18,
+    "CASH_VALUE": 1899,
+    "PAID_UP": 1000,
+    "CASH_PU": 923
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 41,
+    "POL_YR": 19,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 2,
+    "CASH_VALUE": 67,
+    "PAID_UP": 99,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 3,
+    "CASH_VALUE": 174,
+    "PAID_UP": 251,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 4,
+    "CASH_VALUE": 283,
+    "PAID_UP": 398,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 5,
+    "CASH_VALUE": 392,
+    "PAID_UP": 538,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 6,
+    "CASH_VALUE": 514,
+    "PAID_UP": 689,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 7,
+    "CASH_VALUE": 649,
+    "PAID_UP": 849,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 8,
+    "CASH_VALUE": 760,
+    "PAID_UP": 970,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 9,
+    "CASH_VALUE": 874,
+    "PAID_UP": 1000,
+    "CASH_PU": 70
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 10,
+    "CASH_VALUE": 990,
+    "PAID_UP": 1000,
+    "CASH_PU": 167
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 11,
+    "CASH_VALUE": 1109,
+    "PAID_UP": 1000,
+    "CASH_PU": 266
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 12,
+    "CASH_VALUE": 1232,
+    "PAID_UP": 1000,
+    "CASH_PU": 368
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 13,
+    "CASH_VALUE": 1357,
+    "PAID_UP": 1000,
+    "CASH_PU": 472
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 14,
+    "CASH_VALUE": 1486,
+    "PAID_UP": 1000,
+    "CASH_PU": 579
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 15,
+    "CASH_VALUE": 1618,
+    "PAID_UP": 1000,
+    "CASH_PU": 689
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 16,
+    "CASH_VALUE": 1754,
+    "PAID_UP": 1000,
+    "CASH_PU": 802
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 17,
+    "CASH_VALUE": 1893,
+    "PAID_UP": 1000,
+    "CASH_PU": 917
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 42,
+    "POL_YR": 18,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 2,
+    "CASH_VALUE": 74,
+    "PAID_UP": 106,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 3,
+    "CASH_VALUE": 190,
+    "PAID_UP": 267,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 4,
+    "CASH_VALUE": 307,
+    "PAID_UP": 421,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 5,
+    "CASH_VALUE": 424,
+    "PAID_UP": 568,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 6,
+    "CASH_VALUE": 555,
+    "PAID_UP": 726,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 7,
+    "CASH_VALUE": 700,
+    "PAID_UP": 893,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 8,
+    "CASH_VALUE": 819,
+    "PAID_UP": 1000,
+    "CASH_PU": 16
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 9,
+    "CASH_VALUE": 941,
+    "PAID_UP": 1000,
+    "CASH_PU": 118
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 10,
+    "CASH_VALUE": 1066,
+    "PAID_UP": 1000,
+    "CASH_PU": 223
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 11,
+    "CASH_VALUE": 1194,
+    "PAID_UP": 1000,
+    "CASH_PU": 330
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 12,
+    "CASH_VALUE": 1325,
+    "PAID_UP": 1000,
+    "CASH_PU": 440
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 13,
+    "CASH_VALUE": 1460,
+    "PAID_UP": 1000,
+    "CASH_PU": 553
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 14,
+    "CASH_VALUE": 1598,
+    "PAID_UP": 1000,
+    "CASH_PU": 669
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 15,
+    "CASH_VALUE": 1740,
+    "PAID_UP": 1000,
+    "CASH_PU": 788
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 16,
+    "CASH_VALUE": 1886,
+    "PAID_UP": 1000,
+    "CASH_PU": 911
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 43,
+    "POL_YR": 17,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 2,
+    "CASH_VALUE": 82,
+    "PAID_UP": 115,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 3,
+    "CASH_VALUE": 207,
+    "PAID_UP": 284,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 4,
+    "CASH_VALUE": 334,
+    "PAID_UP": 447,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 5,
+    "CASH_VALUE": 460,
+    "PAID_UP": 601,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 6,
+    "CASH_VALUE": 601,
+    "PAID_UP": 767,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 7,
+    "CASH_VALUE": 758,
+    "PAID_UP": 943,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 8,
+    "CASH_VALUE": 886,
+    "PAID_UP": 1000,
+    "CASH_PU": 63
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 9,
+    "CASH_VALUE": 1017,
+    "PAID_UP": 1000,
+    "CASH_PU": 174
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 10,
+    "CASH_VALUE": 1151,
+    "PAID_UP": 1000,
+    "CASH_PU": 288
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 11,
+    "CASH_VALUE": 1289,
+    "PAID_UP": 1000,
+    "CASH_PU": 404
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 12,
+    "CASH_VALUE": 1431,
+    "PAID_UP": 1000,
+    "CASH_PU": 524
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 13,
+    "CASH_VALUE": 1576,
+    "PAID_UP": 1000,
+    "CASH_PU": 647
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 14,
+    "CASH_VALUE": 1725,
+    "PAID_UP": 1000,
+    "CASH_PU": 773
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 15,
+    "CASH_VALUE": 1879,
+    "PAID_UP": 1000,
+    "CASH_PU": 903
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 44,
+    "POL_YR": 16,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 1,
+    "CASH_VALUE": 0,
+    "PAID_UP": 0,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 2,
+    "CASH_VALUE": 90,
+    "PAID_UP": 124,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 3,
+    "CASH_VALUE": 227,
+    "PAID_UP": 304,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 4,
+    "CASH_VALUE": 364,
+    "PAID_UP": 476,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 5,
+    "CASH_VALUE": 501,
+    "PAID_UP": 639,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 6,
+    "CASH_VALUE": 654,
+    "PAID_UP": 814,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 7,
+    "CASH_VALUE": 823,
+    "PAID_UP": 1000,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 8,
+    "CASH_VALUE": 961,
+    "PAID_UP": 1000,
+    "CASH_PU": 118
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 9,
+    "CASH_VALUE": 1103,
+    "PAID_UP": 1000,
+    "CASH_PU": 239
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 10,
+    "CASH_VALUE": 1248,
+    "PAID_UP": 1000,
+    "CASH_PU": 364
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 11,
+    "CASH_VALUE": 1398,
+    "PAID_UP": 1000,
+    "CASH_PU": 491
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 12,
+    "CASH_VALUE": 1551,
+    "PAID_UP": 1000,
+    "CASH_PU": 622
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 13,
+    "CASH_VALUE": 1708,
+    "PAID_UP": 1000,
+    "CASH_PU": 756
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 14,
+    "CASH_VALUE": 1870,
+    "PAID_UP": 1000,
+    "CASH_PU": 894
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 45,
+    "POL_YR": 15,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 1,
+    "CASH_VALUE": 7,
+    "PAID_UP": 10,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 2,
+    "CASH_VALUE": 100,
+    "PAID_UP": 134,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 3,
+    "CASH_VALUE": 267,
+    "PAID_UP": 349,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 4,
+    "CASH_VALUE": 422,
+    "PAID_UP": 539,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 5,
+    "CASH_VALUE": 609,
+    "PAID_UP": 758,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 6,
+    "CASH_VALUE": 751,
+    "PAID_UP": 913,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 7,
+    "CASH_VALUE": 898,
+    "PAID_UP": 1000,
+    "CASH_PU": 55
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 8,
+    "CASH_VALUE": 1048,
+    "PAID_UP": 1000,
+    "CASH_PU": 184
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 9,
+    "CASH_VALUE": 1202,
+    "PAID_UP": 1000,
+    "CASH_PU": 317
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 10,
+    "CASH_VALUE": 1360,
+    "PAID_UP": 1000,
+    "CASH_PU": 453
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 11,
+    "CASH_VALUE": 1522,
+    "PAID_UP": 1000,
+    "CASH_PU": 593
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 12,
+    "CASH_VALUE": 1689,
+    "PAID_UP": 1000,
+    "CASH_PU": 737
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 13,
+    "CASH_VALUE": 1860,
+    "PAID_UP": 1000,
+    "CASH_PU": 885
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 46,
+    "POL_YR": 14,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 1,
+    "CASH_VALUE": 8,
+    "PAID_UP": 11,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 2,
+    "CASH_VALUE": 112,
+    "PAID_UP": 146,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 3,
+    "CASH_VALUE": 295,
+    "PAID_UP": 376,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 4,
+    "CASH_VALUE": 465,
+    "PAID_UP": 579,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 5,
+    "CASH_VALUE": 669,
+    "PAID_UP": 813,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 6,
+    "CASH_VALUE": 824,
+    "PAID_UP": 978,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 7,
+    "CASH_VALUE": 984,
+    "PAID_UP": 1000,
+    "CASH_PU": 121
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 8,
+    "CASH_VALUE": 1148,
+    "PAID_UP": 1000,
+    "CASH_PU": 263
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 9,
+    "CASH_VALUE": 1316,
+    "PAID_UP": 1000,
+    "CASH_PU": 410
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 10,
+    "CASH_VALUE": 1489,
+    "PAID_UP": 1000,
+    "CASH_PU": 560
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 11,
+    "CASH_VALUE": 1666,
+    "PAID_UP": 1000,
+    "CASH_PU": 715
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 12,
+    "CASH_VALUE": 1849,
+    "PAID_UP": 1000,
+    "CASH_PU": 873
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 47,
+    "POL_YR": 13,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 1,
+    "CASH_VALUE": 10,
+    "PAID_UP": 13,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 2,
+    "CASH_VALUE": 125,
+    "PAID_UP": 160,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 3,
+    "CASH_VALUE": 328,
+    "PAID_UP": 408,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 4,
+    "CASH_VALUE": 515,
+    "PAID_UP": 626,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 5,
+    "CASH_VALUE": 739,
+    "PAID_UP": 876,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 6,
+    "CASH_VALUE": 910,
+    "PAID_UP": 1000,
+    "CASH_PU": 46
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 7,
+    "CASH_VALUE": 1085,
+    "PAID_UP": 1000,
+    "CASH_PU": 200
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 8,
+    "CASH_VALUE": 1265,
+    "PAID_UP": 1000,
+    "CASH_PU": 359
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 9,
+    "CASH_VALUE": 1450,
+    "PAID_UP": 1000,
+    "CASH_PU": 521
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 10,
+    "CASH_VALUE": 1640,
+    "PAID_UP": 1000,
+    "CASH_PU": 688
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 11,
+    "CASH_VALUE": 1835,
+    "PAID_UP": 1000,
+    "CASH_PU": 860
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 48,
+    "POL_YR": 12,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 1,
+    "CASH_VALUE": 11,
+    "PAID_UP": 14,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 2,
+    "CASH_VALUE": 141,
+    "PAID_UP": 176,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 3,
+    "CASH_VALUE": 366,
+    "PAID_UP": 445,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 4,
+    "CASH_VALUE": 574,
+    "PAID_UP": 681,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 5,
+    "CASH_VALUE": 822,
+    "PAID_UP": 952,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 6,
+    "CASH_VALUE": 1011,
+    "PAID_UP": 1000,
+    "CASH_PU": 126
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 7,
+    "CASH_VALUE": 1205,
+    "PAID_UP": 1000,
+    "CASH_PU": 299
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 8,
+    "CASH_VALUE": 1404,
+    "PAID_UP": 1000,
+    "CASH_PU": 476
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 9,
+    "CASH_VALUE": 1609,
+    "PAID_UP": 1000,
+    "CASH_PU": 657
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 10,
+    "CASH_VALUE": 1820,
+    "PAID_UP": 1000,
+    "CASH_PU": 844
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 49,
+    "POL_YR": 11,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 1,
+    "CASH_VALUE": 13,
+    "PAID_UP": 16,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 2,
+    "CASH_VALUE": 161,
+    "PAID_UP": 195,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 3,
+    "CASH_VALUE": 413,
+    "PAID_UP": 490,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 4,
+    "CASH_VALUE": 645,
+    "PAID_UP": 747,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 5,
+    "CASH_VALUE": 922,
+    "PAID_UP": 1000,
+    "CASH_PU": 37
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 6,
+    "CASH_VALUE": 1133,
+    "PAID_UP": 1000,
+    "CASH_PU": 226
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 7,
+    "CASH_VALUE": 1350,
+    "PAID_UP": 1000,
+    "CASH_PU": 421
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 8,
+    "CASH_VALUE": 1572,
+    "PAID_UP": 1000,
+    "CASH_PU": 620
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 9,
+    "CASH_VALUE": 1801,
+    "PAID_UP": 1000,
+    "CASH_PU": 825
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 50,
+    "POL_YR": 10,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 1,
+    "CASH_VALUE": 46,
+    "PAID_UP": 56,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 2,
+    "CASH_VALUE": 184,
+    "PAID_UP": 218,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 3,
+    "CASH_VALUE": 470,
+    "PAID_UP": 545,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 4,
+    "CASH_VALUE": 732,
+    "PAID_UP": 827,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 5,
+    "CASH_VALUE": 1045,
+    "PAID_UP": 1000,
+    "CASH_PU": 138
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 6,
+    "CASH_VALUE": 1283,
+    "PAID_UP": 1000,
+    "CASH_PU": 354
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 7,
+    "CASH_VALUE": 1527,
+    "PAID_UP": 1000,
+    "CASH_PU": 575
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 8,
+    "CASH_VALUE": 1778,
+    "PAID_UP": 1000,
+    "CASH_PU": 802
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 51,
+    "POL_YR": 9,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 1,
+    "CASH_VALUE": 55,
+    "PAID_UP": 65,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 2,
+    "CASH_VALUE": 214,
+    "PAID_UP": 247,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 3,
+    "CASH_VALUE": 542,
+    "PAID_UP": 613,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 4,
+    "CASH_VALUE": 841,
+    "PAID_UP": 928,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 5,
+    "CASH_VALUE": 1199,
+    "PAID_UP": 1000,
+    "CASH_PU": 270
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 6,
+    "CASH_VALUE": 1470,
+    "PAID_UP": 1000,
+    "CASH_PU": 518
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 7,
+    "CASH_VALUE": 1749,
+    "PAID_UP": 1000,
+    "CASH_PU": 774
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 52,
+    "POL_YR": 8,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 1,
+    "CASH_VALUE": 66,
+    "PAID_UP": 77,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 2,
+    "CASH_VALUE": 252,
+    "PAID_UP": 284,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 3,
+    "CASH_VALUE": 635,
+    "PAID_UP": 700,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 4,
+    "CASH_VALUE": 982,
+    "PAID_UP": 1000,
+    "CASH_PU": 53
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 5,
+    "CASH_VALUE": 1397,
+    "PAID_UP": 1000,
+    "CASH_PU": 446
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 6,
+    "CASH_VALUE": 1712,
+    "PAID_UP": 1000,
+    "CASH_PU": 737
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 53,
+    "POL_YR": 7,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 1,
+    "CASH_VALUE": 81,
+    "PAID_UP": 92,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 2,
+    "CASH_VALUE": 302,
+    "PAID_UP": 333,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 3,
+    "CASH_VALUE": 758,
+    "PAID_UP": 816,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 4,
+    "CASH_VALUE": 1170,
+    "PAID_UP": 1000,
+    "CASH_PU": 218
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 5,
+    "CASH_VALUE": 1663,
+    "PAID_UP": 1000,
+    "CASH_PU": 687
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 54,
+    "POL_YR": 6,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 55,
+    "POL_YR": 1,
+    "CASH_VALUE": 102,
+    "PAID_UP": 113,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 55,
+    "POL_YR": 2,
+    "CASH_VALUE": 373,
+    "PAID_UP": 402,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 55,
+    "POL_YR": 3,
+    "CASH_VALUE": 932,
+    "PAID_UP": 979,
+    "CASH_PU": 0
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 55,
+    "POL_YR": 4,
+    "CASH_VALUE": 1435,
+    "PAID_UP": 1000,
+    "CASH_PU": 459
+  },
+  {
+    "PLAN": 153,
+    "SEX": 2,
+    "AGE": 55,
+    "POL_YR": 5,
+    "CASH_VALUE": 2037,
+    "PAID_UP": 1000,
+    "CASH_PU": 1037
+  }
+]

@@ -42,7 +42,7 @@ export class ItemQtyComponent implements OnInit {
         'item_name'            : new FormControl(''),
         'lot_no'               : new FormControl(this.data.lot_no, [ Validators.required ]),
         'first_receive_date'   : new FormControl(this.data.first_receive_date, [ Validators.required ]),
-        'quantity'             : new FormControl(0, [ ]),
+        'quantity'             : new FormControl(0, [ Validators.required ]),
         'unit_name'            : new FormControl(''),
     }, {
         validators: [this.checkInput()],
